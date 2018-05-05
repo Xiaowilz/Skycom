@@ -219,7 +219,7 @@
 												<td>$r[nm_customer]</td>
 												<td>$r[alamat]</td>
 												<td>$r[kontak]</td>
-												<td><a href=''>Pilih</a></td>
+												<td><a href='?pilih_customer=$r[kd_customer]'>Pilih</a></td>
 											<tr>
 										
 									";	
