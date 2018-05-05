@@ -89,12 +89,12 @@
 				    <div class="form row">
 		      			<label for="namacustomer" class="col-sm-2 col-form-label">Customer</label>
 		      			<div class="col-sm-2">
-		      				<input type="text" class="form-control" placeholder="Kode Customer" name="">
+		      				<input type="text" class="form-control" placeholder="Kode Customer" name="" id="kode_customer">
 		    			</div>
 
 		    			<div class="col-sm-3">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Customer Name" disabled>
+								<input type="text" class="form-control" placeholder="Customer Name" id="nama_customer" disabled>
 									<div class="input-group-append">
 										<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></button>
 									</div>
@@ -107,10 +107,10 @@
 
 				<div class="all-content">
 					<!-- <div class="container"> -->
-						<form action="">
+						<form>
 				    		<div class="form row">
 					      			<div class="col-sm-2">
-					      				<input id="kodeitem" type="text" class="form-control" placeholder="Item Code" name="" >
+					      				<input type="text" class="form-control" placeholder="Item Code" name="" id="kode_item">
 					    			</div>
 
 									<div class="col-sm-4">
@@ -224,6 +224,25 @@
 										
 									";	
 								}
+
+								if(isset($_REQUEST['pilih_customer']))
+								{
+									$pilihCustomer = $_REQUEST['pilih_customer'];
+									require_once("conn.php");
+									$sql2 = "SELECT * FROM tb_customer WHERE kd_customer = '$pilihCustomer'";
+									$q2 = mysqli_query($conn,$sql2);
+									while ($r2 = mysqli_fetch_assoc($q2)) 
+									{
+										$kode_customer = $r2['kd_customer'];
+										$nama_customer = $r2['nm_customer'];
+										echo"
+											<script>
+												document.getElementById('kode_customer').value = '$kode_customer';
+												document.getElementById('nama_customer').value = '$nama_customer';
+											</script>
+										";	
+									}
+								}
 							?>
 			  			</table>
 			  		</div>
@@ -262,22 +281,39 @@
 							</thead>	
 							<?php
 								require("conn.php");
-								$sql = "SELECT jns_barang, kd_barang, nm_barang, hrg_jual FROM tb_inventory WHERE hapus = 0";
-								$q = mysqli_query($conn, $sql);
+								$sql3 = "SELECT jns_barang, kd_barang, nm_barang, hrg_jual FROM tb_inventory WHERE hapus = 0";
+								$q3 = mysqli_query($conn, $sql3);
 
-								while ($r = mysqli_fetch_assoc($q)) 
+								while ($r3 = mysqli_fetch_assoc($q3)) 
 								{
 									echo"
 
 											<tr>
-												<td>$r[jns_barang]</td>
-												<td>$r[kd_barang]</td>
-												<td>$r[nm_barang]</td>
-												<td>$r[hrg_jual]</td>
-												<td><a href=''>Pilih</a></td>
+												<td>$r3[jns_barang]</td>
+												<td>$r3[kd_barang]</td>
+												<td>$r3[nm_barang]</td>
+												<td>$r3[hrg_jual]</td>
+												<td><a href='?pilih_item=$r3[kd_barang]'>Pilih</a></td>
 											<tr>
 										
 									";	
+								}
+
+								if (isset($_REQUEST['pilih_item'])) 
+								{
+									$pilihItem = $_REQUEST['pilih_item'];
+									require("conn.php");
+									$sql4 = "SELECT kd_barang,nm_barang,hrg_jual FROM tb_inventory WHERE kd_barang = '$pilihItem'";
+									$q4 = mysqli_query($conn,$sql4);
+									while ($r4 = mysqli_fetch_assoc($q4)) 
+									{
+										$kode_item = $r4['kd_barang'];
+										echo "
+											<script>
+												document.getElementById('kode_item').value = '$kode_item';
+											</script>
+										";
+									}
 								}
 							?>
 			  			</table>

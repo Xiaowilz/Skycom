@@ -1,38 +1,26 @@
 <?php
 	require_once("conn.php");
-	$sql = "SELECT * FROM login";
-
-	$q = mysqli_query($conn, $sql);
+	
 	$u = $_POST['id'];
 	$p = $_POST['password'];
+	$sql = "SELECT id,password FROM login WHERE id = '$u' AND password = '$p'";
 
-	while ($r = mysqli_fetch_assoc($q)) 
+	$q = mysqli_query($conn, $sql);
+
+	$r = mysqli_fetch_assoc($q);
+
+	if ($u == $r['id'] && $p == $r['password']) 
 	{
-		if ($u == $r['id']) 
-		{
-			if ($p == $r['password']) 
-			{
-				header('location:mainform.php');
-				exit;
-			}
-			else
-			{
-				echo "<script>
-					alert('Username atau Password Salah');
-					window.history.back();
-				</script>";
-			}
-		}
-		else
-		{
-
-			echo "<script>
-				alert('Username atau Password Salah');
-				window.history.back();
-			</script>";
-		}
+		header('location:mainform.php');
 	}
-
+	else
+	{
+		echo "
+		<script>
+			alert('Username atau Password Salah');
+			window.history.back();
+		</script>";
+	}
 ?>
 
 <!-- <script>
