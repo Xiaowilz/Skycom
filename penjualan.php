@@ -171,10 +171,10 @@
 							    ?>
 						 	</tbody>
 						</table>
-
-					
+						
 					</div>
-				</div>	
+				</div>	<br>
+				<input type="submit" name="simpan" class="btn btn-primary" value="Simpan">
 
 			</div>
 		</div>
