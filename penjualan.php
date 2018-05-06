@@ -107,15 +107,15 @@
 
 				<div class="all-content">
 					<!-- <div class="container"> -->
-						<form>
+						<form method="POST"> 
 				    		<div class="form row">
 					      			<div class="col-sm-2">
-					      				<input type="text" class="form-control" placeholder="Item Code" name="" id="kode_item">
+					      				<input type="text" class="form-control" placeholder="Item Code" name="kode_item" id="kode_item">
 					    			</div>
 
 									<div class="col-sm-4">
 									    <div class="input-group">
-											<input type="text" class="form-control" placeholder="Item Name" >
+											<input type="text" class="form-control" placeholder="Item Name" id="nama_item" name="nama_item">
 											<div class="input-group-append">
 												<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
 											</div>
@@ -123,14 +123,14 @@
 									</div>	
 
 								    <div class="col-sm-2">
-								    	<input type="text" class="form-control" placeholder="Quantity" name="" >
+								    	<input type="text" class="form-control" placeholder="Quantity" name="quantity">
 								    </div>
 
 								    <div class="col-sm-2">
-								    	<input type="text" class="form-control" placeholder="Price" name="" >
+								    	<input type="text" class="form-control" placeholder="Price" name="harga_item" id="harga_item">
 								    </div>
 
-					    			<button type="button" class="btn btn-primary"><span class="ion-arrow-down-b"></span>Add</button>
+					    			<input type="submit" class="btn btn-primary" formaction="penjualan_temp.php" value="Add"> <!-- ><span class="ion-arrow-down-b"></span> -->
 							</div>
 				  		</form>
 					<!-- </div> -->
@@ -152,27 +152,23 @@
 						  	</thead>
 
 							<tbody>
-							    <tr>
-							      <th scope="row">1</th>
-							      <td>Mark</td>
-							      <td>Otto</td>
-							      <td>@mdo</td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <th scope="row">2</th>
-							      <td>Jacob</td>
-							      <td>Thornton</td>
-							      <td>@fat</td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <th scope="row">3</th>
-							      <td>Larry the Bird</td>
-							      <td>Sans</td>
-							      <td>@twitter</td>
-							      <td></td>
-							    </tr>
+							    <?php
+							    	require("conn.php");
+							    	$sql5 = "SELECT kd_barang,nm_barang,qty,harga,jumlah FROM tb_temp_penjualan";
+							    	$q5 = mysqli_query($conn, $sql5);
+							    	while ($r5 = mysqli_fetch_assoc($q5)) 
+							    	{
+							    		echo "
+											<tr>
+												<td>$r5[kd_barang]</td>
+												<td>$r5[nm_barang]</td>
+												<td>$r5[qty]</td>
+												<td>$r5[harga]</td>
+												<td>$r5[jumlah]</td>
+											</tr>
+							    		";
+							    	}
+							    ?>
 						 	</tbody>
 						</table>
 
@@ -219,30 +215,44 @@
 												<td>$r[nm_customer]</td>
 												<td>$r[alamat]</td>
 												<td>$r[kontak]</td>
-												<td><a href='?pilih_customer=$r[kd_customer]'>Pilih</a></td>
+												<td><a href='#' class='pilihCustomer' data-pilihCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-dismiss='modal'>Pilih</a></td>
 											<tr>
 										
 									";	
 								}
 
-								if(isset($_REQUEST['pilih_customer']))
-								{
-									$pilihCustomer = $_REQUEST['pilih_customer'];
-									require_once("conn.php");
-									$sql2 = "SELECT * FROM tb_customer WHERE kd_customer = '$pilihCustomer'";
-									$q2 = mysqli_query($conn,$sql2);
-									while ($r2 = mysqli_fetch_assoc($q2)) 
-									{
-										$kode_customer = $r2['kd_customer'];
-										$nama_customer = $r2['nm_customer'];
-										echo"
-											<script>
-												document.getElementById('kode_customer').value = '$kode_customer';
-												document.getElementById('nama_customer').value = '$nama_customer';
-											</script>
-										";	
-									}
-								}
+								echo "
+									<script>
+										$('.pilihCustomer').on('click', function(){
+											var kode_customer = this.getAttribute('data-pilihCustomer');
+											var nama_customer = this.getAttribute('data-namaCustomer');
+											document.getElementById('kode_customer').value = kode_customer;
+											document.getElementById('nama_customer').value = nama_customer;
+										});
+											
+									</script>
+								";	
+								// if(isset($_REQUEST['pilihCustomer']))
+								// {
+								// 	$pilihCustomer = $_REQUEST['pilihCustomer'];
+								// 	require_once("conn.php");
+								// 	$sql2 = "SELECT * FROM tb_customer WHERE kd_customer = '$pilihCustomer'";
+								// 	$q2 = mysqli_query($conn,$sql2);
+								// 	while ($r2 = mysqli_fetch_assoc($q2)) 
+								// 	{
+								// 		$kode_customer = $r2['kd_customer'];
+								// 		$nama_customer = $r2['nm_customer'];
+										
+								// 	}
+								// 	echo"
+								// 			<script>
+								// 				function funtionPilih(){
+								// 				document.getElementById('kode_customer').value = '$kode_customer';
+								// 				document.getElementById('nama_customer').value = '$nama_customer';
+								// 			}
+								// 			</script>
+								// 		";	
+								// }
 							?>
 			  			</table>
 			  		</div>
@@ -293,28 +303,42 @@
 												<td>$r3[kd_barang]</td>
 												<td>$r3[nm_barang]</td>
 												<td>$r3[hrg_jual]</td>
-												<td><a href='?pilih_item=$r3[kd_barang]'>Pilih</a></td>
+												<td><a href='#' class='pilihItem' data-pilihItem='$r3[kd_barang]' data-namaItem='$r3[nm_barang]' data-hargaItem='$r3[hrg_jual]' data-dismiss='modal'>Pilih</a></td>
 											<tr>
 										
 									";	
 								}
 
-								if (isset($_REQUEST['pilih_item'])) 
-								{
-									$pilihItem = $_REQUEST['pilih_item'];
-									require("conn.php");
-									$sql4 = "SELECT kd_barang,nm_barang,hrg_jual FROM tb_inventory WHERE kd_barang = '$pilihItem'";
-									$q4 = mysqli_query($conn,$sql4);
-									while ($r4 = mysqli_fetch_assoc($q4)) 
-									{
-										$kode_item = $r4['kd_barang'];
-										echo "
-											<script>
-												document.getElementById('kode_item').value = '$kode_item';
-											</script>
-										";
-									}
-								}
+								echo "
+									<script>
+										$('.pilihItem').on('click', function()
+										{
+											var kode_item = this.getAttribute('data-pilihItem');
+											var nama_item = this.getAttribute('data-namaItem');
+											var harga_item = this.getAttribute('data-hargaItem');
+											document.getElementById('kode_item').value = kode_item;
+											document.getElementById('nama_item').value = nama_item;
+											document.getElementById('harga_item').value = harga_item;
+										});
+									</script>
+								";
+
+								// if (isset($_REQUEST['pilih_item'])) 
+								// {
+								// 	$pilihItem = $_REQUEST['pilih_item'];
+								// 	require("conn.php");
+								// 	$sql4 = "SELECT kd_barang,nm_barang,hrg_jual FROM tb_inventory WHERE kd_barang = '$pilihItem'";
+								// 	$q4 = mysqli_query($conn,$sql4);
+								// 	while ($r4 = mysqli_fetch_assoc($q4)) 
+								// 	{
+								// 		$kode_item = $r4['kd_barang'];
+								// 		echo "
+								// 			<script>
+								// 				document.getElementById('kode_item').value = '$kode_item';
+								// 			</script>
+								// 		";
+								// 	}
+								// }
 							?>
 			  			</table>
 			  		</div>
