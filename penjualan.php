@@ -130,9 +130,9 @@
 								    	<input type="text" class="form-control" placeholder="Price" name="harga_item" id="harga_item">
 								    </div>
 
-					    			<input type="submit" class="btn btn-primary" formaction="penjualan_temp.php" value="Add"> <!-- ><span class="ion-arrow-down-b"></span> -->
+					    			<input type="submit" id="add" class="btn btn-primary" formaction="penjualan_temp.php" value="Add"> <!-- ><span class="ion-arrow-down-b"></span> -->
 							</div>
-				  		</form>
+				  		</form>			
 					<!-- </div> -->
 				</div>
 
@@ -172,8 +172,7 @@
 						 	</tbody>
 						</table>
 						
-					</div>
-				</div>	<br>
+					</div>				</div>	<br>
 				<input type="submit" name="simpan" class="btn btn-primary" value="Simpan">
 
 			</div>
