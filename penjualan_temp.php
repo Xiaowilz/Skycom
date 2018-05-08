@@ -11,7 +11,7 @@
 		echo "
 			<script>
 				alert('Data Tidak Tersimpan');
-				window.history.back();
+				window.history.go(-1);
 			</script>
 		";
 	}
@@ -20,7 +20,7 @@
 		echo "
 			<script>
 				alert('Data Tersimpan');
-				window.history.back();
+				window.history.go(-1);
 			</script>
 		";
 	}

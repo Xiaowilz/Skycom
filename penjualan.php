@@ -132,14 +132,52 @@
 
 					    			<input type="submit" id="add" class="btn btn-primary" formaction="penjualan_temp.php" value="Add"> <!-- ><span class="ion-arrow-down-b"></span> -->
 							</div>
-				  		</form>			
+				  		</form>
+				  		<!-- <script type="text/javascript">
+				  			$(document).ready(function()
+				  			{
+				  				$("#add").on("click", function()
+				  				{
+				  					$.ajax({	
+				  						url: 'penjualan_temp.php',
+				  						type: 'POST',
+				  						dataType: 'html',
+				  						success : function()
+				  						{
+				  							$(".all-bottom").load("penjualan_temp_load.php");
+				  						}
+				  					});
+				  					
+				  				});
+				  			});
+				  		</script> -->
+				  		<script type="text/javascript">
+				  			$(document).ready(function() {
+				  				refreshTable();
+				  				$.ajax({
+				  						url: 'penjualan_temp_load.php',
+				  						type: 'GET',
+				  						dataType: 'html',
+				  						success : function(response)
+				  						{
+				  							$(".all-bottom").html(response);
+				  						}
+				  					});				  						
+				  			});
+
+				  			function refreshTable(){
+						        $('.all-bottom').load('penjualan_temp_load.php', function(){
+						           setTimeout(refreshTable, 5000);
+						        });
+						    }
+				  		</script>
 					<!-- </div> -->
 				</div>
 
 				<br/>
 
 				<div class="all-bottom">
-					<div class="table-responsive">
+					<!-- <div class="table-responsive">
 						<table class="table table-hover">
 						 	<thead>
 							    <tr>
@@ -153,26 +191,27 @@
 
 							<tbody>
 							    <?php
-							    	require("conn.php");
-							    	$sql5 = "SELECT kd_barang,nm_barang,qty,harga,jumlah FROM tb_temp_penjualan";
-							    	$q5 = mysqli_query($conn, $sql5);
-							    	while ($r5 = mysqli_fetch_assoc($q5)) 
-							    	{
-							    		echo "
-											<tr>
-												<td>$r5[kd_barang]</td>
-												<td>$r5[nm_barang]</td>
-												<td>$r5[qty]</td>
-												<td>$r5[harga]</td>
-												<td>$r5[jumlah]</td>
-											</tr>
-							    		";
-							    	}
+							    // 	require("conn.php");
+							    // 	$sql5 = "SELECT kd_barang,nm_barang,qty,harga,jumlah FROM tb_temp_penjualan";
+							    // 	$q5 = mysqli_query($conn, $sql5);
+							    // 	while ($r5 = mysqli_fetch_assoc($q5)) 
+							    // 	{
+							    // 		echo "
+											// <tr>
+											// 	<td>$r5[kd_barang]</td>
+											// 	<td>$r5[nm_barang]</td>
+											// 	<td>$r5[qty]</td>
+											// 	<td>$r5[harga]</td>
+											// 	<td>$r5[jumlah]</td>
+											// </tr>
+							    // 		";
+							    // 	}
 							    ?>
 						 	</tbody>
-						</table>
+						 --></table>
 						
-					</div>				</div>	<br>
+					</div>				
+				</div>	<br>
 				<input type="submit" name="simpan" class="btn btn-primary" value="Simpan">
 
 			</div>
