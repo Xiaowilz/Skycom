@@ -62,7 +62,7 @@
 					</div>
 		</div>
 	</div>
-	<br>
+
 	<div id="rightside">
 		<div id="beranda">			
 			<div class="all-box">	
@@ -153,6 +153,19 @@
 				  			});
 				  		</script> -->
 				  		<script type="text/javascript">
+				  			$(document).ready(function() {
+				  				// refreshTable();
+				  				$.ajax({
+				  						url: 'penjualan_temp_load.php',
+				  						type: 'GET',
+				  						dataType: 'html',
+				  						success : function(response)
+				  						{
+				  							$("#tabelTemp").html(response);
+				  						}
+				  					});				  						
+				  			});
+
 				  			$("#add").click(function() 
 				  			{
 				  				$.ajax({
@@ -167,18 +180,7 @@
 				  				return false;
 				  			});
 
-				  			// $(document).ready(function() {
-				  			// 	refreshTable();
-				  			// 	$.ajax({
-				  			// 			url: 'penjualan_temp_load.php',
-				  			// 			type: 'GET',
-				  			// 			dataType: 'html',
-				  			// 			success : function(response)
-				  			// 			{
-				  			// 				$(".all-bottom").html(response);
-				  			// 			}
-				  			// 		});				  						
-				  			// });
+				  			
 
 				  			// function refreshTable(){
 						   //      $('.all-bottom').load('penjualan_temp_load.php', function(){
