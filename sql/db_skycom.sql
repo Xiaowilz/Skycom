@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 02, 2018 at 04:20 PM
+-- Generation Time: May 15, 2018 at 04:22 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -41,7 +41,7 @@ CREATE TABLE `login` (
 
 INSERT INTO `login` (`username`, `jabatan`, `id`, `password`) VALUES
 ('Willy', 'Admin', 'admin', 'admin'),
-('Asd', 'AAA', 'admin1', 'admin1');
+('Ass', 'Ass', 'admin1', 'admin1');
 
 -- --------------------------------------------------------
 
@@ -163,6 +163,33 @@ INSERT INTO `tb_pembelian` (`notrans`, `tgltrans`, `supplier`, `subtotal`, `disk
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_penjualan`
+--
+
+CREATE TABLE `tb_penjualan` (
+  `no_trans` varchar(20) NOT NULL,
+  `kd_barang` varchar(10) NOT NULL,
+  `nm_barang` varchar(50) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `harga` double NOT NULL,
+  `jumlah` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_penjualan`
+--
+
+INSERT INTO `tb_penjualan` (`no_trans`, `kd_barang`, `nm_barang`, `qty`, `harga`, `jumlah`) VALUES
+('TJ-00001', 'VGA_00002', 'Gigabyte GTX 1070T TI', 10, 9550000, 95500000),
+('TJ-00001', 'VGA_00001', 'Asus GTX 1080 TI', 10, 15000000, 150000000),
+('TJ-00001', 'VGA_00002', 'Gigabyte GTX 1070T TI', 20, 9550000, 191000000),
+('TJ-00002', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
+('TJ-00002', 'VGA_00002', 'Gigabyte GTX 1070T TI', 12, 9550000, 114600000),
+('TJ-00002', 'VGA_00001', 'Asus GTX 1080 TI', 100, 15000000, 1500000000);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_supplier`
 --
 
@@ -201,7 +228,23 @@ CREATE TABLE `tb_temp_pembelian` (
 --
 
 INSERT INTO `tb_temp_pembelian` (`kdbarang`, `nmbarang`, `qty`, `harga`, `jumlah`, `notrans`) VALUES
-('', '', 0, 0, 0, '');
+('VGA_00001', 'Asus GTX 1080 TI', 3, 15000000, 45000000, ''),
+('VGA_00002', 'Gigabyte GTX 1070T TI', 4, 9550000, 38200000, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_temp_penjualan`
+--
+
+CREATE TABLE `tb_temp_penjualan` (
+  `no_trans` varchar(20) NOT NULL,
+  `kd_barang` varchar(10) NOT NULL,
+  `nm_barang` varchar(50) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `harga` double NOT NULL,
+  `jumlah` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
