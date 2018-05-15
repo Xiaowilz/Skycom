@@ -62,7 +62,7 @@
 					</div>
 		</div>
 	</div>
-
+	<br>
 	<div id="rightside">
 		<div id="beranda">			
 			<div class="all-box">	
