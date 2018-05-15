@@ -129,7 +129,8 @@
 								    	<input type="text" class="form-control" placeholder="Harga" name="harga_item" id="harga_item">
 								    </div>
 
-					    			<input type="submit" id="add" class="btn btn-primary" value="Add"> <!-- ><span class="ion-arrow-down-b"></span> -->
+					    			<input type="submit" id="add" class="btn btn-primary" value="Add"> 
+					    			<!-- ><span class="ion-arrow-down-b"></span> -->
 							</div>
 				</form>
 				  		<!-- <script type="text/javascript">
