@@ -62,15 +62,13 @@
 					</div>
 		</div>
 	</div>
-
+	
 	<div id="rightside">
 		<div id="beranda">			
 			<div class="all-box">	
 
-				<div class="all-top">
-					
+				<div class="all-top">	
 					<h2>Penjualan</h2>
-
 					<div id="datepicker" class="input-group date" data-date-format="dd MM yyyy">
 						<input class="form-control" type="text" name="">
 						<span class="input-group-addon"></span>
