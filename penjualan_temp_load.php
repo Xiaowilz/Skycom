@@ -1,6 +1,6 @@
 <div class="table-responsive">
-	<table class="table table-hover">
-	 	<thead>
+	<table class="table table-hover table-sm">
+	 	<thead class="thead-dark">
 		    <tr>
 		      <th scope="col">Kode Item</th>
 		      <th scope="col">Item</th>

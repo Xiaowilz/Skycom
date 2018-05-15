@@ -54,7 +54,7 @@
 				<div class="all-content">
 					<div class="all-head">
 						<div class="button-add">
-							<button class="button add-customer" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span class="ion-plus-round"></span> Add Item</button>
+							<button class="btn btn-outline-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span class="ion-plus-round"></span> Tambah Barang</button>
 						</div>
 
 						<div class="search-container">
@@ -131,50 +131,66 @@
 				<div class="modal_content animate">
 					<div class="modal_head">
 						<button onclick="document.getElementById('id01').style.display='none'" class="btn-close-modal"><i class="ion-close-round"></i></button>
-						<h3 class="modal_title">Add Customer</h3>
+						<h4 class="modal_title">Tambah Barang</h4>
 					</div>	
 
 					<form method="POST" action="inventory_simpan.php">
 						<div class="modal_body">
-							<div class="inputbox">			
-								<span class="input-addon-customer"><i class="ion-person-stalker"></i></span>
-								<input type="text" name="jns_barang" placeholder="Jenis Barang" required>
+							<div class="input-group mb-3">
+								<!-- <label for="type" class="col-sm-3 col-form-label">Jenis</label> -->
+								<div class="input-group-prepend">
+							    	<label class="input-group-text ion-levels" for="type"></label>
+							  	</div>
+							  	<select class="custom-select" id="type">
+							    	<option selected>Tipe Barang</option>
+							    	<option value="1">One</option>
+								    <option value="2">Two</option>
+								    <option value="3">Three</option>
+							  	</select>
+							</div>	
+
+							<div class="input-group mb-3">
+						      	<div class="input-group-prepend">			
+									<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
+								</div>
+								<input type="text" class="form-control" name="kd_barang" placeholder="Kode Barang" required>
 							</div>
 
-					      	<div class="inputbox">			
-								<span class="input-addon-customer"><i class="ion-person-stalker"></i></span>
-								<input type="text" name="kd_barang" placeholder="Kode Barang" required>
+							<div class="input-group mb-3">
+						      	<div class="input-group-prepend">			
+									<span class="input-group-text"><i class="ion-ios-pricetag"></i></span>
+								</div>
+								<input type="text" class="form-control" name="nm_barang" placeholder="Nama Barang" required>
 							</div>
 
-							<div class="inputbox">
-								<span class="input-addon-customer"><i class="ion-ios-location"></i></span>
-								<input type="text" name="nm_barang" placeholder="Nama Barang" required>
+							<div class="input-group mb-3">
+						      	<div class="input-group-prepend">			
+									<span class="input-group-text"><i class="ion-ios-box"></i></span>
+								</div>
+								<input type="text" class="form-control" name="qty" placeholder="Quantity" required>
 							</div>
 
-							<div class="inputbox">
-								<span class="input-addon-customer"><i class="ion-ios-telephone"></i></span>
-								<input type="text" name="qty" placeholder="Qty" required>
+							<div class="input-group mb-3">
+						      	<div class="input-group-prepend">			
+									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
+								</div>
+								<input type="text" class="form-control" name="hrg_beli" placeholder="Harga Beli" required>
 							</div>
 
-							<div class="inputbox">
-								<span class="input-addon-customer"><i class="ion-ios-telephone"></i></span>
-								<input type="text" name="hrg_beli" placeholder="Harga Beli" required>
-							</div>
-
-							<div class="inputbox">
-								<span class="input-addon-customer"><i class="ion-ios-telephone"></i></span>
-								<input type="text" name="hrg_jual" placeholder="Harga Jual" required>
+							<div class="input-group mb-3">
+						      	<div class="input-group-prepend">			
+									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
+								</div>
+								<input type="text" class="form-control" name="hrg_jual" placeholder="Harga Beli" required>
 							</div>
 						        
-						    <div>
-								<input type="submit" name="btnAdd" id="btnAdd" class="button add-modal" value="ADD">
-							</div>
+							<button type="submit" name="btnAdd" id="btnAdd" class="btn btn-outline-primary btn-sm btn-block">Tambah</button>
 				   		</div>
 				   	</form>
 		  	
-				   	<div class="modal_foot">
+				   	<div class="modal-footer">
 				   		<div>
-							<button onclick="document.getElementById('id01').style.display='none'" type="button" class="button cancel-modal">Cancel</button>
+							<button onclick="document.getElementById('id01').style.display='none'" type="button" class="btn btn-outline-danger">Close</button>
 						</div>
 				   	</div>
 
@@ -185,31 +201,71 @@
 			<!-- Modal Start -->
 			<div class="modal fade" id="myModal0" role="dialog">
 			    <div class="modal-dialog">
-			    
 			      <!-- Modal content-->
 			      <div class="modal-content">
 			        <div class="modal-header">
-			          <h4 class="modal-title">Supplier</h4>
+			          <h4 class="modal-title">Edit Barang</h4>
 			          <span class="ion-close" data-dismiss="modal"></span>		          
 			        </div>
 			        <div class="modal-body">
 			        	<form>
-							<select class="form-control">
-								<option>Default select</option>
-							</select>
-							
-							<br>
-
-							<div class="input-group">
-							 	<div class="input-group-prepend">
-							    	<span class="input-group-text ion-ios-barcode"></span>
+							<div class="input-group mb-3">
+								<label for="type" class="col-sm-3 col-form-label">Tipe</label>
+								<div class="input-group-prepend">
+							    	<label class="input-group-text ion-levels" for="type"></label>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Item Code">
+							  	<select class="custom-select" id="type">
+							    	<option selected>Choose Type...</option>
+							    	<option value="1">One</option>
+								    <option value="2">Two</option>
+								    <option value="3">Three</option>
+							  	</select>
+							</div>	
+	
+							<div class="input-group mb-3">
+								<label for="kodeitem" class="col-sm-3 col-form-label">Kode</label>
+							 	<div class="input-group-prepend">
+							    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Kode Barang" id="kodeitem" name="" required>
 							</div>
+
+							<div class="input-group mb-3">
+								<label for="namaitem" class="col-sm-3 col-form-label">Nama</label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-ios-pricetag"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Nama Barang" id="namaitem" name="" required>
+							</div>
+
+							<div class="input-group mb-3">
+								<label for="stock" class="col-sm-3 col-form-label">Stock</label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-ios-box"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Stock" id="stock" name="" required>
+							</div>
+
+							<div class="input-group mb-3">
+								<label for="hargabeli" class="col-sm-3 col-form-label">Harga Beli</label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Harga Beli" id="hargabeli" name="" required>
+							</div>
+
+							<div class="input-group mb-3">
+								<label for="hargajual" class="col-sm-3 col-form-label">Harga Jual</label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Harga Jual" id="hargajual" name="" required>
+							</div>
+							<button type="submit" class="btn btn-outline-primary btn-sm btn-block">Update</button>
 			        	</form>
 			        </div>
 			        <div class="modal-footer">
-			          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
 			        </div>
 			      </div>
 			      

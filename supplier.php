@@ -59,7 +59,7 @@
 				<div class="all-content">
 					<div class="all-head">
 						<div class="button-add">
-							<button class="button add-customer" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span class="ion-person-add"></span>Add Supplier</button>
+							<button class="btn btn-outline-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span class="ion-person-add"></span>Tambah Supplier</button>
 						</div>
 
 						<div class="search-container">
@@ -114,40 +114,47 @@
 				<div class="modal_content animate">
 					<div class="modal_head">
 						<button onclick="document.getElementById('id01').style.display='none'" class="btn-close-modal"><i class="ion-close-round"></i></button>
-						<h3 class="modal_title">Add Supplier</h3>
+						<h4 class="modal_title">Tambah Supplier</h4>
 					</div>	
 
 					<form method="POST">
 						<div class="modal_body">
-							<div class="inputbox">			
-								<span class="input-addon-customer"><i class="ion-person-stalker"></i></span>
-								<input type="text" name="kd_supp" placeholder="Kode" required>
-							</div>
+							<form>
+								<div class="input-group mb-3">
+								 	<div class="input-group-prepend">
+								    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
+								  	</div>
+								  	<input type="text" class="form-control" placeholder="Kode Supplier" name="kd_supp" required autocomplete="off">
+								</div>
 
-					      	<div class="inputbox">			
-								<span class="input-addon-customer"><i class="ion-person-stalker"></i></span>
-								<input type="text" name="nm_supp" placeholder="Name" required>
-							</div>
+								<div class="input-group mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="ion-android-person"></i></span>
+								  	</div>
+								  	<input type="text" class="form-control" placeholder="Nama Supplier" name="nm_supp" required autocomplete="off">
+								</div>
 
-							<div class="inputbox">
-								<span class="input-addon-customer"><i class="ion-ios-location"></i></span>
-								<input type="text" name="alamat_supp" placeholder="Address" required>
-							</div>
+								<div class="input-group mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="ion-ios-location"></i></span>
+								  	</div>
+								  	<input type="text" class="form-control" placeholder="Alamat" name="alamat_supp" required autocomplete="off">
+								</div>
 
-							<div class="inputbox">
-								<span class="input-addon-customer"><i class="ion-ios-telephone"></i></span>
-								<input type="text" name="kontak_supp" placeholder="Contact" required>
-							</div>
-						        
-						    <div>
-								<button type="submit" class="button add-modal" formaction="supplier_simpan.php">Add</button>
-							</div>
+								<div class="input-group mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><i class="ion-ios-telephone"></i></span>
+								  	</div>
+								  	<input type="text" class="form-control" placeholder="Kontak" name="kontak_supp" required autocomplete="off">
+								</div>
+								<button type="submit" class="btn btn-outline-primary btn-sm btn-block" formaction="supplier_simpan.php">Tambah</button>
+							</form>
 				   		</div>
 				   	</form>
 
-				   	<div class="modal_foot">
+				   	<div class="modal-footer">
 				   		<div>
-							<button onclick="document.getElementById('id01').style.display='none'" type="button" class="button cancel-modal">Cancel</button>
+							<button onclick="document.getElementById('id01').style.display='none'" type="button" class="btn btn-outline-danger">Close</button>
 						</div>
 				   	</div>
 				</div>   	
@@ -156,51 +163,51 @@
 
 			<!-- Modal Start -->
 			<div class="modal fade" id="myModal0" role="dialog">
-			    <div class="modal-dialog modal-lg">
-			    
+			    <div class="modal-dialog">
 			      <!-- Modal content-->
 			      <div class="modal-content">
 			        <div class="modal-header">
-			          <h4 class="modal-title">Supplier</h4>
+			          <h4 class="modal-title">Edit Supplier</h4>
 			          <span class="ion-close" data-dismiss="modal"></span>		          
 			        </div>
 			        <div class="modal-body">
-			          <div class="table-responsive">
-				          	<table class="table table-hover table-sm">
-				          		<thead class="thead-dark">
-									<tr>
-										<th>Kode Customer</th>
-										<th>Nama Customer</th>
-										<th>Alamat</th>
-										<th>Kontak</th>
-										<th></th>
-									</tr>
-								</thead>	
-								<?php
-									require("conn.php");
-									$sql = "SELECT * FROM tb_supplier WHERE hapus = 0";
-									$q = mysqli_query($conn, $sql);
+			        	<form>
+							<div class="input-group mb-3">
+								<label for="kode" class="col-sm-3 col-form-label">Kode</label>
+							 	<div class="input-group-prepend">
+							    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Kode Supplier" name="kd_supp" required autocomplete="off"> 
+							</div>
 
-									while ($r = mysqli_fetch_assoc($q)) 
-									{
-										echo"
+							<div class="input-group mb-3">
+								<label for="kode" class="col-sm-3 col-form-label">Nama</label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-android-person"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Nama Supplier" name="nm_supp" required autocomplete="off">
+							</div>
 
-												<tr>
-													<td>$r[kd_supplier]</td>
-													<td>$r[nm_supplier]</td>
-													<td>$r[alamat]</td>
-													<td>$r[kontak]</td>
-													<td><a href=''>Pilih</a></td>
-												<tr>
-											
-										";	
-									}
-								?>
-				  			</table>
-				  		</div>
+							<div class="input-group mb-3">
+								<label for="kode" class="col-sm-3 col-form-label">Alamat</label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-ios-location"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Alamat" name="alamat_supp" required autocomplete="off">
+							</div>
+
+							<div class="input-group mb-3">
+								<label for="kode" class="col-sm-3 col-form-label">Kontak</label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-ios-telephone"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Kontak" name="kontak_supp" required autocomplete="off">
+							</div>
+							<button type="submit" class="btn btn-outline-primary btn-sm btn-block">Update</button>
+						</form>
 			        </div>
 			        <div class="modal-footer">
-			          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
 			        </div>
 			      </div>
 			      
@@ -243,15 +250,4 @@
   		});
   	});	
 
-</script>
-
-<script type="text/javascript">
-	var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
-	    }
-}
 </script>

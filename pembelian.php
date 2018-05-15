@@ -86,7 +86,7 @@
 				    <div class="form row">
 		      			<label for="namasupplier" class="col-sm-2 col-form-label">Supplier</label>
 		      			<div class="col-sm-2">
-		      				<input type="text" class="form-control" placeholder="Kode Supplier" name="">
+		      				<input type="text" class="form-control" placeholder="Kode Supplier" name="" disabled>
 		    			</div>
 
 		    			<div class="col-sm-3">
@@ -107,12 +107,12 @@
 						<form action="">
 				    		<div class="form row">
 					      			<div class="col-sm-2">
-					      				<input id="kodeitem" type="text" class="form-control" placeholder="Item Code" name="">
+					      				<input id="kodeitem" type="text" class="form-control" placeholder="Kode Barang" name="" disabled>
 					    			</div>
 
 									<div class="col-sm-4">
 									    <div class="input-group">
-											<input type="text" class="form-control" placeholder="Item Name">
+											<input type="text" class="form-control" placeholder="Nama Barang" disabled>
 											<div class="input-group-append">
 												<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-plus-round"></span></button>
 											</div>
@@ -124,7 +124,7 @@
 								    </div>
 
 								    <div class="col-sm-2">
-								    	<input type="text" class="form-control" placeholder="Price" name="">
+								    	<input type="text" class="form-control" placeholder="Harga" name="">
 								    </div>
 
 					    			<button type="button" class="btn btn-primary"><span class="ion-arrow-down-b"></span>Add</button>
@@ -135,9 +135,9 @@
 				<br/>
 
 				<div class="all-bottom">
-					<div class="table-responsive">
+					<div class="table-responsive table-sm">
 						<table class="table table-hover table">
-						 	<thead>
+						 	<thead class="thead-dark">
 							    <tr>
 							      <th scope="col">Kode Item</th>
 							      <th scope="col">Item</th>

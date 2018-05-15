@@ -89,12 +89,12 @@
 				    <div class="form row">
 		      			<label for="namacustomer" class="col-sm-2 col-form-label">Customer</label>
 		      			<div class="col-sm-2">
-		      				<input type="text" class="form-control" placeholder="Kode Customer" name="" id="kode_customer">
+		      				<input type="text" class="form-control" placeholder="Kode Customer" name="" id="kode_customer" disabled>
 		    			</div>
 
 		    			<div class="col-sm-3">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Customer Name" id="nama_customer" disabled>
+								<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" disabled>
 									<div class="input-group-append">
 										<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></button>
 									</div>
@@ -109,12 +109,12 @@
 					<!-- <div class="container"> -->
 				    		<div class="form row">
 					      			<div class="col-sm-2">
-					      				<input type="text" class="form-control" placeholder="Item Code" name="kode_item" id="kode_item">
+					      				<input type="text" class="form-control" placeholder="Kode Barang" name="kode_item" id="kode_item" disabled>
 					    			</div>
 
 									<div class="col-sm-4">
 									    <div class="input-group">
-											<input type="text" class="form-control" placeholder="Item Name" id="nama_item" name="nama_item">
+											<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" disabled>
 											<div class="input-group-append">
 												<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
 											</div>
@@ -126,7 +126,7 @@
 								    </div>
 
 								    <div class="col-sm-2">
-								    	<input type="text" class="form-control" placeholder="Price" name="harga_item" id="harga_item">
+								    	<input type="text" class="form-control" placeholder="Harga" name="harga_item" id="harga_item">
 								    </div>
 
 					    			<input type="submit" id="add" class="btn btn-primary" value="Add"> <!-- ><span class="ion-arrow-down-b"></span> -->
@@ -194,8 +194,8 @@
 				<div class="all-bottom">
 					<div id="tabelTemp">
 						<div class="table-responsive">
-							<table class="table table-hover">
-							 	<thead>
+							<table class="table table-hover table-sm">
+							 	<thead class="thead-dark">
 								    <tr>
 								      <th scope="col">Kode Item</th>
 								      <th scope="col">Item</th>

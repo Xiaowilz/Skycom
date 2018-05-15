@@ -69,7 +69,7 @@
 				<div class="all-content">
 					<div class="all-head">
 						<div class="button-add">
-							<button class="button add-customer" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span class="ion-person-add"></span>Add Customer</button>
+							<button class="btn btn-outline-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span class="ion-person-add"></span>Tambah Customer</button>
 						</div>
 
 						<div class="search-container">
@@ -110,7 +110,7 @@
 										    echo "<td>$r[alamat]</td>";
 										    echo "<td>$r[kontak]</td>";
 										    // echo "<td><a href='customers_edit.php?edit=$r[kd_customer]'>Edit</a></td>";
-										    echo "<td><span class='ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static'></span></td>";
+										    echo "<td><span class='ion-edit' data-toggle='modal' data-target='#editcustomermodal' data-backdrop='static'></span></td>";
 										    echo "<td><a class='ion-trash-a' href='customers_hapus.php?hps=$r[kd_customer]' onclick='return functionHapus()' class='hapus' value='.$r[kd_customer]' id='hapus' name='hps' data-id = '.$r[kd_customer]'></a></td>";
 										    echo "</tr>";
 										}	
@@ -168,94 +168,100 @@
 				<div class="modal_content animate">
 					<div class="modal_head">
 						<button onclick="document.getElementById('id01').style.display='none'" class="btn-close-modal"><i class="ion-close-round"></i></button>
-						<h3 class="modal_title">Add Customer</h3>
+						<h4 class="modal_title">Add Customer</h4>
 					</div>	
 
 					<form method="POST" action="customers_simpan.php">
 						<div class="modal_body">
-							<div class="inputbox">			
-								<span class="input-addon-customer"><i class="ion-person-stalker"></i></span>
-								<input type="text" name="kd_cust" placeholder="Kode Customer" required>
+							<div class="input-group mb-3">
+							 	<div class="input-group-prepend">
+							    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Kode Customer" id="kodecus" name="kd_cust" required>
 							</div>
 
-					      	<div class="inputbox">			
-								<span class="input-addon-customer"><i class="ion-person-stalker"></i></span>
-								<input type="text" name="nm_cust" placeholder="Name" required>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-android-person"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Nama Customer" id="namacus" name="nm_cust" required>
 							</div>
 
-							<div class="inputbox">
-								<span class="input-addon-customer"><i class="ion-ios-location"></i></span>
-								<input type="text" name="almt_cust" placeholder="Address" required>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-ios-location"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Alamat" name="almt_cust" required>
 							</div>
 
-							<div class="inputbox">
-								<span class="input-addon-customer"><i class="ion-ios-telephone"></i></span>
-								<input type="text" name="kontak_cust" placeholder="Contact" required>
-							</div>
-						        
-						    <div>
-								<input type="submit" name="btnAdd" id="btnAdd" class="button add-modal" value="ADD">
-							</div>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-ios-telephone"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Kontak" id="kontak" name="kontak_cust" required>
+							</div>					    
+							<!-- <input type="submit" name="btnAdd" id="btnAdd" class="button add-modal" value="ADD"> -->
+							<button type="submit" name="btnAdd" id="btnAdd" class="btn btn-outline-primary btn-sm btn-block">Tambah</button>
 				   		</div>
 				   	</form>
 		  	
-				   	<div class="modal_foot">
+				   	<div class="modal-footer">
 				   		<div>
-							<button onclick="document.getElementById('id01').style.display='none'" type="button" class="button cancel-modal">Cancel</button>
+							<button onclick="document.getElementById('id01').style.display='none'" type="button" class="btn btn-outline-danger">Close</button>
 						</div>
 				   	</div>
-
 				</div>   	
 			</div>
 			<!-- Modal End -->
 
 			<!-- Modal Start -->
-			<div class="modal fade" id="myModal0" role="dialog">
-			    <div class="modal-dialog modal-lg">
+			<div class="modal fade" id="editcustomermodal" role="dialog">
+			    <div class="modal-dialog">
 			    
 			      <!-- Modal content-->
 			      <div class="modal-content">
 			        <div class="modal-header">
-			          <h4 class="modal-title">Supplier</h4>
+			          <h4 class="modal-title">Edit Customer</h4>
 			          <span class="ion-close" data-dismiss="modal"></span>		          
 			        </div>
 			        <div class="modal-body">
-			          <div class="table-responsive">
-				          	<table class="table table-hover table-sm">
-				          		<thead class="thead-dark">
-									<tr>
-										<th>Kode Customer</th>
-										<th>Nama Customer</th>
-										<th>Alamat</th>
-										<th>Kontak</th>
-										<th></th>
-									</tr>
-								</thead>	
-								<?php
-									require("conn.php");
-									$sql = "SELECT * FROM tb_supplier WHERE hapus = 0";
-									$q = mysqli_query($conn, $sql);
+			        	<form>
+				          	<div class="input-group mb-3">
+								<label for="kode" class="col-sm-3 col-form-label">Kode</label>
+							 	<div class="input-group-prepend">
+							    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Kode Customer" id="kode" name="" required="">
+							</div>
 
-									while ($r = mysqli_fetch_assoc($q)) 
-									{
-										echo"
+							<div class="input-group mb-3">
+								<label for="nama" class="col-sm-3 col-form-label">Nama</label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-android-person"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Nama Customer" id="nama" name="" required>
+							</div>
 
-												<tr>
-													<td>$r[kd_supplier]</td>
-													<td>$r[nm_supplier]</td>
-													<td>$r[alamat]</td>
-													<td>$r[kontak]</td>
-													<td><a href=''>Pilih</a></td>
-												<tr>
-											
-										";	
-									}
-								?>
-				  			</table>
-				  		</div>
+							<div class="input-group mb-3">
+								<label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-ios-location"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Alamat" id="alamat" name="" required>
+							</div>
+
+							<div class="input-group mb-3">
+								<label for="kon" class="col-sm-3 col-form-label">Kontak</label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-ios-telephone"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Kontak" id="kon" name="" required>
+							</div>
+							<button type="submit" class="btn btn-outline-primary btn-sm btn-block">Update</button>
+						</form>
 			        </div>
 			        <div class="modal-footer">
-			          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
 			        </div>
 			      </div>
 			      
@@ -303,17 +309,6 @@
   		});
   	});	
 
-</script>
-
-<script type="text/javascript">
-	var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
-	    }
-}
 </script>
 
 <script>
