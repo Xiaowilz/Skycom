@@ -79,12 +79,14 @@
 				</div>
 
 				<div class="info-top">
+				<form method="POST" id="penjualanTemp">
 					<div class="form-group row">
 		      			<label for="kodetransaksi" class="col-sm-2 col-form-label">Kode Transaksi</label>
 		      			<div class="col-sm-3">
-		      				<input id="kodetransaksi" type="text" class="form-control" placeholder="Kode Transaksi" name="">
+		      				<input id="kodetransaksi" type="text" class="form-control" placeholder="Kode Transaksi" name="no_transaksi">
 		    			</div>
 				    </div>
+					
 
 				    <div class="form row">
 		      			<label for="namacustomer" class="col-sm-2 col-form-label">Customer</label>
@@ -107,7 +109,6 @@
 
 				<div class="all-content">
 					<!-- <div class="container"> -->
-						<form method="POST"> 
 				    		<div class="form row">
 					      			<div class="col-sm-2">
 					      				<input type="text" class="form-control" placeholder="Item Code" name="kode_item" id="kode_item">
@@ -130,9 +131,9 @@
 								    	<input type="text" class="form-control" placeholder="Price" name="harga_item" id="harga_item">
 								    </div>
 
-					    			<input type="submit" id="add" class="btn btn-primary" formaction="penjualan_temp.php" value="Add"> <!-- ><span class="ion-arrow-down-b"></span> -->
+					    			<input type="submit" id="add" class="btn btn-primary" value="Add"> <!-- ><span class="ion-arrow-down-b"></span> -->
 							</div>
-				  		</form>
+				</form>
 				  		<!-- <script type="text/javascript">
 				  			$(document).ready(function()
 				  			{
@@ -152,24 +153,38 @@
 				  			});
 				  		</script> -->
 				  		<script type="text/javascript">
-				  			$(document).ready(function() {
-				  				refreshTable();
+				  			$("#add").click(function() 
+				  			{
 				  				$.ajax({
-				  						url: 'penjualan_temp_load.php',
-				  						type: 'GET',
-				  						dataType: 'html',
-				  						success : function(response)
-				  						{
-				  							$(".all-bottom").html(response);
-				  						}
-				  					});				  						
+				  					url: 'penjualan_temp.php',
+				  					type: 'POST',
+				  					data: $("#penjualanTemp").serialize(),
+				  					success : function(data)
+				  					{
+				  						$(".all-bottom").load("penjualan_temp_load.php");
+				  					}
+				  				});
+				  				return false;
 				  			});
 
-				  			function refreshTable(){
-						        $('.all-bottom').load('penjualan_temp_load.php', function(){
-						           setTimeout(refreshTable, 5000);
-						        });
-						    }
+				  			// $(document).ready(function() {
+				  			// 	refreshTable();
+				  			// 	$.ajax({
+				  			// 			url: 'penjualan_temp_load.php',
+				  			// 			type: 'GET',
+				  			// 			dataType: 'html',
+				  			// 			success : function(response)
+				  			// 			{
+				  			// 				$(".all-bottom").html(response);
+				  			// 			}
+				  			// 		});				  						
+				  			// });
+
+				  			// function refreshTable(){
+						   //      $('.all-bottom').load('penjualan_temp_load.php', function(){
+						   //         setTimeout(refreshTable, 5000);
+						   //      });
+						   //  }
 				  		</script>
 					<!-- </div> -->
 				</div>
@@ -212,7 +227,9 @@
 						
 					</div>				
 				</div>	<br>
-				<input type="submit" name="simpan" class="btn btn-primary" value="Simpan">
+				<form method="POST">
+					<input type="submit" name="simpan" class="btn btn-primary" value="Simpan" formaction="penjualan_simpan.php">
+				</form>
 
 			</div>
 		</div>
