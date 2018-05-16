@@ -109,18 +109,12 @@
 					<!-- <div class="container"> -->
 				    		<div class="form row">
 					      			<div class="col-sm-2">
-
-					      				<input id="kodeitem" type="text" class="form-control" placeholder="Kode Barang" name="">
-
 					      				<input id="kode_item" type="text" class="form-control" placeholder="Kode Barang" name="kode_item" readonly="true">
-
 					    			</div>
 
 									<div class="col-sm-4">
 									    <div class="input-group">
-											<input type="text" class="form-control" placeholder="Nama Barang">
 											<input type="text" class="form-control" placeholder="Nama Barang" readonly="true" name="nama_item" id="nama_item">
-
 											<div class="input-group-append">
 												<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-plus-round"></span></button>
 											</div>
