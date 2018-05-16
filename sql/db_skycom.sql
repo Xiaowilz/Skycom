@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2018 at 04:22 PM
+-- Generation Time: May 16, 2018 at 06:56 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -185,7 +185,15 @@ INSERT INTO `tb_penjualan` (`no_trans`, `kd_barang`, `nm_barang`, `qty`, `harga`
 ('TJ-00001', 'VGA_00002', 'Gigabyte GTX 1070T TI', 20, 9550000, 191000000),
 ('TJ-00002', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
 ('TJ-00002', 'VGA_00002', 'Gigabyte GTX 1070T TI', 12, 9550000, 114600000),
-('TJ-00002', 'VGA_00001', 'Asus GTX 1080 TI', 100, 15000000, 1500000000);
+('TJ-00002', 'VGA_00001', 'Asus GTX 1080 TI', 100, 15000000, 1500000000),
+('', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
+('TJ-00003', 'VGA_00002', 'Gigabyte GTX 1070T TI', 10, 9550000, 95500000),
+('TJ-00004', 'VGA_00002', 'Gigabyte GTX 1070T TI', 20, 9550000, 191000000),
+('TJ-00005', 'VGA_00001', 'Asus GTX 1080 TI', 10, 15000000, 150000000),
+('TJ-00006', 'VGA_00002', 'Gigabyte GTX 1070T TI', 25, 9550000, 238750000),
+('TJ-00007', 'VGA_00001', 'Asus GTX 1080 TI', 200, 15000000, 3000000000),
+('TJ-00008', 'VGA_00001', 'Asus GTX 1080 TI', 2222, 15000000, 33330000000),
+('TJ-00009', 'VGA_00001', 'Asus GTX 1080 TI', 21, 15000000, 315000000);
 
 -- --------------------------------------------------------
 
@@ -215,21 +223,13 @@ INSERT INTO `tb_supplier` (`kd_supplier`, `nm_supplier`, `alamat`, `kontak`, `ha
 --
 
 CREATE TABLE `tb_temp_pembelian` (
-  `kdbarang` varchar(10) NOT NULL,
-  `nmbarang` varchar(50) NOT NULL,
+  `notrans` varchar(20) NOT NULL,
+  `kd_barang` varchar(10) NOT NULL,
+  `nm_barang` varchar(50) NOT NULL,
   `qty` int(11) NOT NULL,
   `harga` double NOT NULL,
-  `jumlah` double NOT NULL,
-  `notrans` varchar(20) NOT NULL
+  `jumlah` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_temp_pembelian`
---
-
-INSERT INTO `tb_temp_pembelian` (`kdbarang`, `nmbarang`, `qty`, `harga`, `jumlah`, `notrans`) VALUES
-('VGA_00001', 'Asus GTX 1080 TI', 3, 15000000, 45000000, ''),
-('VGA_00002', 'Gigabyte GTX 1070T TI', 4, 9550000, 38200000, '');
 
 -- --------------------------------------------------------
 
