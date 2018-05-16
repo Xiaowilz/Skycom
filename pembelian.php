@@ -76,22 +76,23 @@
 				</div>
 
 				<div class="info-top">
+				<form method="POST" id="pembelianTemp">
 					<div class="form-group row">
 		      			<label for="kodetransaksi" class="col-sm-2 col-form-label">Kode Transaksi</label>
 		      			<div class="col-sm-3">
-		      				<input id="kodetransaksi" type="text" class="form-control" placeholder="Kode Transaksi" name="">
+		      				<input id="kode_transaksi" type="text" class="form-control" placeholder="Kode Transaksi" name="kode_transaksi">
 		    			</div>
 				    </div>
 
 				    <div class="form row">
 		      			<label for="namasupplier" class="col-sm-2 col-form-label">Supplier</label>
 		      			<div class="col-sm-2">
-		      				<input type="text" class="form-control" placeholder="Kode Supplier" name="" disabled>
+		      				<input type="text" class="form-control" placeholder="Kode Supplier" id="kode_supplier" readonly="true">
 		    			</div>
 
 		    			<div class="col-sm-3">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Supplier Name" disabled>
+								<input type="text" class="form-control" placeholder="Supplier Name" readonly="true" id="nama_supplier">
 									<div class="input-group-append">
 										<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal0" data-backdrop="static"><span class="ion-person-add"></button>
 									</div>
@@ -104,15 +105,14 @@
 
 				<div class="all-content">
 					<!-- <div class="container"> -->
-						<form action="">
 				    		<div class="form row">
 					      			<div class="col-sm-2">
-					      				<input id="kodeitem" type="text" class="form-control" placeholder="Kode Barang" name="" disabled>
+					      				<input id="kode_item" type="text" class="form-control" placeholder="Kode Barang" name="kode_item" readonly="true">
 					    			</div>
 
 									<div class="col-sm-4">
 									    <div class="input-group">
-											<input type="text" class="form-control" placeholder="Nama Barang" disabled>
+											<input type="text" class="form-control" placeholder="Nama Barang" readonly="true" name="nama_item" id="nama_item">
 											<div class="input-group-append">
 												<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-plus-round"></span></button>
 											</div>
@@ -120,21 +120,50 @@
 									</div>	
 
 								    <div class="col-sm-2">
-								    	<input type="text" class="form-control" placeholder="Quantity" name="">
+								    	<input type="text" class="form-control" placeholder="Quantity" name="quantity">
 								    </div>
 
 								    <div class="col-sm-2">
-								    	<input type="text" class="form-control" placeholder="Harga" name="">
+								    	<input type="text" class="form-control" placeholder="Harga" name="harga_item" id="harga_item">
 								    </div>
 
-					    			<button type="button" class="btn btn-primary"><span class="ion-arrow-down-b"></span>Add</button>
+					    			<input type="submit" class="btn btn-primary" value="Add" id="add"><!-- <span class="ion-arrow-down-b"></span> -->
 							</div>
-				  		</form>
+				</form>
+				<script type="text/javascript">
+					$(document).ready(function() {
+						$.ajax({
+							url: 'pembelian_temp_load.php',
+							type: 'GET',
+							dataType: 'html',
+							success : function(response)
+							{
+								$('#temp_pembelian').html(response);
+							}
+						});
+						
+					});
+
+					$("#add").on('click', function() 
+					{
+						$.ajax({
+							url: 'pembelian_temp.php',
+							type: 'POST',
+							data: $('#pembelianTemp').serialize(),
+							success : function()
+							{
+								$('#temp_pembelian').load('pembelian_temp_load.php');
+							}
+						});
+						return false;
+					});
+				</script>
 				</div>
 
 				<br/>
 
 				<div class="all-bottom">
+					<div id="temp_pembelian">
 					<div class="table-responsive table-sm">
 						<table class="table table-hover table">
 						 	<thead class="thead-dark">
@@ -147,7 +176,7 @@
 							    </tr>
 						  	</thead>
 
-							<tbody>
+							<!-- <tbody>
 							    <tr>
 							      <th scope="row">1</th>
 							      <td>Mark</td>
@@ -169,8 +198,9 @@
 							      <td>@twitter</td>
 							      <td></td>
 							    </tr>
-						 	</tbody>
+						 	</tbody> -->
 						</table>
+					</div>
 					</div>
 			</div>	
 		</div>
@@ -211,13 +241,25 @@
 												<td>$r[nm_supplier]</td>
 												<td>$r[alamat]</td>
 												<td>$r[kontak]</td>
-												<td><a href=''>Pilih</a></td>
+												<td><a href='#' data-kodeSupplier='$r[kd_supplier]' data-namaSupplier='$r[nm_supplier]' class='pilihSupplier' data-dismiss='modal'>Pilih</a></td>
 											<tr>
 										
 									";	
 								}
+								echo "
+									<script>
+						  				$('.pilihSupplier').on('click', function()
+						  				{
+						  					var kodeSupplier = this.getAttribute('data-kodeSupplier');
+						  					var namaSupplier = this.getAttribute('data-namaSupplier');
+						  					document.getElementById('kode_supplier').value = kodeSupplier;
+						  					document.getElementById('nama_supplier').value = namaSupplier;
+						  				});
+						  			</script>
+					  			";
 							?>
 			  			</table>
+			  			
 			  		</div>
 		        </div>
 		        <div class="modal-footer">
@@ -254,25 +296,39 @@
 							</thead>	
 							<?php
 								require("conn.php");
-								$sql = "SELECT jns_barang, kd_barang, nm_barang, hrg_jual FROM tb_inventory WHERE hapus = 0";
-								$q = mysqli_query($conn, $sql);
+								$sql2 = "SELECT jns_barang, kd_barang, nm_barang, hrg_jual FROM tb_inventory WHERE hapus = 0";
+								$q2 = mysqli_query($conn, $sql2);
 
-								while ($r = mysqli_fetch_assoc($q)) 
+								while ($r2 = mysqli_fetch_assoc($q2)) 
 								{
 									echo"
 
 											<tr>
-												<td>$r[jns_barang]</td>
-												<td>$r[kd_barang]</td>
-												<td>$r[nm_barang]</td>
-												<td>$r[hrg_jual]</td>
-												<td><a href=''>Pilih</a></td>
+												<td>$r2[jns_barang]</td>
+												<td>$r2[kd_barang]</td>
+												<td>$r2[nm_barang]</td>
+												<td>$r2[hrg_jual]</td>
+												<td><a href='#' data-kodeItem='$r2[kd_barang]' data-namaBarang='$r2[nm_barang]' data-hargaItem='$r2[hrg_jual]' class='pilihItem' data-dismiss='modal'>Pilih</a></td>
 											<tr>
 										
 									";	
 								}
+								echo "
+									<script>
+						  				$('.pilihItem').on('click', function()
+						  				{
+						  					var kodeItem = this.getAttribute('data-kodeItem');
+						  					var namaItem = this.getAttribute('data-namaBarang');
+						  					var hargaItem = this.getAttribute('data-hargaItem');
+						  					document.getElementById('kode_item').value = kodeItem;
+						  					document.getElementById('nama_item').value = namaItem;
+						  					document.getElementById('harga_item').value = hargaItem;
+						  				});
+						  			</script>
+					  			";
 							?>
 			  			</table>
+
 			  		</div>
 		        </div>
 		        <div class="modal-footer">
