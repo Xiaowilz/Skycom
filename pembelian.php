@@ -87,13 +87,11 @@
 				    <div class="form row">
 		      			<label for="namasupplier" class="col-sm-2 col-form-label">Supplier</label>
 		      			<div class="col-sm-2">
-		      				<input type="text" class="form-control" placeholder="Kode Supplier" name="">
 		      				<input type="text" class="form-control" placeholder="Kode Supplier" id="kode_supplier" readonly="true">
 		    			</div>
 
 		    			<div class="col-sm-3">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Supplier Name">
 								<input type="text" class="form-control" placeholder="Supplier Name" readonly="true" id="nama_supplier">
 									<div class="input-group-append">
 										<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal0" data-backdrop="static"><span class="ion-person-add"></button>

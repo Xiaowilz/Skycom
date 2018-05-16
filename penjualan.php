@@ -89,19 +89,11 @@
 				    <div class="form row">
 		      			<label for="namacustomer" class="col-sm-2 col-form-label">Customer</label>
 		      			<div class="col-sm-2">
-<<<<<<< HEAD
-		      				<input type="text" class="form-control" placeholder="Kode Customer" name="" id="kode_customer">
-=======
->>>>>>> 4046559d33075e7839bc71e05710d28e2d4ebecc
 		      				<input type="text" class="form-control" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
 		    			</div>
 
 		    			<div class="col-sm-3">
 							<div class="input-group">
-<<<<<<< HEAD
-								<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer">
-=======
->>>>>>> 4046559d33075e7839bc71e05710d28e2d4ebecc
 								<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" readonly="true">
 									<div class="input-group-append">
 										<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></button>
@@ -117,19 +109,11 @@
 					<!-- <div class="container"> -->
 				    		<div class="form row">
 					      			<div class="col-sm-2">
-<<<<<<< HEAD
-					      				<input type="text" class="form-control" placeholder="Kode Barang" name="kode_item" id="kode_item">
-=======
->>>>>>> 4046559d33075e7839bc71e05710d28e2d4ebecc
 					      				<input type="text" class="form-control" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly="true">
 					    			</div>
 
 									<div class="col-sm-4">
 									    <div class="input-group">
-<<<<<<< HEAD
-											<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item">
-=======
->>>>>>> 4046559d33075e7839bc71e05710d28e2d4ebecc
 											<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" readonly="true">
 											<div class="input-group-append">
 												<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
