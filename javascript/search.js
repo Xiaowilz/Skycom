@@ -12,7 +12,7 @@ keyword.addEventListener('keyup',function() {
 		}
 	}
 
-	xhr.open('GET', 'ajax/customer_cari.php?keyword= ' + keyword.value, true);
+	xhr.open('GET', 'ajax/customer_cari.php?keyword=' + keyword.value, true);
 	xhr.send();
 
 });

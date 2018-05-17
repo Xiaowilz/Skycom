@@ -141,7 +141,7 @@
 								<div class="input-group-prepend">
 							    	<label class="input-group-text ion-levels" for="type"></label>
 							  	</div>
-							  	<select class="custom-select" id="type">
+							  	<select class="custom-select" id="type" name="jns_barang">
 							    	<option selected>Tipe Barang</option>
 							    	<option value="1">One</option>
 								    <option value="2">Two</option>

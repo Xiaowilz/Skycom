@@ -7,6 +7,7 @@
 		      <th scope="col">Quantity</th>
 		      <th scope="col">Harga</th>
 		      <th scope="col">Sub Total</th>
+		      <th scope="col"></th>
 		    </tr>
 	  	</thead>
 
@@ -24,10 +25,28 @@
 							<td>$r5[qty]</td>
 							<td>$r5[harga]</td>
 							<td>$r5[jumlah]</td>
+							<td><a href='#' data-kodeHapus='$r5[kd_barang]' class='hapus'>Hapus</td>
 						</tr>
 		    		";
 		    	}
 		    ?>
+		    <script type="text/javascript">
+		    	$('.hapus').on('click',function() 
+		    	{
+		    		var kd_hapus = this.getAttribute('data-kodeHapus');
+		    		$.ajax({
+		    			url: 'penjualan_temp_hapus.php',
+		    			type: 'POST',
+		    			dataType: 'html',
+		    			data: {'kd_hapus' : kd_hapus},
+		    			success : function()
+		    			{
+		    				$("#tabelTemp").load("penjualan_temp_load.php");
+		    			}
+		    		});
+		    			
+		    	});
+		    </script>
 	 	</tbody>
 	</table>
 	

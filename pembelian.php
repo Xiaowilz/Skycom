@@ -164,47 +164,67 @@
 
 				<div class="all-bottom">
 					<div id="temp_pembelian">
-					<div class="table-responsive table-sm">
-						<table class="table table-hover table">
-						 	<thead class="thead-dark">
-							    <tr>
-							      <th scope="col">Kode Item</th>
-							      <th scope="col">Item</th>
-							      <th scope="col">Quantity</th>
-							      <th scope="col">Harga</th>
-							      <th scope="col">Sub Total</th>
-							    </tr>
-						  	</thead>
+						<div class="table-responsive table-sm">
+							<table class="table table-hover table">
+							 	<thead class="thead-dark">
+								    <tr>
+								      <th scope="col">Kode Item</th>
+								      <th scope="col">Item</th>
+								      <th scope="col">Quantity</th>
+								      <th scope="col">Harga</th>
+								      <th scope="col">Sub Total</th>
+								    </tr>
+							  	</thead>
 
-							<!-- <tbody>
-							    <tr>
-							      <th scope="row">1</th>
-							      <td>Mark</td>
-							      <td>Otto</td>
-							      <td>@mdo</td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <th scope="row">2</th>
-							      <td>Jacob</td>
-							      <td>Thornton</td>
-							      <td>@fat</td>
-							      <td></td>
-							    </tr>
-							    <tr>
-							      <th scope="row">3</th>
-							      <td>Larry the Bird</td>
-							      <td>Sans</td>
-							      <td>@twitter</td>
-							      <td></td>
-							    </tr>
-						 	</tbody> -->
-						</table>
+								<!-- <tbody>
+								    <tr>
+								      <th scope="row">1</th>
+								      <td>Mark</td>
+								      <td>Otto</td>
+								      <td>@mdo</td>
+								      <td></td>
+								    </tr>
+								    <tr>
+								      <th scope="row">2</th>
+								      <td>Jacob</td>
+								      <td>Thornton</td>
+								      <td>@fat</td>
+								      <td></td>
+								    </tr>
+								    <tr>
+								      <th scope="row">3</th>
+								      <td>Larry the Bird</td>
+								      <td>Sans</td>
+								      <td>@twitter</td>
+								      <td></td>
+								    </tr>
+							 	</tbody> -->
+							</table>
+						</div>
 					</div>
-					</div>
-			</div>	
+
+					
+			</div>
+			<br>
+			<form method="POST">
+				<input type="submit" id="simpan" class="btn btn-primary" value="Simpan">
+			</form>	
+			<script type="text/javascript">
+				$('#simpan').on('click', function()
+				{
+					$.ajax({
+						url : 'pembelian_simpan.php',
+						type : 'POST',
+						success : function()
+						{
+							window.alert('Data Tersimpan');
+						}
+					});
+				});
+			</script>
+			
 		</div>
-		
+			
 		<!-- Modal Start -->
 		<div class="modal fade" id="myModal0" role="dialog">
 		    <div class="modal-dialog modal-lg">
