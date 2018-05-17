@@ -59,8 +59,12 @@
 						</div>
 
 						<div class="search-container">
-						      <input type="text" placeholder="Search" name="keyword" id="keyword">
-						      <button type="submit"><i class="ion-search"></i></button>
+						      <div class="input-group mb-3">
+								<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
+								<div class="input-group-append">
+							    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
+							  	</div>
+							</div>
 		 				</div>
 					</div>
 
@@ -262,7 +266,7 @@
 			<!-- Modal End -->
 		</div>
 	</div>
-	
+<script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>
 </body>
 <script type="text/javascript">
 		var dropdown = document.getElementsByClassName("drop");

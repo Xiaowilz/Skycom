@@ -10,28 +10,14 @@
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 	<script src="javascript/bootstrap-datepicker.js"></script>
-	<!-- ____________  -->
-
-		<style type="text/css">
-		#namasupplier {
-			margin-left: -20px;
+	<!-- ____________  -->	
+	<style type="text/css">
+		.col-4 {
+			float: right;
+			margin-right: -15px;
 		}
-
-		.btn span {
-			margin-right: 5px;
-		}
-
-		#btnsupplier {
-			margin-left: -20px;
-		}
-
-		.ion-arrow-down-b{
-			margin-left: 7px;
-		}
-
 	</style>
 
-	
 </head>
 <body>
 	<div id="topnav">
@@ -236,6 +222,16 @@
 		          <span class="ion-close" data-dismiss="modal"></span>		          
 		        </div>
 		        <div class="modal-body">
+
+					<div class="col-4">
+						<div class="input-group mb-1 input-group-sm">
+							<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
+							<div class="input-group-append">
+						    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
+						  	</div>
+						</div>
+					</div>	
+
 		          <div class="table-responsive">
 			          	<table class="table table-hover table-sm">
 			          		<thead class="thead-dark">
@@ -303,6 +299,16 @@
 		          <span class="ion-close" data-dismiss="modal"></span>		          
 		        </div>
 		        <div class="modal-body">
+
+					<div class="col-4">
+						<div class="input-group mb-1 input-group-sm">
+							<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
+							<div class="input-group-append">
+						    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
+						  	</div>
+						</div>
+					</div>	
+
 		          <div class="table-responsive">
 			          	<table class="table table-hover table-sm">
 			          		<thead class="thead-dark">
@@ -360,12 +366,10 @@
 		  </div>
 		</div>
 		<!-- Modal End -->
-
-
-
+		<!-- </div> -->
 	</div>
 
-	</div>
+<script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>	
 </body>
 <script type="text/javascript">
 		var dropdown = document.getElementsByClassName("drop");

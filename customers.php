@@ -73,8 +73,12 @@
 						</div>
 
 						<div class="search-container">
-						      <input type="text" placeholder="Search Here" name="keyword" id="keyword" autocomplete="off">
-						      <button type="submit" id="cari"><i class="ion-search"></i></button>
+						    <div class="input-group mb-3">
+								<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
+								<div class="input-group-append">
+							    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
+							  	</div>
+							</div>
 		 				</div>
 					</div>
 
@@ -86,9 +90,9 @@
 									<thead class="thead-dark">
 										<tr>
 											<th>Kode Customer</th>
-											<th>Name</th>
-											<th>Address</th>
-											<th>Contact</th>
+											<th>Nama</th>
+											<th>Alamat</th>
+											<th>Kontak</th>
 											<th></th>
 											<th></th>
 										</tr>

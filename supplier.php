@@ -15,6 +15,10 @@
 		.ion-person-add{
 			margin-right: 10px;
 		}
+
+		.input-group-text{
+
+		}
 	</style>
 
 </head>
@@ -63,49 +67,55 @@
 						</div>
 
 						<div class="search-container">
-
-						      <input type="text" placeholder="Search" name="search">
-						      <button type="submit"><i class="ion-search"></i></button>
-
+							<div class="input-group mb-3">
+								<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
+								<div class="input-group-append">
+							    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
+							  	</div>
+							</div>
 		 				</div>
 					</div>
 
 				</br>
 
-					<div id="latar-tabel">
-						<table class="table table-hover table-sm">
-							<thead class="thead-dark">
-								<tr>
-									<th>Supplier Code</th>
-									<th>Name</th>
-									<th>Address</th>
-									<th>Contact</th>
-									<th></th>
-									<th></th>
-								</tr>
-							</thead>
+					<!-- Tabel -->
+					<div id="tabelsupp">
+						<div id="latar-tabel">
+							<table class="table table-hover table-sm">
+								<thead class="thead-dark">
+									<tr>
+										<th>Supplier Code</th>
+										<th>Name</th>
+										<th>Address</th>
+										<th>Contact</th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
 
-							<?php
-								require_once("conn.php");
+								<?php
+									require_once("conn.php");
 
-								$sql = "SELECT kd_supplier,nm_supplier,alamat,kontak FROM tb_supplier";
+									$sql = "SELECT kd_supplier,nm_supplier,alamat,kontak FROM tb_supplier";
 
-								$q = mysqli_query($conn,$sql);
+									$q = mysqli_query($conn,$sql);
 
-								while ($r = mysqli_fetch_assoc($q)) 
-								{
-								    echo "<tr>";
-								    echo "<td>$r[kd_supplier]</td>";
-								    echo "<td>$r[nm_supplier]</td>";
-								    echo "<td>$r[alamat]</td>";
-								    echo "<td>$r[kontak]</td>";
-								    echo "<td><span class='ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static'></span></td>";
-								    echo "<td><span class='ion-trash-a'></span></td>";
-								    echo "</tr>";
-								}
-							?>
-						</table>
+									while ($r = mysqli_fetch_assoc($q)) 
+									{
+									    echo "<tr>";
+									    echo "<td>$r[kd_supplier]</td>";
+									    echo "<td>$r[nm_supplier]</td>";
+									    echo "<td>$r[alamat]</td>";
+									    echo "<td>$r[kontak]</td>";
+									    echo "<td><span class='ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static'></span></td>";
+									    echo "<td><span class='ion-trash-a'></span></td>";
+									    echo "</tr>";
+									}
+								?>
+							</table>
+						</div>	
 					</div>
+					<!-- TAbel -->
 				</div>
 			</div>	
 
@@ -215,8 +225,9 @@
 			  </div>
 			</div>
 			<!-- Modal End -->
-
 	</div>
+
+<script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>	
 </body>
 </html>
 
@@ -243,11 +254,15 @@
   		document.getElementById("rightside").classList.toggle('show');
   		}
 
-  	 $(document).ready(function(){
+  	$(document).ready(function(){
   		$('#tab a').click(function(){
   			$('a').removeClass("active");
   			$(this).addClass("active");
   		});
+
+	  	$('#keyword').on('keyup', function() {
+			$('#tabelsupp').load('ajax/supplier_search.php?keyword=' + $('#keyword').val());
+		});
   	});	
 
 </script>

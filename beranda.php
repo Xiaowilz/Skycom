@@ -14,10 +14,10 @@
 			Welcome To SkyCom
 		</div>
 
-<div class="input-group mb-3 input-group-sm">
+<div class="input-group mb-3 input-group-lg">
   <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
   <div class="input-group-append">
-    <span class="input-group-text"><ion-icon name="search"></ion-icon></span>
+    <span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
   </div>
 </div>
 
