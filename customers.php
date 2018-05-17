@@ -76,7 +76,6 @@
 						      <input type="text" placeholder="Search Here" name="keyword" id="keyword" autocomplete="off">
 						      <button type="submit" id="cari"><i class="ion-search"></i></button>
 		 				</div>
-
 					</div>
 
 					<br>
@@ -276,6 +275,7 @@
 	</div>	
 
 <script src="javascript/search.js"></script>
+<script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>
 
 </body>
 </html>

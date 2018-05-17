@@ -266,7 +266,7 @@ body{
 }
 
 .all-top h2{
-	display: inline-block;
+	/*display: inline-block;*/
 	float: left;
 }
 
@@ -277,13 +277,13 @@ body{
 
 .all-content{
 	background-color: #fff;
-	padding: 7px;
+	padding: 10px;
 	border-radius: 6px;
 	text-indent: 20px;
 }
 
 .all-head{
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
 
 .all-head .button-add{
@@ -292,7 +292,7 @@ body{
 
 .all-head .search-container{
 	float: right;
-	margin-top: 4px;	
+	margin-bottom: 4px;	
 }
 
 .all-head input[type=text]{
