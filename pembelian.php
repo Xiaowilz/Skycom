@@ -214,78 +214,76 @@
 		<!-- Modal Start -->
 		<div class="modal fade" id="myModal0" role="dialog">
 		    <div class="modal-dialog modal-lg">
-		    
 		      <!-- Modal content-->
-		      <div class="modal-content">
-		        <div class="modal-header">
-		          <h4 class="modal-title">Supplier</h4>
-		          <span class="ion-close" data-dismiss="modal"></span>		          
-		        </div>
-		        <div class="modal-body">
+		    	<div class="modal-content">
+		        	<div class="modal-header">
+		          		<h4 class="modal-title">Supplier</h4>
+		          		<span class="ion-close" data-dismiss="modal"></span>		          
+		        	</div>
 
-					<div class="col-4">
-						<div class="input-group mb-1 input-group-sm">
-							<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
-							<div class="input-group-append">
-						    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
-						  	</div>
-						</div>
-					</div>	
+		        	<div class="modal-body">
+						<div class="col-4">
+							<div class="input-group mb-1 input-group-sm">
+								<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
+								<div class="input-group-append">
+							    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
+							  	</div>
+							</div>
+						</div>	
 
-		          <div class="table-responsive">
-			          	<table class="table table-hover table-sm">
-			          		<thead class="thead-dark">
-								<tr>
-									<th>Supplier Code</th>
-									<th>Supplier Name</th>
-									<th>Address</th>
-									<th>Contact</th>
-									<th></th>
-								</tr>
-							</thead>	
-							<?php
-								require("conn.php");
-								$sql = "SELECT * FROM tb_supplier WHERE hapus = 0";
-								$q = mysqli_query($conn, $sql);
+			          	<div class="table-responsive">
+				          	<table class="table table-hover table-sm">
+				          		<thead class="thead-dark">
+									<tr>
+										<th>Supplier Code</th>
+										<th>Supplier Name</th>
+										<th>Address</th>
+										<th>Contact</th>
+										<th></th>
+									</tr>
+								</thead>	
+								<?php
+									require("conn.php");
+									$sql = "SELECT * FROM tb_supplier WHERE hapus = 0";
+									$q = mysqli_query($conn, $sql);
 
-								while ($r = mysqli_fetch_assoc($q)) 
-								{
-									echo"
+									while ($r = mysqli_fetch_assoc($q)) 
+									{
+										echo"
 
-											<tr>
-												<td>$r[kd_supplier]</td>
-												<td>$r[nm_supplier]</td>
-												<td>$r[alamat]</td>
-												<td>$r[kontak]</td>
-												<td><a href='#' data-kodeSupplier='$r[kd_supplier]' data-namaSupplier='$r[nm_supplier]' class='pilihSupplier' data-dismiss='modal'>Pilih</a></td>
-											<tr>
-										
-									";	
-								}
-								echo "
-									<script>
-						  				$('.pilihSupplier').on('click', function()
-						  				{
-						  					var kodeSupplier = this.getAttribute('data-kodeSupplier');
-						  					var namaSupplier = this.getAttribute('data-namaSupplier');
-						  					document.getElementById('kode_supplier').value = kodeSupplier;
-						  					document.getElementById('nama_supplier').value = namaSupplier;
-						  				});
-						  			</script>
-					  			";
-							?>
-			  			</table>
-			  			
-			  		</div>
-		        </div>
-		        <div class="modal-footer">
-		          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-		        </div>
-		      </div>
-		      
+												<tr>
+													<td>$r[kd_supplier]</td>
+													<td>$r[nm_supplier]</td>
+													<td>$r[alamat]</td>
+													<td>$r[kontak]</td>
+													<td><a href='#' data-kodeSupplier='$r[kd_supplier]' data-namaSupplier='$r[nm_supplier]' class='pilihSupplier' data-dismiss='modal'>Pilih</a></td>
+												<tr>
+											
+										";	
+									}
+									echo "
+										<script>
+							  				$('.pilihSupplier').on('click', function()
+							  				{
+							  					var kodeSupplier = this.getAttribute('data-kodeSupplier');
+							  					var namaSupplier = this.getAttribute('data-namaSupplier');
+							  					document.getElementById('kode_supplier').value = kodeSupplier;
+							  					document.getElementById('nama_supplier').value = namaSupplier;
+							  				});
+							  			</script>
+						  			";
+								?>
+				  			</table>	
+				  		</div>
+		        	</div>
+
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			        </div>
+		     	</div>
 		    </div>
-		  </div>
 		</div>
+		<!-- </div> -->
 		<!-- Modal End -->
 
 		<!-- Modal Start -->
