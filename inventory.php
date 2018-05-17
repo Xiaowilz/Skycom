@@ -10,6 +10,7 @@
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 	<script src="javascript/bootstrap-datepicker.js"></script>
+	<script type="text/javascript" src="javascript/script.js"></script>	
 	<!-- ____________  -->
 </head>
 
@@ -58,70 +59,56 @@
 						</div>
 
 						<div class="search-container">
-						      <input type="text" placeholder="Search" name="search">
+						      <input type="text" placeholder="Search" name="keyword" id="keyword">
 						      <button type="submit"><i class="ion-search"></i></button>
 		 				</div>
 					</div>
 
-					<div class="table-responsive">
-						<table class="table table-hover table-sm">
-						 	<thead class="thead-dark">
-							    <tr>
-							      <th>Jenis Barang</th>
-							      <th>Kode Barang</th>
-							      <th>Nama Barang</th>
-							      <th>Qty</th>
-							      <th>Harga Beli</th>
-							      <th>Harga Jual</th>
-							      <th></th>
-							      <th></th>
-							    </tr>
-						  	</thead>
+					<div id="container1">
+						<!-- Tabel -->
+						<div class="table-responsive">
+							<table class="table table-hover table-sm">
+							 	<thead class="thead-dark">
+								    <tr>
+								      <th>Jenis Barang</th>
+								      <th>Kode Barang</th>
+								      <th>Nama Barang</th>
+								      <th>Qty</th>
+								      <th>Harga Beli</th>
+								      <th>Harga Jual</th>
+								      <th></th>
+								      <th></th>
+								    </tr>
+							  	</thead>
 
-							<tbody>
-							    
-							    <?php
-									require_once("conn.php");
+								<tbody>
+								    
+								    <?php
+										require_once("conn.php");
 
-									$sql = "SELECT jns_barang,kd_barang,nm_barang,qty,hrg_beli,hrg_jual FROM tb_inventory WHERE hapus = 0";
+										$sql = "SELECT jns_barang,kd_barang,nm_barang,qty,hrg_beli,hrg_jual FROM tb_inventory WHERE hapus = 0";
 
-									$q = mysqli_query($conn,$sql);
+										$q = mysqli_query($conn,$sql);
 
-									while ($r = mysqli_fetch_assoc($q)) 
-									{
-									    echo "<tr>";
-									    echo "<td>$r[jns_barang]</td>";
-									    echo "<td>$r[kd_barang]</td>";
-									    echo "<td>$r[nm_barang]</td>";
-									    echo "<td>$r[qty]</td>";
-									    echo "<td>$r[hrg_beli]</td>";
-									    echo "<td>$r[hrg_jual]</td>";
-									    // echo "<td><a href='inventory_edit.php?edit=$r[kd_barang]'<span class='ion-edit'></a></span></td>";
-									    echo "<td><span class='ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static'></span></td>";
-									    echo "<td class='hapus'><a class='ion-trash-a' href='inventory_hapus.php?hps=$r[kd_barang]' onclick='return functionHapus()'></a></td>";
-									    echo "</tr>";
-									}
-								?>
-						 	</tbody>
-						</table>
-
-						<script>
-							function functionHapus()
-							{
-								var r = window.confirm("Yakin Ingin Hapus ?");
-								if(r == true)
-								{
-
-										window.alert("Data Terhapus");
-										return true;
-								}
-								else
-								{
-									alert("Data Tidak Terhapus");
-									return false;
-								}
-							}
-						</script>
+										while ($r = mysqli_fetch_assoc($q)) 
+										{
+										    echo "<tr>";
+										    echo "<td>$r[jns_barang]</td>";
+										    echo "<td>$r[kd_barang]</td>";
+										    echo "<td>$r[nm_barang]</td>";
+										    echo "<td>$r[qty]</td>";
+										    echo "<td>$r[hrg_beli]</td>";
+										    echo "<td>$r[hrg_jual]</td>";
+										    // echo "<td><a href='inventory_edit.php?edit=$r[kd_barang]'<span class='ion-edit'></a></span></td>";
+										    echo "<td><span class='ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static'></span></td>";
+										    echo "<td class='hapus'><a class='ion-trash-a' href='inventory_hapus.php?hps=$r[kd_barang]' onclick='return functionHapus()'></a></td>";
+										    echo "</tr>";
+										}
+									?>
+							 	</tbody>
+							</table>							
+						</div>
+						<!-- Tabel End -->
 					</div>
 				</div>
 			</div>	
@@ -273,10 +260,9 @@
 			  </div>
 			</div>
 			<!-- Modal End -->
-
-
 		</div>
-	</div>	
+	</div>
+	
 </body>
 <script type="text/javascript">
 		var dropdown = document.getElementsByClassName("drop");
@@ -310,15 +296,22 @@
 
 </script>
 
-<script type="text/javascript">
-	var modal = document.getElementById('id01');
+<script>
+	function functionHapus()
+	{
+		var r = window.confirm("Yakin Ingin Hapus ?");
+		if(r == true)
+		{
 
-// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
-	    }
-}
+				window.alert("Data Terhapus");
+				return true;
+		}
+		else
+		{
+			alert("Data Tidak Terhapus");
+			return false;
+		}
+	}
 </script>
 
 </html>

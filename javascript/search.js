@@ -2,7 +2,8 @@ var keyword = document.getElementById('keyword');
 var cari = document.getElementById('cari');
 var container = document.getElementById('container');
 
-keyword.addEventListener('keyup',function() {
+keyword.addEventListener('keyup',function() 
+{
 
 	var xhr = new XMLHttpRequest();
 
@@ -12,7 +13,10 @@ keyword.addEventListener('keyup',function() {
 		}
 	}
 
+
 	xhr.open('GET', 'ajax/customer_cari.php?keyword=' + keyword.value, true);
+	xhr.open('GET', 'ajax/customer_search.php?keyword=' + keyword.value, true);
 	xhr.send();
 
 });
+
