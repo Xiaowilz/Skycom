@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2018 at 06:56 PM
+-- Generation Time: May 18, 2018 at 08:37 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -103,16 +103,65 @@ INSERT INTO `tb_daftarbarang` (`kdbarang`, `nmbarang`, `jnsbarang`, `stok`, `hrg
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_hdpembelian`
+-- Table structure for table `tb_hd_pembelian`
 --
 
-CREATE TABLE `tb_hdpembelian` (
+CREATE TABLE `tb_hd_pembelian` (
   `notrans` varchar(10) NOT NULL,
-  `kdbarang` varchar(20) NOT NULL,
+  `kd_barang` varchar(20) NOT NULL,
+  `nm_barang` varchar(50) NOT NULL,
   `qty` int(11) NOT NULL,
   `harga` double NOT NULL,
-  `diskon` double NOT NULL
+  `jumlah` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_hd_pembelian`
+--
+
+INSERT INTO `tb_hd_pembelian` (`notrans`, `kd_barang`, `nm_barang`, `qty`, `harga`, `jumlah`) VALUES
+('TB00001', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_hd_penjualan`
+--
+
+CREATE TABLE `tb_hd_penjualan` (
+  `no_trans` varchar(20) NOT NULL,
+  `kd_barang` varchar(10) NOT NULL,
+  `nm_barang` varchar(50) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `harga` double NOT NULL,
+  `jumlah` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_hd_penjualan`
+--
+
+INSERT INTO `tb_hd_penjualan` (`no_trans`, `kd_barang`, `nm_barang`, `qty`, `harga`, `jumlah`) VALUES
+('TJ-00001', 'VGA_00002', 'Gigabyte GTX 1070T TI', 10, 9550000, 95500000),
+('TJ-00001', 'VGA_00001', 'Asus GTX 1080 TI', 10, 15000000, 150000000),
+('TJ-00001', 'VGA_00002', 'Gigabyte GTX 1070T TI', 20, 9550000, 191000000),
+('TJ-00002', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
+('TJ-00002', 'VGA_00002', 'Gigabyte GTX 1070T TI', 12, 9550000, 114600000),
+('TJ-00002', 'VGA_00001', 'Asus GTX 1080 TI', 100, 15000000, 1500000000),
+('', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
+('TJ-00003', 'VGA_00002', 'Gigabyte GTX 1070T TI', 10, 9550000, 95500000),
+('TJ-00004', 'VGA_00002', 'Gigabyte GTX 1070T TI', 20, 9550000, 191000000),
+('TJ-00005', 'VGA_00001', 'Asus GTX 1080 TI', 10, 15000000, 150000000),
+('TJ-00006', 'VGA_00002', 'Gigabyte GTX 1070T TI', 25, 9550000, 238750000),
+('TJ-00007', 'VGA_00001', 'Asus GTX 1080 TI', 200, 15000000, 3000000000),
+('TJ-00008', 'VGA_00001', 'Asus GTX 1080 TI', 2222, 15000000, 33330000000),
+('TJ-00009', 'VGA_00001', 'Asus GTX 1080 TI', 21, 15000000, 315000000),
+('', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
+('', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
+('', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
+('TJ-00010', 'VGA_00002', 'Gigabyte GTX 1070T TI', 20, 9550000, 191000000),
+('TJ-00010', 'VGA_00001', 'Asus GTX 1080 TI', 20, 15000000, 300000000),
+('TJ-00011', 'VGA_00001', 'Asus GTX 1080 TI', 2, 15000000, 30000000);
 
 -- --------------------------------------------------------
 
@@ -136,7 +185,9 @@ CREATE TABLE `tb_inventory` (
 
 INSERT INTO `tb_inventory` (`jns_barang`, `kd_barang`, `nm_barang`, `qty`, `hrg_beli`, `hrg_jual`, `hapus`) VALUES
 ('VGA', 'VGA_00001', 'Asus GTX 1080 TI', 2, 13000000, 15000000, 0),
-('VGA', 'VGA_00002', 'Gigabyte GTX 1070T TI', 3, 9000000, 9550000, 0);
+('VGA', 'VGA_00002', 'Gigabyte GTX 1070T TI', 3, 9000000, 9550000, 0),
+('', 'VGA_00003', 'dsa', 10, 1232, 123123, 0),
+('1', 'VGA_00004', 'asda', 22, 124124, 4124, 0);
 
 -- --------------------------------------------------------
 
@@ -158,42 +209,7 @@ CREATE TABLE `tb_pembelian` (
 --
 
 INSERT INTO `tb_pembelian` (`notrans`, `tgltrans`, `supplier`, `subtotal`, `diskon`, `total`) VALUES
-('TB-00001', '0000-00-00', 'ASUS', 0, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_penjualan`
---
-
-CREATE TABLE `tb_penjualan` (
-  `no_trans` varchar(20) NOT NULL,
-  `kd_barang` varchar(10) NOT NULL,
-  `nm_barang` varchar(50) NOT NULL,
-  `qty` int(11) NOT NULL,
-  `harga` double NOT NULL,
-  `jumlah` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tb_penjualan`
---
-
-INSERT INTO `tb_penjualan` (`no_trans`, `kd_barang`, `nm_barang`, `qty`, `harga`, `jumlah`) VALUES
-('TJ-00001', 'VGA_00002', 'Gigabyte GTX 1070T TI', 10, 9550000, 95500000),
-('TJ-00001', 'VGA_00001', 'Asus GTX 1080 TI', 10, 15000000, 150000000),
-('TJ-00001', 'VGA_00002', 'Gigabyte GTX 1070T TI', 20, 9550000, 191000000),
-('TJ-00002', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
-('TJ-00002', 'VGA_00002', 'Gigabyte GTX 1070T TI', 12, 9550000, 114600000),
-('TJ-00002', 'VGA_00001', 'Asus GTX 1080 TI', 100, 15000000, 1500000000),
-('', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
-('TJ-00003', 'VGA_00002', 'Gigabyte GTX 1070T TI', 10, 9550000, 95500000),
-('TJ-00004', 'VGA_00002', 'Gigabyte GTX 1070T TI', 20, 9550000, 191000000),
-('TJ-00005', 'VGA_00001', 'Asus GTX 1080 TI', 10, 15000000, 150000000),
-('TJ-00006', 'VGA_00002', 'Gigabyte GTX 1070T TI', 25, 9550000, 238750000),
-('TJ-00007', 'VGA_00001', 'Asus GTX 1080 TI', 200, 15000000, 3000000000),
-('TJ-00008', 'VGA_00001', 'Asus GTX 1080 TI', 2222, 15000000, 33330000000),
-('TJ-00009', 'VGA_00001', 'Asus GTX 1080 TI', 21, 15000000, 315000000);
+('TB00001', '0000-00-00', 'Innovation', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -214,7 +230,8 @@ CREATE TABLE `tb_supplier` (
 --
 
 INSERT INTO `tb_supplier` (`kd_supplier`, `nm_supplier`, `alamat`, `kontak`, `hapus`) VALUES
-('SP-00001', 'Innovation', 'Jakarta', '220493', 0);
+('SP-00001', 'Innovation', 'Jakarta', '220493', 0),
+('SP-00002', 'ECS', 'Jakarta', '224455', 0);
 
 -- --------------------------------------------------------
 

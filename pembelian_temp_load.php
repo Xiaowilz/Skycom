@@ -7,6 +7,7 @@
 		      <th scope="col">Quantity</th>
 		      <th scope="col">Harga</th>
 		      <th scope="col">Sub Total</th>
+		      <th scope="col"></th>
 		    </tr>
 	  	</thead>
 
@@ -24,10 +25,28 @@
 							<td>$r3[qty]</td>
 							<td>$r3[harga]</td>
 							<td>$r3[jumlah]</td>
+							<td><a href='#' data-kodeHapus='$r3[kd_barang]' class='pilihHapus'>Hapus</a>
 						</tr>
 		    		";
 		    	}
 		     ?>
+		     <script type="text/javascript">
+		     	$('.pilihHapus').on('click', function()
+		     	{
+		     		var kode_hapus = this.getAttribute('data-kodeHapus');
+		     		$.ajax({
+		     			url: 'pembelian_temp_hapus.php',
+		     			type: 'POST',
+		     			dataType: 'html',
+		     			data: {'kodeHapus': kode_hapus},
+		     			success : function()
+		     			{
+		     				$('#temp_pembelian').load('pembelian_temp_load.php');
+		     			}
+		     		});
+		     		
+		     	});
+		     </script>
 	 	</tbody>
 	</table>
 </div>

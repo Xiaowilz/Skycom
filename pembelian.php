@@ -60,25 +60,45 @@
 						<span class="input-group-addon"></span>
 					</div>
 				</div>
+				<?php
+					require_once("conn.php");
+					$sql2 = "SELECT max(notrans) AS maxNoTrans FROM tb_pembelian";
+					$q2 = mysqli_query($conn, $sql2);
+					$data = mysqli_fetch_array($q2);
+					$noTrans = $data['maxNoTrans'];
 
+					$noUrut = (int) substr($noTrans, 3, 5);
+					$noUrut++;
+
+					$char = "TB";
+					$noTrans = $char. sprintf("%05s", $noUrut);
+
+
+					// echo"
+					// 	<script>
+					// 		var no_transaksi = $noTrans;
+					// 		$('#kode_transaksi').value = no_transaksi;
+					// 	</script>
+					// ";
+				?>
 				<div class="info-top">
 				<form method="POST" id="pembelianTemp">
 					<div class="form-group row">
 		      			<label for="kodetransaksi" class="col-sm-2 col-form-label">Kode Transaksi</label>
 		      			<div class="col-sm-3">
-		      				<input id="kode_transaksi" type="text" class="form-control" placeholder="Kode Transaksi" name="kode_transaksi">
+		      				<input id="kode_transaksi" type="text" class="form-control" placeholder="Kode Transaksi" name="kode_transaksi" value="<?php echo $noTrans; ?>">
 		    			</div>
 				    </div>
 
 				    <div class="form row">
 		      			<label for="namasupplier" class="col-sm-2 col-form-label">Supplier</label>
 		      			<div class="col-sm-2">
-		      				<input type="text" class="form-control" placeholder="Kode Supplier" id="kode_supplier" readonly="true">
+		      				<input type="text" class="form-control" placeholder="Kode Supplier" id="kode_supplier" readonly="true" name="kode_supplier">
 		    			</div>
 
 		    			<div class="col-sm-3">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Supplier Name" readonly="true" id="nama_supplier">
+								<input type="text" class="form-control" placeholder="Supplier Name" readonly="true" id="nama_supplier" name="nama_supplier">
 									<div class="input-group-append">
 										<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal0" data-backdrop="static"><span class="ion-person-add"></button>
 									</div>
@@ -115,21 +135,8 @@
 
 					    			<input type="submit" class="btn btn-primary" value="Add" id="add"><!-- <span class="ion-arrow-down-b"></span> -->
 							</div>
-				</form>
-				<script type="text/javascript">
-					$(document).ready(function() {
-						$.ajax({
-							url: 'pembelian_temp_load.php',
-							type: 'GET',
-							dataType: 'html',
-							success : function(response)
-							{
-								$('#temp_pembelian').html(response);
-							}
-						});
-						
-					});
 
+				<script type="text/javascript">
 					$("#add").on('click', function() 
 					{
 						$.ajax({
@@ -192,20 +199,34 @@
 					
 			</div>
 			<br>
-			<form method="POST">
-				<input type="submit" id="simpan" class="btn btn-primary" value="Simpan">
-			</form>	
+				<input type="submit" id="simpan" class="btn btn-primary" name="simpan" value="Simpan" formaction="pembelian_simpan.php">	
+			</form>
+			
 			<script type="text/javascript">
-				$('#simpan').on('click', function()
-				{
-					$.ajax({
-						url : 'pembelian_simpan.php',
-						type : 'POST',
-						success : function()
-						{
-							window.alert('Data Tersimpan');
-						}
-					});
+				// $('#simpan').on('click', function()
+				// {
+				// 	$.ajax({
+				// 		url : 'pembelian_simpan.php',
+				// 		type : 'POST',
+				// 		dataType : $('#pembelianTemp').serialize(),
+				// 		success : function()
+				// 		{
+				// 			window.alert('Data Tersimpan')
+				// 		}
+				// 	});
+				// });
+
+				$(document).ready(function() {
+						$.ajax({
+							url: 'pembelian_temp_load.php',
+							type: 'GET',
+							dataType: 'html',
+							success : function(response)
+							{
+								$('#temp_pembelian').html(response);
+							}
+						});
+						
 				});
 			</script>
 			
