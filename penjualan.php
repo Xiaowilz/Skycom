@@ -17,6 +17,16 @@
 			float: right;
 			margin-right: -15px;
 		}
+
+		.hapus {
+			color : black;
+			font-size: 20px;
+		}
+
+		.hapus:hover{
+			color : red;
+			cursor: pointer;
+		}
 	</style>
 
 </head>
@@ -93,50 +103,32 @@
 				<br/>
 
 				<div class="all-content">
-				    		<div class="form row">
-					      			<div class="col-sm-2">
-					      				<input type="text" class="form-control" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly="true">
-					    			</div>
+			    	<div class="form row">
+		      			<div class="col-sm-2">
+		      				<input type="text" class="form-control" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly="true">
+		    			</div>
 
-									<div class="col-sm-4">
-									    <div class="input-group">
-											<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" readonly="true">
-											<div class="input-group-append">
-												<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
-											</div>
-										</div>
-									</div>	
-
-								    <div class="col-sm-2">
-								    	<input type="text" class="form-control" placeholder="Quantity" name="quantity">
-								    </div>
-
-								    <div class="col-sm-2">
-								    	<input type="text" class="form-control" placeholder="Harga" name="harga_item" id="harga_item">
-								    </div>
-
-					    			<input type="submit" id="add" class="btn btn-primary" value="Add"> 
-					    			<!-- ><span class="ion-arrow-down-b"></span> -->
+						<div class="col-sm-4">
+						    <div class="input-group">
+								<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" readonly="true">
+								<div class="input-group-append">
+									<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
+								</div>
 							</div>
-						</form>
-				  		<!-- <script type="text/javascript">
-				  			$(document).ready(function()
-				  			{
-				  				$("#add").on("click", function()
-				  				{
-				  					$.ajax({	
-				  						url: 'penjualan_temp.php',
-				  						type: 'POST',
-				  						dataType: 'html',
-				  						success : function()
-				  						{
-				  							$(".all-bottom").load("penjualan_temp_load.php");
-				  						}
-				  					});
-				  					
-				  				});
-				  			});
-				  		</script> -->
+						</div>	
+
+					    <div class="col-sm-2">
+					    	<input type="text" class="form-control" placeholder="Quantity" name="quantity">
+					    </div>
+
+					    <div class="col-sm-2">
+					    	<input type="text" class="form-control" placeholder="Harga" name="harga_item" id="harga_item">
+					    </div>
+
+		    			<input type="submit" id="add" class="btn btn-primary" value="Add"> 
+		    			<!-- ><span class="ion-arrow-down-b"></span> -->
+						</div>
+					</form>
 				</div>
 
 				<br/>
@@ -183,16 +175,14 @@
 
 		<!-- Modal Start -->
 		<div class="modal fade" id="myModal1" role="dialog">
-		    <div class="modal-dialog modal-lg">
-		    
+		    <div class="modal-dialog modal-lg">  
 		      <!-- Modal content-->
-		      <div class="modal-content">
-		        <div class="modal-header">
-		          <h4 class="modal-title">Customer</h4>
-		          <span class="ion-close" data-dismiss="modal"></span>		          
-		        </div>
+		      	<div class="modal-content">
+			        <div class="modal-header">
+			          <h4 class="modal-title">Customer</h4>
+			          <span class="ion-close" data-dismiss="modal"></span>		          
+			        </div>
 		        <div class="modal-body">
-					
 					<div class="col-4">
 						<div class="input-group mb-1 input-group-sm">
 							<input type="text" name="keyword0" id="keyword0" class="form-control" placeholder="Search Here" autocomplete="off">
@@ -222,45 +212,22 @@
 									while ($r = mysqli_fetch_assoc($q)) 
 									{
 										echo"
-
-												<tr>
-													<td>$r[kd_customer]</td>
-													<td>$r[nm_customer]</td>
-													<td>$r[alamat]</td>
-													<td>$r[kontak]</td>
-													<td><a href='#' class='pilihCustomer' data-pilihCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-dismiss='modal'>Pilih</a></td>
-												<tr>
-											
+											<tr>
+												<td>$r[kd_customer]</td>
+												<td>$r[nm_customer]</td>
+												<td>$r[alamat]</td>
+												<td>$r[kontak]</td>
+												<td><a href='#' class='pilihCustomer' data-pilihCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-dismiss='modal'>Pilih</a></td>
+											<tr>
 										";	
 									}
-									// if(isset($_REQUEST['pilihCustomer']))
-									// {
-									// 	$pilihCustomer = $_REQUEST['pilihCustomer'];
-									// 	require_once("conn.php");
-									// 	$sql2 = "SELECT * FROM tb_customer WHERE kd_customer = '$pilihCustomer'";
-									// 	$q2 = mysqli_query($conn,$sql2);
-									// 	while ($r2 = mysqli_fetch_assoc($q2)) 
-									// 	{
-									// 		$kode_customer = $r2['kd_customer'];
-									// 		$nama_customer = $r2['nm_customer'];
-											
-									// 	}
-									// 	echo"
-									// 			<script>
-									// 				function funtionPilih(){
-									// 				document.getElementById('kode_customer').value = '$kode_customer';
-									// 				document.getElementById('nama_customer').value = '$nama_customer';
-									// 			}
-									// 			</script>
-									// 		";	
-									// }
-									?>
+								?>
 				  			</table>
 				  		</div>
 				  	</div>
 		        </div>
 		        <div class="modal-footer">
-		          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
 		        </div>
 		      </div>
 		      
