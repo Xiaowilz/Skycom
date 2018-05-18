@@ -64,36 +64,35 @@
 				</div>
 
 				<div class="info-top">
-				<form method="POST" id="penjualanTemp">
-					<div class="form-group row">
-		      			<label for="kodetransaksi" class="col-sm-2 col-form-label">Kode Transaksi</label>
-		      			<div class="col-sm-3">
-		      				<input id="kodetransaksi" type="text" class="form-control" placeholder="Kode Transaksi" name="no_transaksi">
-		    			</div>
-				    </div>
-					
+					<form method="POST" id="penjualanTemp">
+						<div class="form-group row">
+			      			<label for="kodetransaksi" class="col-sm-2 col-form-label">Kode Transaksi</label>
+			      			<div class="col-sm-3">
+			      				<input id="kodetransaksi" type="text" class="form-control" placeholder="Kode Transaksi" name="no_transaksi">
+			    			</div>
+					    </div>
+						
 
-				    <div class="form row">
-		      			<label for="namacustomer" class="col-sm-2 col-form-label">Customer</label>
-		      			<div class="col-sm-2">
-		      				<input type="text" class="form-control" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
-		    			</div>
+					    <div class="form row">
+			      			<label for="namacustomer" class="col-sm-2 col-form-label">Customer</label>
+			      			<div class="col-sm-2">
+			      				<input type="text" class="form-control" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
+			    			</div>
 
-		    			<div class="col-sm-3">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" readonly="true">
+			    			<div class="col-sm-3">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" readonly="true">
 									<div class="input-group-append">
 										<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></button>
 									</div>
+								</div>
 							</div>
-						</div>
-				    </div>
+					    </div>
 				</div>	
 
 				<br/>
 
 				<div class="all-content">
-					<!-- <div class="container"> -->
 				    		<div class="form row">
 					      			<div class="col-sm-2">
 					      				<input type="text" class="form-control" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly="true">
@@ -119,7 +118,7 @@
 					    			<input type="submit" id="add" class="btn btn-primary" value="Add"> 
 					    			<!-- ><span class="ion-arrow-down-b"></span> -->
 							</div>
-				</form>
+						</form>
 				  		<!-- <script type="text/javascript">
 				  			$(document).ready(function()
 				  			{
@@ -138,43 +137,6 @@
 				  				});
 				  			});
 				  		</script> -->
-				  		<script type="text/javascript">
-				  			$(document).ready(function() {
-				  				// refreshTable();
-				  				$.ajax({
-				  						url: 'penjualan_temp_load.php',
-				  						type: 'GET',
-				  						dataType: 'html',
-				  						success : function(response)
-				  						{
-				  							$("#tabelTemp").html(response);
-				  						}
-				  					});				  						
-				  			});
-
-				  			$("#add").click(function() 
-				  			{
-				  				$.ajax({
-				  					url: 'penjualan_temp.php',
-				  					type: 'POST',
-				  					data: $("#penjualanTemp").serialize(),
-				  					success : function(data)
-				  					{
-				  						$("#tabelTemp").load("penjualan_temp_load.php");
-				  					}
-				  				});
-				  				return false;
-				  			});
-
-				  			
-
-				  			// function refreshTable(){
-						   //      $('.all-bottom').load('penjualan_temp_load.php', function(){
-						   //         setTimeout(refreshTable, 5000);
-						   //      });
-						   //  }
-				  		</script>
-					<!-- </div> -->
 				</div>
 
 				<br/>
@@ -192,34 +154,17 @@
 								      <th scope="col">Sub Total</th>
 								    </tr>
 							  	</thead>
-
-								<!-- <tbody>
-								    <?php
-								    // 	require("conn.php");
-								    // 	$sql5 = "SELECT kd_barang,nm_barang,qty,harga,jumlah FROM tb_temp_penjualan";
-								    // 	$q5 = mysqli_query($conn, $sql5);
-								    // 	while ($r5 = mysqli_fetch_assoc($q5)) 
-								    // 	{
-								    // 		echo "
-												// <tr>
-												// 	<td>$r5[kd_barang]</td>
-												// 	<td>$r5[nm_barang]</td>
-												// 	<td>$r5[qty]</td>
-												// 	<td>$r5[harga]</td>
-												// 	<td>$r5[jumlah]</td>
-												// </tr>
-								    // 		";
-								    // 	}
-								    ?>
-							 	</tbody> -->
-							</table>
-							
+							</table>	
 						</div>
 					</div>				
-				</div>	<br>
+				</div>
+
+				<br>
+
 				<form method="POST" id="simpan_penjualan">
 					<input type="submit" name="simpan" class="btn btn-primary" value="Simpan" id="simpan">
 				</form>
+
 				<script type="text/javascript">
 					$('#simpan').on('click',function()
 					{
@@ -231,11 +176,8 @@
 								window.alert('Data Tersimpan');
 							}
 						});	
-					});
-					
-					
+					});		
 				</script>
-
 			</div>
 		</div>
 
@@ -253,79 +195,69 @@
 					
 					<div class="col-4">
 						<div class="input-group mb-1 input-group-sm">
-							<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
+							<input type="text" name="keyword0" id="keyword0" class="form-control" placeholder="Search Here" autocomplete="off">
 							<div class="input-group-append">
 						    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
 						  	</div>
 						</div>
 					</div>	
 
-					<div class="table-responsive">
-			          	<table class="table table-hover table-sm">
-			          		<thead class="thead-dark">
-								<tr>
-									<th>Kode Customer</th>
-									<th>Nama Customer</th>
-									<th>Alamat</th>
-									<th>Kontak</th>
-									<th></th>
-								</tr>
-							</thead>	
-							<?php
-								require("conn.php");
-								$sql = "SELECT * FROM tb_customer WHERE hapus = 0";
-								$q = mysqli_query($conn, $sql);
+					<div id="tabelcustomermodal">
+						<div class="table-responsive">
+				          	<table class="table table-hover table-sm">
+				          		<thead class="thead-dark">
+									<tr>
+										<th>Kode Customer</th>
+										<th>Nama Customer</th>
+										<th>Alamat</th>
+										<th>Kontak</th>
+										<th></th>
+									</tr>
+								</thead>	
+								<?php
+									require("conn.php");
+									$sql = "SELECT * FROM tb_customer WHERE hapus = 0";
+									$q = mysqli_query($conn, $sql);
 
-								while ($r = mysqli_fetch_assoc($q)) 
-								{
-									echo"
+									while ($r = mysqli_fetch_assoc($q)) 
+									{
+										echo"
 
-											<tr>
-												<td>$r[kd_customer]</td>
-												<td>$r[nm_customer]</td>
-												<td>$r[alamat]</td>
-												<td>$r[kontak]</td>
-												<td><a href='#' class='pilihCustomer' data-pilihCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-dismiss='modal'>Pilih</a></td>
-											<tr>
-										
-									";	
-								}
-
-								echo "
-									<script>
-										$('.pilihCustomer').on('click', function(){
-											var kode_customer = this.getAttribute('data-pilihCustomer');
-											var nama_customer = this.getAttribute('data-namaCustomer');
-											document.getElementById('kode_customer').value = kode_customer;
-											document.getElementById('nama_customer').value = nama_customer;
-										});
+												<tr>
+													<td>$r[kd_customer]</td>
+													<td>$r[nm_customer]</td>
+													<td>$r[alamat]</td>
+													<td>$r[kontak]</td>
+													<td><a href='#' class='pilihCustomer' data-pilihCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-dismiss='modal'>Pilih</a></td>
+												<tr>
 											
-									</script>
-								";	
-								// if(isset($_REQUEST['pilihCustomer']))
-								// {
-								// 	$pilihCustomer = $_REQUEST['pilihCustomer'];
-								// 	require_once("conn.php");
-								// 	$sql2 = "SELECT * FROM tb_customer WHERE kd_customer = '$pilihCustomer'";
-								// 	$q2 = mysqli_query($conn,$sql2);
-								// 	while ($r2 = mysqli_fetch_assoc($q2)) 
-								// 	{
-								// 		$kode_customer = $r2['kd_customer'];
-								// 		$nama_customer = $r2['nm_customer'];
-										
-								// 	}
-								// 	echo"
-								// 			<script>
-								// 				function funtionPilih(){
-								// 				document.getElementById('kode_customer').value = '$kode_customer';
-								// 				document.getElementById('nama_customer').value = '$nama_customer';
-								// 			}
-								// 			</script>
-								// 		";	
-								// }
-							?>
-			  			</table>
-			  		</div>
+										";	
+									}
+									// if(isset($_REQUEST['pilihCustomer']))
+									// {
+									// 	$pilihCustomer = $_REQUEST['pilihCustomer'];
+									// 	require_once("conn.php");
+									// 	$sql2 = "SELECT * FROM tb_customer WHERE kd_customer = '$pilihCustomer'";
+									// 	$q2 = mysqli_query($conn,$sql2);
+									// 	while ($r2 = mysqli_fetch_assoc($q2)) 
+									// 	{
+									// 		$kode_customer = $r2['kd_customer'];
+									// 		$nama_customer = $r2['nm_customer'];
+											
+									// 	}
+									// 	echo"
+									// 			<script>
+									// 				function funtionPilih(){
+									// 				document.getElementById('kode_customer').value = '$kode_customer';
+									// 				document.getElementById('nama_customer').value = '$nama_customer';
+									// 			}
+									// 			</script>
+									// 		";	
+									// }
+									?>
+				  			</table>
+				  		</div>
+				  	</div>
 		        </div>
 		        <div class="modal-footer">
 		          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -351,33 +283,33 @@
 
 		        	<div class="col-4">
 						<div class="input-group mb-1 input-group-sm">
-							<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
+							<input type="text" name="keyword1" id="keyword1" class="form-control" placeholder="Search Here" autocomplete="off">
 							<div class="input-group-append">
 						    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
 						  	</div>
 						</div>
 					</div>	
 
-					<div class="table-responsive">
-			          	<table class="table table-hover table-sm">
-			          		<thead class="thead-dark">
-								<tr>
-									<th>Type</th>
-									<th>Item Code</th>
-									<th>Item Name</th>
-									<th>Price</th>
-									<th></th>
-								</tr>
-							</thead>	
-							<?php
-								require("conn.php");
-								$sql3 = "SELECT jns_barang, kd_barang, nm_barang, hrg_jual FROM tb_inventory WHERE hapus = 0";
-								$q3 = mysqli_query($conn, $sql3);
+					<div id="tabelitemmodal">
+						<div class="table-responsive">
+				          	<table class="table table-hover table-sm">
+				          		<thead class="thead-dark">
+									<tr>
+										<th>Type</th>
+										<th>Item Code</th>
+										<th>Item Name</th>
+										<th>Price</th>
+										<th></th>
+									</tr>
+								</thead>	
+								<?php
+									require("conn.php");
+									$sql3 = "SELECT jns_barang, kd_barang, nm_barang, hrg_jual FROM tb_inventory WHERE hapus = 0";
+									$q3 = mysqli_query($conn, $sql3);
 
-								while ($r3 = mysqli_fetch_assoc($q3)) 
-								{
-									echo"
-
+									while ($r3 = mysqli_fetch_assoc($q3)) 
+									{
+										echo"
 											<tr>
 												<td>$r3[jns_barang]</td>
 												<td>$r3[kd_barang]</td>
@@ -385,43 +317,12 @@
 												<td>$r3[hrg_jual]</td>
 												<td><a href='#' class='pilihItem' data-pilihItem='$r3[kd_barang]' data-namaItem='$r3[nm_barang]' data-hargaItem='$r3[hrg_jual]' data-dismiss='modal'>Pilih</a></td>
 											<tr>
-										
-									";	
-								}
-
-								echo "
-									<script>
-										$('.pilihItem').on('click', function()
-										{
-											var kode_item = this.getAttribute('data-pilihItem');
-											var nama_item = this.getAttribute('data-namaItem');
-											var harga_item = this.getAttribute('data-hargaItem');
-											document.getElementById('kode_item').value = kode_item;
-											document.getElementById('nama_item').value = nama_item;
-											document.getElementById('harga_item').value = harga_item;
-										});
-									</script>
-								";
-
-								// if (isset($_REQUEST['pilih_item'])) 
-								// {
-								// 	$pilihItem = $_REQUEST['pilih_item'];
-								// 	require("conn.php");
-								// 	$sql4 = "SELECT kd_barang,nm_barang,hrg_jual FROM tb_inventory WHERE kd_barang = '$pilihItem'";
-								// 	$q4 = mysqli_query($conn,$sql4);
-								// 	while ($r4 = mysqli_fetch_assoc($q4)) 
-								// 	{
-								// 		$kode_item = $r4['kd_barang'];
-								// 		echo "
-								// 			<script>
-								// 				document.getElementById('kode_item').value = '$kode_item';
-								// 			</script>
-								// 		";
-								// 	}
-								// }
-							?>
-			  			</table>
-			  		</div>
+										";	
+									}
+								?>
+				  			</table>
+				  		</div>
+				  	</div>
 		        </div>
 		        <div class="modal-footer">
 		          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -464,18 +365,62 @@
   			$('a').removeClass("active");
   			$(this).addClass("active");
   		});
+
+  		$('#keyword0').on('keyup', function() {
+			$('#tabelcustomermodal').load('ajax/penjualan_search.php?keyword0=' + $('#keyword0').val());
+		});
+
+		$('#keyword1').on('keyup', function() {
+			$('#tabelitemmodal').load('ajax/penjualan_item_search.php?keyword1=' + $('#keyword1').val());
+		});
   	});	
 </script>
 
 <script type="text/javascript">
-	var modal = document.getElementById('id01');
+	$('.pilihCustomer').on('click', function(){
+		var kode_customer = this.getAttribute('data-pilihCustomer');
+		var nama_customer = this.getAttribute('data-namaCustomer');
+		document.getElementById('kode_customer').value = kode_customer;
+		document.getElementById('nama_customer').value = nama_customer;
+	});
 
-// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
-	    }
-}
+	$('.pilihItem').on('click', function() {
+		var kode_item = this.getAttribute('data-pilihItem');
+		var nama_item = this.getAttribute('data-namaItem');
+		var harga_item = this.getAttribute('data-hargaItem');
+		document.getElementById('kode_item').value = kode_item;
+		document.getElementById('nama_item').value = nama_item;
+		document.getElementById('harga_item').value = harga_item;
+	});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		// refreshTable();
+		$.ajax({
+				url: 'penjualan_temp_load.php',
+				type: 'GET',
+				dataType: 'html',
+				success : function(response)
+				{
+					$("#tabelTemp").html(response);
+				}
+			});				  						
+	});
+
+	$("#add").click(function() 
+	{
+		$.ajax({
+			url: 'penjualan_temp.php',
+			type: 'POST',
+			data: $("#penjualanTemp").serialize(),
+			success : function(data)
+			{
+				$("#tabelTemp").load("penjualan_temp_load.php");
+			}
+		});
+		return false;
+	});
 </script>
 
 </html>

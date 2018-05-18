@@ -116,34 +116,7 @@
 					    			<input type="submit" class="btn btn-primary" value="Add" id="add"><!-- <span class="ion-arrow-down-b"></span> -->
 							</div>
 				</form>
-				<script type="text/javascript">
-					$(document).ready(function() {
-						$.ajax({
-							url: 'pembelian_temp_load.php',
-							type: 'GET',
-							dataType: 'html',
-							success : function(response)
-							{
-								$('#temp_pembelian').html(response);
-							}
-						});
-						
-					});
-
-					$("#add").on('click', function() 
-					{
-						$.ajax({
-							url: 'pembelian_temp.php',
-							type: 'POST',
-							data: $('#pembelianTemp').serialize(),
-							success : function()
-							{
-								$('#temp_pembelian').load('pembelian_temp_load.php');
-							}
-						});
-						return false;
-					});
-				</script>
+				
 				</div>
 
 				<br/>
@@ -224,33 +197,33 @@
 		        	<div class="modal-body">
 						<div class="col-4">
 							<div class="input-group mb-1 input-group-sm">
-								<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
+								<input type="text" name="keyword0" id="keyword0" class="form-control" placeholder="Search Here" autocomplete="off">
 								<div class="input-group-append">
 							    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
 							  	</div>
 							</div>
 						</div>	
 
-			          	<div class="table-responsive">
-				          	<table class="table table-hover table-sm">
-				          		<thead class="thead-dark">
-									<tr>
-										<th>Supplier Code</th>
-										<th>Supplier Name</th>
-										<th>Address</th>
-										<th>Contact</th>
-										<th></th>
-									</tr>
-								</thead>	
-								<?php
-									require("conn.php");
-									$sql = "SELECT * FROM tb_supplier WHERE hapus = 0";
-									$q = mysqli_query($conn, $sql);
+						<div id="tabelsuppliermodal">
+				          	<div class="table-responsive">
+					          	<table class="table table-hover table-sm">
+					          		<thead class="thead-dark">
+										<tr>
+											<th>Supplier Code</th>
+											<th>Supplier Name</th>
+											<th>Address</th>
+											<th>Contact</th>
+											<th></th>
+										</tr>
+									</thead>	
+									<?php
+										require("conn.php");
+										$sql = "SELECT * FROM tb_supplier WHERE hapus = 0";
+										$q = mysqli_query($conn, $sql);
 
-									while ($r = mysqli_fetch_assoc($q)) 
-									{
-										echo"
-
+										while ($r = mysqli_fetch_assoc($q)) 
+										{
+											echo"
 												<tr>
 													<td>$r[kd_supplier]</td>
 													<td>$r[nm_supplier]</td>
@@ -258,23 +231,12 @@
 													<td>$r[kontak]</td>
 													<td><a href='#' data-kodeSupplier='$r[kd_supplier]' data-namaSupplier='$r[nm_supplier]' class='pilihSupplier' data-dismiss='modal'>Pilih</a></td>
 												<tr>
-											
-										";	
-									}
-									echo "
-										<script>
-							  				$('.pilihSupplier').on('click', function()
-							  				{
-							  					var kodeSupplier = this.getAttribute('data-kodeSupplier');
-							  					var namaSupplier = this.getAttribute('data-namaSupplier');
-							  					document.getElementById('kode_supplier').value = kodeSupplier;
-							  					document.getElementById('nama_supplier').value = namaSupplier;
-							  				});
-							  			</script>
-						  			";
-								?>
-				  			</table>	
-				  		</div>
+											";	
+										}
+									?>
+					  			</table>	
+					  		</div>
+					  	</div>
 		        	</div>
 
 			        <div class="modal-footer">
@@ -289,7 +251,6 @@
 		<!-- Modal Start -->
 		<div class="modal fade" id="myModal1" role="dialog">
 		    <div class="modal-dialog modal-lg">
-		    
 		      <!-- Modal content-->
 		      <div class="modal-content">
 		        <div class="modal-header">
@@ -300,60 +261,46 @@
 
 					<div class="col-4">
 						<div class="input-group mb-1 input-group-sm">
-							<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
+							<input type="text" name="keyword1" id="keyword1" class="form-control" placeholder="Search Here" autocomplete="off">
 							<div class="input-group-append">
 						    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
 						  	</div>
 						</div>
 					</div>	
 
-		          <div class="table-responsive">
-			          	<table class="table table-hover table-sm">
-			          		<thead class="thead-dark">
-								<tr>
-									<th>Type</th>
-									<th>Item Code</th>
-									<th>Item Name</th>
-									<th>Price</th>
-									<th></th>
-								</tr>
-							</thead>	
-							<?php
-								require("conn.php");
-								$sql2 = "SELECT jns_barang, kd_barang, nm_barang, hrg_jual FROM tb_inventory WHERE hapus = 0";
-								$q2 = mysqli_query($conn, $sql2);
+					<div id="tabelitemmodal">
+			          	<div class="table-responsive">
+				          	<table class="table table-hover table-sm">
+				          		<thead class="thead-dark">
+									<tr>
+										<th>Type</th>
+										<th>Item Code</th>
+										<th>Item Name</th>
+										<th>Price</th>
+										<th></th>
+									</tr>
+								</thead>	
+								<?php
+									require("conn.php");
+									$sql3 = "SELECT jns_barang, kd_barang, nm_barang, hrg_jual FROM tb_inventory WHERE hapus = 0";
+									$q3 = mysqli_query($conn, $sql3);
 
-								while ($r2 = mysqli_fetch_assoc($q2)) 
-								{
-									echo"
-
+									while ($r3 = mysqli_fetch_assoc($q3)) 
+									{
+										echo"
 											<tr>
-												<td>$r2[jns_barang]</td>
-												<td>$r2[kd_barang]</td>
-												<td>$r2[nm_barang]</td>
-												<td>$r2[hrg_jual]</td>
-												<td><a href='#' data-kodeItem='$r2[kd_barang]' data-namaBarang='$r2[nm_barang]' data-hargaItem='$r2[hrg_jual]' class='pilihItem' data-dismiss='modal'>Pilih</a></td>
-											<tr>
-										
-									";	
-								}
-								echo "
-									<script>
-						  				$('.pilihItem').on('click', function()
-						  				{
-						  					var kodeItem = this.getAttribute('data-kodeItem');
-						  					var namaItem = this.getAttribute('data-namaBarang');
-						  					var hargaItem = this.getAttribute('data-hargaItem');
-						  					document.getElementById('kode_item').value = kodeItem;
-						  					document.getElementById('nama_item').value = namaItem;
-						  					document.getElementById('harga_item').value = hargaItem;
-						  				});
-						  			</script>
-					  			";
-							?>
-			  			</table>
-
-			  		</div>
+												<td>$r3[jns_barang]</td>
+												<td>$r3[kd_barang]</td>
+												<td>$r3[nm_barang]</td>
+												<td>$r3[hrg_jual]</td>
+												<td><a href='#' data-kodeItem='$r3[kd_barang]' data-namaBarang='$r3[nm_barang]' data-hargaItem='$r3[hrg_jual]' class='pilihItem' data-dismiss='modal'>Pilih</a></td>
+											<tr>	
+										";	
+									}
+								?>
+				  			</table>
+				  		</div>
+				  	</div>
 		        </div>
 		        <div class="modal-footer">
 		          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -411,3 +358,58 @@
 		}).datepicker('update', new Date());
 	});
 </script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.ajax({
+			url: 'pembelian_temp_load.php',
+			type: 'GET',
+			dataType: 'html',
+			success : function(response)
+			{
+				$('#temp_pembelian').html(response);
+			}
+		});
+
+		$('#keyword0').on('keyup', function() {
+			$('#tabelsuppliermodal').load('ajax/pembelian_supplier_search.php?keyword0=' + $('#keyword0').val());
+		});
+
+		$('#keyword1').on('keyup', function() {
+			$('#tabelitemmodal').load('ajax/penjualan_item_search.php?keyword1=' + $('#keyword1').val());
+		});
+		
+	});
+
+	$("#add").on('click', function() 
+	{
+		$.ajax({
+			url: 'pembelian_temp.php',
+			type: 'POST',
+			data: $('#pembelianTemp').serialize(),
+			success : function()
+			{
+				$('#temp_pembelian').load('pembelian_temp_load.php');
+			}
+		});
+		return false;
+	});
+</script>
+
+<script type="text/javascript">
+	$('.pilihSupplier').on('click', function() {
+		var kodeSupplier = this.getAttribute('data-kodeSupplier');
+		var namaSupplier = this.getAttribute('data-namaSupplier');
+		document.getElementById('kode_supplier').value = kodeSupplier;
+		document.getElementById('nama_supplier').value = namaSupplier;
+	});
+
+	$('.pilihItem').on('click', function() {
+		var kodeItem = this.getAttribute('data-kodeItem');
+		var namaItem = this.getAttribute('data-namaBarang');
+		var hargaItem = this.getAttribute('data-hargaItem');
+		document.getElementById('kode_item').value = kodeItem;
+		document.getElementById('nama_item').value = namaItem;
+		document.getElementById('harga_item').value = hargaItem;
+	});
+</script>		

@@ -13,14 +13,14 @@
 		<tbody>
 		    <?php 
 		    	require("conn.php");
-		    	$sql3 = "SELECT kd_barang,nm_barang,qty,harga,jumlah FROM tb_temp_pembelian";
+		    	$sql3 = "SELECT kdbarang,nmbarang,qty,harga,jumlah FROM tb_temp_pembelian";
 		    	$q3 = mysqli_query($conn, $sql3);
 		    	while ($r3 = mysqli_fetch_assoc($q3))
 		    	{
 		    		echo "
 						<tr>
-							<td>$r3[kd_barang]</td>
-							<td>$r3[nm_barang]</td>
+							<td>$r3[kdbarang]</td>
+							<td>$r3[nmbarang]</td>
 							<td>$r3[qty]</td>
 							<td>$r3[harga]</td>
 							<td>$r3[jumlah]</td>
