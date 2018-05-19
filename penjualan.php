@@ -27,6 +27,10 @@
 			color : red;
 			cursor: pointer;
 		}
+
+		th {
+			text-align: center;
+		}
 	</style>
 
 </head>

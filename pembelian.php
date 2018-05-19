@@ -432,19 +432,19 @@
 		
 	});
 
-	$("#add").on('click', function() 
-	{
-		$.ajax({
-			url: 'pembelian_temp.php',
-			type: 'POST',
-			data: $('#pembelianTemp').serialize(),
-			success : function()
-			{
-				$('#temp_pembelian').load('pembelian_temp_load.php');
-			}
-		});
-		return false;
-	});
+	// $("#add").on('click', function() 
+	// {
+	// 	$.ajax({
+	// 		url: 'pembelian_temp.php',
+	// 		type: 'POST',
+	// 		data: $('#pembelianTemp').serialize(),
+	// 		success : function()
+	// 		{
+	// 			$('#temp_pembelian').load('pembelian_temp_load.php');
+	// 		}
+	// 	});
+	// 	return false;
+	// });
 </script>
 
 <script type="text/javascript">
