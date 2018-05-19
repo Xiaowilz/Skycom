@@ -152,7 +152,6 @@
 						return false;
 					});
 				</script>
-				</form>
 				
 				</div>
 

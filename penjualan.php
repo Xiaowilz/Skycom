@@ -76,13 +76,26 @@
 					</div>
 
 				</div>
+				<?php
+					require_once("conn.php");
+					$sql2 = "SELECT max(notrans) AS maxNoTrans FROM tb_penjualan";
+					$q2 = mysqli_query($conn, $sql2);
+					$data = mysqli_fetch_array($q2);
+					$noTrans = $data['maxNoTrans'];
 
+					$noUrut = (int) substr($noTrans, 3, 5);
+					$noUrut++;
+
+					$char = "TJ";
+					$noTrans = $char. sprintf('%05s', $noUrut);
+
+				?>
 				<div class="info-top">
-					<form method="POST" id="penjualanTemp">
+				<form method="POST" id="penjualanTemp">
 						<div class="form-group row">
 			      			<label for="kodetransaksi" class="col-sm-2 col-form-label">Kode Transaksi</label>
 			      			<div class="col-sm-3">
-			      				<input id="kodetransaksi" type="text" class="form-control" placeholder="Kode Transaksi" name="no_transaksi">
+			      				<input id="kodetransaksi" type="text" class="form-control" placeholder="Kode Transaksi" name="no_transaksi" value="<?php echo $noTrans; ?>">
 			    			</div>
 					    </div>
 						
@@ -95,7 +108,7 @@
 
 			    			<div class="col-sm-3">
 								<div class="input-group">
-									<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" readonly="true">
+									<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" readonly="true" name="nama_customer">
 									<div class="input-group-append">
 										<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></button>
 									</div>
@@ -132,7 +145,7 @@
 		    			<input type="submit" id="add" class="btn btn-primary" value="Add"> 
 		    			<!-- ><span class="ion-arrow-down-b"></span> -->
 						</div>
-					</form>
+
 				</div>
 
 				<br/>
@@ -157,22 +170,27 @@
 
 				<br>
 
-				<form method="POST" id="simpan_penjualan">
-					<input type="submit" name="simpan" class="btn btn-primary" value="Simpan" id="simpan">
+
+					<input type="submit" name="simpan" class="btn btn-primary" value="Simpan" id="simpan" formaction="penjualan_simpan.php">
 				</form>
 
 				<script type="text/javascript">
-					$('#simpan').on('click',function()
-					{
-						$.ajax({
-							url: 'penjualan_simpan.php',
-							type: 'POST',
-							success : function()
-							{
-								window.alert('Data Tersimpan');
-							}
-						});	
-					});		
+					// $('#simpan').on('click',function()
+					// {
+					// 	$.ajax({
+					// 		url: 'penjualan_simpan.php',
+					// 		type: 'POST',
+					// 		data : $('#penjualanTemp').serialize(),
+					// 		success : function()
+					// 		{	
+					// 			// <?php
+					// 			// 	header('Location:penjualan.php');
+					// 			// ?>
+					// 			location.replace('penjualan.php');
+					// 			// $('#tabelTemp').load('penjualan_temp_load.php');
+					// 		}
+					// 	});	
+					// });		
 				</script>
 			</div>
 		</div>
@@ -376,7 +394,7 @@
 				{
 					$("#tabelTemp").html(response);
 				}
-			});				  						
+			});
 	});
 
 	$("#add").click(function() 

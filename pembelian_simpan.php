@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	require_once("conn.php");
 	$sql = $conn->query("INSERT INTO tb_hd_pembelian SELECT * FROM tb_temp_pembelian");
 	$sqlDelete = $conn->query("DELETE FROM tb_temp_pembelian");
@@ -7,7 +8,9 @@
 	$namaSupplier = $_POST['nama_supplier'];
 	// echo "$kode";
 	// echo "$namaSupplier";
-	$sql3 = "INSERT INTO tb_pembelian(notrans,supplier) VALUES ('$kode','$namaSupplier');";
+	$totalPembelian = $_SESSION['totalPembelian'];
+	// echo "$totalPembelian";
+	$sql3 = "INSERT INTO tb_pembelian(notrans,supplier,total) VALUES ('$kode','$namaSupplier','$totalPembelian');";
 	$q3 = mysqli_query($conn, $sql3);
 
 

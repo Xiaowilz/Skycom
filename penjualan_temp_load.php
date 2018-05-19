@@ -13,8 +13,9 @@
 
 		<tbody>
 		    <?php
+		    	session_start();
 		    	require("conn.php");
-		    	$total = 0;
+		    	$totalPenjualan = 0;
 		    	$sql5 = "SELECT kd_barang,nm_barang,qty,harga,jumlah FROM tb_temp_penjualan";
 		    	$q5 = mysqli_query($conn, $sql5);
 		    	while ($r5 = mysqli_fetch_assoc($q5)) 
@@ -33,10 +34,12 @@
 		    		";
 		    		$total += $r5['jumlah'];
 		    	}
+		    	$_SESSION['totalPenjualan'] = "$totalPenjualan";
+		    	// $_SESSION['test'] = "Test 123";
 		    ?>
 				<tr>
 					<td colspan='4'><h4><center><b>Total<b><center></h4></td>
-					<td align="right"> <?php echo "Rp " .number_format($total, 0, ',', '.'); ?> </td>
+					<td align="right"><?php echo "Rp " .number_format($totalPenjualan, 0, ',', '.'); ?> </td>
 					<td></td>
 				</tr>
 		    
