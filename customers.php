@@ -11,7 +11,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>Customer</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/datepicker.css">
@@ -99,11 +99,11 @@
 									</thead>	
 
 									<?php
-										// require_once("conn.php");
+										require_once("conn.php");
 
-										// $sql = "SELECT kd_customer,nm_customer,alamat,kontak FROM tb_customer WHERE hapus = 0";
+										$sql = "SELECT kd_customer,nm_customer,alamat,kontak FROM tb_customer WHERE hapus = 0";
 
-										// $q = mysqli_query($conn,$sql);
+										$q = mysqli_query($conn,$sql);
 
 										while ($r = mysqli_fetch_assoc($q)) 
 										{
@@ -243,13 +243,13 @@
 			          <span class="ion-close" data-dismiss="modal"></span>		          
 			        </div>
 			        <div class="modal-body">
-			        	<form>
+			        	<form method="POST" id="formUpdate">
 				          	<div class="input-group mb-3">
 								<label for="kode" class="col-sm-3 col-form-label">Kode</label>
 							 	<div class="input-group-prepend">
 							    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kode Customer" id="kode" name="" required="">
+							  	<input type="text" class="form-control" placeholder="Kode Customer" id="kode" name="kode" required="">
 							</div>
 
 							<div class="input-group mb-3">
@@ -257,7 +257,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-android-person"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Nama Customer" id="nama" name="" required>
+							  	<input type="text" class="form-control" placeholder="Nama Customer" id="nama" name="nama" required>
 							</div>
 
 							<div class="input-group mb-3">
@@ -265,7 +265,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-location"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Alamat" id="alamat" name="" required>
+							  	<input type="text" class="form-control" placeholder="Alamat" id="alamat" name="alamat" required>
 							</div>
 
 							<div class="input-group mb-3">
@@ -273,9 +273,9 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-telephone"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kontak" id="kon" name="" required>
+							  	<input type="text" class="form-control" placeholder="Kontak" id="kon" name="kontak" required>
 							</div>
-							<button type="submit" class="btn btn-outline-primary btn-sm btn-block">Update</button>
+							<input type="submit" class="btn btn-outline-primary btn-sm btn-block" id="update" value="Update" formaction="customers_edit_simpan.php">
 						</form>
 			        </div>
 			        <div class="modal-footer">
@@ -373,3 +373,34 @@
 	// });						
 </script>
 
+<<<<<<< HEAD
+=======
+<script>
+	$('.editCust').on('click', function()
+	{
+		var kode_customer = this.getAttribute('data-kodeCustomer');
+		var nama_customer = this.getAttribute('data-namaCustomer');
+		var alamat = this.getAttribute('data-alamat');
+		var kontak = this.getAttribute('data-kontak');
+		document.getElementById('kode').value = kode_customer;
+		document.getElementById('nama').value = nama_customer;
+		document.getElementById('alamat').value = alamat;
+		document.getElementById('kon').value = kontak;
+	});									
+
+	// $('#update').on('click', function()
+	// {
+	// 	$.ajax({
+	// 		url: 'customer_edit_simpan.php',
+	// 		type: 'POST',
+	// 		dataType: 'html',
+	// 		data: $('#formUpdate').serialize(),
+	// 		success : function()
+	// 		{
+	// 			location:reload();			
+	// 		}
+	// 	});
+		
+	// });
+</script>
+>>>>>>> 9c6785022af5e2a199c012eaadd94a7ff9d758cd

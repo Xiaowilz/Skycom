@@ -32,11 +32,27 @@
 				    echo "<td>$r[qty]</td>";
 				    echo "<td>$r[hrg_beli]</td>";
 				    echo "<td>$r[hrg_jual]</td>";
-				    echo "<td><span class='ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static'></span></td>";
+				    echo "<td><span class='editBarang ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static' data-jenisBarang='$r[jns_barang]' data-kodeBarang='$r[kd_barang]' data-namaBarang='$r[nm_barang]' data-qty='$r[qty]' data-hargaBeli='$r[hrg_beli]' data-hargaJual='$r[hrg_jual]'></span></td>";
 				    echo "<td class='hapus'><a class='ion-trash-a' href='inventory_hapus.php?hps=$r[kd_barang]' onclick='return functionHapus()'></a></td>";
 				    echo "</tr>";
 				}
 			?>
 	 	</tbody>
-	</table>							
+	</table>				
+	<script type="text/javascript">
+	$('.editBarang').on('click', function()
+	{
+		var jenisBarang = this.getAttribute('data-jenisBarang');
+		var kodeBarang = this.getAttribute('data-kodeBarang');
+		var namaBarang = this.getAttribute('data-namaBarang');
+		var quantity = this.getAttribute('data-qty');
+		var hargaBeli = this.getAttribute('data-hargaBeli');
+		var hargaJual = this.getAttribute('data-hargaJual');
+		document.getElementById('kodeitem').value = kodeBarang;
+		document.getElementById('namaitem').value = namaBarang;
+		document.getElementById('stock').value = quantity;
+		document.getElementById('hargabeli').value = hargaBeli;
+		document.getElementById('hargajual').value = hargaJual;
+	});
+	</script>			
 </div>	
