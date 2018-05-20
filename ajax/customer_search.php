@@ -25,7 +25,7 @@
 
 			$q = mysqli_query($conn,$sql);
 
-			while ($r = mysqli_fetch_array($q)) 
+			while ($r = mysqli_fetch_assoc($q)) 
 			{
 			    echo "<tr>";
 			    echo "<td>$r[kd_customer]";

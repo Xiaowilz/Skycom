@@ -99,13 +99,13 @@
 									</thead>	
 
 									<?php
-										// require_once("conn.php");
+										require_once("conn.php");
 
-										// $sql = "SELECT kd_customer,nm_customer,alamat,kontak FROM tb_customer WHERE hapus = 0";
+										$sql = "SELECT kd_customer,nm_customer,alamat,kontak FROM tb_customer WHERE hapus = 0";
 
-										// $q = mysqli_query($conn,$sql);
+										$q = mysqli_query($conn,$sql);
 
-										while ($r = mysqli_fetch_array($q)) 
+										while ($r = mysqli_fetch_assoc($q)) 
 										{
 										    echo "<tr>";
 										    echo "<td>$r[kd_customer]";
