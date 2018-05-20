@@ -11,7 +11,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>Customer</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/datepicker.css">
@@ -105,7 +105,7 @@
 
 										// $q = mysqli_query($conn,$sql);
 
-										while ($r = mysqli_fetch_assoc($q)) 
+										while ($r = mysqli_fetch_array($q)) 
 										{
 										    echo "<tr>";
 										    echo "<td>$r[kd_customer]";
@@ -229,13 +229,13 @@
 			          <span class="ion-close" data-dismiss="modal"></span>		          
 			        </div>
 			        <div class="modal-body">
-			        	<form>
+			        	<form method="POST" id="formUpdate">
 				          	<div class="input-group mb-3">
 								<label for="kode" class="col-sm-3 col-form-label">Kode</label>
 							 	<div class="input-group-prepend">
 							    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kode Customer" id="kode" name="" required="">
+							  	<input type="text" class="form-control" placeholder="Kode Customer" id="kode" name="kode" required="">
 							</div>
 
 							<div class="input-group mb-3">
@@ -243,7 +243,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-android-person"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Nama Customer" id="nama" name="" required>
+							  	<input type="text" class="form-control" placeholder="Nama Customer" id="nama" name="nama" required>
 							</div>
 
 							<div class="input-group mb-3">
@@ -251,7 +251,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-location"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Alamat" id="alamat" name="" required>
+							  	<input type="text" class="form-control" placeholder="Alamat" id="alamat" name="alamat" required>
 							</div>
 
 							<div class="input-group mb-3">
@@ -259,9 +259,9 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-telephone"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kontak" id="kon" name="" required>
+							  	<input type="text" class="form-control" placeholder="Kontak" id="kon" name="kontak" required>
 							</div>
-							<button type="submit" class="btn btn-outline-primary btn-sm btn-block">Update</button>
+							<input type="submit" class="btn btn-outline-primary btn-sm btn-block" id="update" value="Update" formaction="customers_edit_simpan.php">
 						</form>
 			        </div>
 			        <div class="modal-footer">
@@ -367,4 +367,19 @@
 		document.getElementById('alamat').value = alamat;
 		document.getElementById('kon').value = kontak;
 	});									
+
+	// $('#update').on('click', function()
+	// {
+	// 	$.ajax({
+	// 		url: 'customer_edit_simpan.php',
+	// 		type: 'POST',
+	// 		dataType: 'html',
+	// 		data: $('#formUpdate').serialize(),
+	// 		success : function()
+	// 		{
+	// 			location:reload();			
+	// 		}
+	// 	});
+		
+	// });
 </script>

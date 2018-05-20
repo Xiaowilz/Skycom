@@ -25,7 +25,7 @@
 
 			$q = mysqli_query($conn,$sql);
 
-			while ($r = mysqli_fetch_assoc($q)) 
+			while ($r = mysqli_fetch_array($q)) 
 			{
 			    echo "<tr>";
 			    echo "<td>$r[kd_customer]";
@@ -40,7 +40,6 @@
 				
 		?>
 	</table>
-</div>
 <script>
 	$('.editCust').on('click', function()
 	{
