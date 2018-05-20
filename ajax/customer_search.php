@@ -1,7 +1,6 @@
 <?php
 	require_once('../conn.php');
 	$keyword = addslashes($_GET["keyword"]);
-
 ?>
 
 <div class="table-responsive">
@@ -25,6 +24,7 @@
 
 			$q = mysqli_query($conn,$sql);
 
+
 			while ($r = mysqli_fetch_assoc($q)) 
 			{
 			    echo "<tr>";
@@ -36,11 +36,11 @@
 			    echo "<td><span class='editCust ion-edit' data-toggle='modal' data-target='#editcustomermodal' data-backdrop='static' data-kodeCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-alamat='$r[alamat]' data-kontak='$r[kontak]'></span></td>";
 			    echo "<td><a class='ion-trash-a' href='customers_hapus.php?hps=$r[kd_customer]' onclick='return functionHapus()' class='hapus' value='.$r[kd_customer]' id='hapus' name='hps' data-id = '.$r[kd_customer]'></a></td>";
 			    echo "</tr>";
-			}	
-				
+			}
 		?>
 	</table>
 </div>
+
 <script>
 	$('.editCust').on('click', function()
 	{

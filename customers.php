@@ -122,6 +122,20 @@
 								
 							</div>	
 
+							<script>
+								$('.editCust').on('click', function()
+								{
+									var kode_customer = this.getAttribute('data-kodeCustomer');
+									var nama_customer = this.getAttribute('data-namaCustomer');
+									var alamat = this.getAttribute('data-alamat');
+									var kontak = this.getAttribute('data-kontak');
+									document.getElementById('kode').value = kode_customer;
+									document.getElementById('nama').value = nama_customer;
+									document.getElementById('alamat').value = alamat;
+									document.getElementById('kon').value = kontak;
+								});									
+							</script>
+
 								<!-- href='customers_hapus.php?HPS=$r[kd_customer]'  -->
 								<!-- <script>
 									function functionHapus()
@@ -279,7 +293,7 @@
 		</div>
 	</div>	
 
-<script src="javascript/search.js"></script>
+<!-- <script src="javascript/search.js"></script> -->
 <script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>
 
 </body>
@@ -312,6 +326,10 @@
   			$('a').removeClass("active");
   			$(this).addClass("active");
   		});
+
+  		$('#keyword').on('keyup', function() {
+			$('#container').load('ajax/customer_search.php?keyword=' + $('#keyword').val());
+		});
   	});	
 
 </script>
@@ -355,16 +373,3 @@
 	// });						
 </script>
 
-<script>
-	$('.editCust').on('click', function()
-	{
-		var kode_customer = this.getAttribute('data-kodeCustomer');
-		var nama_customer = this.getAttribute('data-namaCustomer');
-		var alamat = this.getAttribute('data-alamat');
-		var kontak = this.getAttribute('data-kontak');
-		document.getElementById('kode').value = kode_customer;
-		document.getElementById('nama').value = nama_customer;
-		document.getElementById('alamat').value = alamat;
-		document.getElementById('kon').value = kontak;
-	});									
-</script>
