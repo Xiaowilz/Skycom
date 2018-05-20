@@ -39,11 +39,8 @@
 			}
 		?>
 	</table>
-<<<<<<< HEAD
 </div>
 
-=======
->>>>>>> 9c6785022af5e2a199c012eaadd94a7ff9d758cd
 <script>
 	$('.editCust').on('click', function()
 	{
