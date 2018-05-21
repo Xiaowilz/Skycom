@@ -121,31 +121,32 @@
 
 				<div class="all-content">
 			    	<div class="form row">
-		      			<div class="col-sm-2">
-		      				<input type="text" class="form-control" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly="true">
-		    			</div>
+			    		<form>
+			      			<div class="col-sm-2">
+			      				<input type="text" class="form-control" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly required>
+			    			</div>
 
-						<div class="col-sm-4">
-						    <div class="input-group">
-								<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" readonly="true">
-								<div class="input-group-append">
-									<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
+							<div class="col-sm-4">
+							    <div class="input-group">
+									<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" readonly="true" required>
+									<div class="input-group-append">
+										<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
+									</div>
 								</div>
-							</div>
-						</div>	
+							</div>	
 
-					    <div class="col-sm-2">
-					    	<input type="text" class="form-control" placeholder="Quantity" name="quantity">
-					    </div>
+						    <div class="col-sm-2">
+						    	<input type="text" class="form-control" placeholder="Quantity" name="quantity" required>
+						    </div>
 
-					    <div class="col-sm-2">
-					    	<input type="text" class="form-control" placeholder="Harga" name="harga_item" id="harga_item">
-					    </div>
+						    <div class="col-sm-2">
+						    	<input type="text" class="form-control" placeholder="Harga" name="harga_item" id="harga_item" required>
+						    </div>
 
-		    			<input type="submit" id="add" class="btn btn-primary" value="Add"> 
+			    			<Button type="submit" id="add" class="btn btn-outline-primary">Add</Button>
 		    			<!-- ><span class="ion-arrow-down-b"></span> -->
-						</div>
-
+		    			</form>
+					</div>
 				</div>
 
 				<br/>

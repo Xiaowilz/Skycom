@@ -32,17 +32,32 @@
 							<td width='5%'><center><ion-icon name='trash' href='#' data-kodeHapus='$r5[kd_barang]' class='hapus'></ion-icon></center></td>
 						</tr>
 		    		";
-		    		$total += $r5['jumlah'];
+		    		$totalPenjualan += $r5['jumlah'];
 		    	}
 		    	$_SESSION['totalPenjualan'] = "$totalPenjualan";
 		    	// $_SESSION['test'] = "Test 123";
 		    ?>
 				<tr>
-					<td colspan='4'><h4><center><b>Total<b><center></h4></td>
+					<td colspan="6"></td>
+				</tr>
+
+				<tr>
+					<td colspan="4" align="center"><b>Total<b></td>
 					<td align="right"><?php echo "Rp " .number_format($totalPenjualan, 0, ',', '.'); ?> </td>
 					<td></td>
 				</tr>
-		    
+
+				<tr>
+					<td colspan="4" align="center">
+						<div class="form-check">
+						  	<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+						  	<label class="form-check-label" for="defaultCheck1"><h6>PPN 10%</h6></label>
+						</div>
+					</td>
+					<td></td>
+					<td></td>
+				</tr>
+
 		    <script type="text/javascript">
 		    	$('.hapus').on('click',function() 
 		    	{
