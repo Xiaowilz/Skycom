@@ -16,9 +16,6 @@
 			margin-right: 10px;
 		}
 
-		.input-group-text{
-
-		}
 	</style>
 
 </head>
@@ -34,20 +31,20 @@
 	<div id="sidenav">
 		<div id="tab">
 			<div class="tabbutton">
-				<a href="mainform.php"><span class="ion-ios-home"></span>Beranda</a>
-				<a href="penjualan.php"><span class="ion-cash"></span>Penjualan</a>
-				<a href="pembelian.php"><span class="ion-android-cart"></span>Pembelian</a>
-				<a href="customers.php"><span class="ion-ios-people"></span>Customers</a>
-				<a href="inventory.php"><span class="ion-briefcase"></span>Inventory</a>
+				<a href="mainform.php" class="aktif"><span class="ion-ios-home"></span>Beranda</a>
+				<a href="penjualan.php" target="_blank"><span class="ion-cash"></span>Penjualan</a>
+				<a href="pembelian.php" target="_blank"><span class="ion-android-cart"></span>Pembelian</a>
+				<a href="customers.php" class="aktif"><span class="ion-ios-people"></span>Customers</a>
+				<a href="inventory.php" class="aktif"><span class="ion-briefcase"></span>Inventory</a>
 				<a class="active" href="supplier.php"><span class="ion-person-stalker"></span>Supplier</a>
 			</div>
 						
-				<a class="tabbutton drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>
+				<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>
 				
 					<div class="dropdown">
-						<a href="#"><span class="ion-ios-circle-filled"></span>Item 1</a>
-						<a href="#"><span class="ion-ios-circle-filled"></span>Item 2</a>
-						<a href="#"><span class="ion-ios-circle-filled"></span>Item 3</a>
+						<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 1</a>
+						<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 2</a>
+						<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 3</a>
 					</div>
 		</div>
 	</div>
@@ -255,7 +252,7 @@
   		}
 
   	$(document).ready(function(){
-  		$('#tab a').click(function(){
+  		$('#tab .aktif').click(function(){
   			$('a').removeClass("active");
   			$(this).addClass("active");
   		});
