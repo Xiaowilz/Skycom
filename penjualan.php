@@ -170,7 +170,6 @@
 
 				<br>
 
-
 					<input type="submit" name="simpan" class="btn btn-primary" value="Simpan" id="simpan" formaction="penjualan_simpan.php">
 				</form>
 

@@ -12,7 +12,7 @@
 	// echo "$total";
 	// echo "$noTrans";
 	// echo "$namaCustomer";
-	$sql2 = "INSERT INTO tb_penjualan(notrans,customer,totalPenjualan) VALUES('$noTrans','$namaCustomer','$totalPenjualan')";
+	$sql2 = "INSERT INTO tb_penjualan(notrans,customer,total) VALUES('$noTrans','$namaCustomer','$totalPenjualan')";
 	$q2 = mysqli_query($conn, $sql2);
 
 	header('Location:penjualan.php');

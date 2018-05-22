@@ -32,7 +32,7 @@
 							<td width='5%'><center><ion-icon name='trash' href='#' data-kodeHapus='$r5[kd_barang]' class='hapus'></ion-icon></center></td>
 						</tr>
 		    		";
-		    		$total += $r5['jumlah'];
+		    		$totalPenjualan += $r5['jumlah'];
 		    	}
 		    	$_SESSION['totalPenjualan'] = "$totalPenjualan";
 		    	// $_SESSION['test'] = "Test 123";
