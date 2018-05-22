@@ -33,11 +33,11 @@
 
 <script type="text/javascript">
 	$('.pilihItem').on('click', function() {
-		var kode_item = this.getAttribute('data-pilihItem');
-		var nama_item = this.getAttribute('data-namaItem');
-		var harga_item = this.getAttribute('data-hargaItem');
-		document.getElementById('kode_item').value = kode_item;
-		document.getElementById('nama_item').value = nama_item;
-		document.getElementById('harga_item').value = harga_item;
+		var kodeItem = this.getAttribute('data-pilihItem');
+		var namaItem = this.getAttribute('data-namaItem');
+		var hargaItem = this.getAttribute('data-hargaItem');
+		document.getElementById('kode_item').value = kodeItem;
+		document.getElementById('nama_item').value = namaItem;
+		document.getElementById('harga_item').value = hargaItem;
 	});
 </script>

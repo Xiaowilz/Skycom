@@ -30,3 +30,12 @@
 		?>
 	</table>
 </div>						
+
+<script type="text/javascript">
+	$('.pilihCustomer').on('click', function(){
+		var kode_customer = this.getAttribute('data-pilihCustomer');
+		var nama_customer = this.getAttribute('data-namaCustomer');
+		document.getElementById('kode_customer').value = kode_customer;
+		document.getElementById('nama_customer').value = nama_customer;
+	});
+</script>

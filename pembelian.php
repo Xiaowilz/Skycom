@@ -28,7 +28,7 @@
 		</div>
 	</div>
 
-	<div id="sidenav">
+	<!-- <div id="sidenav">
 		<div id="tab">
 			<div class="tabbutton">
 				<a href="mainform.php"><span class="ion-ios-home"></span>Beranda</a>
@@ -47,9 +47,9 @@
 						<a href="#"><span class="ion-ios-circle-filled"></span>Item 3</a>
 					</div>
 		</div>
-	</div>
+	</div> -->
 
-	<div id="rightside">
+	<div id="rightside2">
 		<div id="beranda">	
 			<div class="all-box">	
 				<div class="all-top">
@@ -426,7 +426,7 @@
 		});
 
 		$('#keyword1').on('keyup', function() {
-			$('#tabelitemmodal').load('ajax/penjualan_item_search.php?keyword1=' + $('#keyword1').val());
+			$('#tabelitemmodal').load('ajax/pembelian_item_search.php?keyword1=' + $('#keyword1').val());
 		});
 		
 	});

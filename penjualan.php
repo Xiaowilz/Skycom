@@ -28,9 +28,11 @@
 			cursor: pointer;
 		}
 
-		th {
+		.all-bottom th{
 			text-align: center;
 		}
+
+
 	</style>
 
 </head>
@@ -43,11 +45,11 @@
 		</div>
 	</div>
 
-	<div id="sidenav">
+	<!-- <div id="sidenav">
 		<div id="tab">
 			<div class="tabbutton">	
 				<a href="mainform.php"><span class="ion-ios-home"></span>Beranda</a>
-				<a class="active" href="penjualan.php"><span class="ion-cash"></span>Penjualan</a>
+				<a class="active" href="penjualan.php" target="_blank"><span class="ion-cash"></span>Penjualan</a>
 				<a href="pembelian.php"><span class="ion-android-cart"></span>Pembelian</a>
 				<a href="customers.php"><span class="ion-ios-people"></span>Customers</a>
 				<a href="inventory.php"><span class="ion-briefcase"></span>Inventory</a>
@@ -62,9 +64,9 @@
 						<a href="#"><span class="ion-ios-circle-filled"></span>Item 3</a>
 					</div>
 		</div>
-	</div>
+	</div> -->
 	
-	<div id="rightside">
+	<div id="rightside2">
 		<div id="beranda">			
 			<div class="all-box">	
 
@@ -91,7 +93,7 @@
 
 				?>
 				<div class="info-top">
-				<form method="POST" id="penjualanTemp">
+					<form method="POST" id="penjualanTemp">
 						<div class="form-group row">
 			      			<label for="kodetransaksi" class="col-sm-2 col-form-label">Kode Transaksi</label>
 			      			<div class="col-sm-3">
@@ -121,37 +123,39 @@
 
 				<div class="all-content">
 			    	<div class="form row">
-		      			<div class="col-sm-2">
-		      				<input type="text" class="form-control" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly="true">
-		    			</div>
+			    		
+			      			<div class="col-sm-2">
+			      				<input type="text" class="form-control" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly required>
+			    			</div>
 
-						<div class="col-sm-4">
-						    <div class="input-group">
-								<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" readonly="true">
-								<div class="input-group-append">
-									<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
+							<div class="col-sm-4">
+							    <div class="input-group">
+									<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" readonly="true" required>
+									<div class="input-group-append">
+										<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
+									</div>
 								</div>
-							</div>
-						</div>	
+							</div>	
 
-					    <div class="col-sm-2">
-					    	<input type="text" class="form-control" placeholder="Quantity" name="quantity">
-					    </div>
+						    <div class="col-sm-2">
+						    	<input type="text" class="form-control" placeholder="Quantity" name="quantity" required>
+						    </div>
 
-					    <div class="col-sm-2">
-					    	<input type="text" class="form-control" placeholder="Harga" name="harga_item" id="harga_item">
-					    </div>
+						    <div class="col-sm-2">
+						    	<input type="text" class="form-control" placeholder="Harga" name="harga_item" id="harga_item" required>
+						    </div>
 
-		    			<input type="submit" id="add" class="btn btn-primary" value="Add"> 
+			    			<Button type="submit" id="add" class="btn btn-outline-primary">Add</Button>
 		    			<!-- ><span class="ion-arrow-down-b"></span> -->
-						</div>
-
+		    			
+					</div>
 				</div>
 
 				<br/>
 
 				<div class="all-bottom">
-					<div id="tabelTemp">
+					<!-- Load Tabel Temp -->
+					<div id="tabelTemp"> 
 						<div class="table-responsive">
 							<table class="table table-hover table-sm">
 							 	<thead class="thead-dark">
@@ -171,26 +175,9 @@
 				<br>
 
 					<input type="submit" name="simpan" class="btn btn-primary" value="Simpan" id="simpan" formaction="penjualan_simpan.php">
+					<button type="submit" name="simpan" class="btn btn-primary" id="simpan" formaction="penjualan_simpan.php">Simpan</button>
 				</form>
 
-				<script type="text/javascript">
-					// $('#simpan').on('click',function()
-					// {
-					// 	$.ajax({
-					// 		url: 'penjualan_simpan.php',
-					// 		type: 'POST',
-					// 		data : $('#penjualanTemp').serialize(),
-					// 		success : function()
-					// 		{	
-					// 			// <?php
-					// 			// 	header('Location:penjualan.php');
-					// 			// ?>
-					// 			location.replace('penjualan.php');
-					// 			// $('#tabelTemp').load('penjualan_temp_load.php');
-					// 		}
-					// 	});	
-					// });		
-				</script>
 			</div>
 		</div>
 
