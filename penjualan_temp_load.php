@@ -16,6 +16,7 @@
 		    	session_start();
 		    	require("conn.php");
 		    	$totalPenjualan = 0;
+		    	$result = 0;
 		    	$sql5 = "SELECT kd_barang,nm_barang,qty,harga,jumlah FROM tb_temp_penjualan";
 		    	$q5 = mysqli_query($conn, $sql5);
 		    	while ($r5 = mysqli_fetch_assoc($q5)) 
@@ -54,9 +55,15 @@
 						  	<label class="form-check-label" for="defaultCheck1"><h6>PPN 10%</h6></label>
 						</div>
 					</td>
-					<td></td>
+					<td contenteditable onkeyup="hitung()" id="diskon" align="right"></td>
 					<td></td>
 				</tr>
+
+				<tr>
+					<td colspan="4" align="center"><strong>Grand Total</strong></td>
+					<td align="right" id="grandtotal"></td>
+					<td></td>
+				</tr>	
 
 		    <script type="text/javascript">
 		    	$('.hapus').on('click',function() 
@@ -74,6 +81,17 @@
 		    		});
 		    			
 		    	});
+
+		    	function hitung() {
+		    		var diskon = parseInt($("#diskon").text(), 10);
+		    		// var total = parseInt($("#totalpenjualan").text(), 10);
+		    		var total = <?php echo $totalPenjualan ?>;
+		    		var result = total - diskon;
+		    		<?php $result = '<script> document.writeln(result); </script>' ?>
+
+		    		document.getElementById("grandtotal").innerHTML = result;
+		    		// console.log(result);
+		    	}
 		    </script>
 	 	</tbody>
 	</table>

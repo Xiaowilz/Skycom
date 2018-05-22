@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -174,7 +174,7 @@
 
 				<br>
 
-					<input type="submit" name="simpan" class="btn btn-primary" value="Simpan" id="simpan" formaction="penjualan_simpan.php">
+					<!-- <input type="submit" name="simpan" class="btn btn-primary" value="Simpan" id="simpan" formaction="penjualan_simpan.php"> -->
 					<button type="submit" name="simpan" class="btn btn-primary" id="simpan" formaction="penjualan_simpan.php">Simpan</button>
 				</form>
 
