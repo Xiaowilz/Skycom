@@ -1,8 +1,8 @@
 <?php
 	require_once("conn.php");
 	
-	$u = $_POST['id'];
-	$p = $_POST['password'];
+	$u = mysqli_real_escape_string($_POST['id']);
+	$p = mysqli_real_escape_string($_POST['password']);
 	$sql = "SELECT id,password FROM login WHERE id = '$u' AND password = '$p'";
 
 	$q = mysqli_query($conn, $sql);

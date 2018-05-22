@@ -93,7 +93,7 @@
 								<?php
 									require_once("conn.php");
 
-									$sql = "SELECT kd_supplier,nm_supplier,alamat,kontak FROM tb_supplier";
+									$sql = "SELECT kd_supplier,nm_supplier,alamat,kontak FROM tb_supplier WHERE hapus=0";
 
 									$q = mysqli_query($conn,$sql);
 
@@ -104,14 +104,16 @@
 									    echo "<td>$r[nm_supplier]</td>";
 									    echo "<td>$r[alamat]</td>";
 									    echo "<td>$r[kontak]</td>";
-									    echo "<td><span class='ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static'></span></td>";
-									    echo "<td><span class='ion-trash-a'></span></td>";
+									    echo "<td><span class='editSupplier ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static' data-kodeSupplier='$r[kd_supplier]' data-namaSupplier='$r[nm_supplier]' data-alamat='$r[alamat]' data-kontak='$r[kontak]'></span></td>";
+									    echo "<td><a href='supplier_hapus.php?hps=$r[kd_supplier]' onclick='return functionHapus()'><span class='ion-trash-a'></span></a></td>";
 									    echo "</tr>";
 									}
 								?>
 							</table>
 						</div>	
 					</div>
+					
+					
 					<!-- TAbel -->
 				</div>
 			</div>	
@@ -178,13 +180,13 @@
 			          <span class="ion-close" data-dismiss="modal"></span>		          
 			        </div>
 			        <div class="modal-body">
-			        	<form>
+			        	<form method="POST">
 							<div class="input-group mb-3">
 								<label for="kode" class="col-sm-3 col-form-label">Kode</label>
 							 	<div class="input-group-prepend">
 							    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kode Supplier" name="kd_supp" required autocomplete="off"> 
+							  	<input type="text" class="form-control" placeholder="Kode Supplier" name="kd_supp" required autocomplete="off" id="kode_supplier"> 
 							</div>
 
 							<div class="input-group mb-3">
@@ -192,7 +194,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-android-person"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Nama Supplier" name="nm_supp" required autocomplete="off">
+							  	<input type="text" class="form-control" placeholder="Nama Supplier" name="nm_supp" required autocomplete="off" id="nama_supplier">
 							</div>
 
 							<div class="input-group mb-3">
@@ -200,7 +202,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-location"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Alamat" name="alamat_supp" required autocomplete="off">
+							  	<input type="text" class="form-control" placeholder="Alamat" name="alamat_supp" required autocomplete="off" id="alamat_supplier">
 							</div>
 
 							<div class="input-group mb-3">
@@ -208,9 +210,9 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-telephone"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kontak" name="kontak_supp" required autocomplete="off">
+							  	<input type="text" class="form-control" placeholder="Kontak" name="kontak_supp" required autocomplete="off" id="kontak_supplier">
 							</div>
-							<button type="submit" class="btn btn-outline-primary btn-sm btn-block">Update</button>
+							<button type="submit" class="btn btn-outline-primary btn-sm btn-block" formaction="supplier_edit_simpan.php">Update</button>
 						</form>
 			        </div>
 			        <div class="modal-footer">
@@ -262,4 +264,36 @@
 		});
   	});	
 
+</script>
+
+<script type="text/javascript">
+	function functionHapus()
+	{
+		var r = window.confirm('Yakin di hapus?');
+		if (r == true) 
+		{
+			alert('Data Terhapus');
+			return true;
+		}
+		else
+		{
+			alert('Data Tidak Terhapus');
+			return false;
+		}
+	}
+	
+</script>
+
+<script type="text/javascript">
+	$('.editSupplier').on('click', function()
+	{
+		var kodeSupplier = this.getAttribute('data-kodeSupplier');
+		var namaSupplier = this.getAttribute('data-namaSupplier');
+		var alamat = this.getAttribute('data-alamat');
+		var kontak = this.getAttribute('data-kontak');
+		document.getElementById('kode_supplier').value = kodeSupplier;
+		document.getElementById('nama_supplier').value = namaSupplier;
+		document.getElementById('alamat_supplier').value = alamat;
+		document.getElementById('kontak_supplier').value = kontak;
+	});
 </script>

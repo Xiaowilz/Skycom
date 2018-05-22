@@ -200,17 +200,17 @@
 			          <span class="ion-close" data-dismiss="modal"></span>		          
 			        </div>
 			        <div class="modal-body">
-			        	<form>
+			        	<form method="POST">
 							<div class="input-group mb-3">
 								<label for="type" class="col-sm-3 col-form-label">Tipe</label>
 								<div class="input-group-prepend">
 							    	<label class="input-group-text ion-levels" for="type"></label>
 							  	</div>
-							  	<select class="custom-select" id="type">
+							  	<select class="custom-select" id="type" name="jenis_barang">
 							    	<option selected>Choose Type...</option>
-							    	<option value="1">One</option>
-								    <option value="2">Two</option>
-								    <option value="3">Three</option>
+							    	<option value="VGA">VGA</option>
+								    <option value="MB">Motherboard</option>
+								    <option value="HDD">Hardisk</option>
 							  	</select>
 							</div>	
 	
@@ -219,7 +219,7 @@
 							 	<div class="input-group-prepend">
 							    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kode Barang" id="kodeitem" name="" required>
+							  	<input type="text" class="form-control" placeholder="Kode Barang" id="kodeitem" name="kode_item" required>
 							</div>
 
 							<div class="input-group mb-3">
@@ -227,7 +227,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-pricetag"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Nama Barang" id="namaitem" name="" required>
+							  	<input type="text" class="form-control" placeholder="Nama Barang" id="namaitem" name="nama_item" required>
 							</div>
 
 							<div class="input-group mb-3">
@@ -235,7 +235,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-box"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Stock" id="stock" name="" required>
+							  	<input type="text" class="form-control" placeholder="Stock" id="stock" name="stock_item" required>
 							</div>
 
 							<div class="input-group mb-3">
@@ -243,7 +243,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Harga Beli" id="hargabeli" name="" required>
+							  	<input type="text" class="form-control" placeholder="Harga Beli" id="hargabeli" name="harga_beli" required>
 							</div>
 
 							<div class="input-group mb-3">
@@ -251,9 +251,9 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Harga Jual" id="hargajual" name="" required>
+							  	<input type="text" class="form-control" placeholder="Harga Jual" id="hargajual" name="harga_jual" required>
 							</div>
-							<button type="submit" class="btn btn-outline-primary btn-sm btn-block">Update</button>
+							<button type="submit" class="btn btn-outline-primary btn-sm btn-block" formaction="inventory_edit_simpan.php">Update</button>
 			        	</form>
 			        </div>
 			        <div class="modal-footer">
