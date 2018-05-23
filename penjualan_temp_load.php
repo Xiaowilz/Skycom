@@ -50,18 +50,19 @@
 
 				<tr>
 					<td colspan="4" align="center">
-						<div class="form-check">
+							<strong>Diskon</strong>
+	<!-- 					<div class="form-check">
 						  	<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
 						  	<label class="form-check-label" for="defaultCheck1"><h6>PPN 10%</h6></label>
-						</div>
+						</div> -->
 					</td>
-					<td contenteditable onkeyup="hitung()" id="diskon" align="right"></td>
+					<td align="right"><input type="decimal" name="diskon" id="diskon" placeholder="0"></td>
 					<td></td>
 				</tr>
 
 				<tr>
 					<td colspan="4" align="center"><strong>Grand Total</strong></td>
-					<td align="right" id="grandtotal"></td>
+					<td align="right"><div id="grandtotal"><?php echo "Rp " .number_format($totalPenjualan, 0, ',', '.'); ?></div></td>
 					<td></td>
 				</tr>	
 
@@ -82,17 +83,63 @@
 		    			
 		    	});
 
-		    	function hitung() {
-		    		var diskon = parseInt($("#diskon").text(), 10);
-		    		// var total = parseInt($("#totalpenjualan").text(), 10);
-		    		var total = <?php echo $totalPenjualan ?>;
-		    		var result = total - diskon;
-		    		<?php $result = '<script> document.writeln(result); </script>' ?>
+		    	$(document).ready(function() {
+		    		$('#diskon').on('keyup', function() {
+		    			var diskon = $('#diskon').val();
+		    			// var diskonskin = $('#diskon').val();
+		    			var total = <?php echo $totalPenjualan ?>;
 
-		    		document.getElementById("grandtotal").innerHTML = result;
-		    		// console.log(result);
-		    	}
+		    			// $('#diskon').load('ajax/diskonskin.php', {diskonskin : diskonskin } );
+		    			$('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total } );
+		    		});
+
+		    	// 	$('#diskon').on('blur', function() {
+		    	// 		var diskonskin = parseInt($('#diskon').val());
+		    	// 		// var total = <?php echo $totalPenjualan ?>;
+		    	// 		<?php   
+		    	// 			$test = '<script> document.writeln(diskonskin); </script>';
+		    	// 			$hasil = number_format($test, 0, ',', '.');	
+		    	// 		?>
+		    	// 		// console.log($hasil);
+		    	// 		$('#diskon').val( )
+		    	// 		// $('#diskon').load('ajax/diskonskin.php', {diskonskin : diskonskin } );
+		    	// 		// $('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total } );
+		    	// 	});
+		    	// });
+
+
+
+		  //   	function format_number(number, prefix, thousand_separator, decimal_separator)
+				// {
+				// 	var thousand_separator = thousand_separator || '.',
+				// 		decimal_separator = decimal_separator || ',',
+				// 		regex		= new RegExp('[^' + decimal_separator + '\\d]', 'g'),
+				// 		number_string = number.replace(regex, '').toString(),
+				// 		split	  = number_string.split(decimal_separator),
+				// 		rest 	  = split[0].length % 3,
+				// 		result 	  = split[0].substr(0, rest),
+				// 		thousands = split[0].substr(rest).match(/\d{3}/g);
+					
+				// 	if (thousands) {
+				// 		separator = rest ? thousand_separator : '';
+				// 		result += separator + thousands.join(thousand_separator);
+				// 	}
+				// 	result = split[1] != undefined ? result + decimal_separator + split[1] : result;
+				// 	return prefix == undefined ? result : (result ? prefix + result : '');
+				// };
+
+				// var input = document.getElementById('diskon');
+				// input.addEventListener('blur', function(e)
+				// {
+				// 	input.value = format_number(this.value, 'Rp ');
+				// });
+
+				// $('#diskon').on('click',function() {
+				// 	document.getElementById('diskon').value = "";
+
+				});
 		    </script>
+
 	 	</tbody>
 	</table>
 	

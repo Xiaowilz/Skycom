@@ -32,6 +32,10 @@
 			text-align: center;
 		}
 
+		#diskon {
+			text-align: right;
+			border : none;
+		}
 
 	</style>
 
