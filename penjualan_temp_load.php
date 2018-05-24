@@ -2,7 +2,7 @@
 	<table class="table table-hover table-sm table-bordered">
 	 	<thead class="thead-dark">
 		    <tr>
-		      <th scope="col">Kode Item</th>
+		      <th scope="col">Kode Barang</th>
 		      <th scope="col">Item</th>
 		      <th scope="col" width="7%">Quantity</th>
 		      <th scope="col">Harga</th>

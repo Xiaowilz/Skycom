@@ -10,16 +10,25 @@
   <!-- <script src="javascript/bootstrap-datepicker.js"></script> -->
 </head>
 <body>
-		<div id="beranda">
-			Welcome To SkyCom
-		</div>
-
-<div class="input-group mb-3 input-group-lg">
-  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-  <div class="input-group-append">
-    <span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
+		<div class="container-fluid">
+      Welcome
+      <form>
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+    </div>
   </div>
-</div>
+  <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+    </div>
+  </div>
+</form>
+  </div>
+
+
 
 <script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>
 </body>

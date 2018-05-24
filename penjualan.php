@@ -37,6 +37,14 @@
 			border : none;
 		}
 
+		#cart {
+			margin-right: 6px;
+		}
+
+		#add{
+			padding: 4px 26px;
+		}
+
 	</style>
 
 </head>
@@ -94,26 +102,27 @@
 
 					$char = "TJ";
 					$noTrans = $char. sprintf('%05s', $noUrut);
-
 				?>
 				<div class="info-top">
 					<form method="POST" id="penjualanTemp">
+						<h5>Data Transaksi</h5>
+						<hr>
 						<div class="form-group row">
-			      			<label for="kodetransaksi" class="col-sm-2 col-form-label">Kode Transaksi</label>
-			      			<div class="col-sm-3">
-			      				<input id="kodetransaksi" type="text" class="form-control" placeholder="Kode Transaksi" name="no_transaksi" value="<?php echo $noTrans; ?>">
+			      			<label for="kodetransaksi" class="col-sm-2 col-form-label col-form-label-sm">No. Transaksi</label>
+			      			<div class="col-sm-2">
+			      				<input id="kodetransaksi" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="no_transaksi" readonly value="<?php echo $noTrans; ?>">
 			    			</div>
 					    </div>
 						
 
 					    <div class="form row">
-			      			<label for="namacustomer" class="col-sm-2 col-form-label">Customer</label>
+			      			<label for="namacustomer" class="col-sm-2 col-form-label col-form-label-sm">Customer</label>
 			      			<div class="col-sm-2">
-			      				<input type="text" class="form-control" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
+			      				<input type="text" class="form-control form-control-sm" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
 			    			</div>
 
-			    			<div class="col-sm-3">
-								<div class="input-group">
+			    			<div class="col-sm-2">
+								<div class="input-group input-group-sm mb-2">
 									<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" readonly="true" name="nama_customer">
 									<div class="input-group-append">
 										<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></button>
@@ -126,33 +135,42 @@
 				<br/>
 
 				<div class="all-content">
-			    	<div class="form row">
-			    		
-			      			<div class="col-sm-2">
-			      				<input type="text" class="form-control" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly required>
-			    			</div>
+					<form>
+				    	<h5>Data Barang</h5>
+				    	<hr>
+				    	<div class="form-group row">
+			      			<label for="kode_item" class="col-sm-2 col-form-label col-form-label-sm">Kode Barang</label>
+							<div class="col-sm-2">
+			      				<input type="text" class="form-control form-control-sm" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly required>
+			      			</div>
 
-							<div class="col-sm-4">
-							    <div class="input-group">
+							<div class="col-sm-3">
+							    <div class="input-group input-group-sm">
 									<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" readonly="true" required>
 									<div class="input-group-append">
 										<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
 									</div>
 								</div>
 							</div>	
+						</div>
 
+						<div class="form-group row">
+							<label for="harga_item" class="col-sm-2 col-form-label col-form-label-sm">Harga</label>
 						    <div class="col-sm-2">
-						    	<input type="text" class="form-control" placeholder="Quantity" name="quantity" required>
+						    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item" required>
 						    </div>
+						</div>
 
-						    <div class="col-sm-2">
-						    	<input type="text" class="form-control" placeholder="Harga" name="harga_item" id="harga_item" required>
-						    </div>
+						<div class="form-group row">
+					    	<label for="qty" class="col-sm-2 col-form-label col-form-label-sm">Quantity</label>
+					    	<div class="col-sm-2">
+					    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" required>
+					    	</div>
 
-			    			<Button type="submit" id="add" class="btn btn-outline-primary">Add</Button>
-		    			<!-- ><span class="ion-arrow-down-b"></span> -->
-		    			
-					</div>
+					    	<Button type="submit" id="add" class="btn btn-success btn-sm"><ion-icon name="cart" id="cart"></ion-icon>Tambah</Button>
+						</div>				    	
+				    </form>
+
 				</div>
 
 				<br/>
@@ -164,11 +182,11 @@
 							<table class="table table-hover table-sm">
 							 	<thead class="thead-dark">
 								    <tr>
-								      <th scope="col">Kode Item</th>
+								      <th scope="col">Kode Barang</th>
 								      <th scope="col">Item</th>
-								      <th scope="col">Quantity</th>
+								      <th scope="col" width="7%">Quantity</th>
 								      <th scope="col">Harga</th>
-								      <th scope="col">Sub Total</th>
+								      <th scope="col" width="20%">Sub Total</th>
 								    </tr>
 							  	</thead>
 							</table>	
