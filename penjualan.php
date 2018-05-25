@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Penjualan SkyCom</title>
 
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<!-- Date Picker JS CSS-->
@@ -107,70 +107,88 @@
 					<form method="POST" id="penjualanTemp">
 						<h5>Data Transaksi</h5>
 						<hr>
-						<div class="form-group row">
-			      			<label for="kodetransaksi" class="col-sm-2 col-form-label col-form-label-sm">No. Transaksi</label>
-			      			<div class="col-sm-2">
-			      				<input id="kodetransaksi" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="no_transaksi" readonly value="<?php echo $noTrans; ?>">
-			    			</div>
-					    </div>
-						
+						<div class="dtkiri">
+							<div class="form-group row">
+				      			<label for="kodetransaksi" class="col-sm-3 col-form-label col-form-label-sm">No. Transaksi</label>
+				      			<div class="col-sm-2">
+				      				<input id="kodetransaksi" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="no_transaksi" readonly value="<?php echo $noTrans; ?>">
+				    			</div>
+						    </div>
 
-					    <div class="form row">
-			      			<label for="namacustomer" class="col-sm-2 col-form-label col-form-label-sm">Customer</label>
-			      			<div class="col-sm-2">
-			      				<input type="text" class="form-control form-control-sm" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
-			    			</div>
+						    <div class="form row">
+				      			<label for="namacustomer" class="col-sm-3 col-form-label col-form-label-sm">Customer</label>
+				      			<div class="col-sm-3">
+				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
+				    			</div>
 
-			    			<div class="col-sm-2">
-								<div class="input-group input-group-sm mb-2">
-									<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" readonly="true" name="nama_customer">
-									<div class="input-group-append">
-										<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></button>
+				    			<div class="col-sm-4">
+									<div class="input-group input-group-sm mb-2">
+										<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" readonly="true" name="nama_customer">
+										<div class="input-group-append">
+											<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></span></button>
+										</div>
 									</div>
 								</div>
+						    </div>
+						</div>
+
+						<div class="dtkanan">
+						    <div class="form row">
+							    <label for="keterangan" class="col-sm-3 col-form-label col-form-label-sm">Keterangan</label>
+							    <div class="col-md-6 mb-1">
+							    	<textarea class="form-control form-control-sm" id="keterangan" rows="3"></textarea>
+							    </div>	
 							</div>
-					    </div>
+						</div>
+
+						<div class="spacer" style="clear: both;"></div>					
 				</div>	
 
 				<br/>
 
-				<div class="all-content">
-					<form>
+				<div class="all-content2">
+					
 				    	<h5>Data Barang</h5>
+				    	<?php
+date_default_timezone_set("Asia/Bangkok");
+echo "The time is " . date("H:i:sa");
+?>
 				    	<hr>
-				    	<div class="form-group row">
-			      			<label for="kode_item" class="col-sm-2 col-form-label col-form-label-sm">Kode Barang</label>
-							<div class="col-sm-2">
-			      				<input type="text" class="form-control form-control-sm" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly required>
-			      			</div>
+				    	<div class="dtkiri">
+					    	<div class="form-group row">
+				      			<label for="kode_item" class="col-sm-3 col-form-label col-form-label-sm">Barang</label>
+								<div class="col-sm-3">
+				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly required>
+				      			</div>
 
-							<div class="col-sm-3">
-							    <div class="input-group input-group-sm">
-									<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" readonly="true" required>
-									<div class="input-group-append">
-										<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
+								<div class="col-sm-4">
+								    <div class="input-group input-group-sm">
+										<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" readonly="true" required>
+										<div class="input-group-append">
+											<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
+										</div>
 									</div>
-								</div>
-							</div>	
-						</div>
+								</div>	
+							</div>
 
-						<div class="form-group row">
-							<label for="harga_item" class="col-sm-2 col-form-label col-form-label-sm">Harga</label>
-						    <div class="col-sm-2">
-						    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item" required>
-						    </div>
-						</div>
+							<div class="form-group row">
+								<label for="harga_item" class="col-sm-3 col-form-label col-form-label-sm">Harga</label>
+							    <div class="col-sm-3">
+							    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item" required>
+							    </div>
+							</div>
 
-						<div class="form-group row">
-					    	<label for="qty" class="col-sm-2 col-form-label col-form-label-sm">Quantity</label>
-					    	<div class="col-sm-2">
-					    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" required>
-					    	</div>
+							<div class="form-group row">
+						    	<label for="qty" class="col-sm-3 col-form-label col-form-label-sm">Quantity</label>
+						    	<div class="col-sm-3">
+						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" required autocomplete="off">
+						    	</div>
 
-					    	<Button type="submit" id="add" class="btn btn-success btn-sm"><ion-icon name="cart" id="cart"></ion-icon>Tambah</Button>
-						</div>				    	
-				    </form>
+						    	<Button type="submit" id="add" class="btn btn-success btn-sm"><ion-icon name="cart" id="cart"></ion-icon>Tambah</Button>
+							</div>
+						</div>	
 
+						<div class="spacer" style="clear: both;"></div>
 				</div>
 
 				<br/>
@@ -195,7 +213,6 @@
 				</div>
 
 				<br>
-
 					<!-- <input type="submit" name="simpan" class="btn btn-primary" value="Simpan" id="simpan" formaction="penjualan_simpan.php"> -->
 					<button type="submit" name="simpan" class="btn btn-primary" id="simpan" formaction="penjualan_simpan.php">Simpan</button>
 				</form>

@@ -103,21 +103,6 @@ body{
 }
 
 /*============================*/
-
-/*#btn_daftar {
-	display: block;
-    transition: 0.3s;
-    background-color: inherit;
-	color: gray;
-	padding: 12px 25px;
-	width: 100%;
-	border: none;
-	outline: none;
-	text-align: left;
-	cursor: pointer;
-	font-size: 17px;
-}*/
-
 #tab a:hover{
 	background-color: #ddd;
 	transition: 0.1s;
@@ -233,7 +218,7 @@ body{
 /* -----------------^^^^^------------------- */
 
 /* -----------------Customer Form------------------- */
-.all-box{
+.all-box {
  	background-color: #f7f7f7;
  	padding-left: 50px;
  	padding-right: 50px;
@@ -258,7 +243,26 @@ body{
 	background-color: #fff;
 	padding: 7px;
 	border-radius: 6px;
+}
+
+.all-content2 {
+	background-color: #fff;
+	padding: 7px;
+	border-radius: 6px;
 	text-indent: 20px;
+	clear: both;
+}
+
+.dtkiri {
+	width: 60%;
+	/*border : 5px solid red;*/
+	float: left
+}
+
+.dtkanan {
+	width: 40%;
+	float: right;
+	/*border :  5px solid red;*/
 }
 
 .all-head .button-add{
@@ -269,41 +273,12 @@ body{
 	float: right;
 }
 
-.all-head input[type=text]{
-/*	padding: 10px;
-	display: inline-block;
-	font-size: 14px;
-	border: none;
-	font-family: sans-serif;
-	border-radius: 4px 0 0 4px;
-	background-color: #e9e9e9;
-	text-align: left;
-	outline-width: thick;*/
-}
-
 .all-bottom{
 	background-color: #fff;
 	padding: 7px;
 	border-radius: 6px;
 }
 
-.search-container button{
-	float: right;
-	color: white;
-	padding: 10px 14px;
-	background: dodgerBlue;
-	font-size: 14px;
-	border: none;
-	cursor: pointer;
-	border-radius: 0 4px 4px 0;
-	font-family: sans-serif;
-	position: relative;
-}
-
-.search-container button:hover{
-	background-color: #0059b3;
-	transition: .3s;
-}
 
 /* ------------------------------------------------ */
 
