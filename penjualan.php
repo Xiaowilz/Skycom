@@ -183,8 +183,10 @@ echo "The time is " . date("H:i:sa");
 						    	<div class="col-sm-3">
 						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" required autocomplete="off">
 						    	</div>
-
-						    	<Button type="submit" id="add" class="btn btn-success btn-sm"><ion-icon name="cart" id="cart"></ion-icon>Tambah</Button>
+								
+						    	<div class="col-xs-1">
+						    		<Button type="submit" id="add" class="btn btn-success btn-sm"><ion-icon name="cart" id="cart"></ion-icon>Tambah</Button>
+								</div>
 							</div>
 						</div>	
 
