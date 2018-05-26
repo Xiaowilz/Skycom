@@ -57,6 +57,7 @@
 						</div> -->
 					</td>
 					<td align="right"><input type="decimal" name="diskon" id="diskon" placeholder="0"></td>
+
 					<td></td>
 				</tr>
 
@@ -67,6 +68,7 @@
 				</tr>	
 
 		    <script type="text/javascript">
+
 		    	$('.hapus').on('click',function() 
 		    	{
 		    		var kd_hapus = this.getAttribute('data-kodeHapus');
@@ -95,7 +97,7 @@
 
 		    	// 	$('#diskon').on('blur', function() {
 		    	// 		var diskonskin = parseInt($('#diskon').val());
-		    	// 		// var total = <?php echo $totalPenjualan ?>;
+		    			// var total = <?php echo $totalPenjualan ?>;
 		    	// 		<?php   
 		    	// 			$test = '<script> document.writeln(diskonskin); </script>';
 		    	// 			$hasil = number_format($test, 0, ',', '.');	
