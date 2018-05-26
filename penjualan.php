@@ -204,17 +204,19 @@
 							<div class="form-group row">
 								<label for="harga_item" class="col-sm-3 col-form-label col-form-label-sm">Harga</label>
 							    <div class="col-sm-3">
-							    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item" required>
+							    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item">
 							    </div>
 							</div>
 
 							<div class="form-group row">
 						    	<label for="qty" class="col-sm-3 col-form-label col-form-label-sm">Quantity</label>
 						    	<div class="col-sm-3">
-						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" required autocomplete="off">
+						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" autocomplete="off">
 						    	</div>
-
-						    	<Button type="submit" id="add" class="btn btn-success btn-sm"><ion-icon name="cart" id="cart"></ion-icon>Tambah</Button>
+								
+						    	<div class="col-xs-1">
+						    		<Button type="submit" id="add" class="btn btn-success btn-sm"><ion-icon name="cart" id="cart"></ion-icon>Tambah</Button>
+								</div>
 							</div>
 						</div>	
 

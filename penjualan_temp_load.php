@@ -58,6 +58,9 @@
 					</td>
 					<td align="right"><input type="decimal" name="diskon" id="diskon" placeholder="0"></td>
 
+					<form method="POST">
+						<td align="right"><input type="decimal" name="diskon" id="diskon" placeholder="0"></td>
+					</form>
 					<td></td>
 				</tr>
 
@@ -67,8 +70,8 @@
 					<td></td>
 				</tr>	
 
-		    <script type="text/javascript">
 
+		    <script type="text/javascript">  	
 		    	$('.hapus').on('click',function() 
 		    	{
 		    		var kd_hapus = this.getAttribute('data-kodeHapus');
@@ -88,11 +91,11 @@
 		    	$(document).ready(function() {
 		    		$('#diskon').on('keyup', function() {
 		    			var diskon = $('#diskon').val();
+		    			var kon = $('#diskon').val();
 		    			// var diskonskin = $('#diskon').val();
 		    			var total = <?php echo $totalPenjualan ?>;
-
 		    			// $('#diskon').load('ajax/diskonskin.php', {diskonskin : diskonskin } );
-		    			$('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total } );
+		    			$('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total} );
 		    		});
 
 		    	// 	$('#diskon').on('blur', function() {
@@ -138,6 +141,9 @@
 
 				// $('#diskon').on('click',function() {
 				// 	document.getElementById('diskon').value = "";
+
+
+
 
 				});
 		    </script>
