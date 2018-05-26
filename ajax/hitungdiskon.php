@@ -1,10 +1,11 @@
 <?php
 	require("../conn.php");
-	
+	session_start();
+
 	$diskon = (int)$_POST['diskon'];
 	$total = (int)$_POST['total'];
-	// $diskon = $nilai * 10;
-	$result = $total - $diskon;
+	
+	// $result = $total - $diskon;
 ?>
 
-<?php echo "Rp " .number_format($result, 0, ',', '.');  ?>
+<?php echo "Rp " .number_format($diskon, 0, ',', '.');  ?>
