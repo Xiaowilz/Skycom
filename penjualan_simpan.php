@@ -7,12 +7,21 @@
 	$noTrans = $_POST['no_transaksi'];
 	$namaCustomer = $_POST['nama_customer'];
 	$totalPenjualan = $_SESSION['totalPenjualan'];
+	$tanggal = $_SESSION['tanggal'];
+	$bulan  = $_SESSION['bulan'];
+	$tahun = $_SESSION['tahun'];
+	$tanggalTrans = "$tahun-$bulan-$tanggal";
+	$diskon = $_POST['diskon'];
+	// echo "$tanggal";
+	// echo "$bulan";
+	// echo "$tahun";
+	// echo "$tanggalTrans";
 	// $test = $_SESSION['test'];
 	// echo "$test";
 	// echo "$total";
 	// echo "$noTrans";
 	// echo "$namaCustomer";
-	$sql2 = "INSERT INTO tb_penjualan(notrans,customer,total) VALUES('$noTrans','$namaCustomer','$totalPenjualan')";
+	$sql2 = "INSERT INTO tb_penjualan(notrans,tgltrans,customer,diskon,total) VALUES('$noTrans','$tanggalTrans','$namaCustomer','$diskon','$totalPenjualan')";
 	$q2 = mysqli_query($conn, $sql2);
 
 	header('Location:penjualan.php');
