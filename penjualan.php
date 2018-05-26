@@ -48,7 +48,31 @@
 	</style>
 
 </head>
-<body>
+<script>
+	function functionTampilkanJam()
+	{
+		var waktu = new Date();
+		var jam = waktu.getHours() + "";
+		var menit = waktu.getMinutes() + "";
+		var detik = waktu.getSeconds() + "";
+		document.getElementById("clock").innerHTML = (jam.length==1?"0"+jam:jam) + ":" + (menit.length==1?"0"+menit:menit) + ":" + (detik.length==1?"0"+detik:detik);
+	}
+</script>
+<?php
+	function functionTanggal()
+	{
+		session_start();
+		$hari = date("l");
+		$tanggal = date("d");
+		$bulan = date("m");
+		$tahun = date("Y");
+		$_SESSION["tanggal"] = "$tanggal";
+		$_SESSION["bulan"] = "$bulan";
+		$_SESSION["tahun"] = "$tahun";
+		echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
+	}
+?>
+<body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
 	<div id="topnav">
 		<div class="menuicon" onclick="geser()">
 			<div class="garis"></div>
@@ -106,6 +130,15 @@
 				<div class="info-top">
 					<form method="POST" id="penjualanTemp">
 						<h5>Data Transaksi</h5>
+						<span id="clock"></span>
+						<?php
+							functionTanggal();
+						?>
+						
+							<!-- <?php
+								// date_default_timezone_set("Asia/Bangkok");
+								// echo date(" H:i:s l, d-m-Y");
+							?> -->
 						<hr>
 						<div class="dtkiri">
 							<div class="form-group row">
@@ -149,10 +182,7 @@
 				<div class="all-content2">
 					
 				    	<h5>Data Barang</h5>
-				    	<?php
-date_default_timezone_set("Asia/Bangkok");
-echo "The time is " . date("H:i:sa");
-?>
+				    	
 				    	<hr>
 				    	<div class="dtkiri">
 					    	<div class="form-group row">
