@@ -142,9 +142,6 @@
 				// $('#diskon').on('click',function() {
 				// 	document.getElementById('diskon').value = "";
 
-
-
-
 				});
 		    </script>
 
