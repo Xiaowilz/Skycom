@@ -56,7 +56,9 @@
 						  	<label class="form-check-label" for="defaultCheck1"><h6>PPN 10%</h6></label>
 						</div> -->
 					</td>
-					<td align="right"><input type="decimal" name="diskon" id="diskon" placeholder="0"></td>
+					<form method="POST">
+						<td align="right"><input type="decimal" name="diskon" id="diskon" placeholder="0"></td>
+					</form>
 					<td></td>
 				</tr>
 
