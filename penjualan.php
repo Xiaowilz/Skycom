@@ -173,17 +173,18 @@
 							    </div>
 								
 								<?php
+									$hari = date("l");
 									$tanggal = date("d");
 									$bulan = date("F");
 									$tahun = date("Y");
 									$tgl1 = $tahun."-".$bulan."-".$tanggal;
-									$tgl2 = date('d F Y', strtotime('+14 days', strtotime($tgl1)));
+									$tgl2 = date('l, d-m-Y', strtotime('+14 days', strtotime($tgl1)));
 									// echo $tgl2;
 								?>
 
 								<div class="form row">
-					      			<label for="jthtempo" class="col-sm-3 col-form-label col-form-label-sm">Jatuh Tempo</label>
-					      			<div class="col-sm-2">
+					      			<label for="jthtempo" class="col-sm-3 col-form-label col-form-label-sm">Jatuh Tempo 14 Hari</label>
+					      			<div class="col-sm-3">
 					      				<input id="jthtempo" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="no_transaksi" readonly value="<?php echo $tgl2; ?>">
 					    			</div>
 							    </div>
@@ -270,6 +271,7 @@
 					</div>				
 				</div>
 					<button type="submit" name="simpan" class="btn btn-primary" id="simpan" formaction="penjualan_simpan.php">Simpan</button>
+					<a href="cetak_penjualan.php" target="_blank">Cetak</a>
 				</form>
 
 			</div>
