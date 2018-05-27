@@ -45,6 +45,17 @@
 			padding: 4px 26px;
 		}
 
+		.jamtgl {
+			float : right;
+		}
+
+		#clock {
+			margin-right: 60px;
+		}
+
+		#date {
+			margin-right: 35px;
+		}
 	</style>
 
 </head>
@@ -79,6 +90,15 @@
 			<div class="garis"></div>
 			<div class="garis"></div>
 		</div>
+
+		<div class="jamtgl">
+							Jam : <span id="clock"></span>
+							<span id="date">
+								<?php
+									functionTanggal();
+								?>
+							</span>
+						</div>
 	</div>
 
 	<!-- <div id="sidenav">
@@ -108,11 +128,6 @@
 
 				<div class="all-top">	
 					<h2>Penjualan</h2>
-					<div id="datepicker" class="input-group date" data-date-format="dd MM yyyy">
-						<input class="form-control" type="text" name="">
-						<span class="input-group-addon"></span>
-					</div>
-
 				</div>
 				<?php
 					require_once("conn.php");
@@ -129,55 +144,66 @@
 				?>
 				<div class="info-top">
 					<form method="POST" id="penjualanTemp">
-						<h5>Data Transaksi</h5>
-						<span id="clock"></span>
-						<?php
-							functionTanggal();
-						?>
+						<h5 class="datatrans">Data Transaksi</h5>
 						
-							<!-- <?php
-								// date_default_timezone_set("Asia/Bangkok");
-								// echo date(" H:i:s l, d-m-Y");
-							?> -->
-						<hr>
-						<div class="dtkiri">
-							<div class="form-group row">
-				      			<label for="kodetransaksi" class="col-sm-3 col-form-label col-form-label-sm">No. Transaksi</label>
-				      			<div class="col-sm-2">
-				      				<input id="kodetransaksi" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="no_transaksi" readonly value="<?php echo $noTrans; ?>">
-				    			</div>
-						    </div>
+						<div class="bawah">
+							<hr>
+							<div class="dtkiri">
+								<div class="form-group row">
+					      			<label for="kodetransaksi" class="col-sm-3 col-form-label col-form-label-sm">No. Transaksi</label>
+					      			<div class="col-sm-2">
+					      				<input id="kodetransaksi" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="no_transaksi" readonly value="<?php echo $noTrans; ?>">
+					    			</div>
+							    </div>
 
-						    <div class="form row">
-				      			<label for="namacustomer" class="col-sm-3 col-form-label col-form-label-sm">Customer</label>
-				      			<div class="col-sm-3">
-				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
-				    			</div>
+							    <div class="form-group row">
+					      			<label for="namacustomer" class="col-sm-3 col-form-label col-form-label-sm">Customer</label>
+					      			<div class="col-sm-3">
+					      				<input type="text" class="form-control form-control-sm" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
+					    			</div>
 
-				    			<div class="col-sm-4">
-									<div class="input-group input-group-sm mb-2">
-										<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" readonly="true" name="nama_customer">
-										<div class="input-group-append">
-											<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></span></button>
+					    			<div class="col-sm-4">
+										<div class="input-group input-group-sm mb-1">
+											<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" readonly="true" name="nama_customer">
+											<div class="input-group-append">
+												<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></span></button>
+											</div>
 										</div>
 									</div>
-								</div>
-						    </div>
-						</div>
+							    </div>
+								
+								<?php
+									$tanggal = date("d");
+									$bulan = date("F");
+									$tahun = date("Y");
+									$tgl1 = $tahun."-".$bulan."-".$tanggal;
+									$tgl2 = date('d F Y', strtotime('+14 days', strtotime($tgl1)));
+									// echo $tgl2;
+								?>
 
-						<div class="dtkanan">
-						    <div class="form row">
-							    <label for="keterangan" class="col-sm-3 col-form-label col-form-label-sm">Keterangan</label>
-							    <div class="col-md-6 mb-1">
-							    	<textarea class="form-control form-control-sm" id="keterangan" rows="3"></textarea>
-							    </div>	
+								<div class="form row">
+					      			<label for="jthtempo" class="col-sm-3 col-form-label col-form-label-sm">Jatuh Tempo</label>
+					      			<div class="col-sm-2">
+					      				<input id="jthtempo" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="no_transaksi" readonly value="<?php echo $tgl2; ?>">
+					    			</div>
+							    </div>
+
+							</div>
+
+							<div class="dtkanan">
+							    <div class="form row">
+								    <label for="keterangan" class="col-sm-3 col-form-label col-form-label-sm">Keterangan</label>
+								    <div class="col-md-6 mb-1">
+								    	<textarea class="form-control form-control-sm" id="keterangan" rows="3"></textarea>
+								    </div>	
+								</div>
 							</div>
 						</div>
 
 						<div class="spacer" style="clear: both;"></div>					
 				</div>	
 
-				<br/>
+				<!-- <br/> -->
 
 				<div class="all-content2">
 					
@@ -211,7 +237,7 @@
 							<div class="form-group row">
 						    	<label for="qty" class="col-sm-3 col-form-label col-form-label-sm">Quantity</label>
 						    	<div class="col-sm-3">
-						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" autocomplete="off">
+						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" id="qty" autocomplete="off">
 						    	</div>
 								
 						    	<div class="col-xs-1">
@@ -223,7 +249,7 @@
 						<div class="spacer" style="clear: both;"></div>
 				</div>
 
-				<br/>
+				<!-- <br/> -->
 
 				<div class="all-bottom">
 					<!-- Load Tabel Temp -->
@@ -243,9 +269,6 @@
 						</div>
 					</div>				
 				</div>
-
-				<br>
-					<!-- <input type="submit" name="simpan" class="btn btn-primary" value="Simpan" id="simpan" formaction="penjualan_simpan.php"> -->
 					<button type="submit" name="simpan" class="btn btn-primary" id="simpan" formaction="penjualan_simpan.php">Simpan</button>
 				</form>
 
