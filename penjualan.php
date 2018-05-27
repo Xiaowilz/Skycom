@@ -185,7 +185,7 @@
 								<div class="form row">
 					      			<label for="jthtempo" class="col-sm-3 col-form-label col-form-label-sm">Jatuh Tempo 14 Hari</label>
 					      			<div class="col-sm-3">
-					      				<input id="jthtempo" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="no_transaksi" readonly value="<?php echo $tgl2; ?>">
+					      				<input id="jthtempo" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="tempo_transaksi" readonly value="<?php echo $tgl2; ?>">
 					    			</div>
 							    </div>
 
