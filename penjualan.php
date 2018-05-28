@@ -238,7 +238,7 @@
 							<div class="form-group row">
 						    	<label for="qty" class="col-sm-3 col-form-label col-form-label-sm">Quantity</label>
 						    	<div class="col-sm-3">
-						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" id="qty" autocomplete="off">
+						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" id="qty" autocomplete="off" required>
 						    	</div>
 								
 						    	<div class="col-xs-1">
