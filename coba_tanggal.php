@@ -60,9 +60,6 @@
         $tanggal = date("d");
         $bulan = date("m");
         $tahun = date("Y");
-        $_SESSION["tanggal"] = "$tanggal";
-        $_SESSION["bulan"] = "$bulan";
-        $_SESSION["tahun"] = "$tahun";
         echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
     }
 ?>
@@ -109,7 +106,7 @@
                     </div>
                 
                 
-                <div class="kanan">
+                <div class="tombolfilter">
                     <button type="submit" name="filter" id="filter" class="btn btn-outline-primary">Filter</button>
                     <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button>
                     <button type="submit" name="" id="cetak" class="btn btn-outline-info">Cetak</button>
@@ -179,14 +176,16 @@
             $("#tgl_awal").datepicker({
                 autoclose: true,
                 todayHighlight: true
-            }).datepicker('update', new Date());
+            });
+            // .datepicker('update', new Date());
         });
 
         $(function(){
             $("#tgl_akhir").datepicker({
                 autoclose: true,
                 todayHighlight: true
-            }).datepicker('update', new Date());
+            });
+            // .datepicker('update', new Date());
         });
 
         $("#filter").click(function()

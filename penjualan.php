@@ -90,13 +90,13 @@
 		</div>
 
 		<div class="jamtgl">
-							Jam : <span id="clock"></span>
-							<span id="date">
-								<?php
-									functionTanggal();
-								?>
-							</span>
-						</div>
+			Jam : <span id="clock"></span>
+			<span id="date">
+				<?php
+					functionTanggal();
+				?>
+			</span>
+		</div>
 	</div>
 
 	<!-- <div id="sidenav">
