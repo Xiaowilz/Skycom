@@ -1,11 +1,12 @@
 <?php
 	require_once("../conn.php");
 
-    if(isset($_GET["notrans"]) && isset($_GET["customer"]) && isset($_GET["tgltrans"]))
+    if(isset($_GET["notrans"]) && isset($_GET["customer"]) && isset($_GET["tgltrans"]) && isset($_GET["diskon"]))
     {
         $notrans = $_GET["notrans"];
         $customer = $_GET["customer"];
         $tgltrans = $_GET["tgltrans"];
+        $diskon = $_GET["diskon"];
         // $jthtempo = $_GET["jthtempo"];
     }
 ?>
@@ -158,6 +159,7 @@
 							    		";
 							    		$totalPenjualan += $r['jumlah'];
 						    		}
+						    		$grandtotal = $totalPenjualan - $diskon;
 								?>
 
 								<tr>
@@ -167,6 +169,16 @@
 								<tr>
 									<td colspan="4" align="center"><strong>Total</strong></td>
 									<td align="right"><?php echo "Rp " .number_format($totalPenjualan, 0, ',', '.'); ?></td>
+								</tr>
+
+								<tr>
+									<td colspan="4" align="center"><strong>Diskon</strong></td>
+									<td align="right"><?php echo "Rp " .number_format($diskon, 0, ',', '.'); ?></td>
+								</tr>
+
+								<tr>
+									<td colspan="4" align="center"><strong>Grand Total</strong></td>
+									<td align="right"><?php echo "Rp " .number_format($grandtotal, 0, ',', '.'); ?></td>
 								</tr>
 	                        </tbody>
 	                    </table>

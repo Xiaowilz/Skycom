@@ -16,6 +16,14 @@
 			float: right;
 			margin-right: -15px;
 		}
+
+		#add{
+			padding: 4px 26px;
+		}
+
+		#cart {
+			margin-right: 6px;
+		}
 	</style>
 
 </head>
@@ -54,11 +62,6 @@
 			<div class="all-box">	
 				<div class="all-top">
 					<h2>Pembelian</h2>
-
-					<div id="datepicker" class="input-group date" data-date-format="dd MM yyyy">
-						<input class="form-control" type="text" name="">
-						<span class="input-group-addon"></span>
-					</div>
 				</div>
 				<?php
 					require_once("conn.php");
@@ -72,90 +75,120 @@
 
 					$char = "TB";
 					$noTrans = $char. sprintf("%05s", $noUrut);
-
-
-					// echo"
-					// 	<script>
-					// 		var no_transaksi = $noTrans;
-					// 		$('#kode_transaksi').value = no_transaksi;
-					// 	</script>
-					// ";
 				?>
 				<div class="info-top">
-				<form method="POST" id="pembelianTemp">
-					<div class="form-group row">
-		      			<label for="kodetransaksi" class="col-sm-2 col-form-label">Kode Transaksi</label>
-		      			<div class="col-sm-3">
-		      				<input id="kode_transaksi" type="text" class="form-control" placeholder="Kode Transaksi" name="kode_transaksi" value="<?php echo $noTrans; ?>">
-		    			</div>
-				    </div>
+					<form method="POST" id="pembelianTemp">
+						<h5>Data Transaksi</h5>
+						<hr>
+						<div class="dtkiri">
+							<div class="form-group row">
+				      			<label for="kode_transaksi" class="col-sm-3 col-form-label col-form-label-sm">No. Transaksi</label>
+				      			<div class="col-sm-2">
+				      				<input id="kode_transaksi" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="kode_transaksi" value="<?php echo $noTrans; ?>">
+				    			</div>
+						    </div>
 
-				    <div class="form row">
-		      			<label for="namasupplier" class="col-sm-2 col-form-label">Supplier</label>
-		      			<div class="col-sm-2">
-		      				<input type="text" class="form-control" placeholder="Kode Supplier" id="kode_supplier" readonly="true" name="kode_supplier">
-		    			</div>
+						    <div class="form-group row">
+				      			<label for="nama_supplier" class="col-sm-3 col-form-label col-form-label-sm">Supplier</label>
+				      			<div class="col-sm-3">
+				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Supplier" id="kode_supplier" readonly="true" name="kode_supplier">
+				    			</div>
 
-		    			<div class="col-sm-3">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Supplier Name" readonly="true" id="nama_supplier" name="nama_supplier">
-									<div class="input-group-append">
-										<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal0" data-backdrop="static"><span class="ion-person-add"></button>
-									</div>
-							</div>
-						</div>	
-				    </div>
-				</div>
-
-				<br/>
-
-				<div class="all-content">
-					<!-- <div class="container"> -->
-				    		<div class="form row">
-					      			<div class="col-sm-2">
-					      				<input id="kode_item" type="text" class="form-control" placeholder="Kode Barang" name="kode_item" readonly="true">
-					    			</div>
-
-									<div class="col-sm-4">
-									    <div class="input-group">
-											<input type="text" class="form-control" placeholder="Nama Barang" readonly="true" name="nama_item" id="nama_item">
+				    			<div class="col-sm-4">
+									<div class="input-group input-group-sm mb-1">
+										<input type="text" class="form-control" placeholder="Supplier Name" readonly="true" id="nama_supplier" name="nama_supplier">
 											<div class="input-group-append">
-												<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-plus-round"></span></button>
+												<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal0" data-backdrop="static"><span class="ion-person-add"></button>
 											</div>
-										</div>
-									</div>	
+									</div>
+								</div>	
 
-								    <div class="col-sm-2">
-								    	<input type="text" class="form-control" placeholder="Quantity" name="quantity">
-								    </div>
+							<?php
+								$hari = date("l");
+								$tanggal = date("d");
+								$bulan = date("F");
+								$tahun = date("Y");
+								$tgl1 = $tahun."-".$bulan."-".$tanggal;
+								$tgl2 = date('l, d-m-Y', strtotime('+14 days', strtotime($tgl1)));
+								// echo $tgl2;
+							?>
 
-								    <div class="col-sm-2">
-								    	<input type="text" class="form-control" placeholder="Harga" name="harga_item" id="harga_item">
-								    </div>
+						    </div>
+						</div>
 
-					    			<input type="submit" class="btn btn-primary" value="Add" id="add"><!-- <span class="ion-arrow-down-b"></span> -->
+						<div class="dtkanan">
+							<div class="form row">
+							    <label for="keterangan" class="col-sm-3 col-form-label col-form-label-sm">Keterangan</label>
+							    <div class="col-md-6 mb-1">
+							    	<textarea class="form-control form-control-sm" id="keterangan" rows="3"></textarea>
+							    </div>	
 							</div>
+						</div>
 
+						<div class="spacer" style="clear: both;"></div>	
+					</div>
 
-				<script type="text/javascript">
-					$("#add").on('click', function() 
-					{
-						$.ajax({
-							url: 'pembelian_temp.php',
-							type: 'POST',
-							data: $('#pembelianTemp').serialize(),
-							success : function()
-							{
-								$('#temp_pembelian').load('pembelian_temp_load.php');
-							}
+				<div class="all-content2">
+					<h5>Data Barang</h5>
+					<hr>
+					<div class="dtkiri">
+			    		<div class="form-group row">
+		    				<label for="nama_item" class="col-sm-3 col-form-label col-form-label-sm">Barang</label>
+			      			<div class="col-sm-3">
+			      				<input id="kode_item" type="text" class="form-control form-control-sm" placeholder="Kode Barang" name="kode_item" readonly="true">
+			    			</div>
+
+							<div class="col-sm-4">
+							    <div class="input-group input-group-sm">
+									<input type="text" class="form-control" placeholder="Nama Barang" readonly="true" name="nama_item" id="nama_item">
+									<div class="input-group-append">
+										<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-plus-round"></span></button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						
+
+						<div class="form-group row">
+							<label for="harga_item" class="col-sm-3 col-form-label col-form-label-sm">Harga</label>
+						    <div class="col-sm-3">
+						    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item" autocomplete="off">
+						    </div>
+
+			    			
+						</div>
+
+						<div class="form-group row">	
+							<label for="qty" class="col-sm-3 col-form-label col-form-label-sm">Quantity</label>
+						    <div class="col-sm-3">
+						    	<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" id="qty" autocomplete="off">
+						    </div>
+
+							<div class="col-xs-1">
+						    	<button type="submit" class="btn btn-success btn-sm" value="Add" id="add"><ion-icon name="cart" id="cart"></ion-icon>Tambah</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="spacer" style="clear: both;"></div>
+
+					<script type="text/javascript">
+						$("#add").on('click', function() 
+						{
+							$.ajax({
+								url: 'pembelian_temp.php',
+								type: 'POST',
+								data: $('#pembelianTemp').serialize(),
+								success : function()
+								{
+									$('#temp_pembelian').load('pembelian_temp_load.php');
+								}
+							});
+							return false;
 						});
-						return false;
-					});
-				</script>
-				
+					</script>
 				</div>
-
-				<br/>
 
 				<div class="all-bottom">
 					<div id="temp_pembelian">

@@ -89,28 +89,23 @@
 
         <div class="all-content">
             <div class="form row">
-                    <div class="form-group col-md-2">
-                        <label for="tgl_awal" class="col-form-label col-form-label-sm">Dari Tanggal</label>
-                        <div id="tgl_awal" class="input date" data-date-format="yyyy-mm-dd">
-                            <input class="form-control" type="text" name="tgl_awal" id="from_date">
-                            <span class="input-group-addon"></span>
-                        </div>
+                <div class="form-group col-md-2">
+                    <label for="tgl_awal" class="col-form-label col-form-label-sm">Dari Tanggal</label>
+                    <div id="tgl_awal" class="input date" data-date-format="yyyy-mm-dd">
+                        <input class="form-control" type="text" name="tgl_awal" id="from_date">
+                        <span class="input-group-addon"></span>
                     </div>
-                    
-                    <div class="form-group col-md-2">
-                        <label for="tgl_awal" class="col-form-label col-form-label-sm">Sampai Tanggal</label>
-                        <div id="tgl_akhir" class="input date" data-date-format="yyyy-mm-dd">
-                            <input class="form-control" type="text" name="tgl_akhir" id="to_date">
-                            <span class="input-group-addon"></span>
-                        </div>
+                </div>
+                
+                <div class="form-group col-md-2">
+                    <label for="tgl_awal" class="col-form-label col-form-label-sm">Sampai Tanggal</label>
+                    <div id="tgl_akhir" class="input date" data-date-format="yyyy-mm-dd">
+                        <input class="form-control" type="text" name="tgl_akhir" id="to_date">
+                        <span class="input-group-addon"></span>
                     </div>
-                
-<<<<<<< HEAD
-                
+                </div>
+                   
                 <div class="tombolfilter">
-=======
-                <div class="kanan">
->>>>>>> f750b6190cedf7bb7332976a053f86cab6fe9ee3
                     <button type="submit" name="filter" id="filter" class="btn btn-outline-primary">Filter</button>
                     <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button>
                     <button type="submit" name="" id="cetak" class="btn btn-outline-info">Cetak</button>
@@ -152,7 +147,7 @@
                                         <td align='right'>$subtotal</td>
                                         <td align='right'>$diskon</td>
                                         <td align='right'>$total</td>
-                                        <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]' target=_blank id='detail'>Detail</a></td>
+                                        <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
                                     </tr>
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];
@@ -174,7 +169,7 @@
     </div>        
 
  <script type="text/javascript">
-<<<<<<< HEAD
+
     $(document).ready(function(){
 
         $(function(){
@@ -191,64 +186,40 @@
                 todayHighlight: true
             });
             // .datepicker('update', new Date());
+        });    
+
+        $("#filter").click(function(){
+            var tglAwal = $("#from_date").val();
+            var tglAkhir = $("#to_date").val();
+            $.ajax({
+                url: 'coba_filter.php',
+                method : 'POST',
+                data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
+                success : function(data)
+                {
+                    $("#tampil").html(data);
+                }
+            
+            });
+                
         });
 
-        $("#filter").click(function()
-=======
-        $(document).ready(function() 
->>>>>>> f750b6190cedf7bb7332976a053f86cab6fe9ee3
-        {
-            $(function()
-            {
-                $("#tgl_awal").datepicker({
-                    autoclose: true,
-                    todayHighlight: true
-                }).datepicker('update', new Date());
-            });
-
-            $(function()
-            {
-                $("#tgl_akhir").datepicker({
-                    autoclose: true,
-                    todayHighlight: true
-                }).datepicker('update', new Date());
-            });       
-
-
-             $("#filter").click(function()
-            {
-                var tglAwal = $("#from_date").val();
-                var tglAkhir = $("#to_date").val();
-                $.ajax({
-                    url: 'coba_filter.php',
-                    method : 'POST',
-                    data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
-                    success : function(data)
-                    {
-                        $("#tampil").html(data);
-                    }
-                
-                });
-                
-            });
-
-            $("#cetak").click(function()
-            {       
-                var tglAwal = $("#from_date").val();
-                var tglAkhir = $("#to_date").val();
-                // $.ajax({
-                //     url: 'cetak_penjualan_tanggal.php',
-                //     method : 'POST',
-                //     data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
-                //     success : function()
-                //     {
-                        window.open("cetak_penjualan_tanggal.php?tglAwal=" + tglAwal + "&tglAkhir=" + tglAkhir, "_blank");
-                //     }
-                   
-                // });
-            });
-
+        $("#cetak").click(function(){       
+            var tglAwal = $("#from_date").val();
+            var tglAkhir = $("#to_date").val();
+            // $.ajax({
+            //     url: 'cetak_penjualan_tanggal.php',
+            //     method : 'POST',
+            //     data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
+            //     success : function()
+            //     {
+                    window.open("cetak_penjualan_tanggal.php?tglAwal=" + tglAwal + "&tglAkhir=" + tglAkhir, "_blank");
+            //     }
+               
+            // });
         });
+    });
+        
 
 </script>
 

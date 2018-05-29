@@ -154,7 +154,7 @@
 						    </div>
 
 						    <div class="form-group row">
-				      			<label for="namacustomer" class="col-sm-3 col-form-label col-form-label-sm">Customer</label>
+				      			<label for="nama_customer" class="col-sm-3 col-form-label col-form-label-sm">Customer</label>
 				      			<div class="col-sm-3">
 				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
 				    			</div>
@@ -209,7 +209,7 @@
 				    	<hr>
 				    	<div class="dtkiri">
 					    	<div class="form-group row">
-				      			<label for="kode_item" class="col-sm-3 col-form-label col-form-label-sm">Barang</label>
+				      			<label for="nama_item" class="col-sm-3 col-form-label col-form-label-sm">Barang</label>
 								<div class="col-sm-3">
 				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Barang" name="kode_item" id="kode_item" readonly required>
 				      			</div>
