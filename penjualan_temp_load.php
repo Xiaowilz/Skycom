@@ -50,11 +50,7 @@
 
 				<tr>
 					<td colspan="4" align="center">
-							<strong>Diskon</strong>
-	<!-- 					<div class="form-check">
-						  	<input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-						  	<label class="form-check-label" for="defaultCheck1"><h6>PPN 10%</h6></label>
-						</div> -->
+						<strong>Diskon</strong>
 					</td>
 					<td align="right"><input type="decimal" name="diskon" id="diskon" placeholder="0"></td>
 					<td></td>

@@ -1,12 +1,3 @@
-<?php
-	require_once("conn.php");
-
-	$sql = "SELECT kd_customer,nm_customer,alamat,kontak FROM tb_customer WHERE hapus = 0";
-
-	$q = mysqli_query($conn,$sql);
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,8 +14,6 @@
 		.ion-person-add{
 			margin-right: 10px;
 		}
-		
-
 	</style>
 
 </head>
