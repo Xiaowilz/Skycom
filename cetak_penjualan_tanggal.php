@@ -18,8 +18,8 @@
 	  	<tbody>';
 
 		    	require("conn.php");
-		    	$tglAwal = $_POST['tglAwal'];
-		    	$tglAkhir = $_POST['tglAkhir'];
+		    	$tglAwal = $_GET['tglAwal'];
+		    	$tglAkhir = $_GET['tglAkhir'];
 		    	$sql5 = "SELECT * FROM tb_penjualan WHERE tgltrans BETWEEN '$tglAwal' AND '$tglAkhir'";
 		    	$q5 = mysqli_query($conn, $sql5);
 		    	$grandTotal = 0;

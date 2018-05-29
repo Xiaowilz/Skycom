@@ -108,7 +108,6 @@
                         </div>
                     </div>
                 
-                
                 <div class="kanan">
                     <button type="submit" name="filter" id="filter" class="btn btn-outline-primary">Filter</button>
                     <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button>
@@ -173,69 +172,60 @@
     </div>        
 
  <script type="text/javascript">
-    $(document).ready(function(){
-
-        $(function(){
-            $("#tgl_awal").datepicker({
-                autoclose: true,
-                todayHighlight: true
-            }).datepicker('update', new Date());
-        });
-
-        $(function(){
-            $("#tgl_akhir").datepicker({
-                autoclose: true,
-                todayHighlight: true
-            }).datepicker('update', new Date());
-        });
-
-    $("#cetak").click(function()
-    {       
-        var tglAwal = $("#from_date").val();
-        var tglAkhir = $("#to_date").val();
-        $.ajax({
-            url: 'cetak_penjualan_tanggal.php',
-            method : 'POST',
-            data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
-            success : function(data)
-            {
-                window.open('cetak_penjualan_tanggal.php',data);
-            }
-           
-        $("#filter").click(function()
+        $(document).ready(function() 
         {
-            var tglAwal = $("#from_date").val();
-            var tglAkhir = $("#to_date").val();
-            $.ajax({
-                url: 'coba_filter.php',
-                method : 'POST',
-                data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
-                success : function(data)
-                {
-                    $("#tampil").html(data);
-                }
-            
-            });
-            
-        });
-
-        $("#cetak").click(function()
-        {       
-            var tglAwal = $("#from_date").val();
-            var tglAkhir = $("#to_date").val();
-            $.ajax({
-                url: 'cetak_penjualan_tanggal.php',
-                method : 'POST',
-                data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
-                success : function()
-                {
-                    window.open("cetak_penjualan_tanggal.php");
-                }
-               
+            $(function()
+            {
+                $("#tgl_awal").datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                }).datepicker('update', new Date());
             });
 
+            $(function()
+            {
+                $("#tgl_akhir").datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                }).datepicker('update', new Date());
+            });       
+
+
+             $("#filter").click(function()
+            {
+                var tglAwal = $("#from_date").val();
+                var tglAkhir = $("#to_date").val();
+                $.ajax({
+                    url: 'coba_filter.php',
+                    method : 'POST',
+                    data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
+                    success : function(data)
+                    {
+                        $("#tampil").html(data);
+                    }
+                
+                });
+                
+            });
+
+            $("#cetak").click(function()
+            {       
+                var tglAwal = $("#from_date").val();
+                var tglAkhir = $("#to_date").val();
+                // $.ajax({
+                //     url: 'cetak_penjualan_tanggal.php',
+                //     method : 'POST',
+                //     data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
+                //     success : function()
+                //     {
+                        window.open("cetak_penjualan_tanggal.php?tglAwal=" + tglAwal + "&tglAkhir=" + tglAkhir, "_blank");
+                //     }
+                   
+                // });
+            });
+
         });
-    });
+
 </script>
 
 </body>
