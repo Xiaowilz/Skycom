@@ -381,3 +381,27 @@ body{
 	text-decoration: none;
 }
 /*------------------------------------------------*/
+
+/*Data laporan*/
+.kiri {
+
+}
+
+.kanan {
+	float: right;
+	margin-top: 31px;
+}
+
+#filter{
+	/*padding: 10px 24px;;*/
+	margin-right: 10px;
+}
+
+#reset{
+	margin-right: 10px;
+}
+
+#cetak{
+	margin-right: 10px;
+}
+/**/

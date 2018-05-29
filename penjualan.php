@@ -4,13 +4,11 @@
 	<title>Penjualan SkyCom</title>
 
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<!-- Date Picker JS CSS-->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/datepicker.css">
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 	<script src="javascript/bootstrap-datepicker.js"></script>
-	<!-- ____________  -->
 
 	<style type="text/css">
 		.col-4 {
@@ -146,60 +144,58 @@
 					<form method="POST" id="penjualanTemp">
 						<h5 class="datatrans">Data Transaksi</h5>
 						
-						<div class="bawah">
-							<hr>
-							<div class="dtkiri">
-								<div class="form-group row">
-					      			<label for="kodetransaksi" class="col-sm-3 col-form-label col-form-label-sm">No. Transaksi</label>
-					      			<div class="col-sm-2">
-					      				<input id="kodetransaksi" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="no_transaksi" readonly value="<?php echo $noTrans; ?>">
-					    			</div>
-							    </div>
+						<hr>
+						<div class="dtkiri">
+							<div class="form-group row">
+				      			<label for="kodetransaksi" class="col-sm-3 col-form-label col-form-label-sm">No. Transaksi</label>
+				      			<div class="col-sm-2">
+				      				<input id="kodetransaksi" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="no_transaksi" readonly value="<?php echo $noTrans; ?>">
+				    			</div>
+						    </div>
 
-							    <div class="form-group row">
-					      			<label for="namacustomer" class="col-sm-3 col-form-label col-form-label-sm">Customer</label>
-					      			<div class="col-sm-3">
-					      				<input type="text" class="form-control form-control-sm" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
-					    			</div>
+						    <div class="form-group row">
+				      			<label for="namacustomer" class="col-sm-3 col-form-label col-form-label-sm">Customer</label>
+				      			<div class="col-sm-3">
+				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
+				    			</div>
 
-					    			<div class="col-sm-4">
-										<div class="input-group input-group-sm mb-1">
-											<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" readonly="true" name="nama_customer">
-											<div class="input-group-append">
-												<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></span></button>
-											</div>
+				    			<div class="col-sm-4">
+									<div class="input-group input-group-sm mb-1">
+										<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" readonly="true" name="nama_customer">
+										<div class="input-group-append">
+											<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></span></button>
 										</div>
 									</div>
-							    </div>
-								
-								<?php
-									$hari = date("l");
-									$tanggal = date("d");
-									$bulan = date("F");
-									$tahun = date("Y");
-									$tgl1 = $tahun."-".$bulan."-".$tanggal;
-									$tgl2 = date('l, d-m-Y', strtotime('+14 days', strtotime($tgl1)));
-									// echo $tgl2;
-								?>
-
-								<div class="form row">
-					      			<label for="jthtempo" class="col-sm-3 col-form-label col-form-label-sm">Jatuh Tempo 14 Hari</label>
-					      			<div class="col-sm-3">
-					      				<input id="jthtempo" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="tempo_transaksi" readonly value="<?php echo $tgl2; ?>">
-					    			</div>
-							    </div>
-
-							</div>
-
-							<div class="dtkanan">
-							    <div class="form row">
-								    <label for="keterangan" class="col-sm-3 col-form-label col-form-label-sm">Keterangan</label>
-								    <div class="col-md-6 mb-1">
-								    	<textarea class="form-control form-control-sm" id="keterangan" rows="3"></textarea>
-								    </div>	
 								</div>
-							</div>
+						    </div>
+							
+							<?php
+								$hari = date("l");
+								$tanggal = date("d");
+								$bulan = date("F");
+								$tahun = date("Y");
+								$tgl1 = $tahun."-".$bulan."-".$tanggal;
+								$tgl2 = date('l, d-m-Y', strtotime('+14 days', strtotime($tgl1)));
+								// echo $tgl2;
+							?>
+
+							<div class="form row">
+				      			<label for="jthtempo" class="col-sm-3 col-form-label col-form-label-sm">Jatuh Tempo 14 Hari</label>
+				      			<div class="col-sm-3">
+				      				<input id="jthtempo" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="tempo_transaksi" readonly value="<?php echo $tgl2; ?>">
+				    			</div>
+						    </div>
+
 						</div>
+
+						<div class="dtkanan">
+						    <div class="form row">
+							    <label for="keterangan" class="col-sm-3 col-form-label col-form-label-sm">Keterangan</label>
+							    <div class="col-md-6 mb-1">
+							    	<textarea class="form-control form-control-sm" id="keterangan" rows="3"></textarea>
+							    </div>	
+							</div>
+						</div>	
 
 						<div class="spacer" style="clear: both;"></div>					
 				</div>	
@@ -476,7 +472,7 @@
 				{
 					$("#tabelTemp").html(response);
 				}
-			});
+		});
 	});
 
 	$("#add").click(function() 
