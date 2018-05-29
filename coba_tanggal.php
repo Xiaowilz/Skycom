@@ -70,9 +70,9 @@
             url: 'cetak_penjualan_tanggal.php',
             method : 'POST',
             data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
-            success : function()
+            success : function(data)
             {
-                window.open("cetak_penjualan_tanggal.php");
+                window.open('cetak_penjualan_tanggal.php',data);
             }
            
         });
