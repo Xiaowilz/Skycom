@@ -105,8 +105,12 @@
                         </div>
                     </div>
                 
+<<<<<<< HEAD
                 
                 <div class="tombolfilter">
+=======
+                <div class="kanan">
+>>>>>>> f750b6190cedf7bb7332976a053f86cab6fe9ee3
                     <button type="submit" name="filter" id="filter" class="btn btn-outline-primary">Filter</button>
                     <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button>
                     <button type="submit" name="" id="cetak" class="btn btn-outline-info">Cetak</button>
@@ -170,6 +174,7 @@
     </div>        
 
  <script type="text/javascript">
+<<<<<<< HEAD
     $(document).ready(function(){
 
         $(function(){
@@ -189,39 +194,62 @@
         });
 
         $("#filter").click(function()
+=======
+        $(document).ready(function() 
+>>>>>>> f750b6190cedf7bb7332976a053f86cab6fe9ee3
         {
-            var tglAwal = $("#from_date").val();
-            var tglAkhir = $("#to_date").val();
-            $.ajax({
-                url: 'coba_filter.php',
-                method : 'POST',
-                data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
-                success : function(data)
-                {
-                    $("#tampil").html(data);
-                }
-            
-            });
-            
-        });
-
-        $("#cetak").click(function()
-        {       
-            var tglAwal = $("#from_date").val();
-            var tglAkhir = $("#to_date").val();
-            $.ajax({
-                url: 'cetak_penjualan_tanggal.php',
-                method : 'POST',
-                data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
-                success : function()
-                {
-                    window.open("cetak_penjualan_tanggal.php");
-                }
-               
+            $(function()
+            {
+                $("#tgl_awal").datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                }).datepicker('update', new Date());
             });
 
+            $(function()
+            {
+                $("#tgl_akhir").datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                }).datepicker('update', new Date());
+            });       
+
+
+             $("#filter").click(function()
+            {
+                var tglAwal = $("#from_date").val();
+                var tglAkhir = $("#to_date").val();
+                $.ajax({
+                    url: 'coba_filter.php',
+                    method : 'POST',
+                    data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
+                    success : function(data)
+                    {
+                        $("#tampil").html(data);
+                    }
+                
+                });
+                
+            });
+
+            $("#cetak").click(function()
+            {       
+                var tglAwal = $("#from_date").val();
+                var tglAkhir = $("#to_date").val();
+                // $.ajax({
+                //     url: 'cetak_penjualan_tanggal.php',
+                //     method : 'POST',
+                //     data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
+                //     success : function()
+                //     {
+                        window.open("cetak_penjualan_tanggal.php?tglAwal=" + tglAwal + "&tglAkhir=" + tglAkhir, "_blank");
+                //     }
+                   
+                // });
+            });
+
         });
-    });
+
 </script>
 
 </body>
