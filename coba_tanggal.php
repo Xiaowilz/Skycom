@@ -94,16 +94,7 @@
                     <div id="tgl_awal" class="input date" data-date-format="yyyy-mm-dd">
                         <input class="form-control" type="text" name="tgl_awal" id="from_date">
                         <span class="input-group-addon"></span>
-                    </div>
-                    
-                    <div class="form-group col-md-2">
-                        <label for="tgl_awal" class="col-form-label col-form-label-sm">Sampai Tanggal</label>
-                        <div id="tgl_akhir" class="input date" data-date-format="yyyy-mm-dd">
-                            <input class="form-control" type="text" name="tgl_akhir" id="to_date">
-                            <span class="input-group-addon"></span>
-                        </div>
-                    </div>
-                
+                    </div>                
                 </div>
                 
                 <div class="form-group col-md-2">
