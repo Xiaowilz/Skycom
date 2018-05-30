@@ -20,6 +20,7 @@
         $sql = "SELECT * FROM tb_penjualan WHERE tgltrans BETWEEN '$tglAwal' AND '$tglAkhir'";
         $q = mysqli_query($conn,$sql);
         $grandTotal = 0;
+        $diskon = 0;
         while ($r = mysqli_fetch_array($q)) 
         {
             // $subtotal = number_format($r['subtotal'], 0, ',', '.');
@@ -32,7 +33,7 @@
                     <td align='right'>$r[subtotal]</td>
                     <td align='right'>$r[diskon]</td>
                     <td align='right'>$total</td>
-                    <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]' target=_blank id='detail'>Detail</a></td>
+                    <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
                 </tr>
             ";  
             $grandTotal = $grandTotal + $r['total'];

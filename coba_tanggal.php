@@ -89,12 +89,11 @@
 
         <div class="all-content">
             <div class="form row">
-                    <div class="form-group col-md-2">
-                        <label for="tgl_awal" class="col-form-label col-form-label-sm">Dari Tanggal</label>
-                        <div id="tgl_awal" class="input date" data-date-format="yyyy-mm-dd">
-                            <input class="form-control" type="text" name="tgl_awal" id="from_date">
-                            <span class="input-group-addon"></span>
-                        </div>
+                <div class="form-group col-md-2">
+                    <label for="tgl_awal" class="col-form-label col-form-label-sm">Dari Tanggal</label>
+                    <div id="tgl_awal" class="input date" data-date-format="yyyy-mm-dd">
+                        <input class="form-control" type="text" name="tgl_awal" id="from_date">
+                        <span class="input-group-addon"></span>
                     </div>
                     
                     <div class="form-group col-md-2">
@@ -105,6 +104,16 @@
                         </div>
                     </div>
                 
+                </div>
+                
+                <div class="form-group col-md-2">
+                    <label for="tgl_awal" class="col-form-label col-form-label-sm">Sampai Tanggal</label>
+                    <div id="tgl_akhir" class="input date" data-date-format="yyyy-mm-dd">
+                        <input class="form-control" type="text" name="tgl_akhir" id="to_date">
+                        <span class="input-group-addon"></span>
+                    </div>
+                </div>
+                   
                 <div class="tombolfilter">
                     <button type="submit" name="filter" id="filter" class="btn btn-outline-primary">Filter</button>
                     <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button>
@@ -147,7 +156,7 @@
                                         <td align='right'>$subtotal</td>
                                         <td align='right'>$diskon</td>
                                         <td align='right'>$total</td>
-                                        <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]' target=_blank id='detail'>Detail</a></td>
+                                        <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
                                     </tr>
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];
@@ -169,8 +178,8 @@
     </div>        
 
  <script type="text/javascript">
-    $(document).ready(function()
-    {
+    $(document).ready(function(){
+
         $(function(){
             $("#tgl_awal").datepicker({
                 autoclose: true,
@@ -187,9 +196,9 @@
             // .datepicker('update', new Date());
         });
 
+ 
 
-        $("#filter").click(function()
-        {
+        $("#filter").click(function(){
             var tglAwal = $("#from_date").val();
             var tglAkhir = $("#to_date").val();
             $.ajax({
@@ -202,11 +211,10 @@
                 }
             
             });
-            
+       
         });
 
-        $("#cetak").click(function()
-        {       
+        $("#cetak").click(function(){       
             var tglAwal = $("#from_date").val();
             var tglAkhir = $("#to_date").val();
             // $.ajax({
@@ -220,8 +228,8 @@
                
             // });
         });
-
     });
+        
 
 </script>
 
