@@ -18,7 +18,7 @@
 		";
 		exit;
 	}
-	else
+	else if(!empty($qty) && !empty($hargaItem))
 	{
 		$sql = "INSERT INTO tb_temp_pembelian(notrans,kd_barang,nm_barang,qty,harga,jumlah)
 		VALUES ('$_POST[kode_transaksi]', '$_POST[kode_item]', '$_POST[nama_item]', $qty, $hargaItem, $subTotal);";

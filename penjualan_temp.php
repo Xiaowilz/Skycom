@@ -16,7 +16,7 @@
 		";
 		exit;
 	}
-	else
+	else if (!empty($qty) && !empty($hargaJual))
 	{
 		$sql = "INSERT INTO tb_temp_penjualan (no_trans,kd_barang,nm_barang,qty,harga,jumlah) VALUES 
 		('$_POST[no_transaksi]','$_POST[kode_item]', '$_POST[nama_item]', '$qty', '$hargaJual', '$subTotal');";

@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username']))
+	{
+		header("Location:index.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +65,13 @@
 	</style>
 
 </head>
+
 <script>
+	window.onbeforeunload = function () 
+	{
+	  return 'Are you really want to perform the action?';
+	}
+
 	function functionTampilkanJam()
 	{
 		var waktu = new Date();
@@ -70,7 +84,6 @@
 <?php
 	function functionTanggal()
 	{
-		session_start();
 		$hari = date("l");
 		$tanggal = date("d");
 		$bulan = date("m");
@@ -227,7 +240,7 @@
 							<div class="form-group row">
 								<label for="harga_item" class="col-sm-3 col-form-label col-form-label-sm">Harga</label>
 							    <div class="col-sm-3">
-							    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item">
+							    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item" autocomplete="off">
 							    </div>
 							</div>
 

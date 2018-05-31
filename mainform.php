@@ -9,8 +9,20 @@
 	<script src="javascript/jquery.min.js"></script>
 	<script src="javascript/bootstrap-datepicker.js"></script>
 	<!-- ____________  -->
+	<style type="text/css">
+		.logout
+		{
+			float: right;
+		}
+	</style>
 </head>
-
+<?php
+	session_start();
+	if(!isset($_SESSION['username']))
+	{
+		header("Location:index");
+	}
+?>
 <body>
 	<div id="topnav">
 		<div class="menuicon" onclick="geser()">
@@ -18,27 +30,33 @@
 			<div class="garis"></div>
 			<div class="garis"></div>
 		</div>
+		
+		<div class="logout">
+			<form method="POST" action="logout">
+				<input type="submit" name="logout" value="Logout" class="btn btn-danger">
+			</form>
+		</div>
 	</div>
 
 	<div id="sidenav">
 		<div id="tab">
 			<div class="tabbutton">	
-				<a class="active" href="mainform.php"><span class="ion-ios-home"></span>Beranda</a>
-				<a href="penjualan.php" target="_blank"><span class="ion-cash"></span>Penjualan</a>
-				<a href="pembelian.php" target="_blank"><span class="ion-android-cart"></span>Pembelian</a>
-				<a href="customers.php" class="aktif"><span class="ion-ios-people"></span>Customers</a>
-				<a href="inventory.php" class="aktif"><span class="ion-briefcase"></span>Inventory</a>
-				<a href="supplier.php" class="aktif"><span class="ion-person-stalker"></span>Supplier</a>
+				<a class="active" href="mainform"><span class="ion-ios-home"></span>Beranda</a>
+				<a href="penjualan" target="_blank"><span class="ion-cash"></span>Penjualan</a>
+				<a href="pembelian" target="_blank"><span class="ion-android-cart"></span>Pembelian</a>
+				<a href="customers" class="aktif"><span class="ion-ios-people"></span>Customers</a>
+				<a href="inventory" class="aktif"><span class="ion-briefcase"></span>Inventory</a>
+				<a href="supplier" class="aktif"><span class="ion-person-stalker"></span>Supplier</a>
 			</div>	
 						
 				<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>
 				
-					<div class="dropdown">
-						<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 1</a>
-						<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 2</a>
-						<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 3</a>
-					</div>
-				
+				<div class="dropdown">
+					<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 1</a>
+					<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 2</a>
+					<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 3</a>
+
+				</div>
 		</div>
 	</div>
 

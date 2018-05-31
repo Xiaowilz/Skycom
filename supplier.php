@@ -16,9 +16,22 @@
 			margin-right: 10px;
 		}
 
+		.logout
+		{
+			float : right;
+		}
 	</style>
 
 </head>
+
+<?php
+	session_start();
+	if(!isset($_SESSION['username']))
+	{
+		header("Location:index.php");
+	}
+?>
+
 <body>
 	<div id="topnav">
 		<div class="menuicon" onclick="geser()">
@@ -26,17 +39,23 @@
 			<div class="garis"></div>
 			<div class="garis"></div>
 		</div>
+
+		<div class="logout">
+			<form method="POST" action="logout">
+				<input type="submit" name="logout" value="Logout" class="btn btn-danger">
+			</form>
+		</div>
 	</div>
 
 	<div id="sidenav">
 		<div id="tab">
 			<div class="tabbutton">
-				<a href="mainform.php" class="aktif"><span class="ion-ios-home"></span>Beranda</a>
-				<a href="penjualan.php" target="_blank"><span class="ion-cash"></span>Penjualan</a>
-				<a href="pembelian.php" target="_blank"><span class="ion-android-cart"></span>Pembelian</a>
-				<a href="customers.php" class="aktif"><span class="ion-ios-people"></span>Customers</a>
-				<a href="inventory.php" class="aktif"><span class="ion-briefcase"></span>Inventory</a>
-				<a class="active" href="supplier.php"><span class="ion-person-stalker"></span>Supplier</a>
+				<a href="mainform" class="aktif"><span class="ion-ios-home"></span>Beranda</a>
+				<a href="penjualan" target="_blank"><span class="ion-cash"></span>Penjualan</a>
+				<a href="pembelian" target="_blank"><span class="ion-android-cart"></span>Pembelian</a>
+				<a href="customers" class="aktif"><span class="ion-ios-people"></span>Customers</a>
+				<a href="inventory" class="aktif"><span class="ion-briefcase"></span>Inventory</a>
+				<a class="active" href="supplier"><span class="ion-person-stalker"></span>Supplier</a>
 			</div>
 						
 				<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>
@@ -120,6 +139,19 @@
 
 			<!-- Modal Start -->	
 			<div id="id01" class="modal_dialog">
+				<?php
+					require_once("conn.php");
+					$sql2 = "SELECT max(kd_supplier) AS maxKodeSupplier FROM tb_supplier";
+					$q2 = mysqli_query($conn, $sql2);
+					$data = mysqli_fetch_array($q2);
+					$noKodeSupplier = $data['maxKodeSupplier'];
+
+					$noUrut = (int) substr($noKodeSupplier, 3, 5);
+					$noUrut++;
+
+					$char = "SP-";
+					$noKodeSupplier = $char. sprintf('%05s', $noUrut);
+				?>
 				<div class="modal_content animate">
 					<div class="modal_head">
 						<button onclick="document.getElementById('id01').style.display='none'" class="btn-close-modal"><i class="ion-close-round"></i></button>
@@ -133,7 +165,7 @@
 								 	<div class="input-group-prepend">
 								    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
 								  	</div>
-								  	<input type="text" class="form-control" placeholder="Kode Supplier" name="kd_supp" required autocomplete="off">
+								  	<input type="text" class="form-control" placeholder="Kode Supplier" name="kd_supp" required autocomplete="off" value="<?php echo $noKodeSupplier; ?>" readonly="true">
 								</div>
 
 								<div class="input-group mb-3">

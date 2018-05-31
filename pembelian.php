@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username']))
+	{
+		header("Location:index.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +18,21 @@
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 	<script src="javascript/bootstrap-datepicker.js"></script>
-	<!-- ____________  -->	
+	<!-- ____________  -->
 	<style type="text/css">
 		.col-4 {
 			float: right;
 			margin-right: -15px;
+		}
+		
+		.hapus {
+			color : black;
+			font-size: 20px;
+		}
+
+		.hapus:hover{
+			color : red;
+			cursor: pointer;
 		}
 
 		#add{
@@ -24,15 +42,65 @@
 		#cart {
 			margin-right: 6px;
 		}
+		.jamtgl {
+			float : right;
+		}
+
+		#clock {
+			margin-right: 60px;
+		}
+
+		#date {
+			margin-right: 35px;
+		}
 	</style>
 
 </head>
-<body>
+
+<script>
+	window.onbeforeunload = function () 
+	{
+	  return 'Are you really want to perform the action?';
+	}
+
+	function functionTampilkanJam()
+	{
+		var waktu = new Date();
+		var jam = waktu.getHours() + "";
+		var menit = waktu.getMinutes() + "";
+		var detik = waktu.getSeconds() + "";
+		document.getElementById("clock").innerHTML = (jam.length==1?"0"+jam:jam) + ":" + (menit.length==1?"0"+menit:menit) + ":" + (detik.length==1?"0"+detik:detik);
+	}
+</script>
+
+<?php
+	function functionTanggal()
+	{
+		$hari = date("l");
+		$tanggal = date("d");
+		$bulan = date("m");
+		$tahun = date("Y");
+		$_SESSION["tanggal"] = "$tanggal";
+		$_SESSION["bulan"] = "$bulan";
+		$_SESSION["tahun"] = "$tahun";
+		echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
+	}
+?>
+<body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
 	<div id="topnav">
 		<div class="menuicon" onclick="geser()">
 			<div class="garis"></div>
 			<div class="garis"></div>
 			<div class="garis"></div>
+		</div>
+
+		<div class="jamtgl">
+			Jam : <span id="clock"></span>
+			<span id="date">
+				<?php
+					functionTanggal();
+				?>
+			</span>
 		</div>
 	</div>
 
@@ -365,7 +433,7 @@
 								</thead>	
 								<?php
 									require("conn.php");
-									$sql3 = "SELECT jns_barang, kd_barang, nm_barang, hrg_jual FROM tb_inventory WHERE hapus = 0";
+									$sql3 = "SELECT jns_barang, kd_barang, nm_barang, hrg_beli FROM tb_inventory WHERE hapus = 0";
 									$q3 = mysqli_query($conn, $sql3);
 
 									while ($r3 = mysqli_fetch_assoc($q3)) 
@@ -375,8 +443,8 @@
 												<td>$r3[jns_barang]</td>
 												<td>$r3[kd_barang]</td>
 												<td>$r3[nm_barang]</td>
-												<td>$r3[hrg_jual]</td>
-												<td><a href='#' data-kodeItem='$r3[kd_barang]' data-namaBarang='$r3[nm_barang]' data-hargaItem='$r3[hrg_jual]' class='pilihItem' data-dismiss='modal'>Pilih</a></td>
+												<td>$r3[hrg_beli]</td>
+												<td><a href='#' data-kodeItem='$r3[kd_barang]' data-namaBarang='$r3[nm_barang]' data-hargaItem='$r3[hrg_beli]' class='pilihItem' data-dismiss='modal'>Pilih</a></td>
 											<tr>	
 										";	
 									}

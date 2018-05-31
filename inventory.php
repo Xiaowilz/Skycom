@@ -12,7 +12,21 @@
 	<script src="javascript/bootstrap-datepicker.js"></script>
 	<script type="text/javascript" src="javascript/script.js"></script>	
 	<!-- ____________  -->
+	<style type="text/css">
+		.logout
+		{
+			float : right;
+		}
+	</style>
 </head>
+
+<?php
+	session_start();
+	if(!isset($_SESSION['username']))
+	{
+		header("Location:index.php");
+	}
+?>
 
 <body>
 	<div id="topnav">
@@ -21,17 +35,23 @@
 			<div class="garis"></div>
 			<div class="garis"></div>
 		</div>
+
+		<div class="logout">
+			<form method="POST" action="logout">
+				<input type="submit" name="logout" value="Logout" class="btn btn-danger">
+			</form>
+		</div>
 	</div>
 
 	<div id="sidenav">
 		<div id="tab">
 			<div class="tabbutton"> 
-				<a href="mainform.php" class="aktif"><span class="ion-ios-home"></span>Beranda</a>
-				<a href="penjualan.php" target="_blank"><span class="ion-cash"></span>Penjualan</a>
-				<a href="pembelian.php" target="_blank"><span class="ion-android-cart"></span>Pembelian</a>
-				<a href="customers.php" class="aktif"><span class="ion-ios-people"></span>Customers</a>
-				<a class="active" href="inventory.php"><span class="ion-briefcase"></span>Inventory</a>
-				<a href="supplier.php" class="aktif"><span class="ion-person-stalker"></span>Supplier</a>
+				<a href="mainform" class="aktif"><span class="ion-ios-home"></span>Beranda</a>
+				<a href="penjualan" target="_blank"><span class="ion-cash"></span>Penjualan</a>
+				<a href="pembelian" target="_blank"><span class="ion-android-cart"></span>Pembelian</a>
+				<a href="customers" class="aktif"><span class="ion-ios-people"></span>Customers</a>
+				<a class="active" href="inventory"><span class="ion-briefcase"></span>Inventory</a>
+				<a href="supplier" class="aktif"><span class="ion-person-stalker"></span>Supplier</a>
 			</div>
 						
 				<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>
@@ -135,9 +155,9 @@
 							  	</div>
 							  	<select class="custom-select" id="type" name="jns_barang">
 							    	<option selected>Tipe Barang</option>
-							    	<option value="1">One</option>
-								    <option value="2">Two</option>
-								    <option value="3">Three</option>
+							    	<option value="VGA">VGA</option>
+								    <option value="HDD">HDD</option>
+								    <option value="RAM">RAM</option>
 							  	</select>
 							</div>	
 
@@ -145,35 +165,35 @@
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
 								</div>
-								<input type="text" class="form-control" name="kd_barang" placeholder="Kode Barang" required>
+								<input type="text" class="form-control" name="kd_barang" placeholder="Kode Barang" required autocomplete="off">
 							</div>
 
 							<div class="input-group mb-3">
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-pricetag"></i></span>
 								</div>
-								<input type="text" class="form-control" name="nm_barang" placeholder="Nama Barang" required>
+								<input type="text" class="form-control" name="nm_barang" placeholder="Nama Barang" required autocomplete="off">
 							</div>
 
 							<div class="input-group mb-3">
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-box"></i></span>
 								</div>
-								<input type="text" class="form-control" name="qty" placeholder="Quantity" required>
+								<input type="text" class="form-control" name="qty" placeholder="Quantity" required readonly="true" autocomplete="off">
 							</div>
 
 							<div class="input-group mb-3">
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
 								</div>
-								<input type="text" class="form-control" name="hrg_beli" placeholder="Harga Beli" required>
+								<input type="text" class="form-control" name="hrg_beli" placeholder="Harga Beli" required autocomplete="off">
 							</div>
 
 							<div class="input-group mb-3">
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
 								</div>
-								<input type="text" class="form-control" name="hrg_jual" placeholder="Harga Beli" required>
+								<input type="text" class="form-control" name="hrg_jual" placeholder="Harga Beli" required autocomplete="off">
 							</div>
 						        
 							<button type="submit" name="btnAdd" id="btnAdd" class="btn btn-outline-primary btn-sm btn-block">Tambah</button>
@@ -235,7 +255,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-box"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Stock" id="stock" name="stock_item" required>
+							  	<input type="text" class="form-control" placeholder="Stock" id="stock" name="stock_item" required readonly="true">
 							</div>
 
 							<div class="input-group mb-3">
