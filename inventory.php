@@ -24,7 +24,7 @@
 	session_start();
 	if(!isset($_SESSION['username']))
 	{
-		header("Location:index.php");
+		header("Location:index");
 	}
 ?>
 
@@ -110,7 +110,7 @@
 								    <?php
 										require_once("conn.php");
 
-										$sql = "SELECT jns_barang,kd_barang,nm_barang,qty,hrg_beli,hrg_jual FROM tb_inventory WHERE hapus = 0";
+										$sql = "SELECT jns_barang,kd_barang,nm_barang,qty,hrg_beli,hrg_jual FROM tb_inventory";
 
 										$q = mysqli_query($conn,$sql);
 
@@ -153,19 +153,39 @@
 								<div class="input-group-prepend">
 							    	<label class="input-group-text ion-levels" for="type"></label>
 							  	</div>
-							  	<select class="custom-select" id="type" name="jns_barang">
-							    	<option selected>Tipe Barang</option>
-							    	<option value="VGA">VGA</option>
-								    <option value="HDD">HDD</option>
-								    <option value="RAM">RAM</option>
-							  	</select>
-							</div>	
-
+							  	<select class="custom-select type" id="type" name="jns_barang" onchange="functionType()">
+							  	<?php
+							  		require_once("conn.php");
+							  		$sql = $conn->query("SELECT tipebarang FROM tb_tipebarang");
+							  
+							  		while ($r = mysqli_fetch_array($sql)) 
+							  		{
+							  			echo "<option value='$r[tipebarang]'>$r[tipebarang]";
+							  		}
+							  	?>
+								</select>		  	
+							</div>
+								<script type="text/javascript">
+									function functionType()
+									{
+										var type = document.getElementById('type').value;
+										$.ajax({
+											url: 'type.php',
+											type: 'POST',
+											data: {type : type},
+											success : function(data)
+											{
+												document.getElementById('kd_barang').value = data;
+											}
+										});
+										
+									}
+								</script>
 							<div class="input-group mb-3">
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
 								</div>
-								<input type="text" class="form-control" name="kd_barang" placeholder="Kode Barang" required autocomplete="off">
+								<input type="text" id="kd_barang" class="form-control" name="kd_barang" placeholder="Kode Barang" required autocomplete="off">
 							</div>
 
 							<div class="input-group mb-3">

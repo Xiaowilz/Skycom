@@ -67,13 +67,24 @@
 </head>
 
 <script>
+	function functionHanyaAngka(event) 
+	{
+	  var charCode = (event.which) ? event.which : event.keyCode;
+	   if (charCode > 31 && (charCode < 48 || charCode > 57))
+	   {
+	   		return false;
+	   }
+	  return true;
+	}
+
+
 	window.onbeforeunload = function () 
 	{
 	  return 'Are you really want to perform the action?';
 	}
 
 	function functionTampilkanJam()
-	{
+	{	
 		var waktu = new Date();
 		var jam = waktu.getHours() + "";
 		var menit = waktu.getMinutes() + "";
@@ -240,7 +251,7 @@
 							<div class="form-group row">
 								<label for="harga_item" class="col-sm-3 col-form-label col-form-label-sm">Harga</label>
 							    <div class="col-sm-3">
-							    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item" autocomplete="off">
+							    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item" autocomplete="off" onkeypress="return functionHanyaAngka(event)">
 							    </div>
 							</div>
 

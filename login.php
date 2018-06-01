@@ -1,16 +1,16 @@
 <?php
 	session_start();
 	require_once("conn.php");
-	$u = mysqli_real_escape_string($conn, $_POST['id']);
+	$u = mysqli_real_escape_string($conn, $_POST['username']);
 	$p = mysqli_real_escape_string($conn, $_POST['password']);
-		$sql = "SELECT id,password FROM login WHERE id = '$u' AND password = '$p'";
+		$sql = "SELECT username,password FROM login WHERE username = '$u' AND password = '$p'";
 
 		$q = mysqli_query($conn, $sql);
 
 		$r = mysqli_fetch_assoc($q);
 		if(!empty($u) && !empty($p))
 		{
-			if ($u == $r['id'] && $p == $r['password']) 
+			if ($u == $r['username'] && $p == $r['password']) 
 			{
 				$_SESSION['username'] = "$u";
 				header('location:mainform');
