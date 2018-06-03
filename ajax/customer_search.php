@@ -17,6 +17,9 @@
 		</thead>	
 
 		<?php
+			
+
+
 			$sql = "SELECT kd_customer,nm_customer,alamat,kontak FROM tb_customer 
 					WHERE nm_customer LIKE '%$keyword%' AND hapus = 0";
 

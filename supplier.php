@@ -10,6 +10,11 @@
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 	<script src="javascript/bootstrap-datepicker.js"></script>
+	
+	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
 
 	<style type="text/css">
 		.ion-person-add{
@@ -62,15 +67,7 @@
 						<div class="button-add">
 							<button class="btn btn-outline-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span class="ion-person-add"></span>Tambah Supplier</button>
 						</div>
-
-						<div class="search-container">
-							<div class="input-group mb-3">
-								<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
-								<div class="input-group-append">
-							    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
-							  	</div>
-							</div>
-		 				</div>
+						<br>
 					</div>
 
 				</br>
@@ -78,15 +75,15 @@
 					<!-- Tabel -->
 					<div id="tabelsupp">
 						<div id="latar-tabel">
-							<table class="table table-hover table-sm">
+							<table class="table table-hover table-sm" id="table_id">
 								<thead class="thead-dark">
 									<tr>
 										<th>Supplier Code</th>
 										<th>Name</th>
 										<th>Address</th>
 										<th>Contact</th>
-										<th></th>
-										<th></th>
+										<th width="5%"></th>
+										<th width="5%"></th>
 									</tr>
 								</thead>
 
@@ -104,16 +101,14 @@
 									    echo "<td>$r[nm_supplier]</td>";
 									    echo "<td>$r[alamat]</td>";
 									    echo "<td>$r[kontak]</td>";
-									    echo "<td><span class='editSupplier ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static' data-kodeSupplier='$r[kd_supplier]' data-namaSupplier='$r[nm_supplier]' data-alamat='$r[alamat]' data-kontak='$r[kontak]'></span></td>";
-									    echo "<td><a href='supplier_hapus.php?hps=$r[kd_supplier]' onclick='return functionHapus()'><span class='ion-trash-a'></span></a></td>";
+									    echo "<td align='center'><span class='editSupplier ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static' data-kodeSupplier='$r[kd_supplier]' data-namaSupplier='$r[nm_supplier]' data-alamat='$r[alamat]' data-kontak='$r[kontak]'></span></td>";
+									    echo "<td align='center'><a href='supplier_hapus.php?hps=$r[kd_supplier]' onclick='return functionHapus()'><span class='ion-trash-a'></span></a></td>";
 									    echo "</tr>";
 									}
 								?>
 							</table>
 						</div>	
 					</div>
-					
-					
 					<!-- TAbel -->
 				</div>
 			</div>	
@@ -263,6 +258,10 @@
 			$('#tabelsupp').load('ajax/supplier_search.php?keyword=' + $('#keyword').val());
 		});
   	});	
+
+  	$(document).ready( function () {
+		$('#table_id').DataTable();
+	});
 
 </script>
 

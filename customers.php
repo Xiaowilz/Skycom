@@ -5,15 +5,26 @@
 	<title>Customer</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/datepicker.css">
-	<script src="javascript/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="javascript/jquery-3.3.1.js"></script>
+	<!-- <script src="javascript/jquery-3.2.1.min.js"></script> -->
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
-	<script src="javascript/bootstrap-datepicker.js"></script>
+	
+	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
+
+
 
 	<style type="text/css">
 		.ion-person-add{
 			margin-right: 10px;
 		}
+
+		#table_id{
+			border-collapse: collapse;
+		}
+		
 	</style>
 
 </head>
@@ -60,30 +71,22 @@
 						<div class="button-add">
 							<button class="btn btn-outline-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span class="ion-person-add"></span>Tambah Customer</button>
 						</div>
-
-						<div class="search-container">
-						    <div class="input-group mb-3">
-								<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
-								<div class="input-group-append">
-							    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
-							  	</div>
-							</div>
-		 				</div>
+						<br>
 					</div>
 
 					<br>
-
+					
 					<div id="container">
 							<div class="table-responsive">
-								<table class="table table-hover table-sm">
+								<table class="table table-hover table-sm cell-border" id="table_id">
 									<thead class="thead-dark">
 										<tr>
-											<th>Kode Customer</th>
-											<th>Nama</th>
-											<th>Alamat</th>
-											<th>Kontak</th>
-											<th></th>
-											<th></th>
+											<th width="20%">Kode Customer</th>
+											<th width="">Nama</th>
+											<th width="">Alamat</th>
+											<th width="">Kontak</th>
+											<th width="5%"></th>
+											<th width="5%"></th>
 										</tr>
 									</thead>	
 
@@ -102,13 +105,12 @@
 										    echo "<td>$r[alamat]</td>";
 										    echo "<td>$r[kontak]</td>";
 										    // echo "<td><a href='customers_edit.php?edit=$r[kd_customer]'>Edit</a></td>";
-										    echo "<td><span class='editCust ion-edit' data-toggle='modal' data-target='#editcustomermodal' data-backdrop='static' data-kodeCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-alamat='$r[alamat]' data-kontak='$r[kontak]'></span></td>";
-										    echo "<td><a class='ion-trash-a' href='customers_hapus.php?hps=$r[kd_customer]' onclick='return functionHapus()' class='hapus' value='.$r[kd_customer]' id='hapus' name='hps' data-id = '.$r[kd_customer]'></a></td>";
+										    echo "<td align='center'><span class='editCust ion-edit' data-toggle='modal' data-target='#editcustomermodal' data-backdrop='static' data-kodeCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-alamat='$r[alamat]' data-kontak='$r[kontak]'></span></td>";
+										    echo "<td align='center'><a class='ion-trash-a' href='customers_hapus.php?hps=$r[kd_customer]' onclick='return functionHapus()' class='hapus' value='.$r[kd_customer]' id='hapus' name='hps' data-id = '.$r[kd_customer]'></a></td>";
 										    echo "</tr>";
 										}	
 									?>
-								</table>
-								
+								</table>	
 							</div>	
 
 							<script>
@@ -124,46 +126,6 @@
 									document.getElementById('kon').value = kontak;
 								});									
 							</script>
-
-								<!-- href='customers_hapus.php?HPS=$r[kd_customer]'  -->
-								<!-- <script>
-									function functionHapus()
-									{
-										var msg;
-										msg = "Apakah Yakin Menghapus Data ?";
-										var agree = confirm(msg);
-										if (agree) 
-										{
-											alert("Data Terhapus");
-											return true;
-										}
-										else
-										{
-											alert("Data Tidak Terhapus");
-											return false;
-										}
-									}
-
-
-									// $("#hapus").click(function() {
-									// 	var hps = $(this).val();
-									// 	var r = window.confirm("Yakin Ingin Hapus?");
-									// 	if (r == true) 
-									// 	{	
-									// 		var d =  false;
-									// 		if (!d)
-									// 		{
-									// 			d = true;
-									// 			$.ajax({url : "customers_hapus.php", type :'GET', success: function(hps)
-									// 		{
-									// 			window.alert("Data Terhapus");
-									// 			console.log(hps);
-									// 		}});
-									// 		}
-											
-									// 	}
-									// });			
-								</script> -->
 					</div>	
 					<!-- Tabel End -->
 
@@ -175,7 +137,7 @@
 				<div class="modal_content animate">
 					<div class="modal_head">
 						<button onclick="document.getElementById('id01').style.display='none'" class="btn-close-modal"><i class="ion-close-round"></i></button>
-						<h4 class="modal_title">Add Customer</h4>
+						<h4 class="modal_title">Tambah Customer</h4>
 					</div>	
 
 					<form method="POST" action="customers_simpan.php">
@@ -312,11 +274,16 @@
   			$('a').removeClass("active");
   			$(this).addClass("active");
   		});
-
-  		$('#keyword').on('keyup', function() {
-			$('#container').load('ajax/customer_search.php?keyword=' + $('#keyword').val());
-		});
+  // 		$('#keyword').on('keyup', function() {
+		// 	$('#container').load('ajax/customer_search.php?keyword=' + $('#keyword').val());
+		// });
   	});	
+
+  	$(document).ready( function () {
+	    $('#table_id').DataTable({
+	    	"pagingType": "full_numbers"
+	    });
+	});
 
 </script>
 
@@ -336,27 +303,7 @@
 			alert("Data Tidak Terhapus");
 			return false;
 		}
-	}
-
-
-	// $("#hapus").click(function() {
-	// 	var hps = $(this).val();
-	// 	var r = window.confirm("Yakin Ingin Hapus?");
-	// 	if (r == true) 
-	// 	{	
-	// 		var d =  false;
-	// 		if (!d)
-	// 		{
-	// 			d = true;
-	// 			$.ajax({url : "customers_hapus.php", type :'GET', success: function(hps)
-	// 		{
-	// 			window.alert("Data Terhapus");
-	// 			console.log(hps);
-	// 		}});
-	// 		}
-			
-	// 	}
-	// });						
+	}						
 </script>
 
 <script>
