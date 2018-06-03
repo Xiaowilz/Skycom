@@ -2,14 +2,21 @@
 <html>
 <head>
 	<title></title>
-	<meta charset="utf-8">
- 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/datepicker.css">
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 	<script src="javascript/bootstrap-datepicker.js"></script>
+<<<<<<< HEAD
+
+	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
+=======
 	<script type="text/javascript" src="javascript/script.js"></script>	
 	<!-- ____________  -->
 	<style type="text/css">
@@ -18,6 +25,7 @@
 			float : right;
 		}
 	</style>
+>>>>>>> 34a3cff89454dd85c8472860a3ef911b1a295f8f
 </head>
 
 <?php
@@ -89,7 +97,8 @@
 						<div class="button-add">
 							<button class="btn btn-outline-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span class="ion-plus-round"></span> Tambah Barang</button>
 						</div>
-
+						<br>
+<!-- 
 						<div class="search-container">
 						      <div class="input-group mb-3">
 								<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
@@ -97,13 +106,14 @@
 							    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
 							  	</div>
 							</div>
-		 				</div>
+		 				</div> -->
 					</div>
-
+					<br>
+					
 					<div id="container1">
 						<!-- Tabel -->
 						<div class="table-responsive">
-							<table class="table table-hover table-sm">
+							<table class="table table-hover table-sm" id="table_id">
 							 	<thead class="thead-dark">
 								    <tr>
 								      <th>Jenis Barang</th>
@@ -112,8 +122,8 @@
 								      <th>Qty</th>
 								      <th>Harga Beli</th>
 								      <th>Harga Jual</th>
-								      <th></th>
-								      <th></th>
+								      <th width="5%"></th>
+								      <th width="5%"></th>
 								    </tr>
 							  	</thead>
 
@@ -134,9 +144,8 @@
 										    echo "<td>$r[qty]</td>";
 										    echo "<td>$r[hrg_beli]</td>";
 										    echo "<td>$r[hrg_jual]</td>";
-										    // echo "<td><a href='inventory_edit.php?edit=$r[kd_barang]'<span class='ion-edit'></a></span></td>";
-										    echo "<td><span class='editBarang ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static'  data-jenisBarang='$r[jns_barang]' data-kodeBarang='$r[kd_barang]' data-namaBarang='$r[nm_barang]' data-qty='$r[qty]' data-hargaBeli='$r[hrg_beli]' data-hargaJual='$r[hrg_jual]'></span></td>";
-										    echo "<td class='hapus'><a class='ion-trash-a' href='inventory_hapus.php?hps=$r[kd_barang]' onclick='return functionHapus()'></a></td>";
+										    echo "<td align='center'><span class='editBarang ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static'  data-jenisBarang='$r[jns_barang]' data-kodeBarang='$r[kd_barang]' data-namaBarang='$r[nm_barang]' data-qty='$r[qty]' data-hargaBeli='$r[hrg_beli]' data-hargaJual='$r[hrg_jual]'></span></td>";
+										    echo "<td class='hapus' align='center'><a class='ion-trash-a' href='inventory_hapus.php?hps=$r[kd_barang]' onclick='return functionHapus()'></a></td>";
 										    echo "</tr>";
 										}
 									?>
@@ -348,12 +357,19 @@
   		document.getElementById("rightside").classList.toggle('show');
   		}
 
-  	 $(document).ready(function(){
+  	$(document).ready(function(){
   		$('#tab .aktif').click(function(){
   			$('a').removeClass("active");
   			$(this).addClass("active");
   		});
-  	});	
+  	});
+
+  	$(document).ready( function () {
+	    $('#table_id').DataTable({
+	    	"pagingType": "full_numbers"
+	    });
+	});	
+
 
 </script>
 

@@ -12,13 +12,22 @@
 
 	<title>Pembelian Skycom</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<!-- Date Picker JS CSS-->
+
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/datepicker.css">
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 	<script src="javascript/bootstrap-datepicker.js"></script>
+<<<<<<< HEAD
+
+	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
+
+=======
 	<!-- ____________  -->
+>>>>>>> 34a3cff89454dd85c8472860a3ef911b1a295f8f
 	<style type="text/css">
 		.col-4 {
 			float: right;
@@ -281,30 +290,6 @@
 								      <th scope="col">Sub Total</th>
 								    </tr>
 							  	</thead>
-
-								<!-- <tbody>
-								    <tr>
-								      <th scope="row">1</th>
-								      <td>Mark</td>
-								      <td>Otto</td>
-								      <td>@mdo</td>
-								      <td></td>
-								    </tr>
-								    <tr>
-								      <th scope="row">2</th>
-								      <td>Jacob</td>
-								      <td>Thornton</td>
-								      <td>@fat</td>
-								      <td></td>
-								    </tr>
-								    <tr>
-								      <th scope="row">3</th>
-								      <td>Larry the Bird</td>
-								      <td>Sans</td>
-								      <td>@twitter</td>
-								      <td></td>
-								    </tr>
-							 	</tbody> -->
 							</table>
 						</div>
 					</div>
@@ -316,19 +301,6 @@
 			</form>
 			
 			<script type="text/javascript">
-				// $('#simpan').on('click', function()
-				// {
-				// 	$.ajax({
-				// 		url : 'pembelian_simpan.php',
-				// 		type : 'POST',
-				// 		dataType : $('#pembelianTemp').serialize(),
-				// 		success : function()
-				// 		{
-				// 			window.alert('Data Tersimpan')
-				// 		}
-				// 	});
-				// });
-
 				$(document).ready(function() {
 						$.ajax({
 							url: 'pembelian_temp_load.php',
@@ -356,18 +328,9 @@
 		        	</div>
 
 		        	<div class="modal-body">
-						<div class="col-4">
-							<div class="input-group mb-1 input-group-sm">
-								<input type="text" name="keyword0" id="keyword0" class="form-control" placeholder="Search Here" autocomplete="off">
-								<div class="input-group-append">
-							    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
-							  	</div>
-							</div>
-						</div>	
-
 						<div id="tabelsuppliermodal">
 				          	<div class="table-responsive">
-					          	<table class="table table-hover table-sm">
+					          	<table class="table table-hover table-sm" id="tabel_supplier">
 					          		<thead class="thead-dark">
 										<tr>
 											<th>Supplier Code</th>
@@ -391,7 +354,7 @@
 													<td>$r[alamat]</td>
 													<td>$r[kontak]</td>
 													<td><a href='#' data-kodeSupplier='$r[kd_supplier]' data-namaSupplier='$r[nm_supplier]' class='pilihSupplier' data-dismiss='modal'>Pilih</a></td>
-												<tr>
+												</tr>
 											";	
 										}
 									?>
@@ -419,19 +382,9 @@
 		          <span class="ion-close" data-dismiss="modal"></span>		          
 		        </div>
 		        <div class="modal-body">
-
-					<div class="col-4">
-						<div class="input-group mb-1 input-group-sm">
-							<input type="text" name="keyword1" id="keyword1" class="form-control" placeholder="Search Here" autocomplete="off">
-							<div class="input-group-append">
-						    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
-						  	</div>
-						</div>
-					</div>	
-
 					<div id="tabelitemmodal">
 			          	<div class="table-responsive">
-				          	<table class="table table-hover table-sm">
+				          	<table class="table table-hover table-sm" id="tabel_barang">
 				          		<thead class="thead-dark">
 									<tr>
 										<th>Type</th>
@@ -453,9 +406,15 @@
 												<td>$r3[jns_barang]</td>
 												<td>$r3[kd_barang]</td>
 												<td>$r3[nm_barang]</td>
+<<<<<<< HEAD
+												<td>$r3[hrg_jual]</td>
+												<td><a href='#' data-kodeItem='$r3[kd_barang]' data-namaBarang='$r3[nm_barang]' data-hargaItem='$r3[hrg_jual]' class='pilihItem' data-dismiss='modal'>Pilih</a></td>
+											</tr>	
+=======
 												<td>$r3[hrg_beli]</td>
 												<td><a href='#' data-kodeItem='$r3[kd_barang]' data-namaBarang='$r3[nm_barang]' data-hargaItem='$r3[hrg_beli]' class='pilihItem' data-dismiss='modal'>Pilih</a></td>
 											<tr>	
+>>>>>>> 34a3cff89454dd85c8472860a3ef911b1a295f8f
 										";	
 									}
 								?>
@@ -505,6 +464,10 @@
   			$('a').removeClass("active");
   			$(this).addClass("active");
   		});
+
+  		$('#tabel_supplier').DataTable();
+
+	    $('#tabel_barang').DataTable();
   	});	
 </script>
 

@@ -13,10 +13,16 @@
 
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/datepicker.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/datepicker.css"> -->
+	<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
-	<script src="javascript/bootstrap-datepicker.js"></script>
+	<!-- <script src="javascript/bootstrap-datepicker.js"></script> -->
+
+	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
 
 	<style type="text/css">
 		.col-4 {
@@ -200,7 +206,6 @@
 								$tahun = date("Y");
 								$tgl1 = $tahun."-".$bulan."-".$tanggal;
 								$tgl2 = date('l, d-m-Y', strtotime('+14 days', strtotime($tgl1)));
-								// echo $tgl2;
 							?>
 
 							<div class="form row">
@@ -227,9 +232,7 @@
 				<!-- <br/> -->
 
 				<div class="all-content2">
-					
-				    	<h5>Data Barang</h5>
-				    	
+				    	<h5>Data Barang</h5>				    	
 				    	<hr>
 				    	<div class="dtkiri">
 					    	<div class="form-group row">
@@ -307,18 +310,9 @@
 			          <span class="ion-close" data-dismiss="modal"></span>		          
 			        </div>
 		        <div class="modal-body">
-					<div class="col-4">
-						<div class="input-group mb-1 input-group-sm">
-							<input type="text" name="keyword0" id="keyword0" class="form-control" placeholder="Search Here" autocomplete="off">
-							<div class="input-group-append">
-						    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
-						  	</div>
-						</div>
-					</div>	
-
 					<div id="tabelcustomermodal">
-						<div class="table-responsive">
-				          	<table class="table table-hover table-sm">
+						<!-- <div class="table-responsive"> -->
+				          	<table class="table table-hover table-sm" id="tabel_customer">
 				          		<thead class="thead-dark">
 									<tr>
 										<th>Kode Customer</th>
@@ -328,26 +322,28 @@
 										<th></th>
 									</tr>
 								</thead>	
-								<?php
-									require("conn.php");
-									$sql = "SELECT * FROM tb_customer WHERE hapus = 0";
-									$q = mysqli_query($conn, $sql);
+								<tbody>
+									<?php
+										require("conn.php");
+										$sql = "SELECT * FROM tb_customer WHERE hapus = 0";
+										$q = mysqli_query($conn, $sql);
 
-									while ($r = mysqli_fetch_assoc($q)) 
-									{
-										echo"
-											<tr>
-												<td>$r[kd_customer]</td>
-												<td>$r[nm_customer]</td>
-												<td>$r[alamat]</td>
-												<td>$r[kontak]</td>
-												<td><a href='#' class='pilihCustomer' data-pilihCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-dismiss='modal'>Pilih</a></td>
-											<tr>
-										";	
-									}
-								?>
+										while ($r = mysqli_fetch_assoc($q)) 
+										{
+											echo"
+												<tr>
+													<td>$r[kd_customer]</td>
+													<td>$r[nm_customer]</td>
+													<td>$r[alamat]</td>
+													<td>$r[kontak]</td>
+													<td><a href='#' class='pilihCustomer' data-pilihCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-dismiss='modal'>Pilih</a></td>
+												</tr>
+											";	
+										}
+									?>
+								</tbody>
 				  			</table>
-				  		</div>
+				  		<!-- </div> -->
 				  	</div>
 		        </div>
 		        <div class="modal-footer">
@@ -362,28 +358,16 @@
 
 		<!-- Modal Start -->
 		<div class="modal fade" id="myModal2" role="dialog">
-		    <div class="modal-dialog modal-lg">
-		    
-		      <!-- Modal content-->
+		    <div class="modal-dialog modal-lg">a
 		      <div class="modal-content">
 		        <div class="modal-header">
 		          <h4 class="modal-title">Barang</h4>
 		          <span class="ion-close" data-dismiss="modal"></span>		          
 		        </div>
 		        <div class="modal-body">
-
-		        	<div class="col-4">
-						<div class="input-group mb-1 input-group-sm">
-							<input type="text" name="keyword1" id="keyword1" class="form-control" placeholder="Search Here" autocomplete="off">
-							<div class="input-group-append">
-						    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
-						  	</div>
-						</div>
-					</div>	
-
 					<div id="tabelitemmodal">
 						<div class="table-responsive">
-				          	<table class="table table-hover table-sm">
+				          	<table class="table table-hover table-sm" id="tabel_barang">
 				          		<thead class="thead-dark">
 									<tr>
 										<th>Type</th>
@@ -408,8 +392,8 @@
 												<td>$r3[nm_barang]</td>
 												<td>$r3[qty]</td>
 												<td>$r3[hrg_jual]</td>
-												<td><a href='#' class='pilihItem' data-pilihItem='$r3[kd_barang]' data-namaItem='$r3[nm_barang]' data-hargaItem='$r3[hrg_jual]' data-dismiss='modal'>Pilih</a></td>
-											<tr>
+												<td align='center'><a href='#' class='pilihItem' data-pilihItem='$r3[kd_barang]' data-namaItem='$r3[nm_barang]' data-hargaItem='$r3[hrg_jual]' data-dismiss='modal'>Pilih</a></td>
+											</tr>
 										";	
 									}
 								?>
@@ -418,7 +402,7 @@
 				  	</div>
 		        </div>
 		        <div class="modal-footer">
-		          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
 		        </div>
 		      </div>
 		      
@@ -429,6 +413,11 @@
 	</div>	
 
 <script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>
+
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
 </body>
 <script type="text/javascript">
 		var dropdown = document.getElementsByClassName("drop");
@@ -460,11 +449,11 @@
   		});
 
   		$('#keyword0').on('keyup', function() {
-			$('#tabelcustomermodal').load('ajax/penjualan_search.php?keyword0=' + $('#keyword0').val());
+			// $('#tabelcustomermodal').load('ajax/penjualan_search.php?keyword0=' + $('#keyword0').val());
 		});
 
 		$('#keyword1').on('keyup', function() {
-			$('#tabelitemmodal').load('ajax/penjualan_item_search.php?keyword1=' + $('#keyword1').val());
+			// $('#tabelitemmodal').load('ajax/penjualan_item_search.php?keyword1=' + $('#keyword1').val());
 		});
   	});	
 </script>
@@ -491,13 +480,13 @@
 	$(document).ready(function() {
 		// refreshTable();
 		$.ajax({
-				url: 'penjualan_temp_load.php',
-				type: 'GET',
-				dataType: 'html',
-				success : function(response)
-				{
-					$("#tabelTemp").html(response);
-				}
+			url: 'penjualan_temp_load.php',
+			type: 'GET',
+			dataType: 'html',
+			success : function(response)
+			{
+				$("#tabelTemp").html(response);
+			}
 		});
 	});
 
@@ -516,6 +505,12 @@
 		
 		return false;
 	});
+
+	$(document).ready( function () {
+	    $('#tabel_customer').DataTable();
+
+	    $('#tabel_barang').DataTable();
+	});	
 </script>
 
 </html>
