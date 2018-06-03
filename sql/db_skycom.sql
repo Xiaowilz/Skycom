@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2018 at 04:06 PM
+-- Generation Time: Jun 03, 2018 at 09:53 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `login` (
-  `username` varchar(30) NOT NULL,
+  `nama` varchar(30) NOT NULL,
   `jabatan` varchar(20) NOT NULL,
-  `id` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
   `password` varchar(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -39,7 +39,7 @@ CREATE TABLE `login` (
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`username`, `jabatan`, `id`, `password`) VALUES
+INSERT INTO `login` (`nama`, `jabatan`, `username`, `password`) VALUES
 ('Willy', 'Admin', 'admin', 'admin'),
 ('Ass', 'Ass', 'admin1', 'admin1');
 
@@ -72,8 +72,9 @@ INSERT INTO `tb_customer` (`kd_customer`, `nm_customer`, `alamat`, `kontak`, `ha
 ('CST-00008', 'Bla Bla', 'sdas', 'asds', '0'),
 ('CST-00009', 'ASDsdsd', 'sdsad', '12432', '0'),
 ('CST-00010', 'asdsad', 'dsds', 'sdssd', '0'),
-('CST-00011', 'MMMM', 'dsksad', '234324', '1'),
-('CST-00012', 'KAKAK', 'AKAKAk', '2483', '1');
+('CST-00011', 'MMMM', 'dsksad', '234324', '0'),
+('CST-00012', 'KAKAK', 'AKAKAk', '2483', '0'),
+('CST-00013', 'Akhiang', 'Meranti', '0811111', '0');
 
 -- --------------------------------------------------------
 
@@ -126,7 +127,8 @@ INSERT INTO `tb_hd_pembelian` (`notrans`, `kd_barang`, `nm_barang`, `qty`, `harg
 ('TB00003', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
 ('TB00003', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
 ('TB00004', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TB00004', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000);
+('TB00004', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
+('TB00005', 'VGA_00001', 'Asus Strix GTX 1080 TI', 2, 14500000, 29000000);
 
 -- --------------------------------------------------------
 
@@ -148,36 +150,10 @@ CREATE TABLE `tb_hd_penjualan` (
 --
 
 INSERT INTO `tb_hd_penjualan` (`no_trans`, `kd_barang`, `nm_barang`, `qty`, `harga`, `jumlah`) VALUES
-('TJ00001', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
-('TJ00002', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
-('TJ00002', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TJ00002', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TJ00002', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
-('TJ00002', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TJ00002', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
-('TJ00003', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TJ00003', 'VGA_00001', 'Asus GTX 1080 TI', 1, 15000000, 15000000),
-('TJ00004', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TJ00005', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
-('TJ00006', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
-('TJ00007', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TJ00008', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
-('TJ00009', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TJ00009', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
-('TJ00010', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TJ00011', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TJ00012', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TJ00012', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
-('TJ00013', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
-('TJ00014', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TJ00015', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
-('TJ00015', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
-('TJ00016', 'VGA_00002', 'Gigabyte GTX 1070T TI', 1, 9550000, 9550000),
-('TJ00017', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
-('TJ00018', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
-('TJ00019', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
-('TJ00019', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
-('TJ00019', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000);
+('TJ00001', 'VGA_00001', 'Asus Strix GTX 1080 TI', 1, 16000000, 16000000),
+('TJ00002', 'VGA_00001', 'Asus Strix GTX 1080 TI', 2, 16000000, 32000000),
+('TJ00002', 'VGA_00002', 'Gigabyte GTX 1070T TI', 3, 9550000, 28650000),
+('TJ00003', 'VGA_00001', 'Asus Strix GTX 1080 TI', 12, 16000000, 192000000);
 
 -- --------------------------------------------------------
 
@@ -191,19 +167,18 @@ CREATE TABLE `tb_inventory` (
   `nm_barang` varchar(30) NOT NULL,
   `qty` int(4) NOT NULL,
   `hrg_beli` double NOT NULL,
-  `hrg_jual` double NOT NULL,
-  `hapus` int(1) NOT NULL
+  `hrg_jual` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_inventory`
 --
 
-INSERT INTO `tb_inventory` (`jns_barang`, `kd_barang`, `nm_barang`, `qty`, `hrg_beli`, `hrg_jual`, `hapus`) VALUES
-('VGA', 'VGA_00001', 'Asus Strix GTX 1080 TI', 23, 14000000, 16000000, 0),
-('VGA', 'VGA_00002', 'Gigabyte GTX 1070T TI', 3, 9000000, 9550000, 0),
-('', 'VGA_00003', 'dsa', 10, 1232, 123123, 0),
-('1', 'VGA_00004', 'asda', 22, 124124, 4124, 0);
+INSERT INTO `tb_inventory` (`jns_barang`, `kd_barang`, `nm_barang`, `qty`, `hrg_beli`, `hrg_jual`) VALUES
+('RAM', 'RAM-00001', 'Corsair 2400MHz 8GB DDR4', 4, 800000, 900000),
+('RAM', 'RAM-00002', 'Avexir 4GB', 0, 222, 2224),
+('VGA', 'VGA_00001', 'Asus Strix GTX 1080 TI', 14, 15000000, 16000000),
+('VGA', 'VGA_00002', 'Gigabyte GTX 1070T TI', 11, 9000000, 9550000);
 
 -- --------------------------------------------------------
 
@@ -228,7 +203,8 @@ INSERT INTO `tb_pembelian` (`notrans`, `tgltrans`, `supplier`, `subtotal`, `disk
 ('TB00001', '0000-00-00', 'ECS', 0, 0, 24550000),
 ('TB00002', '0000-00-00', 'Innovation', 0, 0, 15000000),
 ('TB00003', '0000-00-00', 'Innovation', 0, 0, 24550000),
-('TB00004', '0000-00-00', 'Innovation', 0, 0, 24550000);
+('TB00004', '0000-00-00', 'Innovation', 0, 0, 24550000),
+('TB00005', '0000-00-00', 'Innovation', 0, 0, 29000000);
 
 -- --------------------------------------------------------
 
@@ -250,26 +226,9 @@ CREATE TABLE `tb_penjualan` (
 --
 
 INSERT INTO `tb_penjualan` (`notrans`, `tgltrans`, `customer`, `subtotal`, `diskon`, `total`) VALUES
-('', '2018-05-26', '', 0, 30000, 9550000),
-('TJ00001', '0000-00-00', 'Divine', 0, 0, 15000000),
-('TJ00002', '0000-00-00', 'Smart Com', 0, 0, 15000000),
-('TJ00003', '0000-00-00', 'Metro Com', 0, 0, 24550000),
-('TJ00004', '0000-00-00', 'Avimedia', 0, 0, 9550000),
-('TJ00005', '0000-00-00', 'Metro Com', 0, 0, 16000000),
-('TJ00006', '0000-00-00', 'Divine', 0, 0, 16000000),
-('TJ00007', '2018-05-26', 'Yuki-yuki', 0, 0, 9550000),
-('TJ00008', '2018-05-26', 'Setia Com', 0, 0, 16000000),
-('TJ00009', '2018-05-26', 'Avimedia', 0, 0, 16000000),
-('TJ00010', '2018-05-26', 'Metro Com', 0, 0, 9550000),
-('TJ00011', '2018-05-26', 'Divine', 0, 0, 9550000),
-('TJ00012', '2018-05-26', 'Metro Com', 0, 0, 25550000),
-('TJ00013', '2018-05-26', 'Yuki-yuki', 0, 0, 16000000),
-('TJ00014', '2018-05-26', '', 0, 0, 9550000),
-('TJ00015', '2018-05-26', '', 0, 0, 16000000),
-('TJ00016', '2018-05-26', '', 0, 40000, 9550000),
-('TJ00017', '2018-05-26', '', 0, 30000, 16000000),
-('TJ00018', '2018-05-26', '', 0, 30000, 15970000),
-('TJ00019', '2018-05-26', 'Smart Com', 16000000, 20000, 15980000);
+('TJ00001', '2018-05-27', 'Smart Com', 16000000, 20000, 15980000),
+('TJ00002', '2018-05-28', 'Central Pontianak', 60650000, 100000, 60550000),
+('TJ00003', '2018-05-28', 'Setia Com', 192000000, 100000, 60550000);
 
 -- --------------------------------------------------------
 
@@ -291,7 +250,8 @@ CREATE TABLE `tb_supplier` (
 
 INSERT INTO `tb_supplier` (`kd_supplier`, `nm_supplier`, `alamat`, `kontak`, `hapus`) VALUES
 ('SP-00001', 'Innovation', 'Jakarta', '220492', 0),
-('SP-00002', 'ECS', 'Jakarta', '224454', 0);
+('SP-00002', 'ECS', 'Jakarta', '224454', 0),
+('SP-00003', 'Metro', 'Gajahmada', '74937', 0);
 
 -- --------------------------------------------------------
 
@@ -323,6 +283,26 @@ CREATE TABLE `tb_temp_penjualan` (
   `jumlah` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_tipebarang`
+--
+
+CREATE TABLE `tb_tipebarang` (
+  `tipebarang` varchar(10) NOT NULL,
+  `namatipebarang` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_tipebarang`
+--
+
+INSERT INTO `tb_tipebarang` (`tipebarang`, `namatipebarang`) VALUES
+('HDD', 'Hardisk Drive'),
+('RAM', 'Random Access Memory'),
+('VGA', 'Visual Graphic Card');
+
 --
 -- Indexes for dumped tables
 --
@@ -331,7 +311,7 @@ CREATE TABLE `tb_temp_penjualan` (
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `tb_customer`
