@@ -258,7 +258,7 @@
 							<div class="form-group row">
 						    	<label for="qty" class="col-sm-3 col-form-label col-form-label-sm">Quantity</label>
 						    	<div class="col-sm-3">
-						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" id="qty" autocomplete="off" required>
+						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" id="qty" autocomplete="off" required onkeypress="return functionHanyaAngka(event)">  
 						    	</div>
 								
 						    	<div class="col-xs-1">
@@ -389,13 +389,14 @@
 										<th>Type</th>
 										<th>Item Code</th>
 										<th>Item Name</th>
+										<th>Qty</th>
 										<th>Price</th>
 										<th></th>
 									</tr>
 								</thead>	
 								<?php
 									require("conn.php");
-									$sql3 = "SELECT jns_barang, kd_barang, nm_barang, hrg_jual FROM tb_inventory WHERE hapus = 0";
+									$sql3 = "SELECT jns_barang, kd_barang, nm_barang, qty, hrg_jual FROM tb_inventory";
 									$q3 = mysqli_query($conn, $sql3);
 
 									while ($r3 = mysqli_fetch_assoc($q3)) 
@@ -405,6 +406,7 @@
 												<td>$r3[jns_barang]</td>
 												<td>$r3[kd_barang]</td>
 												<td>$r3[nm_barang]</td>
+												<td>$r3[qty]</td>
 												<td>$r3[hrg_jual]</td>
 												<td><a href='#' class='pilihItem' data-pilihItem='$r3[kd_barang]' data-namaItem='$r3[nm_barang]' data-hargaItem='$r3[hrg_jual]' data-dismiss='modal'>Pilih</a></td>
 											<tr>
@@ -508,8 +510,10 @@
 			success : function(data)
 			{
 				$("#tabelTemp").load("penjualan_temp_load.php");
+				window.alert(data);
 			}
 		});
+		
 		return false;
 	});
 </script>
