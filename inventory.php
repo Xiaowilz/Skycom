@@ -10,12 +10,43 @@
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 	<script src="javascript/bootstrap-datepicker.js"></script>
+<<<<<<< HEAD
 
 	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
+=======
+	<script type="text/javascript" src="javascript/script.js"></script>	
+	<!-- ____________  -->
+	<style type="text/css">
+		.logout
+		{
+			float : right;
+		}
+	</style>
+>>>>>>> 34a3cff89454dd85c8472860a3ef911b1a295f8f
 </head>
+
+<?php
+	session_start();
+	if(!isset($_SESSION['username']))
+	{
+		header("Location:index");
+	}
+?>
+
+<script type="text/javascript">
+	function functionHanyaAngka(event) 
+	{
+	  var charCode = (event.which) ? event.which : event.keyCode;
+	   if (charCode > 31 && (charCode < 48 || charCode > 57))
+	   {
+	   		return false;
+	   }
+	  return true;
+	}
+</script>
 
 <body>
 	<div id="topnav">
@@ -24,17 +55,23 @@
 			<div class="garis"></div>
 			<div class="garis"></div>
 		</div>
+
+		<div class="logout">
+			<form method="POST" action="logout">
+				<input type="submit" name="logout" value="Logout" class="btn btn-danger">
+			</form>
+		</div>
 	</div>
 
 	<div id="sidenav">
 		<div id="tab">
 			<div class="tabbutton"> 
-				<a href="mainform.php" class="aktif"><span class="ion-ios-home"></span>Beranda</a>
-				<a href="penjualan.php" target="_blank"><span class="ion-cash"></span>Penjualan</a>
-				<a href="pembelian.php" target="_blank"><span class="ion-android-cart"></span>Pembelian</a>
-				<a href="customers.php" class="aktif"><span class="ion-ios-people"></span>Customers</a>
-				<a class="active" href="inventory.php"><span class="ion-briefcase"></span>Inventory</a>
-				<a href="supplier.php" class="aktif"><span class="ion-person-stalker"></span>Supplier</a>
+				<a href="mainform" class="aktif"><span class="ion-ios-home"></span>Beranda</a>
+				<a href="penjualan" target="_blank"><span class="ion-cash"></span>Penjualan</a>
+				<a href="pembelian" target="_blank"><span class="ion-android-cart"></span>Pembelian</a>
+				<a href="customers" class="aktif"><span class="ion-ios-people"></span>Customers</a>
+				<a class="active" href="inventory"><span class="ion-briefcase"></span>Inventory</a>
+				<a href="supplier" class="aktif"><span class="ion-person-stalker"></span>Supplier</a>
 			</div>
 						
 				<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>
@@ -95,8 +132,7 @@
 								    <?php
 										require_once("conn.php");
 
-										$sql = "SELECT jns_barang,kd_barang,nm_barang,qty,hrg_beli,hrg_jual FROM tb_inventory WHERE hapus = 0";
-
+										$sql = "SELECT jns_barang,kd_barang,nm_barang,qty,hrg_beli,hrg_jual FROM tb_inventory";
 										$q = mysqli_query($conn,$sql);
 
 										while ($r = mysqli_fetch_assoc($q)) 
@@ -137,47 +173,67 @@
 								<div class="input-group-prepend">
 							    	<label class="input-group-text ion-levels" for="type"></label>
 							  	</div>
-							  	<select class="custom-select" id="type" name="jns_barang">
-							    	<option selected>Tipe Barang</option>
-							    	<option value="1">One</option>
-								    <option value="2">Two</option>
-								    <option value="3">Three</option>
-							  	</select>
-							</div>	
-
+							  	<select class="custom-select type" id="type" name="jns_barang" onchange="functionType()">
+							  	<?php
+							  		require_once("conn.php");
+							  		$sql = $conn->query("SELECT tipebarang FROM tb_tipebarang");
+							  
+							  		while ($r = mysqli_fetch_array($sql)) 
+							  		{
+							  			echo "<option value='$r[tipebarang]'>$r[tipebarang]";
+							  		}
+							  	?>
+								</select>		  	
+							</div>
+								<script type="text/javascript">
+									function functionType()
+									{
+										var type = document.getElementById('type').value;
+										$.ajax({
+											url: 'type.php',
+											type: 'POST',
+											data: {type : type},
+											success : function(data)
+											{
+												document.getElementById('kd_barang').value = data;
+											}
+										});
+										
+									}
+								</script>
 							<div class="input-group mb-3">
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
 								</div>
-								<input type="text" class="form-control" name="kd_barang" placeholder="Kode Barang" required>
+								<input type="text" id="kd_barang" class="form-control" name="kd_barang" placeholder="Kode Barang" required autocomplete="off" readonly="true">
 							</div>
 
 							<div class="input-group mb-3">
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-pricetag"></i></span>
 								</div>
-								<input type="text" class="form-control" name="nm_barang" placeholder="Nama Barang" required>
+								<input type="text" class="form-control" name="nm_barang" placeholder="Nama Barang" required autocomplete="off">
 							</div>
 
 							<div class="input-group mb-3">
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-box"></i></span>
 								</div>
-								<input type="text" class="form-control" name="qty" placeholder="Quantity" required>
+								<input type="text" class="form-control" name="qty" placeholder="Quantity" required autocomplete="off" onkeypress="return functionHanyaAngka(event)">
 							</div>
 
 							<div class="input-group mb-3">
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
 								</div>
-								<input type="text" class="form-control" name="hrg_beli" placeholder="Harga Beli" required>
+								<input type="text" class="form-control" name="hrg_beli" placeholder="Harga Beli" required autocomplete="off" onkeypress="return functionHanyaAngka(event)">
 							</div>
 
 							<div class="input-group mb-3">
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
 								</div>
-								<input type="text" class="form-control" name="hrg_jual" placeholder="Harga Beli" required>
+								<input type="text" class="form-control" name="hrg_jual" placeholder="Harga Beli" required autocomplete="off" onkeypress="return functionHanyaAngka(event)">
 							</div>
 						        
 							<button type="submit" name="btnAdd" id="btnAdd" class="btn btn-outline-primary btn-sm btn-block">Tambah</button>
@@ -210,11 +266,16 @@
 								<div class="input-group-prepend">
 							    	<label class="input-group-text ion-levels" for="type"></label>
 							  	</div>
-							  	<select class="custom-select" id="type" name="jenis_barang">
-							    	<option selected>Choose Type...</option>
-							    	<option value="VGA">VGA</option>
-								    <option value="MB">Motherboard</option>
-								    <option value="HDD">Hardisk</option>
+							  	<select class="custom-select" id="typeEdit" name="jenis_barang">
+						  		<?php
+						  		require_once("conn.php");
+						  		$sql = $conn->query("SELECT tipebarang FROM tb_tipebarang");
+						  
+						  		while ($r = mysqli_fetch_array($sql)) 
+						  		{
+						  			echo "<option value='$r[tipebarang]'>$r[tipebarang]";
+						  		}
+							  	?>
 							  	</select>
 							</div>	
 	
@@ -239,7 +300,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-box"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Stock" id="stock" name="stock_item" required>
+							  	<input type="text" class="form-control" placeholder="Stock" id="stock" name="stock_item" required readonly="true" onkeypress="return functionHanyaAngka(event)">
 							</div>
 
 							<div class="input-group mb-3">
@@ -247,7 +308,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Harga Beli" id="hargabeli" name="harga_beli" required>
+							  	<input type="text" class="form-control" placeholder="Harga Beli" id="hargabeli" name="harga_beli" required onkeypress="return functionHanyaAngka(event)">
 							</div>
 
 							<div class="input-group mb-3">
@@ -255,7 +316,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Harga Jual" id="hargajual" name="harga_jual" required>
+							  	<input type="text" class="form-control" placeholder="Harga Jual" id="hargajual" name="harga_jual" required onkeypress="return functionHanyaAngka(event)">
 							</div>
 							<button type="submit" class="btn btn-outline-primary btn-sm btn-block" formaction="inventory_edit_simpan.php">Update</button>
 			        	</form>
@@ -339,6 +400,7 @@
 		var quantity = this.getAttribute('data-qty');
 		var hargaBeli = this.getAttribute('data-hargaBeli');
 		var hargaJual = this.getAttribute('data-hargaJual');
+		document.getElementById('typeEdit').value = jenisBarang;
 		document.getElementById('kodeitem').value = kodeBarang;
 		document.getElementById('namaitem').value = namaBarang;
 		document.getElementById('stock').value = quantity;

@@ -29,7 +29,7 @@
 							<td>$r3[qty]</td>
 							<td>$r3[harga]</td>
 							<td>$r3[jumlah]</td>
-							<td><a href='#' data-kodeHapus='$r3[kd_barang]' class='pilihHapus'>Hapus</a>
+							<td width='5%'><center><ion-icon name='trash' href='#' data-kodeHapus='$r3[kd_barang]' class='hapus'></ion-icon></center></td>
 						</tr>
 		    		";
 		    		$totalPembelian  = $totalPembelian + $r3['jumlah'];
@@ -43,7 +43,7 @@
 		     	<td></td>
 		     </tr>
 		     <script type="text/javascript">
-		     	$('.pilihHapus').on('click', function()
+		     	$('.hapus').on('click', function()
 		     	{
 		     		var kode_hapus = this.getAttribute('data-kodeHapus');
 		     		$.ajax({

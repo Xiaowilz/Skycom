@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username']))
+	{
+		header("Location:index");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,10 +29,17 @@
 			margin-right: 10px;
 		}
 
+<<<<<<< HEAD
 		#table_id{
 			border-collapse: collapse;
 		}
 		
+=======
+		.logout
+		{
+			float : right;
+		}
+>>>>>>> 34a3cff89454dd85c8472860a3ef911b1a295f8f
 	</style>
 
 </head>
@@ -35,18 +50,24 @@
 			<div class="garis"></div>
 			<div class="garis"></div>
 		</div>
+
+		<div class="logout">
+			<form method="POST" action="logout">
+				<input type="submit" name="logout" value="Logout" class="btn btn-danger">
+			</form>
+		</div>
 	</div>
 
 
 	<div id="sidenav">
 		<div id="tab">
 			<div class="tabbutton">
-				<a href="mainform.php" class="aktif"><span class="ion-ios-home"></span>Beranda</a>
-				<a href="penjualan.php" target="_blank"><span class="ion-cash"></span>Penjualan</a>
-				<a href="pembelian.php" target="_blank"><span class="ion-android-cart"></span>Pembelian</a>
-				<a class="active" href="customers.php"><span class="ion-ios-people"></span>Customers</a>
-				<a href="inventory.php" class="aktif"><span class="ion-briefcase"></span>Inventory</a>
-				<a href="supplier.php" class="aktif"><span class="ion-person-stalker"></span>Supplier</a>
+				<a href="mainform" class="aktif"><span class="ion-ios-home"></span>Beranda</a>
+				<a href="penjualan" target="_blank"><span class="ion-cash"></span>Penjualan</a>
+				<a href="pembelian" target="_blank"><span class="ion-android-cart"></span>Pembelian</a>
+				<a class="active" href="customers"><span class="ion-ios-people"></span>Customers</a>
+				<a href="inventory" class="aktif"><span class="ion-briefcase"></span>Inventory</a>
+				<a href="supplier" class="aktif"><span class="ion-person-stalker"></span>Supplier</a>
 			</div>
 						
 				<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>
@@ -134,6 +155,19 @@
 
 			<!-- Modal Start -->	
 			<div id="id01" class="modal_dialog">
+				<?php
+					require_once("conn.php");
+					$sql2 = "SELECT max(kd_customer) AS maxKodeCustomer FROM tb_customer";
+					$q2 = mysqli_query($conn, $sql2);
+					$data = mysqli_fetch_array($q2);
+					$noKodeCustomer = $data['maxKodeCustomer'];
+
+					$noUrut = (int) substr($noKodeCustomer, 4, 5);
+					$noUrut++;
+
+					$char = "CST-";
+					$noKodeCustomer = $char. sprintf('%05s', $noUrut);
+				?>
 				<div class="modal_content animate">
 					<div class="modal_head">
 						<button onclick="document.getElementById('id01').style.display='none'" class="btn-close-modal"><i class="ion-close-round"></i></button>
@@ -146,28 +180,28 @@
 							 	<div class="input-group-prepend">
 							    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kode Customer" id="kodecus" name="kd_cust" required>
+							  	<input type="text" class="form-control" placeholder="Kode Customer" id="kodecus" name="kd_cust" required autocomplete="off" value="<?php echo $noKodeCustomer; ?>" readonly="true">
 							</div>
 
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-android-person"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Nama Customer" id="namacus" name="nm_cust" required>
+							  	<input type="text" class="form-control" placeholder="Nama Customer" id="namacus" name="nm_cust" required autocomplete="off">
 							</div>
 
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-location"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Alamat" name="almt_cust" required>
+							  	<input type="text" class="form-control" placeholder="Alamat" name="almt_cust" required autocomplete="off">
 							</div>
 
 							<div class="input-group mb-3">
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-telephone"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kontak" id="kontak" name="kontak_cust" required>
+							  	<input type="text" class="form-control" placeholder="Kontak" id="kontak" name="kontak_cust" required autocomplete="off">
 							</div>					    
 							<!-- <input type="submit" name="btnAdd" id="btnAdd" class="button add-modal" value="ADD"> -->
 							<button type="submit" name="btnAdd" id="btnAdd" class="btn btn-outline-primary btn-sm btn-block">Tambah</button>
@@ -200,7 +234,7 @@
 							 	<div class="input-group-prepend">
 							    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kode Customer" id="kode" name="kode" required="">
+							  	<input type="text" class="form-control" placeholder="Kode Customer" id="kode" name="kode" required autocomplete="off" >
 							</div>
 
 							<div class="input-group mb-3">
@@ -208,7 +242,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-android-person"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Nama Customer" id="nama" name="nama" required>
+							  	<input type="text" class="form-control" placeholder="Nama Customer" id="nama" name="nama" required autocomplete="off">
 							</div>
 
 							<div class="input-group mb-3">
@@ -216,7 +250,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-location"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Alamat" id="alamat" name="alamat" required>
+							  	<input type="text" class="form-control" placeholder="Alamat" id="alamat" name="alamat" required autocomplete="off">
 							</div>
 
 							<div class="input-group mb-3">
@@ -224,7 +258,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-telephone"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kontak" id="kon" name="kontak" required>
+							  	<input type="text" class="form-control" placeholder="Kontak" id="kon" name="kontak" required autocomplete="off">
 							</div>
 							<input type="submit" class="btn btn-outline-primary btn-sm btn-block" id="update" value="Update" formaction="customers_edit_simpan.php">
 						</form>

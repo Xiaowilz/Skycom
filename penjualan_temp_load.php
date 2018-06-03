@@ -1,3 +1,15 @@
+<script type="text/javascript">
+	function functionHanyaAngka(event) 
+	{
+	  var charCode = (event.which) ? event.which : event.keyCode;
+	   if (charCode > 31 && (charCode < 48 || charCode > 57))
+	   {
+	   		return false;
+	   }
+	  return true;
+	}
+</script>
+
 <div class="table-responsive">
 	<table class="table table-hover table-sm table-bordered">
 	 	<thead class="thead-dark">
@@ -52,7 +64,7 @@
 					<td colspan="4" align="center">
 						<strong>Diskon</strong>
 					</td>
-					<td align="right"><input type="decimal" name="diskon" id="diskon" placeholder="0"></td>
+					<td align="right"><input type="decimal" name="diskon" id="diskon" placeholder="0" onkeypress="return functionHanyaAngka(event)"></td>
 					<td></td>
 				</tr>
 

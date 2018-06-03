@@ -1,21 +1,53 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login Skycom</title>
-	<link rel="stylesheet" type="text/css" href="login.css">
-</head>
-<body background="gambar\background_login.png">
-		<div class="container">
-			<div class="user">
-				<form method="POST" action="login2.php">
-					<div class="judul"><font size="10px" color="white"><i><u>SkyCom</u></i></font><br><br></div>
-					<font color="white">ID : </font><br>
-					<input type="text" name="id" placeholder="ID"><br><br>
-					<font color="white">Password : </font><br>
-					<input type="password" name="password" placeholder="Password"><br><br>
-					<input type="submit" name="login" value="Login" class="login">
-				</form>
-			</div>
-		</div>
-</body>
-</html>
+<?php
+	session_start();
+	require_once("conn.php");
+	$u = mysqli_real_escape_string($conn, $_POST['username']);
+	$p = mysqli_real_escape_string($conn, $_POST['password']);
+		$sql = "SELECT username,password FROM login WHERE username = '$u' AND password = '$p'";
+
+		$q = mysqli_query($conn, $sql);
+
+		$r = mysqli_fetch_assoc($q);
+		if(!empty($u) && !empty($p))
+		{
+			if ($u == $r['username'] && $p == $r['password']) 
+			{
+				$_SESSION['username'] = "$u";
+				header('location:mainform');
+			}
+			else
+			{
+				echo "
+				<script>
+					alert('Username atau Password Salah');
+					window.history.back();
+				</script>";
+			}
+		}
+		
+		else
+		{
+			echo "
+			<script>
+				alert('Form harus di isi terlebih dahulu!!');
+				window.history.back();
+			</script>";
+		}
+	
+?>
+
+<!-- <script>
+	function salah()
+	{
+		var r = confirm('Username atau Password Salah');
+		if (r == true) 
+		{
+			window.history.back();
+			return true;
+		}
+		else
+		{
+			alert('You Press Cancel');
+		}
+	}	
+</script> -->

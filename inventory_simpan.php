@@ -18,5 +18,6 @@
 				alert('Data Tersimpan');
 			</script>
 		";
+		header("Location:inventory");
 	}
 ?>
