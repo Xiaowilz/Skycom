@@ -28,18 +28,11 @@
 		.ion-person-add{
 			margin-right: 10px;
 		}
-
-<<<<<<< HEAD
-		#table_id{
-			border-collapse: collapse;
-		}
 		
-=======
 		.logout
 		{
 			float : right;
 		}
->>>>>>> 34a3cff89454dd85c8472860a3ef911b1a295f8f
 	</style>
 
 </head>
@@ -53,7 +46,7 @@
 
 		<div class="logout">
 			<form method="POST" action="logout">
-				<input type="submit" name="logout" value="Logout" class="btn btn-danger">
+				<input type="submit" name="logout" value="Logout" class="btn btn-outline-danger">
 			</form>
 		</div>
 	</div>
