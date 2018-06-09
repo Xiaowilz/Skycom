@@ -10,13 +10,11 @@
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 	<script src="javascript/bootstrap-datepicker.js"></script>
-<<<<<<< HEAD
 
 	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
-=======
 	<script type="text/javascript" src="javascript/script.js"></script>	
 	<!-- ____________  -->
 	<style type="text/css">
@@ -25,7 +23,6 @@
 			float : right;
 		}
 	</style>
->>>>>>> 34a3cff89454dd85c8472860a3ef911b1a295f8f
 </head>
 
 <?php

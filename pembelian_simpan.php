@@ -6,11 +6,12 @@
 
 	$kode = $_POST['kode_transaksi'];
 	$namaSupplier = $_POST['nama_supplier'];
-	// echo "$kode";
-	// echo "$namaSupplier";
 	$totalPembelian = $_SESSION['totalPembelian'];
-	// echo "$totalPembelian";
-	$sql3 = "INSERT INTO tb_pembelian(notrans,supplier,total) VALUES ('$kode','$namaSupplier','$totalPembelian');";
+	$tanggal = $_SESSION['tanggal'];
+	$bulan = $_SESSION['bulan'];
+	$tahun = $_SESSION['tahun'];
+	$tanggalTrans = "$tahun-$bulan-$tanggal";
+	$sql3 = "INSERT INTO tb_pembelian(notrans,tgltrans,supplier,total) VALUES ('$kode','$tanggalTrans','$namaSupplier','$totalPembelian');";
 	$q3 = mysqli_query($conn, $sql3);
 
 

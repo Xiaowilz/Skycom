@@ -18,16 +18,12 @@
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 	<script src="javascript/bootstrap-datepicker.js"></script>
-<<<<<<< HEAD
 
 	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
-
-=======
 	<!-- ____________  -->
->>>>>>> 34a3cff89454dd85c8472860a3ef911b1a295f8f
 	<style type="text/css">
 		.col-4 {
 			float: right;
@@ -107,11 +103,11 @@
 ?>
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
 	<div id="topnav">
-		<div class="menuicon" onclick="geser()">
+		<!-- <div class="menuicon" onclick="geser()">
 			<div class="garis"></div>
 			<div class="garis"></div>
 			<div class="garis"></div>
-		</div>
+		</div> -->
 
 		<div class="jamtgl">
 			Jam : <span id="clock"></span>
@@ -255,6 +251,10 @@
 							<div class="col-xs-1">
 						    	<button type="submit" class="btn btn-success btn-sm" value="Add" id="add"><ion-icon name="cart" id="cart"></ion-icon>Tambah</button>
 							</div>
+
+							<div>
+								<p id="feedback"></p>
+							</div>
 						</div>
 					</div>
 
@@ -267,9 +267,10 @@
 								url: 'pembelian_temp.php',
 								type: 'POST',
 								data: $('#pembelianTemp').serialize(),
-								success : function()
+								success : function(data)
 								{
 									$('#temp_pembelian').load('pembelian_temp_load.php');
+									document.getElementById('feedback').innerHTML = data;
 								}
 							});
 							return false;
@@ -299,6 +300,7 @@
 			<br>
 				<input type="submit" id="simpan" class="btn btn-primary" name="simpan" value="Simpan" formaction="pembelian_simpan.php">	
 			</form>
+
 			
 			<script type="text/javascript">
 				$(document).ready(function() {
@@ -396,7 +398,7 @@
 								</thead>	
 								<?php
 									require("conn.php");
-									$sql3 = "SELECT jns_barang, kd_barang, nm_barang, hrg_beli FROM tb_inventory WHERE hapus = 0";
+									$sql3 = "SELECT jns_barang, kd_barang, nm_barang, hrg_beli FROM tb_inventory";
 									$q3 = mysqli_query($conn, $sql3);
 
 									while ($r3 = mysqli_fetch_assoc($q3)) 
@@ -406,17 +408,15 @@
 												<td>$r3[jns_barang]</td>
 												<td>$r3[kd_barang]</td>
 												<td>$r3[nm_barang]</td>
-<<<<<<< HEAD
-												<td>$r3[hrg_jual]</td>
-												<td><a href='#' data-kodeItem='$r3[kd_barang]' data-namaBarang='$r3[nm_barang]' data-hargaItem='$r3[hrg_jual]' class='pilihItem' data-dismiss='modal'>Pilih</a></td>
-											</tr>	
-=======
 												<td>$r3[hrg_beli]</td>
 												<td><a href='#' data-kodeItem='$r3[kd_barang]' data-namaBarang='$r3[nm_barang]' data-hargaItem='$r3[hrg_beli]' class='pilihItem' data-dismiss='modal'>Pilih</a></td>
-											<tr>	
->>>>>>> 34a3cff89454dd85c8472860a3ef911b1a295f8f
+											</tr>
+											
 										";	
 									}
+										// <td>$r3[hrg_beli]</td>
+										// 		<td><a href='#' data-kodeItem='$r3[kd_barang]' data-namaBarang='$r3[nm_barang]' data-hargaItem='$r3[hrg_beli]' class='pilihItem' data-dismiss='modal'>Pilih</a></td>
+										// 	<tr>	
 								?>
 				  			</table>
 				  		</div>
@@ -521,19 +521,26 @@
 </script>
 
 <script type="text/javascript">
-	$('.pilihSupplier').on('click', function() {
+	$('.pilihSupplier').on('click', function() 
+	{
 		var kodeSupplier = this.getAttribute('data-kodeSupplier');
 		var namaSupplier = this.getAttribute('data-namaSupplier');
 		document.getElementById('kode_supplier').value = kodeSupplier;
 		document.getElementById('nama_supplier').value = namaSupplier;
 	});
 
-	$('.pilihItem').on('click', function() {
+	$('.pilihItem').on('click', function() 
+	{
 		var kodeItem = this.getAttribute('data-kodeItem');
 		var namaItem = this.getAttribute('data-namaBarang');
 		var hargaItem = this.getAttribute('data-hargaItem');
 		document.getElementById('kode_item').value = kodeItem;
 		document.getElementById('nama_item').value = namaItem;
 		document.getElementById('harga_item').value = hargaItem;
+	});
+
+	$("#pembelianTemp").submit(function() 
+	{
+		window.onbeforeunload = null;
 	});
 </script>		

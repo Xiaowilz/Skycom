@@ -29,5 +29,5 @@
 
 	$q2 = mysqli_query($conn, $sql2);
 
-	header('Location:penjualan.php');
+	header('Location:penjualan');
  ?>

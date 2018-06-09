@@ -29,17 +29,14 @@
 			margin-right: 10px;
 		}
 
-<<<<<<< HEAD
 		#table_id{
 			border-collapse: collapse;
 		}
 		
-=======
 		.logout
 		{
 			float : right;
 		}
->>>>>>> 34a3cff89454dd85c8472860a3ef911b1a295f8f
 	</style>
 
 </head>
