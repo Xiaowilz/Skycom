@@ -24,6 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
 	<!-- ____________  -->
+
 	<style type="text/css">
 		.col-4 {
 			float: right;

@@ -47,7 +47,7 @@
 
 		<div class="logout">
 			<form method="POST" action="logout">
-				<input type="submit" name="logout" value="Logout" class="btn btn-danger">
+				<input type="submit" name="logout" value="Logout" class="btn btn-outline-danger">
 			</form>
 		</div>
 	</div>
