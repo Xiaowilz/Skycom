@@ -21,6 +21,7 @@
 		.logout
 		{
 			float : right;
+			margin-top: -4px;
 		}
 	</style>
 </head>
@@ -55,7 +56,7 @@
 
 		<div class="logout">
 			<form method="POST" action="logout">
-				<input type="submit" name="logout" value="Logout" class="btn btn-outline-danger">
+				<input type="submit" name="logout" value="Logout" class="btn btn-outline-danger btn-sm">
 			</form>
 		</div>
 	</div>
@@ -147,7 +148,6 @@
 										}
 									?>
 							 	</tbody>
-
 							</table>							
 						</div>
 						<!-- Tabel End -->
@@ -362,8 +362,10 @@
   	});
 
   	$(document).ready( function () {
+  		$.fn.DataTable.ext.pager.numbers_length = 9;
 	    $('#table_id').DataTable({
-	    	"pagingType": "full_numbers"
+	    	"pagingType": "full_numbers",
+            "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
 	    });
 	});	
 

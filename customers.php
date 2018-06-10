@@ -35,6 +35,8 @@
 		
 		.logout
 		{
+			/*display: inline-block;*/
+			margin-top: -4px;
 			float : right;
 		}
 	</style>
@@ -50,7 +52,7 @@
 
 		<div class="logout">
 			<form method="POST" action="logout">
-				<input type="submit" name="logout" value="Logout" class="btn btn-outline-danger">
+				<input type="submit" name="logout" value="Logout" class="btn btn-outline-danger btn-sm">
 			</form>
 		</div>
 	</div>
@@ -118,7 +120,7 @@
 										while ($r = mysqli_fetch_assoc($q)) 
 										{
 										    echo "<tr>";
-										    echo "<td>$r[kd_customer]";
+										    echo "<td>$r[kd_customer]</td>";
 										    echo "<td>$r[nm_customer]</td>";
 										    echo "<td>$r[alamat]</td>";
 										    echo "<td>$r[kontak]</td>";
@@ -311,8 +313,11 @@
   	});	
 
   	$(document).ready( function () {
+  		$.fn.DataTable.ext.pager.numbers_length = 9;
+  		
 	    $('#table_id').DataTable({
-	    	"pagingType": "full_numbers"
+	    	"pagingType":"full_numbers",
+            "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
 	    });
 	});
 
@@ -350,18 +355,5 @@
 		document.getElementById('kon').value = kontak;
 	});									
 
-	// $('#update').on('click', function()
-	// {
-	// 	$.ajax({
-	// 		url: 'customer_edit_simpan.php',
-	// 		type: 'POST',
-	// 		dataType: 'html',
-	// 		data: $('#formUpdate').serialize(),
-	// 		success : function()
-	// 		{
-	// 			location:reload();			
-	// 		}
-	// 	});
-		
-	// });
+
 </script>

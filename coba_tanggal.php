@@ -9,6 +9,11 @@
     <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
     <script src="javascript/bootstrap-datepicker.js"></script>
 
+    <script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
+
     <style type="text/css">
         .jamtgl {
             float : right;
@@ -28,7 +33,7 @@
 
         #detail {
             text-decoration: none;
-            padding: 3px 10px;
+            padding: 2px 10px;
             color: #17a2b8;
             border-radius: 4px;
             font-size: 14px;
@@ -116,7 +121,7 @@
             
             <div id="tampil">
                 <div class="table-responsive">
-                    <table class="table table-hover table-sm table-bordered">
+                    <table class="table table-hover table-sm table-bordered" id="tabel_penjualan">
                         <thead class="thead-dark">    
                             <tr>
                                 <th>No. Transaksi</th>
@@ -129,6 +134,7 @@
                             </tr>
                         </thead>
 
+                        <tbody>
                         <?php 
                             require_once("conn.php");
                             $sql = "SELECT * FROM tb_penjualan";
@@ -152,17 +158,21 @@
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];
                             }
-                        ?>
-                        <tr>
-                            <td colspan="7"></td>
-                        </tr>
+                        ?>                          
+                            <tr>
+                                <td colspan="5" align="center"><strong>Total</strong></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td style="display: none;"></td>
+                                <td align="right"><strong> <?php echo "Rp " .number_format($grandTotal, 0, ',', '.'); ?> </strong></td>
+                                <td></td>
+                            </tr>
 
-                        <tr>
-                            <td colspan="5" align="center"><strong>Total</strong></td>
-                            <td align="right"><?php echo "Rp " .number_format($grandTotal, 0, ',', '.'); ?> </td>
-                            <td></td>
-                        </tr>     
+                        </tbody>     
                     </table>
+
+
                 </div>
             </div>
         </div>
@@ -187,7 +197,6 @@
             // .datepicker('update', new Date());
         });
 
- 
 
         $("#filter").click(function(){
             var tglAwal = $("#from_date").val();
@@ -218,6 +227,18 @@
             //     }
                
             // });
+        });
+    });
+
+    $(document).ready(function() {
+        $.fn.DataTable.ext.pager.numbers_length = 9;
+        
+        $('#tabel_penjualan').DataTable({
+            "searching": false,
+            "info": false,
+            "ordering": false,
+            "pagingType":"full_numbers",
+            "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
         });
     });
         
