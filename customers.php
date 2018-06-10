@@ -28,6 +28,10 @@
 		.ion-person-add{
 			margin-right: 10px;
 		}
+
+		#table_id{
+			border-collapse: collapse;
+		}
 		
 		.logout
 		{

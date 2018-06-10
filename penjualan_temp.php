@@ -1,8 +1,9 @@
 <?php 
+
 	session_start();
 	require_once("conn.php");
-	$qty = $_POST['quantity'];
-	$hargaJual = $_POST['harga_item'];
+	$qty = (int)$_POST['quantity'];
+	$hargaJual = (int)$_POST['harga_item'];
 	$subTotal = $qty * $hargaJual;
 	$sqlCekBarang = "SELECT * FROM tb_temp_penjualan WHERE kd_barang = '$_POST[kode_item]'";
 	$cekBarang = mysqli_query($conn, $sqlCekBarang);
@@ -31,6 +32,7 @@
 			$_SESSION["qty"] = "$qty";
 
 			echo "Data Tersimpan ke Tabel";
+			
 		}
 		exit;
 	}

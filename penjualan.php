@@ -1,4 +1,5 @@
 <?php
+
 	session_start();
 	if(!isset($_SESSION['username']))
 	{
@@ -113,11 +114,11 @@
 ?>
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
 	<div id="topnav">
-		<div class="menuicon" onclick="geser()">
+		<!-- <div class="menuicon" onclick="geser()">
 			<div class="garis"></div>
 			<div class="garis"></div>
 			<div class="garis"></div>
-		</div>
+		</div> -->
 
 		<div class="jamtgl">
 			Jam : <span id="clock"></span>
@@ -279,6 +280,10 @@
 						    	<div class="col-xs-1">
 						    		<Button type="submit" id="add" class="btn btn-success btn-sm"><ion-icon name="cart" id="cart"></ion-icon>Tambah</Button>
 								</div>
+
+								<div>
+									<p id="feedback"></p>
+								</div>
 							</div>
 						</div>	
 
@@ -306,7 +311,6 @@
 					</div>				
 				</div>
 					<button type="submit" name="simpan" class="btn btn-primary" id="simpan" formaction="penjualan_simpan.php">Simpan</button>
-					<a href="cetak_penjualan.php" target="_blank">Cetak</a>
 				</form>
 
 			</div>
@@ -511,7 +515,7 @@
 			success : function(data)
 			{
 				$("#tabelTemp").load("penjualan_temp_load.php");
-				window.alert(data);
+			 	document.getElementById('feedback').innerHTML = data;
 			}
 		});
 		
@@ -523,6 +527,11 @@
 
 	    $('#tabel_barang').DataTable();
 	});	
+
+	$('#penjualanTemp').submit(function() 
+	{
+		window.onbeforeunload = null;
+	});
 </script>
 
 </html>

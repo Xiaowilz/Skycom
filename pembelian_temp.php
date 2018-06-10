@@ -3,19 +3,16 @@
 	require_once("conn.php");
 	// $kodeBarang = isset($_POST['kode_barang']);
 	// $namaBarang = isset($_POST['nama_barang']);
-	$qty = $_POST['quantity'];
-	$hargaItem = $_POST['harga_item'];
+	$qty = (int)$_POST['quantity'];
+	$hargaItem = (int)$_POST['harga_item'];	
 	$subTotal = $qty * $hargaItem;
 
 	$sqlCekBarang = "SELECT * FROM tb_temp_pembelian WHERE kd_barang = '$_POST[kode_item]'";
 	$cekBarang = mysqli_query($conn, $sqlCekBarang);
+	
 	if(mysqli_num_rows($cekBarang) > 0)
 	{
-		echo"
-			<script>
-				window.alert('Barang Telah Ada di Tabel');
-			</script>
-		";
+		echo"Data Telah Ada di Tabel";
 		exit;
 	}
 	else if(!empty($qty) && !empty($hargaItem))
@@ -39,7 +36,7 @@
 		}
 		else
 		{
-			echo "Data Tersimpan";
+			echo "Data Tersimpan ke Tabel";
 		}
 	}
 	
