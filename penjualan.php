@@ -225,7 +225,7 @@
 							<div class="form-group row">
 				      			<label for="sales" class="col-sm-3 col-form-label col-form-label-sm">Sales</label>
 				      			<div class="col-sm-4">
-				      				<input id="sales" type="text" class="form-control-plaintext form-control-sm" placeholder="Sales" name="nmSales" value="<?php echo $noTrans; ?>">
+				      				<input id="sales" type="text" class="form-control-plaintext form-control-sm" placeholder="Sales" name="nmSales" value="<?php echo $noTrans; ?>" readonly>
 				    			</div>
 						    </div>
 
