@@ -62,6 +62,17 @@
 
 				<tr>
 					<td colspan="4" align="center">
+						  <input class="form-check-input" type="checkbox" value="" id="ppn">
+						  <label class="form-check-label" for="ppn">
+								<strong>PPN 10%</strong>
+						  </label>
+					</td>
+					<td></td>
+					<td></td>
+				</tr>
+
+				<tr>
+					<td colspan="4" align="center">
 						<strong>Diskon</strong>
 					</td>
 					<td align="right"><input type="decimal" name="diskon" id="diskon" placeholder="0" onkeypress="return functionHanyaAngka(event)"></td>

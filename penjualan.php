@@ -129,26 +129,6 @@
 		</div>
 	</div>
 
-	<!-- <div id="sidenav">
-		<div id="tab">
-			<div class="tabbutton">	
-				<a href="mainform.php"><span class="ion-ios-home"></span>Beranda</a>
-				<a class="active" href="penjualan.php" target="_blank"><span class="ion-cash"></span>Penjualan</a>
-				<a href="pembelian.php"><span class="ion-android-cart"></span>Pembelian</a>
-				<a href="customers.php"><span class="ion-ios-people"></span>Customers</a>
-				<a href="inventory.php"><span class="ion-briefcase"></span>Inventory</a>
-				<a href="supplier.php"><span class="ion-person-stalker"></span>Supplier</a>
-			</div>
-						
-				<a class="tabbutton drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>
-				
-					<div class="dropdown">
-						<a href="#"><span class="ion-ios-circle-filled"></span>Item 1</a>
-						<a href="#"><span class="ion-ios-circle-filled"></span>Item 2</a>
-						<a href="#"><span class="ion-ios-circle-filled"></span>Item 3</a>
-					</div>
-		</div>
-	</div> -->
 	
 	<div id="rightside2">
 		<div id="beranda">			
@@ -178,7 +158,7 @@
 						<div class="dtkiri">
 							<div class="form-group row">
 				      			<label for="kodetransaksi" class="col-sm-3 col-form-label col-form-label-sm">No. Transaksi</label>
-				      			<div class="col-sm-2">
+				      			<div class="col-sm-4">
 				      				<input id="kodetransaksi" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="no_transaksi" readonly value="<?php echo $noTrans; ?>">
 				    			</div>
 						    </div>
@@ -208,16 +188,46 @@
 								$tgl2 = date('l, d-m-Y', strtotime('+14 days', strtotime($tgl1)));
 							?>
 
-							<div class="form row">
+							<div class="form-group row">
+								<label for="jthtempo" class="col-sm-3 col-form-label col-form-label-sm">Pembayaran</label>
+	<!-- 						    <div class="">
+							    	<div class="form-check form-group">
+									  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+									  <label class="form-check-label" for="inlineRadio1">Kredit</label>
+									</div>
+									<div class="form-check">
+									  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+									  <label class="form-check-label" for="inlineRadio2">Cash</label>
+									</div>
+							    </div> -->
+							   	<div class="col-sm-3">
+							        <select class="form-control form-control-sm">
+								      <option value="1">Kredit</option>
+								      <option value="2">Cash</option>
+								    </select>
+		<!-- 						    <div class="invalid-feedback">
+								        Looks good!
+								    </div> -->
+								</div>		
+							</div>
+
+
+							<div class="form-group row">
 				      			<label for="jthtempo" class="col-sm-3 col-form-label col-form-label-sm">Jatuh Tempo 14 Hari</label>
 				      			<div class="col-sm-3">
 				      				<input id="jthtempo" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="tempo_transaksi" readonly value="<?php echo $tgl2; ?>">
 				    			</div>
 						    </div>
-
 						</div>
 
 						<div class="dtkanan">
+							<div class="form-group row">
+				      			<label for="sales" class="col-sm-3 col-form-label col-form-label-sm">Sales</label>
+				      			<div class="col-sm-4">
+				      				<input id="sales" type="text" class="form-control-plaintext form-control-sm" placeholder="Sales" name="nmSales" value="<?php echo $noTrans; ?>">
+				    			</div>
+						    </div>
+
 						    <div class="form row">
 							    <label for="keterangan" class="col-sm-3 col-form-label col-form-label-sm">Keterangan</label>
 							    <div class="col-md-6 mb-1">
@@ -225,6 +235,8 @@
 							    </div>	
 							</div>
 						</div>	
+
+
 
 						<div class="spacer" style="clear: both;"></div>					
 				</div>	

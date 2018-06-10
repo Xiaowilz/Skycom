@@ -44,6 +44,7 @@ body{
 .menuicon{
 	display: inline-block;
 	cursor: pointer;
+	float: left;
 }
 
 /*Side Navigation vvvvv*/

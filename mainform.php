@@ -587,8 +587,14 @@
   		});
 
   		$(document).ready( function () {
-		    $('#example').DataTable();
-		} );
+            $.fn.DataTable.ext.pager.numbers_length = 9;
+
+		    $('#example').DataTable({
+                "pagingType":"full_numbers",
+                "lengthMenu": [ [1, 4, 8, -1], [1, 4, 8, "All"] ],
+                // "pageLength": 4
+            });
+		});
   	});
 
 </script>
