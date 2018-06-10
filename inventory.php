@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Inventory</title>
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	
@@ -22,6 +22,10 @@
 		{
 			float : right;
 			margin-top: -4px;
+		}
+
+		#table_id th{
+			text-align: center; 
 		}
 	</style>
 </head>
@@ -93,18 +97,11 @@
 				<div class="all-content">
 					<div class="all-head">
 						<div class="button-add">
-							<button class="btn btn-outline-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span class="ion-plus-round"></span> Tambah Barang</button>
+							<button class="btn btn-outline-primary" data-toggle='modal' data-target='#modalJenisBarang' data-backdrop='static'><ion-icon name="add"></ion-icon> Tambah Jenis Barang</button>
+
+							<button class="btn btn-outline-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><ion-icon name="add"></ion-icon> Tambah Barang</button>					
 						</div>
 						<br>
-<!-- 
-						<div class="search-container">
-						      <div class="input-group mb-3">
-								<input type="text" name="keyword" id="keyword" class="form-control" placeholder="Search Here" autocomplete="off">
-								<div class="input-group-append">
-							    	<span class="input-group-text"><ion-icon ios="ios-search" md="md-search"></ion-icon></span>
-							  	</div>
-							</div>
-		 				</div> -->
 					</div>
 					<br>
 					
@@ -125,8 +122,7 @@
 								    </tr>
 							  	</thead>
 
-								<tbody>
-								    
+								<tbody>								    
 								    <?php
 										require_once("conn.php");
 
@@ -135,13 +131,15 @@
 
 										while ($r = mysqli_fetch_assoc($q)) 
 										{
+											$hargaBeli = number_format($r['hrg_beli'], 0, ',', '.');
+											$hargaJual = number_format($r['hrg_jual'], 0, ',', '.');
 										    echo "<tr>";
 										    echo "<td>$r[jns_barang]</td>";
 										    echo "<td>$r[kd_barang]</td>";
 										    echo "<td>$r[nm_barang]</td>";
-										    echo "<td>$r[qty]</td>";
-										    echo "<td>$r[hrg_beli]</td>";
-										    echo "<td>$r[hrg_jual]</td>";
+										    echo "<td align='center'>$r[qty]</td>";
+										    echo "<td align='right'>$hargaBeli</td>";
+										    echo "<td align='right'>$hargaJual</td>";
 										    echo "<td align='center'><span class='editBarang ion-edit' data-toggle='modal' data-target='#myModal0' data-backdrop='static'  data-jenisBarang='$r[jns_barang]' data-kodeBarang='$r[kd_barang]' data-namaBarang='$r[nm_barang]' data-qty='$r[qty]' data-hargaBeli='$r[hrg_beli]' data-hargaJual='$r[hrg_jual]'></span></td>";
 										    echo "<td class='hapus' align='center'><a class='ion-trash-a' href='inventory_hapus.php?hps=$r[kd_barang]' onclick='return functionHapus()'></a></td>";
 										    echo "</tr>";
@@ -327,6 +325,58 @@
 			  </div>
 			</div>
 			<!-- Modal End -->
+
+			<!-- Modal Start -->
+			<div class="modal fade" id="modalJenisBarang" role="dialog">
+			    <div class="modal-dialog">
+			      <!-- Modal content-->
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <h4 class="modal-title">Tambah Jenis Barang</h4>
+			          <span class="ion-close" data-dismiss="modal"></span>		          
+			        </div>
+			        <div class="modal-body">
+			        	<form method="POST">
+							<div class="input-group mb-3">
+								<label for="type" class="col-sm-3 col-form-label">Tipe</label>
+								<div class="input-group-prepend">
+							    	<label class="input-group-text ion-levels" for="type"></label>
+							  	</div>
+							  	<select class="custom-select" id="typeEdit" name="jenis_barang">
+						  		<?php
+						  		require_once("conn.php");
+						  		$sql = $conn->query("SELECT tipebarang FROM tb_tipebarang");
+						  
+						  		while ($r = mysqli_fetch_array($sql)) 
+						  		{
+						  			echo "<option value='$r[tipebarang]'>$r[tipebarang]";
+						  		}
+							  	?>
+							  	</select>
+							</div>	
+	
+							<div class="input-group mb-3">
+								<label for="namaTipe" class="col-sm-3 col-form-label">Nama Tipe</label>
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="ion-ios-pricetag"></i></span>
+							  	</div>
+							  	<input type="text" class="form-control" placeholder="Nama Tipe" id="namaTipe" name="nama_tipe" required autocomplete="off">
+							</div>
+
+							<button type="submit" class="btn btn-outline-primary btn-sm btn-block" formaction="">Tambah</button>
+			        	</form>
+			        </div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+			        </div>
+			      </div>
+			      
+			    </div>
+			  </div>
+			</div>
+			<!-- Modal End -->
+
+
 		</div>
 	</div>
 <script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>

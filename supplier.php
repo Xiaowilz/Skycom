@@ -21,6 +21,10 @@
 			margin-right: 10px;
 		}
 
+		#table_id th{
+			text-align: center;
+		}
+
 		.logout
 		{
 			float : right;

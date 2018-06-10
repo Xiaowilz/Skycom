@@ -137,7 +137,7 @@
                         <tbody>
                         <?php 
                             require_once("conn.php");
-                            $sql = "SELECT * FROM tb_penjualan";
+                            $sql = "SELECT * FROM tb_penjualan ORDER BY notrans DESC";
                             $q = mysqli_query($conn,$sql);
                             $grandTotal = 0;
                             while ($r = mysqli_fetch_array($q)) 

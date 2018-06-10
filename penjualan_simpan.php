@@ -30,4 +30,6 @@
 	$q2 = mysqli_query($conn, $sql2);
 
 	header('Location:penjualan');
+
+	echo "window.open('coba_tanggal.php')";
  ?>
