@@ -220,9 +220,9 @@
 
 						<div class="dtkanan">
 						    <div class="form row">
-							    <label for="keterangan" class="col-sm-3 col-form-label col-form-label-sm">Keterangan</label>
+							    <label for="catatan" class="col-sm-3 col-form-label col-form-label-sm">Catatan</label>
 							    <div class="col-md-6 mb-1">
-							    	<textarea class="form-control form-control-sm" id="keterangan" rows="3"></textarea>
+							    	<textarea class="form-control form-control-sm" id="catatan" rows="5" name="catatan"></textarea>
 							    </div>	
 							</div>
 						</div>	
