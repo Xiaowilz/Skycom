@@ -55,38 +55,71 @@
 				</tr>
 
 				<tr>
-					<td colspan="4" align="center"><b>Total<b></td>
+					<td colspan="4" align="right"><b>Total<b></td>
 					<td align="right"><?php echo "Rp " .number_format($totalPenjualan, 0, ',', '.'); ?> </td>
 					<td></td>
 				</tr>
 
 				<tr>
-					<td colspan="4" align="center">
-						  <input class="form-check-input" type="checkbox" value="" id="ppn">
-						  <label class="form-check-label" for="ppn">
-								<strong>PPN 10%</strong>
-						  </label>
+					<td colspan="4" align="right">
+						  <input class="form-check-input" type="checkbox" value="10" id="ppn" onclick="functionPpn()">
+						  <label class="form-check-label" for="ppn">PPN 10%</label>
 					</td>
+					<td align="right"><input type="text" name="tdPpn" id="tdPpn" value="0" readonly="true"></td>
 					<td></td>
+				</tr>
+				
+
+				<tr>
+					<td colspan="4" align="right">Total Setelah PPN</td>
+					<td align="right"><input type="text" name="" id="setelah_ppn" value="0" readonly="true"></td>
 					<td></td>
 				</tr>
 
 				<tr>
-					<td colspan="4" align="center">
-						<strong>Diskon</strong>
+					<td colspan="4" align="right">
+						<strong>Potongan</strong>
 					</td>
 					<td align="right"><input type="decimal" name="diskon" id="diskon" placeholder="0" onkeypress="return functionHanyaAngka(event)"></td>
 					<td></td>
 				</tr>
 
 				<tr>
-					<td colspan="4" align="center"><strong>Grand Total</strong></td>
-					<td align="right"><div id="grandtotal"><?php echo "Rp " .number_format($totalPenjualan, 0, ',', '.'); ?></div></td>
+					<td colspan="4" align="right"><strong>Grand Total</strong></td>
+					<td align="right"><div id="grandtotal"></div></td>
 					<td></td>
 				</tr>	
 
 
 		    <script type="text/javascript">  	
+		    	var totalPenjualan2 = 0;
+		    	document.getElementById('grandtotal').innerHTML = <?php echo $totalPenjualan;?>;
+			    function functionPpn()
+				{
+					checkBox = document.getElementById('ppn');
+
+					if(checkBox.checked == true)
+					{
+						var tempPpn = document.getElementById('ppn').value;
+						console.log(tempPpn);
+						var totalPenjualan = <?php echo $totalPenjualan;?>;
+						var ppn = totalPenjualan * (tempPpn/100);
+						document.getElementById('tdPpn').value = ppn;
+						totalPenjualan2 = totalPenjualan + ppn;
+						console.log(totalPenjualan2);
+						document.getElementById('setelah_ppn').value = totalPenjualan2;
+						document.getElementById('grandtotal').innerHTML = totalPenjualan2;
+						document.getElementById('diskon').value = 0;
+					}
+					else
+					{
+						document.getElementById('tdPpn').value = 0;
+						document.getElementById('setelah_ppn').value = 0;
+						document.getElementById('grandtotal').innerHTML = <?php echo $totalPenjualan;?>;
+						document.getElementById('diskon').value = 0;
+					}
+				}
+
 		    	$('.hapus').on('click',function() 
 		    	{
 		    		var kd_hapus = this.getAttribute('data-kodeHapus');
@@ -104,13 +137,15 @@
 		    	});
 
 		    	$(document).ready(function() {
-		    		$('#diskon').on('keyup', function() {
+		    		$('#diskon').on('change', function() {
 		    			var diskon = $('#diskon').val();
 		    			var kon = $('#diskon').val();
+		    			var totalSetelahPpn = document.getElementById('setelah_ppn').value;
 		    			// var diskonskin = $('#diskon').val();
 		    			var total = <?php echo $totalPenjualan ?>;
+		    			console.log(total);
 		    			// $('#diskon').load('ajax/diskonskin.php', {diskonskin : diskonskin } );
-		    			$('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total} );
+		    			$('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total, totalSetelahPpn : totalSetelahPpn});
 		    		});
 
 		    	// 	$('#diskon').on('blur', function() {
@@ -149,6 +184,19 @@
 					};
 
 					var input = document.getElementById('diskon');
+					var ppn, setelahPpn;
+					ppn = document.getElementById('tdPpn');
+					setelahPpn = document.getElementById('setelah_ppn');
+					ppn.addEventListener('blur', function(e)
+					{
+						ppn.value = format_number(this.value, 'Rp ');
+					});
+
+					setelahPpn.addEventListener('blur', function(e)
+					{
+						setelahPpn.value = format_number(this.value, 'Rp ');
+					});
+
 					input.addEventListener('blur', function(e)
 					{
 						input.value = format_number(this.value, 'Rp ');
@@ -160,7 +208,6 @@
 
 				});
 		    </script>
-
 	 	</tbody>
 	</table>
 	

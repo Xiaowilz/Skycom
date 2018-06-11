@@ -1,4 +1,11 @@
-<?php 
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<?php 
 	require_once __DIR__ . '/vendor/autoload.php';
 
 	$cetak = '
@@ -43,7 +50,9 @@
 	  	</table>
 	';
 
-	$mpdf = new \Mpdf\Mpdf();
+	$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [100, 150]]);
 	$mpdf->WriteHTML($cetak);
 	$mpdf->Output('laporan_penjualan.php', 'I');
  ?>
+</body>
+</html>
