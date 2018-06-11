@@ -29,13 +29,12 @@
 			margin-right: 10px;
 		}
 
-		#table_id{
-			border-collapse: collapse;
+		#table_id th{
+			text-align: center;
 		}
 		
 		.logout
 		{
-			/*display: inline-block;*/
 			margin-top: -4px;
 			float : right;
 		}
@@ -69,13 +68,12 @@
 				<a href="supplier" class="aktif"><span class="ion-person-stalker"></span>Supplier</a>
 			</div>
 						
-				<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>
-				
-					<div class="dropdown">
-						<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 1</a>
-						<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 2</a>
-						<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 3</a>
-					</div>
+			<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>		
+			<div class="dropdown">
+				<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 1</a>
+				<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 2</a>
+				<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 3</a>
+			</div>
 		</div>
 	</div>
 
@@ -102,7 +100,7 @@
 									<thead class="thead-dark">
 										<tr>
 											<th width="20%">Kode Customer</th>
-											<th width="">Nama</th>
+											<th width="">Nama Customer</th>
 											<th width="">Alamat</th>
 											<th width="">Kontak</th>
 											<th width="5%"></th>
@@ -124,7 +122,6 @@
 										    echo "<td>$r[nm_customer]</td>";
 										    echo "<td>$r[alamat]</td>";
 										    echo "<td>$r[kontak]</td>";
-										    // echo "<td><a href='customers_edit.php?edit=$r[kd_customer]'>Edit</a></td>";
 										    echo "<td align='center'><span class='editCust ion-edit' data-toggle='modal' data-target='#editcustomermodal' data-backdrop='static' data-kodeCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-alamat='$r[alamat]' data-kontak='$r[kontak]'></span></td>";
 										    echo "<td align='center'><a class='ion-trash-a' href='customers_hapus.php?hps=$r[kd_customer]' onclick='return functionHapus()' class='hapus' value='.$r[kd_customer]' id='hapus' name='hps' data-id = '.$r[kd_customer]'></a></td>";
 										    echo "</tr>";
@@ -148,7 +145,6 @@
 							</script>
 					</div>	
 					<!-- Tabel End -->
-
 				</div>
 			</div>	
 
@@ -218,8 +214,7 @@
 
 			<!-- Modal Start -->
 			<div class="modal fade" id="editcustomermodal" role="dialog">
-			    <div class="modal-dialog">
-			    
+			    <div class="modal-dialog">  
 			      <!-- Modal content-->
 			      <div class="modal-content">
 			        <div class="modal-header">
@@ -274,7 +269,6 @@
 		</div>
 	</div>	
 
-<!-- <script src="javascript/search.js"></script> -->
 <script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>
 
 </body>

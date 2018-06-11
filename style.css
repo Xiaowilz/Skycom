@@ -269,10 +269,11 @@ body{
 
 .all-head .button-add{
 	float: left;
+	display: block;
 }
 
-.all-head .search-container{
-	/*float: right;*/
+.all-head {
+	padding: 11px;
 }
 
 .all-bottom{

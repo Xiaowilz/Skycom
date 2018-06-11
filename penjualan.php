@@ -232,9 +232,6 @@
 							    </div>	
 							</div>
 						</div>	
-
-
-
 						<div class="spacer" style="clear: both;"></div>					
 				</div>	
 
@@ -282,12 +279,9 @@
 								</div>
 							</div>
 						</div>	
-
 						<div class="spacer" style="clear: both;"></div>
 				</div>
-
 				<!-- <br/> -->
-
 				<div class="all-bottom">
 					<!-- Load Tabel Temp -->
 					<div id="tabelTemp"> 
@@ -416,8 +410,7 @@
 		        <div class="modal-footer">
 		          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
 		        </div>
-		      </div>
-		      
+		      </div>    
 		    </div>
 		  </div>
 		</div>
@@ -528,6 +521,8 @@
 	{
 		window.onbeforeunload = null;
 	});
+
+
 </script>
 
 <script>

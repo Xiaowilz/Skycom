@@ -58,4 +58,6 @@
 	var_dump($q2);
 	var_dump($sql2);
 	header('Location:penjualan');
+
+	echo "window.open('coba_tanggal.php')";
  ?>
