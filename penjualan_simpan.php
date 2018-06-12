@@ -12,7 +12,33 @@
 	$tahun = $_SESSION['tahun'];
 	$tanggalTrans = "$tahun-$bulan-$tanggal";
 	$diskon = $_SESSION['diskon'];
-	$grandTotal = $_SESSION['grandTotal'];
+	$subTotalSetelahPpn = $_SESSION['totalSetelahPpn'];
+	var_dump($subTotalSetelahPpn);
+	$grandTotal;
+	if($diskon == 0)
+	{
+		$grandTotal = $totalPenjualan;
+	}
+	else
+	{
+		$grandTotal = $_SESSION['grandTotal'];
+	}
+	$catatan = $_POST['catatan'];
+	$tempKredit = $_POST['cbo_jatuh_tempo'];
+	$kredit = 0;
+	$tglJatuhTempo = "";
+	if($tempKredit == "kredit")
+	{
+		$kredit = 1;
+		$tglJatuhTempo = $_POST['tgl_jatuh_tempo_hidden'];
+		// var_dump($tglJatuhTempo);
+	}
+	else
+	{
+		$kredit = 0;
+		$tglJatuhTempo = $_POST['tgl_jatuh_tempo_hidden'];
+		// var_dump($tglJatuhTempo);
+	}
 	// $diskon = $_SESSION['kon'];
 	// echo "$tanggal";
 	// echo "$bulan";
@@ -23,11 +49,13 @@
 	// echo "$total";
 	// echo "$noTrans";
 	// echo "$namaCustomer";
-	echo "$diskon";
+	// echo "$diskon";
+	echo "$grandTotal";
 
-	$sql2 = "INSERT INTO tb_penjualan(notrans,tgltrans,customer,subtotal,diskon,total) VALUES('$noTrans','$tanggalTrans','$namaCustomer','$totalPenjualan','$diskon','$grandTotal')";
+	$sql2 = "INSERT INTO tb_penjualan(notrans,tgltrans,kredit,tglJatuhTempo,customer,subtotal,subTotalSetelahPpn,diskon,total,catatan) VALUES('$noTrans','$tanggalTrans',$kredit,'$tglJatuhTempo','$namaCustomer','$totalPenjualan','$subTotalSetelahPpn','$diskon','$grandTotal','$catatan')";
 
 	$q2 = mysqli_query($conn, $sql2);
-
+	var_dump($q2);
+	var_dump($sql2);
 	header('Location:penjualan');
  ?>

@@ -342,17 +342,7 @@
 								<div class="input-group-prepend">
 							    	<label class="input-group-text ion-levels" for="type"></label>
 							  	</div>
-							  	<select class="custom-select" id="typeEdit" name="jenis_barang">
-						  		<?php
-						  		require_once("conn.php");
-						  		$sql = $conn->query("SELECT tipebarang FROM tb_tipebarang");
-						  
-						  		while ($r = mysqli_fetch_array($sql)) 
-						  		{
-						  			echo "<option value='$r[tipebarang]'>$r[tipebarang]";
-						  		}
-							  	?>
-							  	</select>
+							  	<input type="text" name="tipe_barang" id="tipe_barang" class="form-control" autocomplete="off">
 							</div>	
 	
 							<div class="input-group mb-3">

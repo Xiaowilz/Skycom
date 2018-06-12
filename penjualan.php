@@ -45,7 +45,7 @@
 			text-align: center;
 		}
 
-		#diskon {
+		#diskon, #tdPpn, #setelah_ppn {
 			text-align: right;
 			border : none;
 		}
@@ -70,6 +70,7 @@
 			margin-right: 35px;
 		}
 
+<<<<<<< HEAD
 		#pilih1, #pilih2 {
 			text-decoration: none;
             padding: 2px 10px;
@@ -83,6 +84,9 @@
 			background-color: #17a2b8;
             color: white;
 		}
+=======
+
+>>>>>>> ad2469495efe356f9b1282ea8f372255e60b6c4a
 	</style>
 
 </head>
@@ -126,7 +130,7 @@
 		echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
 	}
 ?>
-<body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
+<body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000); functionCboJatuhTempo()">
 	<div id="topnav">
 		<!-- <div class="menuicon" onclick="geser()">
 			<div class="garis"></div>
@@ -194,14 +198,7 @@
 								</div>
 						    </div>
 							
-							<?php
-								$hari = date("l");
-								$tanggal = date("d");
-								$bulan = date("F");
-								$tahun = date("Y");
-								$tgl1 = $tahun."-".$bulan."-".$tanggal;
-								$tgl2 = date('l, d-m-Y', strtotime('+14 days', strtotime($tgl1)));
-							?>
+							
 
 							<div class="form-group row">
 								<label for="jthtempo" class="col-sm-3 col-form-label col-form-label-sm">Pembayaran</label>
@@ -216,9 +213,9 @@
 									</div>
 							    </div> -->
 							   	<div class="col-sm-3">
-							        <select class="form-control form-control-sm">
-								      <option value="1">Kredit</option>
-								      <option value="2">Cash</option>
+							        <select class="form-control form-control-sm" id="cbo_jatuh_tempo" name="cbo_jatuh_tempo" onchange="functionCboJatuhTempo()">
+								      <option value="kredit">Kredit</option>
+								      <option value="cash">Cash</option>
 								    </select>
 		<!-- 						    <div class="invalid-feedback">
 								        Looks good!
@@ -228,9 +225,10 @@
 
 
 							<div class="form-group row">
-				      			<label for="jthtempo" class="col-sm-3 col-form-label col-form-label-sm">Jatuh Tempo 14 Hari</label>
-				      			<div class="col-sm-3">
-				      				<input id="jthtempo" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="tempo_transaksi" readonly value="<?php echo $tgl2; ?>">
+				      			<label for="jthtempo" class="col-sm-3 col-form-label col-form-label-sm" id="label_jatuh_tempo">Jatuh Tempo 14 Hari</label>
+				      			<div class="col-sm-5">
+				      				<input id="jthtempo" type="text" class="form-control-plaintext form-control-sm" placeholder="Kode Transaksi" name="tgl_jatuh_tempo" readonly ">
+				      				<input type="hidden" name="tgl_jatuh_tempo_hidden" id="tgl_jatuh_tempo_hidden">
 				    			</div>
 						    </div>
 						</div>
@@ -244,9 +242,15 @@
 						    </div>
 
 						    <div class="form row">
+<<<<<<< HEAD
 							    <label for="keterangan" class="col-sm-3 col-form-label col-form-label-sm">Keterangan</label>
 							    <div class="col-md-6">
 							    	<textarea class="form-control form-control-sm" id="keterangan" rows="3"></textarea>
+=======
+							    <label for="catatan" class="col-sm-3 col-form-label col-form-label-sm">Catatan</label>
+							    <div class="col-md-6 mb-1">
+							    	<textarea class="form-control form-control-sm" id="catatan" rows="5" name="catatan"></textarea>
+>>>>>>> ad2469495efe356f9b1282ea8f372255e60b6c4a
 							    </div>	
 							</div>
 						</div>	
@@ -541,6 +545,49 @@
 	});
 
 
+</script>
+
+<script>
+	function functionCboJatuhTempo()
+	{
+		var kredit = document.getElementById('cbo_jatuh_tempo').value
+		console.log(kredit);
+		if(kredit == "kredit")
+		{
+			<?php
+				$hari = date("l");
+				$tanggal = date("d");
+				$bulan = date("m");
+				$tahun = date("Y");
+				$tgl1 = $tahun."-".$bulan."-".$tanggal;
+				$tgl2 = date('l, d-m-Y', strtotime('+14 days', strtotime($tgl1)));
+				$tgl3 = date('Y-m-d', strtotime('+14 days', strtotime($tgl1)));
+
+				echo"
+					document.getElementById('tgl_jatuh_tempo_hidden').value = '$tgl3';
+					document.getElementById('jthtempo').value = '$tgl2';
+					document.getElementById('label_jatuh_tempo').innerHTML = 'Jatuh Tempo 14 Hari';
+				";
+			?>
+		}
+		else
+		{
+			<?php
+				$hari = date("l");
+				$tanggal = date("d");
+				$bulan = date("m");
+				$tahun = date("Y");
+				$tgl1 = $tahun."-".$bulan."-".$tanggal;
+				$tgl2 = date('l, d-m-Y', strtotime('0 days', strtotime($tgl1)));
+
+				echo"
+					document.getElementById('tgl_jatuh_tempo_hidden').value = '$tgl1';
+					document.getElementById('jthtempo').value = '$tgl2';
+					document.getElementById('label_jatuh_tempo').innerHTML = 'Jatuh Tempo';
+				";
+			?>
+		}
+	}
 </script>
 
 </html>
