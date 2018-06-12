@@ -71,11 +71,11 @@
 
 <body  onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
 	<div id="topnav">
-        <div class="menuicon" onclick="geser()">
+<!--         <div class="menuicon" onclick="geser()">
             <div class="garis"></div>
             <div class="garis"></div>
             <div class="garis"></div>
-        </div>
+        </div> -->
 
         <div class="jamtgl">
             Jam : <span id="clock"></span>

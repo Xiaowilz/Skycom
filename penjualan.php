@@ -26,10 +26,10 @@
 	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
 
 	<style type="text/css">
-		.col-4 {
+/*		.col-4 {
 			float: right;
 			margin-right: -15px;
-		}
+		}*/
 
 		.hapus {
 			color : black;
@@ -68,6 +68,20 @@
 
 		#date {
 			margin-right: 35px;
+		}
+
+		#pilih1, #pilih2 {
+			text-decoration: none;
+            padding: 2px 10px;
+            color: #17a2b8;
+            border-radius: 4px;
+            font-size: 14px;
+            transition-duration: 0.3s;
+		}
+
+		#pilih1:hover, #pilih2:hover{
+			background-color: #17a2b8;
+            color: white;
 		}
 	</style>
 
@@ -231,7 +245,7 @@
 
 						    <div class="form row">
 							    <label for="keterangan" class="col-sm-3 col-form-label col-form-label-sm">Keterangan</label>
-							    <div class="col-md-6 mb-1">
+							    <div class="col-md-6">
 							    	<textarea class="form-control form-control-sm" id="keterangan" rows="3"></textarea>
 							    </div>	
 							</div>
@@ -346,7 +360,7 @@
 													<td>$r[nm_customer]</td>
 													<td>$r[alamat]</td>
 													<td>$r[kontak]</td>
-													<td><a href='#' class='pilihCustomer' data-pilihCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-dismiss='modal'>Pilih</a></td>
+													<td align='center'><a href='#' class='pilihCustomer' data-pilihCustomer='$r[kd_customer]' data-namaCustomer='$r[nm_customer]' data-dismiss='modal' id='pilih1'>Pilih</a></td>
 												</tr>
 											";	
 										}
@@ -402,7 +416,7 @@
 												<td>$r3[nm_barang]</td>
 												<td>$r3[qty]</td>
 												<td>$r3[hrg_jual]</td>
-												<td align='center'><a href='#' class='pilihItem' data-pilihItem='$r3[kd_barang]' data-namaItem='$r3[nm_barang]' data-hargaItem='$r3[hrg_jual]' data-dismiss='modal'>Pilih</a></td>
+												<td align='center'><a href='#' class='pilihItem' data-pilihItem='$r3[kd_barang]' data-namaItem='$r3[nm_barang]' data-hargaItem='$r3[hrg_jual]' data-dismiss='modal' id='pilih2'>Pilih</a></td>
 											</tr>
 										";	
 									}

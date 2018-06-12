@@ -1,0 +1,41 @@
+* {   
+	margin:0;
+	padding:0;
+	font-family:Arial;
+	/*font-size:10pt;*/
+}
+
+@page {
+	      /* 'em' 'ex' and % are not allowed; length values are width height */
+
+}
+
+.wrapper {
+	/*width:180mm;*/
+/*    margin : 20px;
+    padding-left: 30px;
+    padding-right: 30px;*/
+    /*border : 1px solid black;*/
+}
+
+.heading, td {
+	/*border : 1px solid black;*/
+}
+
+.nama {
+	width: 25%;
+}
+
+.titikDua {
+	/*width: 2%;*/
+}
+
+.data {
+	width: 25%;
+}
+
+input[type=text] {
+	/*outline: none;*/
+	border-color: white;
+	background-color: red;
+}

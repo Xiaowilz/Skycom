@@ -2,9 +2,15 @@
 	require_once __DIR__ . '/vendor/autoload.php';
 
 	$cetak = '
+	<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Coba</title>
+		
+	</head>
+	<body>
 		<table class="table table-hover table-sm table-bordered">
 	 	<thead class="thead-dark">
-	 	<p>ASDDSA</p>
 		    <tr>
 		      <th scope="col">Kode Barang</th>
 		      <th scope="col">Tanggal</th>
@@ -35,15 +41,17 @@
 							<td>'.$r5["diskon"].'</td>
 							<td>'.$r5["total"].'</td>
 						</tr>';
-					$grandTotal = $grandTotal + $r['total'];
+					$grandTotal = $grandTotal + $r5['total'];
 		    	}
 		    	 echo "$grandTotal";
 
 	$cetak .= '</tbody>
 	  	</table>
+	</body>
+	</html>
 	';
 
-	$mpdf = new \Mpdf\Mpdf();
+	$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'orientation' => 'L'], [190, 236]);
 	$mpdf->WriteHTML($cetak);
 	$mpdf->Output('laporan_penjualan.php', 'I');
  ?>

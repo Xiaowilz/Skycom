@@ -114,6 +114,7 @@
                     <button type="submit" name="filter" id="filter" class="btn btn-outline-primary">Filter</button>
                     <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button>
                     <button type="submit" name="" id="cetak" class="btn btn-outline-info">Cetak</button>
+                    <a href="cetakInvoice.php" class="btn-outline-info" target="_blank">Desain Nota Invoice</a>
                 </div>
 
                 <div class="spacer" style="clear: both;"></div>
