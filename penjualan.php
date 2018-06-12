@@ -70,7 +70,6 @@
 			margin-right: 35px;
 		}
 
-<<<<<<< HEAD
 		#pilih1, #pilih2 {
 			text-decoration: none;
             padding: 2px 10px;
@@ -84,9 +83,6 @@
 			background-color: #17a2b8;
             color: white;
 		}
-=======
-
->>>>>>> ad2469495efe356f9b1282ea8f372255e60b6c4a
 	</style>
 
 </head>
@@ -242,15 +238,13 @@
 						    </div>
 
 						    <div class="form row">
-<<<<<<< HEAD
 							    <label for="keterangan" class="col-sm-3 col-form-label col-form-label-sm">Keterangan</label>
 							    <div class="col-md-6">
 							    	<textarea class="form-control form-control-sm" id="keterangan" rows="3"></textarea>
-=======
+							    	
 							    <label for="catatan" class="col-sm-3 col-form-label col-form-label-sm">Catatan</label>
 							    <div class="col-md-6 mb-1">
 							    	<textarea class="form-control form-control-sm" id="catatan" rows="5" name="catatan"></textarea>
->>>>>>> ad2469495efe356f9b1282ea8f372255e60b6c4a
 							    </div>	
 							</div>
 						</div>	

@@ -29,9 +29,9 @@
 		      		<td class="titikDua">:</td>
 		      		<td class="data"> <?php echo "aaaaa" ?> </td>
 
-					<td class="nama" align="center"><label>Costumer</label></td>
-					<td class="titikDua">:</td>					
-					<td class="data"><input id="" type="text" class="" placeholder="" name="no_transaksi"  value="TJ000000" readonly></td>
+		      		<td class="nama" align="center"><label for="" class="">Jatuh Tempo</label></td>
+					<td class="titikDua">:</td>
+		      		<td class="data"><input id="" type="text" class="" placeholder="" name=""  value="25 Juni 2018" readonly></td>
 	      		</tr>
 				
 				<tr>
@@ -39,10 +39,9 @@
 		      		<td class="titikDua">:</td>
 		      		<td class="data"><input id="" type="text" class="" placeholder="" name=""  value="11 Juni 2018" readonly></td>
 				
-					<td class="nama" align="center"><label for="" class="">Jatuh Tempo</label></td>
-					<td class="titikDua">:</td>
-		      		<td class="data"><input id="" type="text" class="" placeholder="" name=""  value="25 Juni 2018" readonly></td>
-
+					<td class="nama" align="center"><label>Costumer</label></td>
+					<td class="titikDua">:</td>					
+					<td class="data"><input id="" type="text" class="" placeholder="" name="no_transaksi"  value="TJ000000" readonly></td>
 				</tr>
 
 				<tr>
