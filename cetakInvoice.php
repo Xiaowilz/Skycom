@@ -21,5 +21,5 @@
 
 	$mpdf->WriteHTML(file_get_contents('dpenjualan/invoice.php'));
 
-	$mpdf->Output('InvoicePenjualan.php', 'I');
+	$mpdf->Output('InvoicePenjualan.pdf', 'I');
 ?>

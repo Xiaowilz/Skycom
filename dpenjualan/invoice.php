@@ -21,9 +21,50 @@
 				</tr>
 			</table>
 			
-			<hr>
+			<!-- <hr> -->
 
-			<table class="headInfo" style="width: 100%">
+			<div class="dtkiri">
+				<table class="headInfo" style="width: 100%">
+					<tr>
+						<td class="nama"><label for="kodetransaksi" class="">No. Transaksi</label></td>
+			      		<td class="titikDua">:</td>
+			      		<td class="data"> <?php echo "aaaaa" ?> </td>
+					</tr>
+
+					<tr>
+						<td class="nama"><label for="" class="">Tanggal</label></td>
+		      			<td class="titikDua">:</td>
+		      			<td class="data"><input id="" type="text" class="" placeholder="" name=""  value="11 Juni 2018" readonly></td>
+					</tr>
+
+					<tr>
+						<td class="nama"><label for="" class="">Sales</label></td>
+						<td class="titikDua">:</td>
+						<td class="data"><input id="" type="text" class="" placeholder="" name="" value="AAAAAA" readonly></td>
+					</tr>
+
+				</table>
+			</div>	
+
+			<div class="dtkanan">
+				<table class="headInfo" style="width: 100%">
+					<tr>
+						<td class="nama"><label>Costumer</label></td>
+						<td class="titikDua">:</td>					
+						<td class="data">AAA</td>
+					</tr>
+
+					<tr>
+						<td class="nama"><label for="" class="">Jatuh Tempo</label></td>
+						<td class="titikDua">:</td>
+		      			<td class="data"><input id="" type="text" class="" placeholder="" name=""  value="25 Juni 2018" readonly></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="spacer" style="clear: both;"></div>
+
+			<!-- <table class="headInfo" style="width: 100%">
 				<tr>
 					<td class="nama"><label for="kodetransaksi" class="">No. Transaksi</label></td>
 		      		<td class="titikDua">:</td>
@@ -53,7 +94,7 @@
 					<td class="titikDua">:</td>
 					<td class="data"><input id="" type="text" class="" placeholder="" name="" value="AAAAAA" readonly></td>
 				</tr>
-      		</table>
+      		</table> -->
 		</div>
 		
 		<!-- <br> -->

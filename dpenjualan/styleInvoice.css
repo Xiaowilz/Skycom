@@ -18,24 +18,42 @@
     /*border : 1px solid black;*/
 }
 
+.header{
+	/*line-height: 80%;*/
+}
+
+.heading{
+	border-bottom: 1px solid black;	
+}
+
+.dtkiri{
+	float: left;
+	width: 50%;
+}
+
+.dtkanan{
+	float: right;
+	width: 50%;
+}
+
 .heading, td {
 	/*border : 1px solid black;*/
 }
 
 .nama {
-	width: 25%;
+	width: 15mm;
 }
 
 .titikDua {
-	/*width: 2%;*/
+	width: 2%;
 }
 
 .data {
-	width: 25%;
+	width: 30mm;
 }
 
 input[type=text] {
 	/*outline: none;*/
-	border-color: white;
-	background-color: red;
+/*	border-color: white;
+	background-color: red;*/
 }
