@@ -18,24 +18,66 @@
     /*border : 1px solid black;*/
 }
 
+.header{
+	/*line-height: 80%;*/
+}
+
+.heading{
+	border-bottom: 1px solid black;	
+}
+
+.dtkiri{
+	float: left;
+	width: 50%;
+}
+
+.dtkanan{
+	float: right;
+	width: 50%;
+}
+
 .heading, td {
 	/*border : 1px solid black;*/
 }
 
 .nama {
-	width: 25%;
+	width: 15mm;
 }
 
 .titikDua {
-	/*width: 2%;*/
+	width: 2%;
 }
 
 .data {
-	width: 25%;
+	width: 30mm;
 }
 
 input[type=text] {
 	/*outline: none;*/
-	border-color: white;
-	background-color: red;
+/*	border-color: white;
+	background-color: red;*/
+}
+
+.tB {
+	border-collapse: collapse;
+	
+}
+
+.thead, .thead th{
+	border-collapse: collapse;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.invoice_body{
+	height: 48mm;
+}
+
+.invoice_foot{
+	width: 100%;
+	border-top: 1px solid;
+}
+
+.invoice_foot td{
+	/*border: 1px solid black;*/
 }
