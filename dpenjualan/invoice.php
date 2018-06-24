@@ -27,7 +27,7 @@
 				<tr>
 					<td class="nama"><label for="kodetransaksi" class="">No. Transaksi</label></td>
 		      		<td class="titikDua">:</td>
-		      		<td class="data"> <?php echo "aaaaa" ?> </td>
+		      		<td class="data"> <?php echo "aaaaa"; ?> </td>
 
 		      		<td class="nama" align="center"><label for="" class="">Jatuh Tempo</label></td>
 					<td class="titikDua">:</td>
