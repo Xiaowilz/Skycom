@@ -57,3 +57,27 @@ input[type=text] {
 /*	border-color: white;
 	background-color: red;*/
 }
+
+.tB {
+	border-collapse: collapse;
+	
+}
+
+.thead, .thead th{
+	border-collapse: collapse;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.invoice_body{
+	height: 48mm;
+}
+
+.invoice_foot{
+	width: 100%;
+	border-top: 1px solid;
+}
+
+.invoice_foot td{
+	/*border: 1px solid black;*/
+}

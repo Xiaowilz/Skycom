@@ -115,6 +115,7 @@
                     <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button>
                     <button type="submit" name="" id="cetak" class="btn btn-outline-info">Cetak</button>
                     <a href="cetakInvoice.php" class="btn-outline-info" target="_blank">Desain Nota Invoice</a>
+                    <a href="cetakTest.php" class="btn-outline-info" target="_blank">Teeeeesst</a>
                 </div>
 
                 <div class="spacer" style="clear: both;"></div>
