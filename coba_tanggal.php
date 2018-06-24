@@ -15,17 +15,26 @@
     <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
 
     <style type="text/css">
+        .title{
+            float: left;
+            margin-top: -9px;
+        }
+
         .jamtgl {
             float : right;
         }
 
         #clock {
-            margin-right: 60px;
+            margin-right: 35px;
         }
 
         #date {
             margin-right: 35px;
         }  
+
+        #bar{
+            margin-left: 2px;
+        }
 
         #tampil th{
             text-align: center;
@@ -71,12 +80,9 @@
 
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
     <div id="topnav">
-        <div class="menuicon" onclick="geser()">
-            <div class="garis"></div>
-            <div class="garis"></div>
-            <div class="garis"></div>
+        <div class="title">
+            <h2 style="margin-left: 35px;">Data Penjualan</h2>  
         </div>
-
         <div class="jamtgl">
             Jam : <span id="clock"></span>
             <span id="date">
@@ -89,11 +95,11 @@
 
     <div class="all-box">
         <div class="all-top">
-            <h2>Data Penjualan</h2>   
+             <br>
         </div>
 
         <div class="all-content">
-            <div class="form row">
+            <div class="form row" id="bar">
                 <div class="form-group col-md-2">
                     <label for="tgl_awal" class="col-form-label col-form-label-sm">Dari Tanggal</label>
                     <div id="tgl_awal" class="input date" data-date-format="yyyy-mm-dd">
