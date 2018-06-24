@@ -10,7 +10,8 @@
 		'mode' => 'utf-8',
 		'margin_top' => 5,
 		'margin_left' => 10,
-		'margin_right' => 10, 
+		'margin_right' => 10,
+		'margin_bottom' => 5,
 		'format' => [215, 140]]);
 
 	// $mpdf->SetDisplayMode('fullpage');

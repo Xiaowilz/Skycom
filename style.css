@@ -182,7 +182,7 @@ body{
     cursor: pointer;
 }
 
-.add-customer {
+/*.add-customer {
 	background-color: dodgerBlue; 
 	border-radius: 4px; 
 	width: 140px;
@@ -191,7 +191,7 @@ body{
 .add-customer:hover{
 	background-color: #0059b3;
 	transition: .3s;
-}
+}*/
 
 .add-modal{
 	background-color: dodgerBlue; 
@@ -227,18 +227,9 @@ body{
  }	
 
 .all-top{
-	overflow: hidden;
+	/*margin-top: 55px;*/
 }
 
-.all-top h2{
-	/*display: inline-block;*/
-	/*float: left;*/
-}
-
-.all-top #datepicker{
-	/*display: inline-block;*/
-	/*float: right;*/
-}
 
 .all-content{
 	background-color: #fff;

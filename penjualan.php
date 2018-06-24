@@ -14,11 +14,8 @@
 
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" type="text/css" href="css/datepicker.css"> -->
-	<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
-	<!-- <script src="javascript/bootstrap-datepicker.js"></script> -->
 
 	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
@@ -26,11 +23,6 @@
 	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
 
 	<style type="text/css">
-/*		.col-4 {
-			float: right;
-			margin-right: -15px;
-		}*/
-
 		.hapus {
 			color : black;
 			font-size: 20px;
@@ -45,7 +37,7 @@
 			text-align: center;
 		}
 
-		#diskon, #tdPpn, #setelah_ppn {
+		#diskon, #tdPpn, #setelah_ppn{
 			text-align: right;
 			border : none;
 		}
@@ -58,16 +50,35 @@
 			padding: 4px 26px;
 		}
 
+		.title{
+			float: left;
+			margin-top: -9px;
+		}
+
 		.jamtgl {
 			float : right;
 		}
 
 		#clock {
-			margin-right: 60px;
+			margin-right: 35px;
 		}
 
 		#date {
 			margin-right: 35px;
+		}
+
+		#lihatTrans{
+			padding: 5px 15px;
+			margin-right: 35px;
+			text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            transition-duration: 0.3s;
+            background-color: dodgerBlue;
+		}
+		#lihatTrans:hover{
+			background-color: #1f57ff;
+            color: white;
 		}
 
 		#pilih1, #pilih2 {
@@ -128,11 +139,9 @@
 ?>
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000); functionCboJatuhTempo()">
 	<div id="topnav">
-		<!-- <div class="menuicon" onclick="geser()">
-			<div class="garis"></div>
-			<div class="garis"></div>
-			<div class="garis"></div>
-		</div> -->
+		<div class="title">
+			<h2 style="margin-left: 35px;">Penjualan</h2>
+		</div>
 
 		<div class="jamtgl">
 			Jam : <span id="clock"></span>
@@ -141,6 +150,7 @@
 					functionTanggal();
 				?>
 			</span>
+			<a id="lihatTrans" href="coba_tanggal.php" target="_blank">Lihat Transaksi</a>
 		</div>
 	</div>
 
@@ -149,8 +159,8 @@
 		<div id="beranda">			
 			<div class="all-box">	
 
-				<div class="all-top">	
-					<h2>Penjualan</h2>
+				<div class="all-top">
+					<br>
 				</div>
 				<?php
 					require_once("conn.php");
@@ -168,7 +178,7 @@
 				<div class="info-top">
 					<form method="POST" id="penjualanTemp">
 						<h5 class="datatrans">Data Transaksi</h5>
-						
+
 						<hr>
 						<div class="dtkiri">
 							<div class="form-group row">
@@ -198,24 +208,12 @@
 
 							<div class="form-group row">
 								<label for="jthtempo" class="col-sm-3 col-form-label col-form-label-sm">Pembayaran</label>
-	<!-- 						    <div class="">
-							    	<div class="form-check form-group">
-									  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-									  <label class="form-check-label" for="inlineRadio1">Kredit</label>
-									</div>
-									<div class="form-check">
-									  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-									  <label class="form-check-label" for="inlineRadio2">Cash</label>
-									</div>
-							    </div> -->
+
 							   	<div class="col-sm-3">
 							        <select class="form-control form-control-sm" id="cbo_jatuh_tempo" name="cbo_jatuh_tempo" onchange="functionCboJatuhTempo()">
 								      <option value="kredit">Kredit</option>
 								      <option value="cash">Cash</option>
 								    </select>
-		<!-- 						    <div class="invalid-feedback">
-								        Looks good!
-								    </div> -->
 								</div>		
 							</div>
 
