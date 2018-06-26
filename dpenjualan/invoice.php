@@ -25,11 +25,11 @@
 			
 			<!-- <hr> -->
 
-			<table class="headInfo" style="width: 100%">
+			<!-- <table class="headInfo" style="width: 100%">
 				<tr>
 					<td class="nama"><label for="kodetransaksi" class="">No. Transaksi</label></td>
 		      		<td class="titikDua">:</td>
-		      		<td class="data"> <?php echo "aaaaa"; ?> </td>
+		      		<td class="data"> </td>
 
 		      		<td class="nama" align="center"><label for="" class="">Jatuh Tempo</label></td>
 					<td class="titikDua">:</td>
@@ -45,7 +45,9 @@
 					<td class="titikDua">:</td>					
 					<td class="data"><input id="" type="text" class="" placeholder="" name="no_transaksi"  value="TJ000000" readonly></td>
 				</tr>
-			<div class="dtkiri">
+			</table>
+ -->			
+ 			<div class="dtkiri">
 				<table class="headInfo" style="width: 100%">
 					<tr>
 						<td class="nama"><label for="kodetransaksi" class="">No. Transaksi</label></td>

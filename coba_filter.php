@@ -18,7 +18,7 @@
             if(isset($_POST['tglAwal']) && isset($_POST['tglAkhir'])){
                 $tglAwal = $_POST['tglAwal'];
                 $tglAkhir = $_POST['tglAkhir'];
-                $sql = "SELECT * FROM tb_penjualan WHERE tgltrans BETWEEN '$tglAwal' AND '$tglAkhir'";
+                $sql = "SELECT * FROM tb_penjualan WHERE tgltrans BETWEEN '$tglAwal' AND '$tglAkhir' ORDER BY notrans DESC";
                 $q = mysqli_query($conn,$sql);
                 $grandTotal = 0;
                 $diskon = 0;
