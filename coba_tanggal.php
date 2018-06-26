@@ -163,7 +163,7 @@
                                         <td align='right'>$diskon</td>
                                         <td align='right'>$total</td>
                                         <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
-                                        <td align='center'><a href='cetakInvoice.php' target=_blank class='cetak'>Cetak</a></td>
+                                        <td align='center'><a href='cetakInvoice.php?noTrans=$r[notrans]' target=_blank class='cetak'>Cetak</a></td>
                                     </tr>
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];
