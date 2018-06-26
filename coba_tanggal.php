@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Transaksi Penjualan</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/datepicker.css">
@@ -40,7 +40,7 @@
             text-align: center;
         }       
 
-        #detail {
+        #detail, .cetak {
             text-decoration: none;
             padding: 2px 10px;
             color: #17a2b8;
@@ -49,7 +49,7 @@
             transition-duration: 0.3s;
         }
 
-        #detail:hover {
+        #detail:hover, .cetak:hover {
             background-color: #17a2b8;
             color: white;
         }
@@ -139,6 +139,7 @@
                                 <th>Diskon</th>
                                 <th>Grand Total</th>
                                 <th width="7%"></th>
+                                <th width="7%"></th>
                             </tr>
                         </thead>
 
@@ -162,6 +163,7 @@
                                         <td align='right'>$diskon</td>
                                         <td align='right'>$total</td>
                                         <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
+                                        <td align='center'><a href='cetakInvoice.php' target=_blank class='cetak'>Cetak</a></td>
                                     </tr>
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];
@@ -174,6 +176,7 @@
                                 <td style="display: none;"></td>
                                 <td style="display: none;"></td>
                                 <td align="right"><strong> <?php echo "Rp " .number_format($grandTotal, 0, ',', '.'); ?> </strong></td>
+                                <td></td>
                                 <td></td>
                             </tr>
 
