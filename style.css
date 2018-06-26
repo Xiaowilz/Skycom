@@ -403,9 +403,25 @@ body{
 	width: 50%;
 	float: right;
 }
-
+/*Detail Penjualan*/
 .header{
 	text-indent: 30px;
-	
 }
-/**/
+/*-------------*/
+
+.title{
+	float: left;
+	margin-top: -9px;
+}
+
+.jamtgl {
+	float : right;
+}
+
+#clock {
+	margin-right: 35px;
+}
+
+#date {
+	margin-right: 35px;
+}

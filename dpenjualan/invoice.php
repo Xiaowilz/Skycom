@@ -149,7 +149,7 @@
 					<tr>
 						<td>Note :</td>
 						<td width="15%">Total</td>
-						<td width="20%"></td>
+						<td width="20%">111</td>
 					</tr>
 					<tr>
 						<td rowspan="4" valign="top">Lamhoooooooooooooooooooooooot</td>

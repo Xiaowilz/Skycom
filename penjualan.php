@@ -50,23 +50,6 @@
 			padding: 4px 26px;
 		}
 
-		.title{
-			float: left;
-			margin-top: -9px;
-		}
-
-		.jamtgl {
-			float : right;
-		}
-
-		#clock {
-			margin-right: 35px;
-		}
-
-		#date {
-			margin-right: 35px;
-		}
-
 		#lihatTrans{
 			padding: 5px 15px;
 			margin-right: 35px;

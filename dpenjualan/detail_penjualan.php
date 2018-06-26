@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Detail Penjualan</title>
 
 	<link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
@@ -24,18 +24,6 @@
     <script src="../javascript/bootstrap-datepicker.js"></script>
 	
 	<style type="text/css">
-		.jamtgl {
-            float : right;
-        }
-
-        #clock {
-            margin-right: 60px;
-        }
-
-        #date {
-            margin-right: 35px;
-        }		
-
         #tampil th{
             text-align: center;
         }     
@@ -43,6 +31,21 @@
         #tampil {
         	padding-left: 30px;
         	padding-right: 30px;
+        }
+
+        #print {
+        	text-decoration: none;
+            padding: 6px 25px;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+            transition-duration: 0.3s;
+            background-color: #17a2b8;
+        }
+
+        #print:hover{
+        	background-color: #f7f7f7;
+            color: #17a2b8;
         }
 	</style>
 </head>
@@ -71,11 +74,10 @@
 
 <body  onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
 	<div id="topnav">
-<!--         <div class="menuicon" onclick="geser()">
-            <div class="garis"></div>
-            <div class="garis"></div>
-            <div class="garis"></div>
-        </div> -->
+
+		<div class="title">
+			<h3 style="margin-left: 35px;">Detail Penjualan</h3>
+		</div>
 
         <div class="jamtgl">
             Jam : <span id="clock"></span>
@@ -89,38 +91,54 @@
 
     <div class="all-box">
     	<br>
+    	<a href="" id="print" style="float: right;">Cetak Nota</a>
+    	<div class="spacer" style="clear: both;"></div>
     	<br>
-    	<center><h3>Detail Penjualan</h3></center>
     	<div class="all-content">
 			<div class="header">	
 				<div class="kiri">
 					<div class="form row">
-					    <label for="staticEmail" class="col-sm-3 col-form-label">No. Transaksi</label>
+					    <label for="staticEmail" class="col-sm-4 col-form-label">No. Transaksi</label>
 					    <div class="col-sm-6">
 					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $notrans; ?>">
 					    </div>
 					 </div>
 
 					 <div class="form row">
-					    <label for="staticEmail" class="col-sm-3 col-form-label">Customer</label>
+					    <label for="staticEmail" class="col-sm-4 col-form-label">Customer</label>
 					    <div class="col-sm-6">
 					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $customer; ?>">
 					    </div>
 					 </div>
-				</div>
-
-				<div class="kanan">
+					
 					<div class="form row">
 					    <label for="staticEmail" class="col-sm-4 col-form-label">Tanggal Transaksi</label>
 					    <div class="col-sm-6">
 					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $tgltrans; ?>">
 					    </div>
-					 </div>
+					</div>
 
+					<div class="form row">
+					    <label for="staticEmail" class="col-sm-4 col-form-label">Sales</label>
+					    <div class="col-sm-6">
+					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $customer; ?>">
+					    </div>
+					</div>
+
+				</div>
+
+				<div class="kanan">
 					 <div class="form row">
 					    <label for="staticEmail" class="col-sm-4 col-form-label">Jatuh Tempo (14 hari)</label>
 					    <div class="col-sm-6">
 					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $jthtempo; ?>">
+					    </div>
+					 </div>
+
+					 <div class="form row">
+					    <label for="staticEmail" class="col-sm-4 col-form-label">Keterangan</label>
+					    <div class="col-sm-6">
+					    	<textarea class="form-control-plaintext form-control-sm" id="keterangan" rows="3" readonly></textarea>
 					    </div>
 					 </div>
 				</div>
@@ -172,7 +190,12 @@
 								</tr>
 
 								<tr>
-									<td colspan="4" align="center"><strong>Diskon</strong></td>
+									<td colspan="4" align="center"><strong>PPN 10%</strong></td>
+									<td align="right"><?php echo "Rp " .number_format($totalPenjualan, 0, ',', '.'); ?></td>
+								</tr>
+
+								<tr>
+									<td colspan="4" align="center"><strong>Potongan</strong></td>
 									<td align="right"><?php echo "Rp " .number_format($diskon, 0, ',', '.'); ?></td>
 								</tr>
 

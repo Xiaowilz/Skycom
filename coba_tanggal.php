@@ -15,23 +15,6 @@
     <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
 
     <style type="text/css">
-        .title{
-            float: left;
-            margin-top: -9px;
-        }
-
-        .jamtgl {
-            float : right;
-        }
-
-        #clock {
-            margin-right: 35px;
-        }
-
-        #date {
-            margin-right: 35px;
-        }  
-
         #bar{
             margin-left: 2px;
         }
@@ -40,7 +23,7 @@
             text-align: center;
         }       
 
-        #detail, .cetak {
+        #detail, #print {
             text-decoration: none;
             padding: 2px 10px;
             color: #17a2b8;
@@ -49,7 +32,7 @@
             transition-duration: 0.3s;
         }
 
-        #detail:hover, .cetak:hover {
+        #detail:hover, #print:hover {
             background-color: #17a2b8;
             color: white;
         }
@@ -81,7 +64,7 @@
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
     <div id="topnav">
         <div class="title">
-            <h2 style="margin-left: 35px;">Data Penjualan</h2>  
+            <h2 style="margin-left: 35px;">Transaksi Penjualan</h2>  
         </div>
         <div class="jamtgl">
             Jam : <span id="clock"></span>
@@ -135,8 +118,9 @@
                                 <th>No. Transaksi</th>
                                 <th width="15%">Tanggal Transaksi</th>
                                 <th>Customer</th>
-                                <th width="10%">Sub Total</th>
-                                <th>Diskon</th>
+                                <th width="10%">Total</th>
+                                <th width="10%">PPN 10%</th>
+                                <th>Potongan</th>
                                 <th>Grand Total</th>
                                 <th width="7%"></th>
                                 <th width="7%"></th>
@@ -160,17 +144,19 @@
                                         <td align='center'>$r[tgltrans]</td>
                                         <td align='center'>$r[customer]</td>
                                         <td align='right'>$subtotal</td>
+                                        <td align='right'></td>
                                         <td align='right'>$diskon</td>
                                         <td align='right'>$total</td>
                                         <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
-                                        <td align='center'><a href='cetakInvoice.php' target=_blank class='cetak'>Cetak</a></td>
+                                        <td align='center'><a href='cetakInvoice.php' target=_blank id='print'>Cetak</a></td>
                                     </tr>
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];
                             }
                         ?>                          
                             <tr>
-                                <td colspan="5" align="center"><strong>Total</strong></td>
+                                <td colspan="6" align="center"><strong>Total</strong></td>
+                                <td style="display: none;"></td>
                                 <td style="display: none;"></td>
                                 <td style="display: none;"></td>
                                 <td style="display: none;"></td>
