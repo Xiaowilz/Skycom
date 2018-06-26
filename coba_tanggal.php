@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Transaksi Penjualan</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/datepicker.css">
@@ -15,23 +15,32 @@
     <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
 
     <style type="text/css">
+        .title{
+            float: left;
+            margin-top: -9px;
+        }
+
         .jamtgl {
             float : right;
         }
 
         #clock {
-            margin-right: 60px;
+            margin-right: 35px;
         }
 
         #date {
             margin-right: 35px;
         }  
 
+        #bar{
+            margin-left: 2px;
+        }
+
         #tampil th{
             text-align: center;
         }       
 
-        #detail {
+        #detail, .cetak {
             text-decoration: none;
             padding: 2px 10px;
             color: #17a2b8;
@@ -40,7 +49,7 @@
             transition-duration: 0.3s;
         }
 
-        #detail:hover {
+        #detail:hover, .cetak:hover {
             background-color: #17a2b8;
             color: white;
         }
@@ -71,12 +80,9 @@
 
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
     <div id="topnav">
-        <div class="menuicon" onclick="geser()">
-            <div class="garis"></div>
-            <div class="garis"></div>
-            <div class="garis"></div>
+        <div class="title">
+            <h2 style="margin-left: 35px;">Data Penjualan</h2>  
         </div>
-
         <div class="jamtgl">
             Jam : <span id="clock"></span>
             <span id="date">
@@ -89,11 +95,11 @@
 
     <div class="all-box">
         <div class="all-top">
-            <h2>Data Penjualan</h2>   
+             <br>
         </div>
 
         <div class="all-content">
-            <div class="form row">
+            <div class="form row" id="bar">
                 <div class="form-group col-md-2">
                     <label for="tgl_awal" class="col-form-label col-form-label-sm">Dari Tanggal</label>
                     <div id="tgl_awal" class="input date" data-date-format="yyyy-mm-dd">
@@ -133,6 +139,7 @@
                                 <th>Diskon</th>
                                 <th>Grand Total</th>
                                 <th width="7%"></th>
+                                <th width="7%"></th>
                             </tr>
                         </thead>
 
@@ -156,6 +163,7 @@
                                         <td align='right'>$diskon</td>
                                         <td align='right'>$total</td>
                                         <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
+                                        <td align='center'><a href='cetakInvoice.php' target=_blank class='cetak'>Cetak</a></td>
                                     </tr>
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];
@@ -168,6 +176,7 @@
                                 <td style="display: none;"></td>
                                 <td style="display: none;"></td>
                                 <td align="right"><strong> <?php echo "Rp " .number_format($grandTotal, 0, ',', '.'); ?> </strong></td>
+                                <td></td>
                                 <td></td>
                             </tr>
 
