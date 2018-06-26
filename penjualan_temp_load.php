@@ -148,6 +148,22 @@
 		    			$('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total, totalSetelahPpn : totalSetelahPpn});
 		    		});
 
+		    		$('#ppn').on('change', function()
+		    		{
+		    			if(this.checked)
+		    			{
+		    				var diskon = $('#diskon').val();
+			    			var kon = $('#diskon').val();
+			    			var totalSetelahPpn = document.getElementById('setelah_ppn').value;
+			    			// var diskonskin = $('#diskon').val();
+			    			var total = <?php echo $totalPenjualan ?>;
+			    			console.log(total);
+			    			// $('#diskon').load('ajax/diskonskin.php', {diskonskin : diskonskin } );
+			    			$('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total, totalSetelahPpn : totalSetelahPpn});
+		    			}
+		    			
+		    		});
+
 		    	// 	$('#diskon').on('blur', function() {
 		    	// 		var diskonskin = parseInt($('#diskon').val());
 		    			// var total = <?php echo $totalPenjualan ?>;

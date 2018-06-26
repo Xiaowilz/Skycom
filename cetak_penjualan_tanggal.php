@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<meta charset="utf-8">
-</head>
-<body>
+
 	<?php 
 	require_once __DIR__ . '/vendor/autoload.php';
 
@@ -58,12 +52,15 @@
 	</html>
 	';
 
+<<<<<<< HEAD
 
 	$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'orientation' => 'L'], [190, 236]);
 
+=======
+	$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'orientation' => 'L'], [190, 236]);
+>>>>>>> f858a34d8319ca3c824a165349f9a933b5f31954
 	$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => [100, 150]]);
 	$mpdf->WriteHTML($cetak);
 	$mpdf->Output('laporan_penjualan.php', 'I');
  ?>
-</body>
-</html>
+

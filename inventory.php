@@ -97,7 +97,7 @@
 				<div class="all-content">
 					<div class="all-head">
 						<div class="button-add">
-							<button class="btn btn-outline-primary" data-toggle='modal' data-target='#modalJenisBarang' data-backdrop='static'><ion-icon name="add"></ion-icon> Tambah Jenis Barang</button>
+							<button class="btn btn-outline-primary" data-toggle='modal' data-target='#modalJenisBarang' data-backdrop='static'><ion-icon name="add"></ion-icon> Tambah Tipe Barang</button>
 
 							<button class="btn btn-outline-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><ion-icon name="add"></ion-icon> Tambah Barang</button>					
 						</div>
@@ -332,7 +332,7 @@
 			      <!-- Modal content-->
 			      <div class="modal-content">
 			        <div class="modal-header">
-			          <h4 class="modal-title">Tambah Jenis Barang</h4>
+			          <h4 class="modal-title">Tambah Tipe Barang</h4>
 			          <span class="ion-close" data-dismiss="modal"></span>		          
 			        </div>
 			        <div class="modal-body">
@@ -342,7 +342,7 @@
 								<div class="input-group-prepend">
 							    	<label class="input-group-text ion-levels" for="type"></label>
 							  	</div>
-							  	<input type="text" name="tipe_barang" id="tipe_barang" class="form-control" autocomplete="off">
+							  	<input type="text" name="tipe_barang" id="tipe_barang" class="form-control" autocomplete="off" placeholder="Tipe" maxlength="3">
 							</div>	
 	
 							<div class="input-group mb-3">
@@ -353,7 +353,7 @@
 							  	<input type="text" class="form-control" placeholder="Nama Tipe" id="namaTipe" name="nama_tipe" required autocomplete="off">
 							</div>
 
-							<button type="submit" class="btn btn-outline-primary btn-sm btn-block" formaction="">Tambah</button>
+							<button type="submit" class="btn btn-outline-primary btn-sm btn-block" formaction="inventory_tipe_barang.php">Tambah</button>
 			        	</form>
 			        </div>
 			        <div class="modal-footer">
@@ -365,7 +365,6 @@
 			  </div>
 			</div>
 			<!-- Modal End -->
-
 
 		</div>
 	</div>
