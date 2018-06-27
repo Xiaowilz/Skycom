@@ -36,21 +36,6 @@
             background-color: #17a2b8;
             color: white;
         }
-
-        #mainMenu{
-            padding: 5px 15px;
-            margin-right: 35px;
-            text-decoration: none;
-            color: white;
-            border-radius: 4px;
-            transition-duration: 0.3s;
-            background-color: dodgerBlue;
-        }
-
-        #mainMenu:hover{
-            background-color: #1f57ff;
-            color: white;
-        }
     </style>
 
 </head>
@@ -79,7 +64,7 @@
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
     <div id="topnav">
         <div class="title">
-            <h3 style="margin-left: 35px;">Transaksi Penjualan</h3>  
+            <h2 style="margin-left: 35px;">Transaksi Penjualan</h2>  
         </div>
         <div class="jamtgl">
             Jam : <span id="clock"></span>
@@ -88,7 +73,6 @@
                     functionTanggal();
                 ?>
             </span>
-            <a id="mainMenu" href="mainform">Menu</a>
         </div>
     </div>
 
@@ -118,7 +102,7 @@
                 <div class="tombolfilter">
                     <button type="submit" name="filter" id="filter" class="btn btn-outline-primary">Filter</button>
                     <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button>
-                    <button type="submit" name="" id="cetak" class="btn btn-outline-primary">Cetak</button>
+                    <button type="submit" name="" id="cetak" class="btn btn-outline-info">Cetak</button>
                     <a href="cetakInvoice.php" class="btn-outline-info" target="_blank">Desain Nota Invoice</a>
                     <a href="cetakTest.php" class="btn-outline-info" target="_blank">Teeeeesst</a>
                 </div>
@@ -160,12 +144,11 @@
                                         <td align='center'>$r[tgltrans]</td>
                                         <td align='center'>$r[customer]</td>
                                         <td align='right'>$subtotal</td>
-                                        <td align='right'>$r[ppn]</td>
+                                        <td align='right'></td>
                                         <td align='right'>$diskon</td>
                                         <td align='right'>$total</td>
-
-                                        <td align='center'><a href='dpenjualan/detail_penjualan?notrans=$r[notrans]' target=_blank id='detail'>Detail</a></td>
-                                        <td align='center'><a href='cetakInvoicePenjualan?noTrans=$r[notrans]' target=_blank class='cetak' id='print'>Cetak</a></td>
+                                        <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
+                                        <td align='center'><a href='cetakInvoice.php?noTrans=$r[notrans]' target=_blank id='print'>Cetak</a></td>
                                     </tr>
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];
@@ -252,7 +235,7 @@
             "info": false,
             "ordering": false,
             "pagingType":"full_numbers",
-            "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ],
+            "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
         });
     });
         

@@ -6,21 +6,6 @@
 	{
 		header("Location:index.php");
 	}
-
-	// require_once("../conn.php");
-	// $username = $_SESSION['username'];
-	// $sqlLogin = "SELECT nama FROM login WHERE username = '$username'";
-	// $qLogin = mysqli_query($conn, $sqlLogin);
-	// $nama = mysqli_fetch_assoc($qLogin);
-
-    // // if(isset($_GET["notrans"]) && isset($_GET["customer"]) && isset($_GET["tgltrans"]) && isset($_GET["diskon"]))
-    // // {
-    // //     $notrans = $_GET["notrans"];
-    // //     $customer = $_GET["customer"];
-    // //     $tgltrans = $_GET["tgltrans"];
-    // //     $diskon = $_GET["diskon"];
-    // //     // $jthtempo = $_GET["jthtempo"];
-    // }
 ?>
 
 <!DOCTYPE html>
@@ -230,7 +215,7 @@
 
 								<tr>
 									<td colspan="4" align="center"><strong>Grand Total</strong></td>
-									<td align="right"><?php echo "Rp " .number_format($grandtotal, 0, ',', '.'); ?></td>
+									<td align="right"><strong><?php echo "Rp " .number_format($grandtotal, 0, ',', '.'); ?></strong></td>
 								</tr>
 	                        </tbody>
 	                    </table>
