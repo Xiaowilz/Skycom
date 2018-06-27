@@ -5,6 +5,12 @@
 	{
 		header("Location:index.php");
 	}
+
+	require_once("conn.php");
+	$username = $_SESSION['username'];
+	$sqlLogin = "SELECT nama FROM login WHERE username = '$username'";
+	$qLogin = mysqli_query($conn, $sqlLogin);
+	$nama = mysqli_fetch_assoc($qLogin);
 ?>
 
 <!DOCTYPE html>
@@ -133,7 +139,7 @@
 					functionTanggal();
 				?>
 			</span>
-			<a id="lihatTrans" href="coba_tanggal.php" target="_blank">Lihat Transaksi</a>
+			<a id="lihatTrans" href="transaksiJual" target="_blank">Lihat Transaksi</a>
 		</div>
 	</div>
 
@@ -213,15 +219,15 @@
 						<div class="dtkanan">
 							<div class="form-group row">
 				      			<label for="sales" class="col-sm-3 col-form-label col-form-label-sm">Sales</label>
-				      			<div class="col-sm-4">
-				      				<input id="sales" type="text" class="form-control-plaintext form-control-sm" placeholder="Sales" name="nmSales" value="<?php echo $noTrans; ?>" readonly>
+				      			<div class="col-sm-8">
+				      				<input id="sales" type="text" class="form-control-plaintext form-control-sm" placeholder="Sales" name="nmSales" value="<?php echo implode($nama); ?>" readonly>
 				    			</div>
 						    </div>
 
 						    <div class="form row">
 							    <label for="keterangan" class="col-sm-3 col-form-label col-form-label-sm">Keterangan</label>
 							    <div class="col-md-6">
-							    	<textarea class="form-control form-control-sm" id="keterangan" rows="3"></textarea>
+							    	<textarea class="form-control form-control-sm" id="keterangan" rows="3" name="catatan"></textarea>
 							    </div>	
 							</div>
 						</div>	
@@ -295,6 +301,7 @@
 				</div>
 					<button type="submit" name="simpan" class="btn btn-primary" id="simpan" formaction="penjualan_simpan.php">Simpan</button>
 				</form>
+					<button onclick="topFunction()" id="myBtn" title="Go to top" class="btn btn-danger">Top</button>
 
 			</div>
 		</div>
@@ -558,6 +565,12 @@
 				";
 			?>
 		}
+	}
+
+	function topFunction() 
+	{
+    	document.body.scrollTop = 0;
+    	document.documentElement.scrollTop = 0;
 	}
 </script>
 

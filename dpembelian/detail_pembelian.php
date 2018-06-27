@@ -86,17 +86,13 @@
 <body  onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
 	<?php 
     	$noTrans = $_GET['notrans'];
-    	$sql = "SELECT * FROM tb_penjualan WHERE notrans = '$noTrans'";
+    	$sql = "SELECT * FROM tb_pembelian WHERE notrans = '$noTrans'";
     	$q = mysqli_query($conn, $sql);
     	while($r = mysqli_fetch_assoc($q))
     	{
     		$noTransaksi = $r["notrans"];
-    		$customer = $r["customer"];
+    		$supplier = $r["supplier"];
     		$tgltrans = $r["tgltrans"];
-    		$jatuhTempo = $r["tglJatuhTempo"];
-    		$keterangan = $r["catatan"];
-    		$diskon = $r['diskon'];
-    		$sales = $r['sales'];
     	}
     ?>
 
@@ -118,7 +114,7 @@
 
     <div class="all-box">
     	<br>
-    	<a href="../cetakInvoicePenjualan?noTrans=<?php echo $noTrans; ?>" id="print" style="float: right;">Cetak Nota</a>
+    	<a href="../cetakInvoicePembelian?noTrans=<?php echo $noTrans; ?>" id="print" style="float: right;">Cetak Nota</a>
     	<div class="spacer" style="clear: both;"></div>
     	<br>
 
@@ -136,7 +132,7 @@
 					 <div class="form row">
 					    <label for="staticEmail" class="col-sm-4 col-form-label">Customer</label>
 					    <div class="col-sm-6">
-					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $customer; ?>">
+					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $supplier; ?>">
 					    </div>
 					 </div>
 					
@@ -147,16 +143,16 @@
 					    </div>
 					</div>
 
-					<div class="form row">
+					<!-- <div class="form row">
 					    <label for="staticEmail" class="col-sm-4 col-form-label">Sales</label>
 					    <div class="col-sm-6">
 					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $sales; ?>">
 					    </div>
-					</div>
+					</div> -->
 
 				</div>
 
-				<div class="kanan">
+				<!-- <div class="kanan">
 					 <div class="form row">
 					    <label for="staticEmail" class="col-sm-4 col-form-label">Jatuh Tempo (14 hari)</label>
 					    <div class="col-sm-6">
@@ -170,7 +166,7 @@
 					    	<textarea class="form-control-plaintext form-control-sm" id="keterangan" rows="3" readonly><?php echo $keterangan; ?></textarea>
 					    </div>
 					 </div>
-				</div>
+				</div> -->
 				<div class="spacer" style="clear: both;"></div>
 			</div>	
 
@@ -189,7 +185,7 @@
 							<tbody>
 								<?php
 									$totalPenjualan = 0;
-									$sql = "SELECT kd_barang,nm_barang,qty,harga,jumlah FROM tb_hd_penjualan WHERE no_trans = '$noTrans'";
+									$sql = "SELECT * FROM tb_hd_pembelian WHERE notrans = '$noTrans'";
 									$q = mysqli_query($conn, $sql);
 		    						while ($r = mysqli_fetch_assoc($q)) 
 		    						{
@@ -206,27 +202,27 @@
 							    		";
 							    		$totalPenjualan += $r['jumlah'];
 						    		}
-						    		$grandtotal = $totalPenjualan - $diskon;
+						    		$grandtotal = $totalPenjualan;
 								?>
 
 								<tr>
 									<td colspan="5"></td>
 								</tr>
 
-								<tr>
+								<!-- <tr>
 									<td colspan="4" align="center"><strong>Total</strong></td>
 									<td align="right"><?php echo "Rp " .number_format($totalPenjualan, 0, ',', '.'); ?></td>
-								</tr>
+								</tr> -->
 
-								<tr>
+								<!-- <tr>
 									<td colspan="4" align="center"><strong>PPN 10%</strong></td>
 									<td align="right"><?php echo "Rp " .number_format($totalPenjualan, 0, ',', '.'); ?></td>
-								</tr>
+								</tr> -->
 
-								<tr>
+								<!-- <tr>
 									<td colspan="4" align="center"><strong>Potongan</strong></td>
 									<td align="right"><?php echo "Rp " .number_format($diskon, 0, ',', '.'); ?></td>
-								</tr>
+								</tr> -->
 
 								<tr>
 									<td colspan="4" align="center"><strong>Grand Total</strong></td>

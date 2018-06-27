@@ -89,7 +89,7 @@ while ($r = mysqli_fetch_assoc($q))
 											<tr>
 												<td class="nama"><label for="" class="">Sales</label></td>
 												<td class="titikDua">:</td>
-												<td class="data"><input id="" type="text" class="" placeholder="" name="" value="AAAAAA" readonly></td>
+												<td class="data">'.$r["sales"].'</td>
 											</tr>
 
 										</table>
@@ -161,7 +161,7 @@ while ($r = mysqli_fetch_assoc($q))
 											<tr>
 												<td rowspan="4" valign="top">'.$r["catatan"].'</td>
 												<td>PPN 10%</td>
-												<td width="20%" align="right"></td>
+												<td width="20%" align="right">'.$r["ppn"].'</td>
 											</tr>
 											<tr>
 												<td>Potongan</td>

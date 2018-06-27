@@ -141,11 +141,12 @@
 		    			var diskon = $('#diskon').val();
 		    			var kon = $('#diskon').val();
 		    			var totalSetelahPpn = document.getElementById('setelah_ppn').value;
+		    			var tdppn = document.getElementById('tdPpn').value
 		    			// var diskonskin = $('#diskon').val();
 		    			var total = <?php echo $totalPenjualan ?>;
 		    			console.log(total);
 		    			// $('#diskon').load('ajax/diskonskin.php', {diskonskin : diskonskin } );
-		    			$('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total, totalSetelahPpn : totalSetelahPpn});
+		    			$('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total, totalSetelahPpn : totalSetelahPpn, tdppn : tdppn});
 		    		});
 
 		    		$('#ppn').on('change', function()
@@ -155,11 +156,12 @@
 		    				var diskon = $('#diskon').val();
 			    			var kon = $('#diskon').val();
 			    			var totalSetelahPpn = document.getElementById('setelah_ppn').value;
+			    			var tdppn = document.getElementById('tdPpn').value
 			    			// var diskonskin = $('#diskon').val();
 			    			var total = <?php echo $totalPenjualan ?>;
 			    			console.log(total);
 			    			// $('#diskon').load('ajax/diskonskin.php', {diskonskin : diskonskin } );
-			    			$('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total, totalSetelahPpn : totalSetelahPpn});
+			    			$('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total, totalSetelahPpn : totalSetelahPpn, tdppn : tdppn});
 		    			}
 		    			
 		    		});

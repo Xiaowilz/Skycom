@@ -1,7 +1,7 @@
 <?php 
 	require_once("conn.php");
 	$hps = $_GET['hps'];
-	$sql = "DELETE FROM tb_inventory WHERE kd_barang = '$hps'";
+	$sql = "UPDATE tb_inventory SET hapus = 1 WHERE kd_barang = '$hps'";
 	$q = mysqli_query($conn, $sql);
 	header("Location:inventory.php");
  ?>
