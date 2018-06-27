@@ -49,7 +49,7 @@ while ($r = mysqli_fetch_assoc($q))
 		<head>
 			<title>Invoice</title>
 			<meta charset = "UTF-8">
-			<link rel="stylesheet" type="text/css" href="styleInvoice.css">
+
 
 
 		</head>
@@ -131,7 +131,7 @@ while ($r = mysqli_fetch_assoc($q))
 												<td>'.$r2["nm_barang"].'</td>
 												<td align="center" width="7%">'.$r2["qty"].'</td>
 												<td align="right" width="17%">'.$r2["harga"].'</td>
-												<td align="right" width="20%">'.$r2["jumlah"].'</td>
+												<td align="right" width="20%">'.number_format($r2["jumlah"], 0, ',', '.').'</td>
 											</tr>
 									
 									';
@@ -151,7 +151,7 @@ while ($r = mysqli_fetch_assoc($q))
 											</tr>
 											<tr>
 												<td>Grand Total</td>
-												<td width="20%" align="right">'.$r["total"].'</td>
+												<td width="20%" align="right">'.number_format($r["total"], 0, ',', '.').'</td>
 											</tr>
 										</table>
 									</div>

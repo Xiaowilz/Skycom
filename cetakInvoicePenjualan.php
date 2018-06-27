@@ -12,6 +12,7 @@
 		'margin_left' => 10,
 		'margin_right' => 10,
 		'margin_bottom' => 5,
+		'margin_footer' => 5,
 		'format' => [215, 140]]);
 
 	// $mpdf->SetDisplayMode('fullpage');
@@ -49,8 +50,6 @@ while ($r = mysqli_fetch_assoc($q))
 		<head>
 			<title>Invoice</title>
 			<meta charset = "UTF-8">
-			<link rel="stylesheet" type="text/css" href="styleInvoice.css">
-
 
 		</head>
 		<body>
@@ -75,7 +74,7 @@ while ($r = mysqli_fetch_assoc($q))
 						<div class="dtkiri">
 										<table class="headInfo" style="width: 100%">
 											<tr>
-												<td class="nama"><label for="kodetransaksi" class="">No. Transaksi</label></td>
+												<td class="nama"><label class="">No. Transaksi</label></td>
 									      		<td class="titikDua">:</td>
 									      		<td class="data">'.$r["notrans"].'</td>
 											</tr>
@@ -84,6 +83,12 @@ while ($r = mysqli_fetch_assoc($q))
 												<td class="nama"><label for="" class="">Tanggal</label></td>
 								      			<td class="titikDua">:</td>
 								      			<td class="data">'.$r["tgltrans"].'</td>
+											</tr>
+
+											<tr>
+												<td class="nama"><label>Costumer</label></td>
+												<td class="titikDua">:</td>					
+												<td class="data">'.$r["customer"].'</td>
 											</tr>
 
 											<tr>
@@ -98,15 +103,9 @@ while ($r = mysqli_fetch_assoc($q))
 									<div class="dtkanan">
 										<table class="headInfo" style="width: 100%">
 											<tr>
-												<td class="nama"><label>Costumer</label></td>
-												<td class="titikDua">:</td>					
-												<td class="data">'.$r["customer"].'</td>
-											</tr>
-
-											<tr>
-												<td class="nama"><label for="" class="">Jatuh Tempo</label></td>
+												<td class="nama"><label for="" class="">Keterangan</label></td>
 												<td class="titikDua">:</td>
-								      			<td class="data">'.$r["tglJatuhTempo"].'</td>
+												<td class="data">'.$r["catatan"].'</td>
 											</tr>
 										</table>
 									</div>
@@ -142,8 +141,8 @@ while ($r = mysqli_fetch_assoc($q))
 												<td align="center" width="7%">1</td>
 												<td>'.$r2["nm_barang"].'</td>
 												<td align="center" width="7%">'.$r2["qty"].'</td>
-												<td align="right" width="17%">'.$r2["harga"].'</td>
-												<td align="right" width="20%">'.$r2["jumlah"].'</td>
+												<td align="right" width="17%">'.number_format($r2["harga"], 0, ',', '.').'</td>
+												<td align="right" width="20%">'.number_format($r2["jumlah"], 0, ',', '.').'</td>
 											</tr>
 									
 									';
@@ -154,22 +153,29 @@ while ($r = mysqli_fetch_assoc($q))
 									$cetak.='<div class="invoice_foot"> 
 										<table width="100%">
 											<tr>
-												<td>Note :</td>
+												<td>Jatuh Tempo &nbsp; &nbsp; &nbsp; : &nbsp; &nbsp;'.$r["tglJatuhTempo"].'</td>
 												<td width="15%">Total</td>
-												<td width="20%" align="right">'.$r["subtotal"].'</td>
+												<td width="20%" align="right">'.number_format($r["subtotal"], 0, ',', '.').'</td>
 											</tr>
 											<tr>
-												<td rowspan="4" valign="top">'.$r["catatan"].'</td>
+												<td></td>
 												<td>PPN 10%</td>
-												<td width="20%" align="right">'.$r["ppn"].'</td>
+												<td width="20%" align="right">'.number_format($r["ppn"], 0, ',', '.').'</td>
 											</tr>
 											<tr>
+												<td align="center">Tanda Terima</td>
 												<td>Potongan</td>
-												<td width="20%" align="right">'.$r["diskon"].'</td>
+												<td width="20%" align="right">'.number_format($r["diskon"], 0, ',', '.').'</td>
 											</tr>
 											<tr>
+												<td></td>
 												<td>Grand Total</td>
-												<td width="20%" align="right">'.$r["total"].'</td>
+												<td width="20%" align="right"><strong>Rp '.number_format($r["total"], 0, ',', '.').'</strong></td>
+											</tr>
+											<tr>
+												<td align="center" class="sign" valign="bottom">_________________</td>
+												<td class="sign"></td>
+												<td class="sign"></td>
 											</tr>
 										</table>
 									</div>
@@ -180,7 +186,7 @@ while ($r = mysqli_fetch_assoc($q))
 
 }					
 	$cetak.='
-	</body>
+		</body>
 	</html>
 	';
 	// $mpdf->WriteHTML(file_get_contents('dpenjualan/invoice.php'));

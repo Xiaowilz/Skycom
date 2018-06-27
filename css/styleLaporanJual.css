@@ -7,7 +7,7 @@ body{
 	font-size: 12pt;
 }
 
-#tabel, th, td{
+#tabel, #tabel th, #tabel td{
 	border-collapse: collapse;
 	border: 1px solid black;
 }

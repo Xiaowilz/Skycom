@@ -39,7 +39,7 @@
                             <td align='right'>$diskon</td>
                             <td align='right'>$total</td>
                             <td align='center'><a href='dpenjualan/detail_penjualan?notrans=$r[notrans]' target=_blank id='detail'>Detail</a></td>
-                            <td align='center'><a href='cetakInvoicePenjualan?noTrans=$r[notrans]' target=_blank class='cetak'>Cetak</a></td>
+                            <td align='center'><a href='cetakInvoicePenjualan?noTrans=$r[notrans]' target=_blank class='cetak' id='print'>Cetak</a></td>
                         </tr>
                     ";  
                     $grandTotal = $grandTotal + $r['total'];
@@ -70,7 +70,7 @@
             "info":     false,
             "ordering": false,
             "pagingType":"full_numbers",
-            "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
+            "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ],
         });
     });
 </script>
