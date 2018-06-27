@@ -10,6 +10,7 @@
 				alert('Data Tidak Tersimpan');
 			</script>
 		";
+		header("Location:inventory");
 	}
 	else
 	{

@@ -126,7 +126,7 @@
 								    <?php
 										require_once("conn.php");
 
-										$sql = "SELECT jns_barang,kd_barang,nm_barang,qty,hrg_beli,hrg_jual FROM tb_inventory";
+										$sql = "SELECT jns_barang,kd_barang,nm_barang,qty,hrg_beli,hrg_jual,hapus FROM tb_inventory WHERE hapus = 0";
 										$q = mysqli_query($conn,$sql);
 
 										while ($r = mysqli_fetch_assoc($q)) 
