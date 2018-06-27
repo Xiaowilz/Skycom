@@ -101,10 +101,10 @@
                    
                 <div class="tombolfilter">
                     <button type="submit" name="filter" id="filter" class="btn btn-outline-primary">Filter</button>
-                    <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button>
+                    <!-- <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button> -->
                     <button type="submit" name="" id="cetak" class="btn btn-outline-info">Cetak</button>
-                    <a href="cetakInvoice.php" class="btn-outline-info" target="_blank">Desain Nota Invoice</a>
-                    <a href="cetakTest.php" class="btn-outline-info" target="_blank">Teeeeesst</a>
+                    <!-- <a href="cetakInvoice.php" class="btn-outline-info" target="_blank">Desain Nota Invoice</a>
+                    <a href="cetakTest.php" class="btn-outline-info" target="_blank">Teeeeesst</a> -->
                 </div>
 
                 <div class="spacer" style="clear: both;"></div>
@@ -147,13 +147,8 @@
                                         <td align='right'>$r[ppn]</td>
                                         <td align='right'>$diskon</td>
                                         <td align='right'>$total</td>
-<<<<<<< HEAD:coba_tanggal.php
-                                        <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
-                                        <td align='center'><a href='cetakInvoice.php?noTrans=$r[notrans]' target=_blank id='print'>Cetak</a></td>
-=======
                                         <td align='center'><a href='dpenjualan/detail_penjualan?notrans=$r[notrans]' target=_blank id='detail'>Detail</a></td>
                                         <td align='center'><a href='cetakInvoicePenjualan?noTrans=$r[notrans]' target=_blank class='cetak'>Cetak</a></td>
->>>>>>> c05092e885ab19469dd37ea231c7cd2154109d7f:transaksiJual.php
                                     </tr>
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];
@@ -204,7 +199,7 @@
             var tglAwal = $("#from_date").val();
             var tglAkhir = $("#to_date").val();
             $.ajax({
-                url: 'coba_filter.php',
+                url: 'filterJual.php',
                 method : 'POST',
                 data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
                 success : function(data)

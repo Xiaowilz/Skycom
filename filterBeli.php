@@ -4,10 +4,9 @@
             <tr>
                 <th>No. Transaksi</th>
                 <th width="15%">Tanggal Transaksi</th>
-                <th>Customer</th>
-                <th width="10%">Sub Total</th>
-                <th>Diskon</th>
+                <th>Supplier</th>
                 <th>Grand Total</th>
+                <th width="7%"></th>
                 <th width="7%"></th>
             </tr>
         </thead>
@@ -18,23 +17,23 @@
             if(isset($_POST['tglAwal']) && isset($_POST['tglAkhir'])){
                 $tglAwal = $_POST['tglAwal'];
                 $tglAkhir = $_POST['tglAkhir'];
-                $sql = "SELECT * FROM tb_penjualan WHERE tgltrans BETWEEN '$tglAwal' AND '$tglAkhir' ORDER BY notrans DESC";
+                $sql = "SELECT * FROM tb_pembelian WHERE tgltrans BETWEEN '$tglAwal' AND '$tglAkhir' ORDER BY notrans DESC";
                 $q = mysqli_query($conn,$sql);
                 $grandTotal = 0;
                 $diskon = 0;
                 while ($r = mysqli_fetch_array($q)) 
                 {
                     // $subtotal = number_format($r['subtotal'], 0, ',', '.');
+                    // $diskon = number_format($r['diskon'], 0, ',', '.');
                     $total = number_format($r['total'], 0, ',', '.');
                     echo"
                         <tr>
                             <td align='center'>$r[notrans]</td>
                             <td align='center'>$r[tgltrans]</td>
-                            <td align='center'>$r[customer]</td>
-                            <td align='right'>$r[subtotal]</td>
-                            <td align='right'>$r[diskon]</td>
+                            <td align='center'>$r[supplier]</td>
                             <td align='right'>$total</td>
-                            <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
+                            <td align='center'><a href='dpembelian/detail_pembelian?notrans=$r[notrans]' target=_blank id='detail'>Detail</a></td>
+                            <td align='center'><a href='cetakInvoicePembelian?noTrans=$r[notrans]' target=_blank class='cetak'>Cetak</a></td>
                         </tr>
                     ";  
                     $grandTotal = $grandTotal + $r['total'];
@@ -42,12 +41,12 @@
             }
         ?>
                     <tr>
-                        <td colspan="5" align="center"><strong>Total</strong></td>
-                        <td style="display: none;"></td>
-                        <td style="display: none;"></td>
+                        <td colspan="3" align="center"><strong>Total</strong></td>
                         <td style="display: none;"></td>
                         <td style="display: none;"></td>
                         <td align="right"><strong> <?php echo "Rp " .number_format($grandTotal, 0, ',', '.'); ?> </strong></td>
+                        <td style="display: none;"></td>
+                        <td></td>
                         <td></td>
                     </tr>
         </tbody>

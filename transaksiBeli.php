@@ -117,7 +117,7 @@
                             <tr>
                                 <th>No. Transaksi</th>
                                 <th width="15%">Tanggal Transaksi</th>
-                                <th>Customer</th>
+                                <th>Supplier</th>
                                 <th>Grand Total</th>
                                 <th width="7%"></th>
                                 <th width="7%"></th>
@@ -193,7 +193,7 @@
             var tglAwal = $("#from_date").val();
             var tglAkhir = $("#to_date").val();
             $.ajax({
-                url: 'coba_filter.php',
+                url: 'filterBeli.php',
                 method : 'POST',
                 data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
                 success : function(data)
