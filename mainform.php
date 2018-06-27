@@ -101,8 +101,8 @@
                             <div class="card-body">
                                 <a href="" class=""><span class="ion-cash"></span>Penjualan</a>
                                 <a href="" class=""><span class="ion-android-cart"></span>Pembelian</a>
-                                <a href="coba_tanggal" class=""><span class="ion-android-list"></span>Laporan Penjualan</a>
-                                <a href="" class=""><span class="ion-android-list"></span>Laporan Pembelian</a>
+                                <a href="transaksiJual" class=""><span class="ion-android-list"></span>Laporan Penjualan</a>
+                                <a href="transaksiBeli" class=""><span class="ion-android-list"></span>Laporan Pembelian</a>
                             </div>
                             <div class="card-footer text-muted">
 

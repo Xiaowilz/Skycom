@@ -36,6 +36,21 @@
             background-color: #17a2b8;
             color: white;
         }
+
+        #mainMenu{
+            padding: 5px 15px;
+            margin-right: 35px;
+            text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            transition-duration: 0.3s;
+            background-color: dodgerBlue;
+        }
+
+        #mainMenu:hover{
+            background-color: #1f57ff;
+            color: white;
+        }
     </style>
 
 </head>
@@ -64,7 +79,7 @@
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
     <div id="topnav">
         <div class="title">
-            <h2 style="margin-left: 35px;">Transaksi Penjualan</h2>  
+            <h3 style="margin-left: 35px;">Transaksi Penjualan</h3>  
         </div>
         <div class="jamtgl">
             Jam : <span id="clock"></span>
@@ -73,6 +88,7 @@
                     functionTanggal();
                 ?>
             </span>
+            <a id="mainMenu" href="mainform">Menu</a>
         </div>
     </div>
 
@@ -148,7 +164,7 @@
                                         <td align='right'>$diskon</td>
                                         <td align='right'>$total</td>
                                         <td align='center'><a href='dpenjualan/detail_penjualan?notrans=$r[notrans]' target=_blank id='detail'>Detail</a></td>
-                                        <td align='center'><a href='cetakInvoicePenjualan?noTrans=$r[notrans]' target=_blank class='cetak'>Cetak</a></td>
+                                        <td align='center'><a href='cetakInvoicePenjualan?noTrans=$r[notrans]' target=_blank class='cetak' id='print'>Cetak</a></td>
                                     </tr>
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];
@@ -235,7 +251,7 @@
             "info": false,
             "ordering": false,
             "pagingType":"full_numbers",
-            "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
+            "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ],
         });
     });
         

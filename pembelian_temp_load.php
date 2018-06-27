@@ -38,8 +38,8 @@
 		     ?>
 
 			<tr>
-		     	<td colspan="4"><h4><center><b>Total</b></center></h4></td>
-		     	<td align="right"><?php echo 'Rp' . number_format($totalPembelian, 0, ',', '.'); ?></td>
+		     	<td colspan="4" align="right"><b>Grand Total</b></td>
+		     	<td align="right"><?php echo 'Rp ' . number_format($totalPembelian, 0, ',', '.'); ?></td>
 		     	<td></td>
 		     </tr>
 		     <script type="text/javascript">

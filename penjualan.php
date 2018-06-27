@@ -129,7 +129,7 @@
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000); functionCboJatuhTempo()">
 	<div id="topnav">
 		<div class="title">
-			<h2 style="margin-left: 35px;">Penjualan</h2>
+			<h3 style="margin-left: 35px;">Penjualan</h3>
 		</div>
 
 		<div class="jamtgl">

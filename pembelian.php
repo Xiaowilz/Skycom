@@ -25,12 +25,7 @@
 	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
 	<!-- ____________  -->
 
-	<style type="text/css">
-		.col-4 {
-			float: right;
-			margin-right: -15px;
-		}
-		
+	<style type="text/css">	
 		.hapus {
 			color : black;
 			font-size: 20px;
@@ -47,17 +42,6 @@
 
 		#cart {
 			margin-right: 6px;
-		}
-		.jamtgl {
-			float : right;
-		}
-
-		#clock {
-			margin-right: 60px;
-		}
-
-		#date {
-			margin-right: 35px;
 		}
 
 		#lihatTrans{
@@ -118,11 +102,10 @@
 ?>
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
 	<div id="topnav">
-		<!-- <div class="menuicon" onclick="geser()">
-			<div class="garis"></div>
-			<div class="garis"></div>
-			<div class="garis"></div>
-		</div> -->
+		<div class="title">
+			<h3 style="margin-left: 35px;">Pembelian</h3>
+		</div>
+
 
 		<div class="jamtgl">
 			Jam : <span id="clock"></span>
@@ -130,37 +113,16 @@
 				<?php
 					functionTanggal();
 				?>
-				<a id="lihatTrans" href="transaksiBeli" target="_blank">Lihat Transaksi</a>
 			</span>
+			<a id="lihatTrans" href="transaksiBeli" target="_blank">Lihat Transaksi</a>
 		</div>
 	</div>
-
-	<!-- <div id="sidenav">
-		<div id="tab">
-			<div class="tabbutton">
-				<a href="mainform.php"><span class="ion-ios-home"></span>Beranda</a>
-				<a href="penjualan.php"><span class="ion-cash"></span>Penjualan</a>
-				<a class="active" href="pembelian.php"><span class="ion-android-cart"></span>Pembelian</a>
-				<a href="customers.php"><span class="ion-ios-people"></span>Customers</a>
-				<a href="inventory.php"><span class="ion-briefcase"></span>Inventory</a>
-				<a href="supplier.php"><span class="ion-person-stalker"></span>Supplier</a>
-			</div>
-						
-				<a class="tabbutton drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>
-				
-					<div class="dropdown">
-						<a href="#"><span class="ion-ios-circle-filled"></span>Item 1</a>
-						<a href="#"><span class="ion-ios-circle-filled"></span>Item 2</a>
-						<a href="#"><span class="ion-ios-circle-filled"></span>Item 3</a>
-					</div>
-		</div>
-	</div> -->
 
 	<div id="rightside2">
 		<div id="beranda">	
 			<div class="all-box">	
 				<div class="all-top">
-					<h2>Pembelian</h2>
+					<br>
 				</div>
 				<?php
 					require_once("conn.php");
@@ -209,7 +171,6 @@
 								$tahun = date("Y");
 								$tgl1 = $tahun."-".$bulan."-".$tanggal;
 								$tgl2 = date('l, d-m-Y', strtotime('+14 days', strtotime($tgl1)));
-								// echo $tgl2;
 							?>
 
 						    </div>

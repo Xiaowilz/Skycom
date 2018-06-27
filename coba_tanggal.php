@@ -36,21 +36,6 @@
             background-color: #17a2b8;
             color: white;
         }
-
-        #mainMenu{
-            padding: 5px 15px;
-            margin-right: 35px;
-            text-decoration: none;
-            color: white;
-            border-radius: 4px;
-            transition-duration: 0.3s;
-            background-color: dodgerBlue;
-        }
-
-        #mainMenu:hover{
-            background-color: #1f57ff;
-            color: white;
-        }
     </style>
 
 </head>
@@ -79,7 +64,7 @@
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
     <div id="topnav">
         <div class="title">
-            <h3 style="margin-left: 35px;">Transaksi Pembelian</h3>  
+            <h2 style="margin-left: 35px;">Transaksi Penjualan</h2>  
         </div>
         <div class="jamtgl">
             Jam : <span id="clock"></span>
@@ -88,7 +73,6 @@
                     functionTanggal();
                 ?>
             </span>
-            <a id="mainMenu" href="mainform">Menu</a>
         </div>
     </div>
 
@@ -117,10 +101,10 @@
                    
                 <div class="tombolfilter">
                     <button type="submit" name="filter" id="filter" class="btn btn-outline-primary">Filter</button>
-                    <!-- <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button> -->
+                    <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button>
                     <button type="submit" name="" id="cetak" class="btn btn-outline-info">Cetak</button>
-                    <!-- <a href="cetakInvoice.php" class="btn-outline-info" target="_blank">Desain Nota Invoice</a>
-                    <a href="cetakTest.php" class="btn-outline-info" target="_blank">Teeeeesst</a> -->
+                    <a href="cetakInvoice.php" class="btn-outline-info" target="_blank">Desain Nota Invoice</a>
+                    <a href="cetakTest.php" class="btn-outline-info" target="_blank">Teeeeesst</a>
                 </div>
 
                 <div class="spacer" style="clear: both;"></div>
@@ -133,7 +117,10 @@
                             <tr>
                                 <th>No. Transaksi</th>
                                 <th width="15%">Tanggal Transaksi</th>
-                                <th>Supplier</th>
+                                <th>Customer</th>
+                                <th width="10%">Total</th>
+                                <th width="10%">PPN 10%</th>
+                                <th>Potongan</th>
                                 <th>Grand Total</th>
                                 <th width="7%"></th>
                                 <th width="7%"></th>
@@ -143,29 +130,32 @@
                         <tbody>
                         <?php 
                             require_once("conn.php");
-                            $sql = "SELECT * FROM tb_pembelian ORDER BY notrans DESC";
+                            $sql = "SELECT * FROM tb_penjualan ORDER BY notrans DESC";
                             $q = mysqli_query($conn,$sql);
                             $grandTotal = 0;
                             while ($r = mysqli_fetch_array($q)) 
                             {
-                                // $subtotal = number_format($r['subtotal'], 0, ',', '.');
-                                // $diskon = number_format($r['diskon'], 0, ',', '.');
+                                $subtotal = number_format($r['subtotal'], 0, ',', '.');
+                                $diskon = number_format($r['diskon'], 0, ',', '.');
                                 $total = number_format($r['total'], 0, ',', '.');
                                 echo"
                                     <tr>
                                         <td align='center'>$r[notrans]</td>
                                         <td align='center'>$r[tgltrans]</td>
-                                        <td align='center'>$r[supplier]</td>
+                                        <td align='center'>$r[customer]</td>
+                                        <td align='right'>$subtotal</td>
+                                        <td align='right'></td>
+                                        <td align='right'>$diskon</td>
                                         <td align='right'>$total</td>
-                                        <td align='center'><a href='dpembelian/detail_pembelian?notrans=$r[notrans]' target=_blank id='detail'>Detail</a></td>
-                                        <td align='center'><a href='cetakInvoicePembelian?noTrans=$r[notrans]' target=_blank class='cetak' id='print'>Cetak</a></td>
+                                        <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
+                                        <td align='center'><a href='cetakInvoice.php?noTrans=$r[notrans]' target=_blank id='print'>Cetak</a></td>
                                     </tr>
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];
                             }
                         ?>                          
                             <tr>
-                                <td colspan="3" align="center"><strong>Total</strong></td>
+                                <td colspan="6" align="center"><strong>Total</strong></td>
                                 <td style="display: none;"></td>
                                 <td style="display: none;"></td>
                                 <td style="display: none;"></td>
@@ -209,7 +199,7 @@
             var tglAwal = $("#from_date").val();
             var tglAkhir = $("#to_date").val();
             $.ajax({
-                url: 'filterBeli.php',
+                url: 'coba_filter.php',
                 method : 'POST',
                 data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
                 success : function(data)
@@ -230,7 +220,7 @@
             //     data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
             //     success : function()
             //     {
-                    window.open("cetak_penjualan_tanggal.php?tglAwal=" + tglAwal + "&tglAkhir=" + tglAkhir, "_blank");
+                    window.open("cetakLaporanJual.php?tglAwal=" + tglAwal + "&tglAkhir=" + tglAkhir, "_blank");
             //     }
                
             // });
@@ -245,7 +235,7 @@
             "info": false,
             "ordering": false,
             "pagingType":"full_numbers",
-            "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ],
+            "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
         });
     });
         
