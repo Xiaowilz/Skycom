@@ -5,6 +5,7 @@
 	$diskon = (int)$_POST['diskon'];
 	$total = (int)$_POST['total'];
 	$totalSetelahPpn = (int)$_POST['totalSetelahPpn'];
+	$ppn = (int)$_POST['tdppn'];
 	// $diskon = $nilai * 10;
 	$result = 0;
 	if($totalSetelahPpn <= 0)
@@ -18,6 +19,7 @@
 	$_SESSION['totalSetelahPpn'] = "$totalSetelahPpn";
 	$_SESSION['diskon'] = "$diskon";
 	$_SESSION['grandTotal'] = "$result";
+	$_SESSION['ppn'] = "$ppn";
 
 ?>
 

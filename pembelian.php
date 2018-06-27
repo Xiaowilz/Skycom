@@ -59,6 +59,20 @@
 		#date {
 			margin-right: 35px;
 		}
+
+		#lihatTrans{
+			padding: 5px 15px;
+			margin-right: 35px;
+			text-decoration: none;
+            color: white;
+            border-radius: 4px;
+            transition-duration: 0.3s;
+            background-color: dodgerBlue;
+		}
+		#lihatTrans:hover{
+			background-color: #1f57ff;
+            color: white;
+		}
 	</style>
 
 </head>
@@ -116,6 +130,7 @@
 				<?php
 					functionTanggal();
 				?>
+				<a id="lihatTrans" href="transaksiBeli" target="_blank">Lihat Transaksi</a>
 			</span>
 		</div>
 	</div>
@@ -301,6 +316,7 @@
 			<br>
 				<input type="submit" id="simpan" class="btn btn-primary" name="simpan" value="Simpan" formaction="pembelian_simpan.php">	
 			</form>
+				<button onclick="topFunction()" id="myBtn" title="Go to top" class="btn btn-danger">Top</button>
 
 			
 			<script type="text/javascript">
@@ -544,4 +560,10 @@
 	{
 		window.onbeforeunload = null;
 	});
+
+	function topFunction() 
+	{
+    	document.body.scrollTop = 0;
+    	document.documentElement.scrollTop = 0;
+	}
 </script>		

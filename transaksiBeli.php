@@ -64,7 +64,7 @@
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
     <div id="topnav">
         <div class="title">
-            <h2 style="margin-left: 35px;">Transaksi Penjualan</h2>  
+            <h2 style="margin-left: 35px;">Transaksi Pembelian</h2>  
         </div>
         <div class="jamtgl">
             Jam : <span id="clock"></span>
@@ -118,9 +118,6 @@
                                 <th>No. Transaksi</th>
                                 <th width="15%">Tanggal Transaksi</th>
                                 <th>Customer</th>
-                                <th width="10%">Total</th>
-                                <th width="10%">PPN 10%</th>
-                                <th>Potongan</th>
                                 <th>Grand Total</th>
                                 <th width="7%"></th>
                                 <th width="7%"></th>
@@ -130,29 +127,22 @@
                         <tbody>
                         <?php 
                             require_once("conn.php");
-                            $sql = "SELECT * FROM tb_penjualan ORDER BY notrans DESC";
+                            $sql = "SELECT * FROM tb_pembelian ORDER BY notrans DESC";
                             $q = mysqli_query($conn,$sql);
                             $grandTotal = 0;
                             while ($r = mysqli_fetch_array($q)) 
                             {
-                                $subtotal = number_format($r['subtotal'], 0, ',', '.');
-                                $diskon = number_format($r['diskon'], 0, ',', '.');
+                                // $subtotal = number_format($r['subtotal'], 0, ',', '.');
+                                // $diskon = number_format($r['diskon'], 0, ',', '.');
                                 $total = number_format($r['total'], 0, ',', '.');
                                 echo"
                                     <tr>
                                         <td align='center'>$r[notrans]</td>
                                         <td align='center'>$r[tgltrans]</td>
-                                        <td align='center'>$r[customer]</td>
-                                        <td align='right'>$subtotal</td>
-                                        <td align='right'></td>
-                                        <td align='right'>$diskon</td>
+                                        <td align='center'>$r[supplier]</td>
                                         <td align='right'>$total</td>
-                                        <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
-<<<<<<< HEAD
-                                        <td align='center'><a href='cetakInvoice.php' target=_blank id='print'>Cetak</a></td>
-=======
-                                        <td align='center'><a href='cetakInvoice.php?noTrans=$r[notrans]' target=_blank class='cetak'>Cetak</a></td>
->>>>>>> f858a34d8319ca3c824a165349f9a933b5f31954
+                                        <td align='center'><a href='dpembelian/detail_pembelian?notrans=$r[notrans]' target=_blank id='detail'>Detail</a></td>
+                                        <td align='center'><a href='cetakInvoicePembelian?noTrans=$r[notrans]' target=_blank class='cetak'>Cetak</a></td>
                                     </tr>
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];

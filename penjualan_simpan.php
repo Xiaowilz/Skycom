@@ -13,6 +13,8 @@
 	$tanggalTrans = "$tahun-$bulan-$tanggal";
 	$diskon = $_SESSION['diskon'];
 	$subTotalSetelahPpn = $_SESSION['totalSetelahPpn'];
+	$sales = $_POST['nmSales'];
+	$ppn = $_SESSION['ppn'];
 	var_dump($subTotalSetelahPpn);
 	$grandTotal;
 	if($diskon == 0 && $subTotalSetelahPpn != 0)
@@ -60,7 +62,7 @@
 	// echo "$diskon";
 	echo "$grandTotal";
 
-	$sql2 = "INSERT INTO tb_penjualan(notrans,tgltrans,kredit,tglJatuhTempo,customer,subtotal,ppn,subTotalSetelahPpn,diskon,total,catatan) VALUES('$noTrans','$tanggalTrans',$kredit,'$tglJatuhTempo','$namaCustomer','$totalPenjualan','$ppn','$subTotalSetelahPpn','$diskon','$grandTotal','$catatan')";
+	$sql2 = "INSERT INTO tb_penjualan(notrans,tgltrans,kredit,tglJatuhTempo,customer,subtotal,ppn,subTotalSetelahPpn,diskon,total,sales,catatan) VALUES('$noTrans','$tanggalTrans',$kredit,'$tglJatuhTempo','$namaCustomer','$totalPenjualan','$ppn','$subTotalSetelahPpn','$diskon','$grandTotal','$sales','$catatan')";
 
 	$q2 = mysqli_query($conn, $sql2);
 	var_dump($q2);
@@ -69,6 +71,7 @@
 	$_SESSION['totalSetelahPpn'] = 0;
 	$_SESSION['diskon'] = 0;
 	$_SESSION['grandTotal'] = 0;
+	$_SESSION['ppn'] = 0;
 
 	header('Location:penjualan');
  ?>
