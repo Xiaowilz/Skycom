@@ -148,11 +148,7 @@
                                         <td align='right'>$diskon</td>
                                         <td align='right'>$total</td>
                                         <td align='center'><a href='dpenjualan/detail_penjualan.php?notrans=$r[notrans]&customer=$r[customer]&tgltrans=$r[tgltrans]&diskon=$diskon' target=_blank id='detail'>Detail</a></td>
-<<<<<<< HEAD
-                                        <td align='center'><a href='cetakInvoice.php' target=_blank id='print'>Cetak</a></td>
-=======
-                                        <td align='center'><a href='cetakInvoice.php?noTrans=$r[notrans]' target=_blank class='cetak'>Cetak</a></td>
->>>>>>> f858a34d8319ca3c824a165349f9a933b5f31954
+                                        <td align='center'><a href='cetakInvoice.php?noTrans=$r[notrans]' target=_blank id='print'>Cetak</a></td>
                                     </tr>
                                 ";  
                                 $grandTotal = $grandTotal + $r['total'];
@@ -224,7 +220,7 @@
             //     data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
             //     success : function()
             //     {
-                    window.open("cetak_penjualan_tanggal.php?tglAwal=" + tglAwal + "&tglAkhir=" + tglAkhir, "_blank");
+                    window.open("cetakLaporanJual.php?tglAwal=" + tglAwal + "&tglAkhir=" + tglAkhir, "_blank");
             //     }
                
             // });

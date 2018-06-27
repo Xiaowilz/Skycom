@@ -1,0 +1,13 @@
+* {   
+	margin:0;
+	padding:0;
+}
+
+body{
+	font-size: 12pt;
+}
+
+#tabel, th, td{
+	border-collapse: collapse;
+	border: 1px solid black;
+}
