@@ -84,6 +84,12 @@
 			<div class="garis"></div>
 		</div>
 
+		<div class="logout">
+			<form method="POST" action="logout">
+				<button type="submit" name="logout" value="Logout" class="btn btn-danger btn-sm"><span class="ion-log-out"></span>Log Out</button>
+			</form>
+		</div>
+
 		<div class="title">
 			<h3 style="margin-left: 35px;">SkyCom</h3>
 		</div>
@@ -97,11 +103,7 @@
 			</span>
 		</div>
 
-		<div class="logout">
-			<form method="POST" action="logout">
-				<button type="submit" name="logout" value="Logout" class="btn btn-danger btn-sm"><span class="ion-log-out"></span>Log Out</button>
-			</form>
-		</div>
+
 	</div>
 
 	<div id="sidenav">
