@@ -8,9 +8,9 @@
 
 	$mpdf->SetHTMLHeader('
 			<div style="text-align: center; font-weight: bold;">
-			    Laporan Penjualan
+			    Laporan Pembelian
 			</div>','O');
-	$mpdf->SetHTMLHeader('<div style="border-bottom: 1px solid #000000;">Laporan Penjualan</div>','E');
+	$mpdf->SetHTMLHeader('<div style="border-bottom: 1px solid #000000;">Laporan Pembelian</div>','E');
 
 	$mpdf->SetHTMLFooter('
 		<table width="100%" style="vertical-align: bottom; font-family: serif; 
@@ -43,14 +43,14 @@
 		    <tr>
                	<th>No. Transaksi</th>
                 <th>Tanggal Transaksi</th>
-                <th>Customer</th>
+                <th>Supplier</th>
                 <th>Grand Total</th>
 		    </tr>';
 
 		    	require("conn.php");
 		    	$tglAwal = $_GET['tglAwal'];
 		    	$tglAkhir = $_GET['tglAkhir'];
-		    	$sql5 = "SELECT * FROM tb_penjualan WHERE tgltrans BETWEEN '$tglAwal' AND '$tglAkhir'";
+		    	$sql5 = "SELECT * FROM tb_pembelian WHERE tgltrans BETWEEN '$tglAwal' AND '$tglAkhir'";
 		    	$q5 = mysqli_query($conn, $sql5);
 		    	$grandTotal = 0;
 		    	while ($r5 = mysqli_fetch_assoc($q5)) 
@@ -59,7 +59,7 @@
 						<tr>
 							<td align="center">'.$r5["notrans"].'</td>
 							<td align="center">'.$r5["tgltrans"].'</td>
-							<td align="center">'.$r5["customer"].'</td>
+							<td align="center">'.$r5["supplier"].'</td>
 							<td align="right">'.number_format($r5["total"],0, ',', '.').'</td>
 						</tr>';
 					$grandTotal = $grandTotal + $r5['total'];

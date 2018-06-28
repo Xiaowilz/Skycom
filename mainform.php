@@ -18,8 +18,6 @@
 
         .wrapper{
             padding: 30px;
-            align-items: center;
-            justify-content: center;
         }
 
         .wrapper a{
@@ -38,11 +36,38 @@
             color: white;
         }
 
-        .wrapper span{
+        .wrapper span, .logout span{
             margin-right: 15px;
         }
+
 	</style>
 </head>
+
+<script>
+	function functionTampilkanJam()
+	{
+		var waktu = new Date();
+		var jam = waktu.getHours() + "";
+		var menit = waktu.getMinutes() + "";
+		var detik = waktu.getSeconds() + "";
+		document.getElementById("clock").innerHTML = (jam.length==1?"0"+jam:jam) + ":" + (menit.length==1?"0"+menit:menit) + ":" + (detik.length==1?"0"+detik:detik);
+	}
+</script>
+
+<?php
+	function functionTanggal()
+	{
+		$hari = date("l");
+		$tanggal = date("d");
+		$bulan = date("m");
+		$tahun = date("Y");
+		$_SESSION["tanggal"] = "$tanggal";
+		$_SESSION["bulan"] = "$bulan";
+		$_SESSION["tahun"] = "$tahun";
+		echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
+	}
+?>
+
 <?php
 	session_start();
 	if(!isset($_SESSION['username']))
@@ -50,19 +75,35 @@
 		header("Location:index");
 	}
 ?>
-<body>
+
+<body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
 	<div id="topnav">
 		<div class="menuicon" onclick="geser()">
 			<div class="garis"></div>
 			<div class="garis"></div>
 			<div class="garis"></div>
 		</div>
-		
+
 		<div class="logout">
 			<form method="POST" action="logout">
-				<input type="submit" name="logout" value="Logout" class="btn btn-outline-danger btn-sm">
+				<button type="submit" name="logout" value="Logout" class="btn btn-danger btn-sm"><span class="ion-log-out"></span>Log Out</button>
 			</form>
 		</div>
+
+		<div class="title">
+			<h3 style="margin-left: 35px;">SkyCom</h3>
+		</div>
+
+        <div class="jamtgl">
+			Jam : <span id="clock"></span>
+			<span id="date">
+				<?php
+					functionTanggal();
+				?>
+			</span>
+		</div>
+
+
 	</div>
 
 	<div id="sidenav">
@@ -76,13 +117,11 @@
 				<a href="supplier" class="aktif"><span class="ion-person-stalker"></span>Supplier</a>
 			</div>	
 						
-				<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>
+				<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Laporan<i class="ion-arrow-down-b"></i></a>
 				
 				<div class="dropdown">
-					<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 1</a>
-					<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 2</a>
-					<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 3</a>
-
+						<a href="transaksiJual" target="_blank" class="aktif"><span class="ion-ios-circle-filled"></span>Penjualan</a>
+						<a href="transaksiBeli" target="_blank" class="aktif"><span class="ion-ios-circle-filled"></span>Pembelian</a>
 				</div>
 		</div>
 	</div>
@@ -94,22 +133,39 @@
             <div class="all-content">
                 <center>
                     <div class="wrapper">
-                        <div class="card text-center card w-50">
-                            <div class="card-header">
-                                Menu
-                            </div>
-                            <div class="card-body">
-                                <a href="" class=""><span class="ion-cash"></span>Penjualan</a>
-                                <a href="" class=""><span class="ion-android-cart"></span>Pembelian</a>
-                                <a href="transaksiJual" class=""><span class="ion-android-list"></span>Laporan Penjualan</a>
-                                <a href="transaksiBeli" class=""><span class="ion-android-list"></span>Laporan Pembelian</a>
-                            </div>
-                            <div class="card-footer text-muted">
-
-                            </div>
-                        </div>
+                    	<h1>Selamat Datang</h1> <br>
+                    	<h4>Di Program Penjualan Sky Computer </h4> <br>
+                    	<hr>
                     </div>
-                </center>
+               	</center>
+               	<div class="wrapper">
+	               	<div class="card-deck"> 
+	                	<div class="card bg-light mb-3" style="max-width: 30rem;">
+						 	<div class="card-header">Transaksi</div>
+						  		<div class="card-body">
+						    		<a href="" class=""><span class="ion-cash"></span>Penjualan</a>
+                                	<a href="" class=""><span class="ion-android-cart"></span>Pembelian</a>
+						  		</div>
+						</div>
+
+						<div class="card bg-light mb-3" style="max-width: 30rem;">
+						 	<div class="card-header">Database</div>
+						  		<div class="card-body">
+						    		<a href="customers"><span class="ion-ios-people"></span>Customers</a>
+									<a href="inventory"><span class="ion-briefcase"></span>Inventory</a>
+									<a href="supplier"><span class="ion-person-stalker"></span>Supplier</a>
+						  		</div>
+						</div>
+
+						<div class="card bg-light mb-3" style="max-width: 30rem;">
+						 	<div class="card-header">Laporan</div>
+						  		<div class="card-body">
+						    		<a href="transaksiJual" class=""><span class="ion-android-list"></span>Laporan Penjualan</a>
+                                	<a href="transaksiBeli" class=""><span class="ion-android-list"></span>Laporan Pembelian</a>
+						  		</div>
+						</div>
+					</div>
+				</div>
             </div>
         </div>
     </div>

@@ -76,12 +76,11 @@
 				<a href="supplier" class="aktif"><span class="ion-person-stalker"></span>Supplier</a>
 			</div>
 						
-				<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Daftar<i class="ion-arrow-down-b"></i></a>
+				<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Laporan<i class="ion-arrow-down-b"></i></a>
 				
 					<div class="dropdown">
-						<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 1</a>
-						<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 2</a>
-						<a href="#" class="aktif"><span class="ion-ios-circle-filled"></span>Item 3</a>
+						<a href="transaksiJual" target="_blank" class="aktif"><span class="ion-ios-circle-filled"></span>Penjualan</a>
+						<a href="transaksiBeli" target="_blank" class="aktif"><span class="ion-ios-circle-filled"></span>Pembelian</a>
 					</div>
 		</div>
 	</div>

@@ -9,6 +9,10 @@
 
 }
 
+body{
+	font-size: 10pt;
+}
+
 .wrapper {
 	/*width:180mm;*/
 /*    margin : 20px;
@@ -17,8 +21,8 @@
     /*border : 1px solid black;*/
 }
 
-.header{
-	/*line-height: 80%;*/
+.headInfo,.headInfo td {
+	/*border: 1px solid black;*/
 }
 
 .heading{
@@ -47,8 +51,12 @@
 	width: 2%;
 }
 
-.data {
+.dtkiri .data {
 	width: 30mm;
+}
+
+.dtkanan .data{
+	width: 50mm;
 }
 
 input[type=text] {
@@ -75,8 +83,14 @@ input[type=text] {
 .invoice_foot{
 	width: 100%;
 	border-top: 1px solid;
+	/*border: 1px solid black;*/
 }
 
 .invoice_foot td{
-	/*border: 1px solid black;*/
+	/*height: 8mm;*/
+	border: 1px solid black;
+}
+
+.invoice_foot .sign{
+	height: 15mm;
 }

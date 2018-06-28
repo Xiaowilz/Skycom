@@ -230,7 +230,7 @@
             //     data: {tglAwal : tglAwal, tglAkhir : tglAkhir},
             //     success : function()
             //     {
-                    window.open("cetak_penjualan_tanggal.php?tglAwal=" + tglAwal + "&tglAkhir=" + tglAkhir, "_blank");
+                    window.open("cetakLaporanBeli.php?tglAwal=" + tglAwal + "&tglAkhir=" + tglAkhir, "_blank");
             //     }
                
             // });
