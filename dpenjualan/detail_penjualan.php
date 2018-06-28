@@ -82,6 +82,7 @@
     		$keterangan = $r["catatan"];
     		$diskon = $r['diskon'];
     		$sales = $r['sales'];
+    		$ppn = $r['ppn'];
     	}
     ?>
 
@@ -205,7 +206,7 @@
 
 								<tr>
 									<td colspan="4" align="center"><strong>PPN 10%</strong></td>
-									<td align="right"><?php echo "Rp " .number_format($totalPenjualan, 0, ',', '.'); ?></td>
+									<td align="right"><?php echo "Rp " .number_format($ppn, 0, ',', '.'); ?></td>
 								</tr>
 
 								<tr>

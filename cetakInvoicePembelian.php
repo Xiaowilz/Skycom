@@ -129,12 +129,13 @@ while ($r = mysqli_fetch_assoc($q))
 						$noTrans = $_GET['noTrans'];
 						$sql2 = "SELECT * FROM tb_hd_pembelian WHERE notrans = '$noTrans'";
 						$q2 = mysqli_query($conn, $sql2);
+						$nomor = 1;
 						while ($r2 = mysqli_fetch_assoc($q2))
 						{
 							$cetak.='
 
 											<tr>
-												<td align="center" width="7%">1</td>
+												<td align="center" width="7%">'.$nomor.'</td>
 												<td>'.$r2["nm_barang"].'</td>
 												<td align="center" width="7%">'.$r2["qty"].'</td>
 												<td align="right" width="17%">'.$r2["harga"].'</td>
@@ -142,6 +143,7 @@ while ($r = mysqli_fetch_assoc($q))
 											</tr>
 									
 									';
+							$nomor++;
 						}
 							$cetak.='	</table>
 									</div>';
