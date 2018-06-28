@@ -22,6 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="ionicons-2.0.1/css/ionicons.min.css">
 
 	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
@@ -414,8 +415,6 @@
 		</div>
 		<!-- Modal End -->
 	</div>	
-
-<script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>
 
     <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
 

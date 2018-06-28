@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/datepicker.css">
     <script src="javascript/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="ionicons-2.0.1/css/ionicons.min.css">
     <script src="javascript/bootstrap-datepicker.js"></script>
 
     <script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>

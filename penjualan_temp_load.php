@@ -42,7 +42,7 @@
 							<td align='center'>$r5[qty]</td>
 							<td align='right'>$harga</td>
 							<td align='right'>$jumlah</td>
-							<td width='5%'><center><ion-icon name='trash' href='#' data-kodeHapus='$r5[kd_barang]' class='hapus'></ion-icon></center></td>
+							<td width='5%'><center><span href='#' data-kodeHapus='$r5[kd_barang]' class='hapus ion-trash-b'></span></center></td>
 						</tr>
 		    		";
 		    		$totalPenjualan += $r5['jumlah'];
