@@ -88,7 +88,7 @@ input[type=text] {
 
 .invoice_foot td{
 	/*height: 8mm;*/
-	/*border: 1px solid black;*/
+	border: 1px solid black;
 }
 
 .invoice_foot .sign{
