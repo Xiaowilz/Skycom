@@ -30,9 +30,37 @@
 			float : right;
 			margin-top: -4px;
 		}
-	</style>
 
+		.logout span{
+			margin-right: 15px;
+		}
+	</style>
 </head>
+
+<script>
+	function functionTampilkanJam()
+	{
+		var waktu = new Date();
+		var jam = waktu.getHours() + "";
+		var menit = waktu.getMinutes() + "";
+		var detik = waktu.getSeconds() + "";
+		document.getElementById("clock").innerHTML = (jam.length==1?"0"+jam:jam) + ":" + (menit.length==1?"0"+menit:menit) + ":" + (detik.length==1?"0"+detik:detik);
+	}
+</script>
+
+<?php
+	function functionTanggal()
+	{
+		$hari = date("l");
+		$tanggal = date("d");
+		$bulan = date("m");
+		$tahun = date("Y");
+		$_SESSION["tanggal"] = "$tanggal";
+		$_SESSION["bulan"] = "$bulan";
+		$_SESSION["tahun"] = "$tahun";
+		echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
+	}
+?>
 
 <?php
 	session_start();
@@ -42,7 +70,7 @@
 	}
 ?>
 
-<body>
+<body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
 	<div id="topnav">
 		<div class="menuicon" onclick="geser()">
 			<div class="garis"></div>
@@ -50,10 +78,23 @@
 			<div class="garis"></div>
 		</div>
 
+		<div class="title">
+            <h3 style="margin-left: 35px;">SkyCom</h3>  
+        </div>
+
 		<div class="logout">
 			<form method="POST" action="logout">
-				<input type="submit" name="logout" value="Logout" class="btn btn-outline-danger btn-sm">
+				<button type="submit" name="logout" value="Logout" class="btn btn-danger btn-sm"><span class="ion-log-out"></span>Log Out</button>
 			</form>
+		</div>
+
+		<div class="jamtgl">
+			Jam : <span id="clock"></span>
+			<span id="date">
+				<?php
+					functionTanggal();
+				?>
+			</span>
 		</div>
 	</div>
 
@@ -257,7 +298,9 @@
 			<!-- Modal End -->
 	</div>
 
-<script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>	
+    <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
+
+<script type="text/javascript" src="javascript/scrollUp.js"></script>	
 </body>
 </html>
 

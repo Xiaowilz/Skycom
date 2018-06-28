@@ -48,8 +48,8 @@
 			border : none;
 		}
 
-		#cart {
-			margin-right: 6px;
+		.ion-android-cart {
+			margin-right: 10px;
 		}
 
 		#add{
@@ -270,7 +270,7 @@
 						    	</div>
 								
 						    	<div class="col-xs-1">
-						    		<Button type="submit" id="add" class="btn btn-success btn-sm"><ion-icon name="cart" id="cart"></ion-icon>Tambah</Button>
+						    		<Button type="submit" id="add" class="btn btn-primary btn-sm"><span class="ion-android-cart"></span>Tambah</Button>
 								</div>
 
 								<div>
@@ -301,8 +301,6 @@
 				</div>
 					<button type="submit" name="simpan" class="btn btn-primary" id="simpan" formaction="penjualan_simpan.php">Simpan</button>
 				</form>
-					<button onclick="topFunction()" id="myBtn" title="Go to top" class="btn btn-danger">Top</button>
-
 			</div>
 		</div>
 
@@ -419,10 +417,10 @@
 
 <script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>
 
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+    <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
+
+<script type="text/javascript" src="javascript/scrollUp.js"></script>
+
 </body>
 <script type="text/javascript">
 		var dropdown = document.getElementsByClassName("drop");

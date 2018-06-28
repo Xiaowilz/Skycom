@@ -59,18 +59,13 @@ body{
 	width: 50mm;
 }
 
-input[type=text] {
-	/*outline: none;*/
-/*	border-color: white;
-	background-color: red;*/
-}
-
-.tB {
+.tB, .tB td{
 	border-collapse: collapse;
-	
+	/*border: 1px solid black;*/
 }
 
 .thead, .thead th{
+	/*border: 1px solid black;*/
 	border-collapse: collapse;
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
@@ -88,7 +83,7 @@ input[type=text] {
 
 .invoice_foot td{
 	/*height: 8mm;*/
-	border: 1px solid black;
+	/*border: 1px solid black;*/
 }
 
 .invoice_foot .sign{
