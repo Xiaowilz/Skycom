@@ -137,9 +137,20 @@
 		    	});
 
 		    	$(document).ready(function() {
+					$('#diskon').on('click',function() {
+						document.getElementById('diskon').value = "";
+						var diskon = $('#diskon').val();
+		    			var totalSetelahPpn = document.getElementById('setelah_ppn').value;
+		    			var tdppn = document.getElementById('tdPpn').value
+		    			// var diskonskin = $('#diskon').val();
+		    			var total = <?php echo $totalPenjualan ?>;
+		    			console.log(total);
+		    			// $('#diskon').load('ajax/diskonskin.php', {diskonskin : diskonskin } );
+		    			$('#grandtotal').load('ajax/hitungdiskon.php', {diskon : diskon , total : total, totalSetelahPpn : totalSetelahPpn, tdppn : tdppn});
+					});
+
 		    		$('#diskon').on('change', function() {
 		    			var diskon = $('#diskon').val();
-		    			var kon = $('#diskon').val();
 		    			var totalSetelahPpn = document.getElementById('setelah_ppn').value;
 		    			var tdppn = document.getElementById('tdPpn').value
 		    			// var diskonskin = $('#diskon').val();
@@ -154,7 +165,6 @@
 		    			if(this.checked)
 		    			{
 		    				var diskon = $('#diskon').val();
-			    			var kon = $('#diskon').val();
 			    			var totalSetelahPpn = document.getElementById('setelah_ppn').value;
 			    			var tdppn = document.getElementById('tdPpn').value
 			    			// var diskonskin = $('#diskon').val();
@@ -220,11 +230,8 @@
 						input.value = format_number(this.value, 'Rp ');
 					});
 
-					$('#diskon').on('click',function() {
-						document.getElementById('diskon').value = "";
-					});
-
 				});
+
 		    </script>
 	 	</tbody>
 	</table>

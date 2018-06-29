@@ -16,6 +16,7 @@
 	{
 		$result = $totalSetelahPpn - $diskon;
 	}
+
 	$_SESSION['totalSetelahPpn'] = "$totalSetelahPpn";
 	$_SESSION['diskon'] = "$diskon";
 	$_SESSION['grandTotal'] = "$result";
