@@ -12,6 +12,7 @@
 		'margin_left' => 10,
 		'margin_right' => 10,
 		'margin_bottom' => 5,
+		'margin_footer' => 5,
 		'format' => [215, 140]]);
 
 	// $mpdf->SetDisplayMode('fullpage');
@@ -65,7 +66,7 @@ while ($r = mysqli_fetch_assoc($q))
 							</td>
 
 							<td align="right">
-								<strong>Faktur Penjualan</strong>
+								<strong>Faktur Pembelian</strong>
 							</td>
 						</tr>
 					</table>';
@@ -86,15 +87,21 @@ while ($r = mysqli_fetch_assoc($q))
 								      			<td class="data">'.$r["tgltrans"].'</td>
 											</tr>
 
+											<tr>
+												<td class="nama"><label>Supplier</label></td>
+												<td class="titikDua">:</td>					
+												<td class="data">'.$r["supplier"].'</td>
+											</tr>
+
 										</table>
 									</div>	
 
 									<div class="dtkanan">
 										<table class="headInfo" style="width: 100%">
 											<tr>
-												<td class="nama"><label>Supplier</label></td>
+												<td class="nama"><label>Keterangan</label></td>
 												<td class="titikDua">:</td>					
-												<td class="data">'.$r["supplier"].'</td>
+												<td class="data">'.$r["ket"].'</td>
 											</tr>
 										</table>
 									</div>
@@ -152,8 +159,8 @@ while ($r = mysqli_fetch_assoc($q))
 												<td rowspan="4" valign="top"></td>
 											</tr>
 											<tr>
-												<td>Grand Total</td>
-												<td width="20%" align="right">'.number_format($r["total"], 0, ',', '.').'</td>
+												<td><strong>Grand Total</strong></td>
+												<td width="20%" align="right"><strong>Rp '.number_format($r["total"], 0, ',', '.').'</strong></td>
 											</tr>
 										</table>
 									</div>

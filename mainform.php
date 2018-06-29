@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="ionicons-2.0.1/css/ionicons.min.css">
 
 	<style type="text/css">
 		.logout
@@ -170,6 +171,9 @@
         </div>
     </div>
 
+    <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
+
+<script type="text/javascript" src="javascript/scrollUp.js"></script>
 
 </body>
 </html>

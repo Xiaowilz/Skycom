@@ -1,4 +1,4 @@
-@import "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css";
+/*@import "http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css";*/
 
 body{
 	margin: 0px;
@@ -182,17 +182,6 @@ body{
     cursor: pointer;
 }
 
-/*.add-customer {
-	background-color: dodgerBlue; 
-	border-radius: 4px; 
-	width: 140px;
-}
-
-.add-customer:hover{
-	background-color: #0059b3;
-	transition: .3s;
-}*/
-
 .add-modal{
 	background-color: dodgerBlue; 
 	border-radius: 4px; 
@@ -248,14 +237,12 @@ body{
 
 .dtkiri {
 	width: 60%;
-	/*border : 5px solid red;*/
 	float: left
 }
 
 .dtkanan {
 	width: 40%;
 	float: right;
-	/*border :  5px solid red;*/
 }
 
 .all-head .button-add{
@@ -404,11 +391,13 @@ body{
 	float: right;
 }
 /*Detail Penjualan*/
+
 .header{
 	text-indent: 30px;
 }
 /*-------------*/
 
+/*Top Nav*/
 .title{
 	float: left;
 	margin-top: -9px;
@@ -425,3 +414,84 @@ body{
 #date {
 	margin-right: 35px;
 }
+/**/
+
+/*Transaksi Jual & Beli*/
+#mainMenu{
+    padding: 5px 15px;
+    margin-right: 35px;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+    transition-duration: 0.3s;
+    background-color: dodgerBlue;
+}
+
+#mainMenu:hover{
+    background-color: #1f57ff;
+    color: white;
+}
+
+#mainMenu span{
+    margin-right: 10px;
+}
+
+#detail, #print {
+    text-decoration: none;
+    padding: 2px 10px;
+    color: #17a2b8;
+    border-radius: 4px;
+    font-size: 14px;
+    transition-duration: 0.3s;
+}
+
+#detail:hover, #print:hover {
+    background-color: #17a2b8;
+    color: white;
+}
+/*---------------------*/
+
+
+/*Scroll Up*/
+#return-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 13px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 9px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+
+/**/

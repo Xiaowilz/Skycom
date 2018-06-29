@@ -33,7 +33,7 @@
                             <td align='center'>$r[supplier]</td>
                             <td align='right'>$total</td>
                             <td align='center'><a href='dpembelian/detail_pembelian?notrans=$r[notrans]' target=_blank id='detail'>Detail</a></td>
-                            <td align='center'><a href='cetakInvoicePembelian?noTrans=$r[notrans]' target=_blank class='cetak'>Cetak</a></td>
+                            <td align='center'><a href='cetakInvoicePembelian?noTrans=$r[notrans]' target=_blank class='cetak' id='print'>Cetak</a></td>
                         </tr>
                     ";  
                     $grandTotal = $grandTotal + $r['total'];

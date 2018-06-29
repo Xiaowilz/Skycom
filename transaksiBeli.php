@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/datepicker.css">
     <script src="javascript/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="ionicons-2.0.1/css/ionicons.min.css">
     <script src="javascript/bootstrap-datepicker.js"></script>
 
     <script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
@@ -22,35 +23,6 @@
         #tampil th{
             text-align: center;
         }       
-
-        #detail, #print {
-            text-decoration: none;
-            padding: 2px 10px;
-            color: #17a2b8;
-            border-radius: 4px;
-            font-size: 14px;
-            transition-duration: 0.3s;
-        }
-
-        #detail:hover, #print:hover {
-            background-color: #17a2b8;
-            color: white;
-        }
-
-        #mainMenu{
-            padding: 5px 15px;
-            margin-right: 35px;
-            text-decoration: none;
-            color: white;
-            border-radius: 4px;
-            transition-duration: 0.3s;
-            background-color: dodgerBlue;
-        }
-
-        #mainMenu:hover{
-            background-color: #1f57ff;
-            color: white;
-        }
     </style>
 
 </head>
@@ -88,7 +60,7 @@
                     functionTanggal();
                 ?>
             </span>
-            <a id="mainMenu" href="mainform">Menu</a>
+            <a id="mainMenu" href="mainform"><span class="ion-android-home"></span>Menu</a>
         </div>
     </div>
 
@@ -117,10 +89,7 @@
                    
                 <div class="tombolfilter">
                     <button type="submit" name="filter" id="filter" class="btn btn-outline-primary">Filter</button>
-                    <!-- <button type="reset" name="reset" id="reset" class="btn btn-outline-primary">Reset</button> -->
                     <button type="submit" name="" id="cetak" class="btn btn-outline-info">Cetak</button>
-                    <!-- <a href="cetakInvoice.php" class="btn-outline-info" target="_blank">Desain Nota Invoice</a>
-                    <a href="cetakTest.php" class="btn-outline-info" target="_blank">Teeeeesst</a> -->
                 </div>
 
                 <div class="spacer" style="clear: both;"></div>
@@ -183,7 +152,11 @@
                 </div>
             </div>
         </div>
-    </div>        
+    </div>
+
+        <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
+
+<script type="text/javascript" src="javascript/scrollUp.js"></script>        
 
  <script type="text/javascript">
     $(document).ready(function(){
@@ -245,7 +218,7 @@
             "info": false,
             "ordering": false,
             "pagingType":"full_numbers",
-            "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ],
+            "lengthMenu": [ [50, 100, 150 -1], [50, 100, 150, "All"] ],
         });
     });
         

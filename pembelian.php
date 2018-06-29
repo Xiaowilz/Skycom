@@ -17,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="css/datepicker.css">
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
-	<script src="javascript/bootstrap-datepicker.js"></script>
+	<link rel="stylesheet" type="text/css" href="ionicons-2.0.1/css/ionicons.min.css">
 
 	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
@@ -40,8 +40,8 @@
 			padding: 4px 26px;
 		}
 
-		#cart {
-			margin-right: 6px;
+		.ion-android-cart{
+			margin-right: 10px;
 		}
 
 		#lihatTrans{
@@ -55,6 +55,20 @@
 		}
 		#lihatTrans:hover{
 			background-color: #1f57ff;
+            color: white;
+		}
+
+		#pilih1, #pilih2 {
+			text-decoration: none;
+            padding: 2px 10px;
+            color: #17a2b8;
+            border-radius: 4px;
+            font-size: 14px;
+            transition-duration: 0.3s;
+		}
+
+		#pilih1:hover, #pilih2:hover{
+			background-color: #17a2b8;
             color: white;
 		}
 	</style>
@@ -226,7 +240,7 @@
 						    </div>
 
 							<div class="col-xs-1">
-						    	<button type="submit" class="btn btn-success btn-sm" value="Add" id="add"><ion-icon name="cart" id="cart"></ion-icon>Tambah</button>
+						    	<button type="submit" class="btn btn-primary btn-sm" value="Add" id="add"><span class="ion-android-cart"></span>Tambah</button>
 							</div>
 
 							<div>
@@ -277,8 +291,6 @@
 			<br>
 				<input type="submit" id="simpan" class="btn btn-primary" name="simpan" value="Simpan" formaction="pembelian_simpan.php">	
 			</form>
-				<button onclick="topFunction()" id="myBtn" title="Go to top" class="btn btn-danger">Top</button>
-
 			
 			<script type="text/javascript">
 				$(document).ready(function() {
@@ -313,10 +325,10 @@
 					          	<table class="table table-hover table-sm" id="tabel_supplier">
 					          		<thead class="thead-dark">
 										<tr>
-											<th>Supplier Code</th>
-											<th>Supplier Name</th>
-											<th>Address</th>
-											<th>Contact</th>
+											<th>Kode Supplier</th>
+											<th>Nama Supplier</th>
+											<th>Alamat</th>
+											<th>Kontak</th>
 											<th></th>
 										</tr>
 									</thead>	
@@ -333,7 +345,7 @@
 													<td>$r[nm_supplier]</td>
 													<td>$r[alamat]</td>
 													<td>$r[kontak]</td>
-													<td><a href='#' data-kodeSupplier='$r[kd_supplier]' data-namaSupplier='$r[nm_supplier]' class='pilihSupplier' data-dismiss='modal'>Pilih</a></td>
+													<td align='center'><a href='#' data-kodeSupplier='$r[kd_supplier]' data-namaSupplier='$r[nm_supplier]' class='pilihSupplier' data-dismiss='modal' id='pilih1'>Pilih</a></td>
 												</tr>
 											";	
 										}
@@ -344,7 +356,7 @@
 		        	</div>
 
 			        <div class="modal-footer">
-			          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
 			        </div>
 		     	</div>
 		    </div>
@@ -367,10 +379,10 @@
 				          	<table class="table table-hover table-sm" id="tabel_barang">
 				          		<thead class="thead-dark">
 									<tr>
-										<th>Type</th>
-										<th>Item Code</th>
-										<th>Item Name</th>
-										<th>Price</th>
+										<th>Jenis Barang</th>
+										<th>Kode Barang</th>
+										<th>Nama Barang</th>
+										<th>Harga</th>
 										<th></th>
 									</tr>
 								</thead>	
@@ -387,21 +399,18 @@
 												<td>$r3[kd_barang]</td>
 												<td>$r3[nm_barang]</td>
 												<td>$r3[hrg_beli]</td>
-												<td><a href='#' data-kodeItem='$r3[kd_barang]' data-namaBarang='$r3[nm_barang]' data-hargaItem='$r3[hrg_beli]' class='pilihItem' data-dismiss='modal'>Pilih</a></td>
+												<td align='center'><a href='#' data-kodeItem='$r3[kd_barang]' data-namaBarang='$r3[nm_barang]' data-hargaItem='$r3[hrg_beli]' class='pilihItem' data-dismiss='modal' id='pilih2'>Pilih</a></td>
 											</tr>
 											
 										";	
 									}
-										// <td>$r3[hrg_beli]</td>
-										// 		<td><a href='#' data-kodeItem='$r3[kd_barang]' data-namaBarang='$r3[nm_barang]' data-hargaItem='$r3[hrg_beli]' class='pilihItem' data-dismiss='modal'>Pilih</a></td>
-										// 	<tr>	
 								?>
 				  			</table>
 				  		</div>
 				  	</div>
 		        </div>
 		        <div class="modal-footer">
-		          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
 		        </div>
 		      </div>
 		      
@@ -411,8 +420,10 @@
 		<!-- Modal End -->
 		<!-- </div> -->
 	</div>
+	
+    <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
 
-<script src="https://unpkg.com/ionicons@4.1.1/dist/ionicons.js"></script>	
+<script type="text/javascript" src="javascript/scrollUp.js"></script>	
 </body>
 <script type="text/javascript">
 		var dropdown = document.getElementsByClassName("drop");
