@@ -135,7 +135,7 @@
                 <center>
                     <div class="wrapper">
                     	<h1>Selamat Datang</h1> <br>
-                    	<h4>Di Program Penjualan Sky Computer </h4> <br>
+                    	<h4>Di Sistem Penjualan Sky Computer </h4> <br>
                     	<hr>
                     </div>
                	</center>
