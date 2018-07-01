@@ -17,18 +17,8 @@
 	<script type="text/javascript" src="javascript/script.js"></script>	
 	<!-- ____________  -->
 	<style type="text/css">
-		.logout
-		{
-			float : right;
-			margin-top: -4px;
-		}
-
 		#table_id th{
 			text-align: center; 
-		}
-
-		.logout span{
-			margin-right: 15px;
 		}
 	</style>
 </head>
@@ -87,7 +77,7 @@
 		</div>
 
 		<div class="title">
-            <h3 style="margin-left: 35px;">SkyCom</h3>  
+            <img src="gambar/logo2.png" width="145" height="35" id="logo"> 
         </div>
 
 		<div class="logout">

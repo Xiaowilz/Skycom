@@ -117,7 +117,11 @@
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
 	<div id="topnav">
 		<div class="title">
-			<h3 style="margin-left: 35px;">Pembelian</h3>
+			<img src="gambar/logo2.png" width="145" height="35" id="logo">
+		</div>
+
+		<div class="title2" style="float: left; margin-top: -6px; margin-left: 15px;">
+			<h3>Pembelian</h3>
 		</div>
 
 

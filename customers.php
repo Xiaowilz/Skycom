@@ -30,16 +30,6 @@
 		#table_id th{
 			text-align: center;
 		}
-		
-		.logout
-		{
-			margin-top: -4px;
-			float : right;
-		}
-
-		.logout span{
-			margin-right: 15px;
-		}
 	</style>
 
 <script>
@@ -77,7 +67,7 @@
 		</div>
 
 		<div class="title">
-            <h3 style="margin-left: 35px;">SkyCom</h3>  
+            <img src="gambar/logo2.png" width="145" height="35" id="logo"> 
         </div>
 
 		<div class="logout">

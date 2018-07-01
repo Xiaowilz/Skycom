@@ -92,7 +92,7 @@
 		</div>
 
 		<div class="title">
-			<h3 style="margin-left: 35px;">SkyCom</h3>
+			<img src="gambar/logo2.png" width="145" height="35" id="logo">
 		</div>
 
         <div class="jamtgl">

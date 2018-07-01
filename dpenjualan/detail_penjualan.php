@@ -89,8 +89,12 @@
 	<div id="topnav">
 
 		<div class="title">
-			<h3 style="margin-left: 35px;">Detail Penjualan</h3>
-		</div>
+            <a href="mainform" title="Berand SkyCom"><img src="../gambar/logo2.png" width="145" height="35" id="logo"></a>
+        </div>
+
+        <div class="title2" style="float: left; margin-top: -6px; margin-left: 15px;">
+            <h3>Detail Penjualan</h3>
+        </div>
 
         <div class="jamtgl">
             Jam : <span id="clock"></span>
