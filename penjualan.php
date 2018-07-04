@@ -274,14 +274,21 @@
 						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" id="qty" autocomplete="off" required onkeypress="return functionHanyaAngka(event)">  
 						    	</div>
 								
-						    	<div class="col-xs-1">
+						    	<div class="col-xs-2">
 						    		<Button type="submit" id="add" class="btn btn-primary btn-sm"><span class="ion-android-cart"></span>Tambah</Button>
 								</div>
+							</div>
 
-								<div>
-									<p id="feedback"></p>
+							<div class="form row">
+								<label for="qty" class="col-sm-3 col-form-label"></label>
+								<div class="col-sm-6">
+									<div id="feedback"></div>
 								</div>
 							</div>
+						</div>
+
+						<div class="dtkanan">
+
 						</div>	
 						<div class="spacer" style="clear: both;"></div>
 				</div>
