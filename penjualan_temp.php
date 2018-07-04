@@ -38,7 +38,7 @@
 	}
 	else if($qty > $quantity)
 	{
-		echo "Stok Tidak Cukup";
+		echo "<font color='red'>Stok Tidak Cukup</font>";
 		exit;
 	}
 		
