@@ -1,5 +1,4 @@
 <?php 
-
 	session_start();
 	require_once("conn.php");
 	$qty = (int)$_POST['quantity'];
@@ -16,7 +15,14 @@
 	{
 		if(mysqli_num_rows($cekBarang) > 0)
 		{
-			echo"Data Telah ada di Tabel";
+			echo"
+				<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+					<strong>Barang sudah ada di tabel</strong>
+				  	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+				    	<span aria-hidden='true'>&times;</span>
+				  	</button>
+				</div>
+			";
 			exit;
 		}
 		else if (!empty($qty) && !empty($hargaJual))
@@ -31,14 +37,28 @@
 
 			$_SESSION["qty"] = "$qty";
 
-			echo "Data Tersimpan ke Tabel";
+			echo "
+				<div class='alert alert-primary alert-dismissible fade show' role='alert'>
+					<strong>Barang berhasil ditambahkan</strong>
+				  	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+				    	<span aria-hidden='true'>&times;</span>
+				  	</button>
+				</div>
+			";
 			
 		}
 		exit;
 	}
 	else if($qty > $quantity)
 	{
-		echo "Stok Tidak Cukup";
+		echo "
+			<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+				<strong>Stock tidak cukup</strong>
+				<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+					<span aria-hidden='true'>&times;</span>
+				</button>
+			</div>
+		";
 		exit;
 	}
 		
