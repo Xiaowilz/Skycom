@@ -83,6 +83,7 @@
     		$diskon = $r['diskon'];
     		$sales = $r['sales'];
     		$ppn = $r['ppn'];
+    		$grandTotal = $r['total'];
     	}
     ?>
 
@@ -196,7 +197,7 @@
 							    		";
 							    		$totalPenjualan += $r['jumlah'];
 						    		}
-						    		$grandtotal = $totalPenjualan - $diskon;
+						    		// $grandtotal = $totalPenjualan - $diskon;
 								?>
 
 								<tr>
@@ -220,7 +221,7 @@
 
 								<tr>
 									<td colspan="4" align="center"><strong>Grand Total</strong></td>
-									<td align="right"><strong><?php echo "Rp " .number_format($grandtotal, 0, ',', '.'); ?></strong></td>
+									<td align="right"><strong><?php echo "Rp " .number_format($grandTotal, 0, ',', '.'); ?></strong></td>
 								</tr>
 	                        </tbody>
 	                    </table>

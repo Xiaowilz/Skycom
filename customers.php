@@ -257,7 +257,7 @@
 							 	<div class="input-group-prepend">
 							    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kode Customer" id="kode" name="kode" required autocomplete="off" >
+							  	<input type="text" class="form-control" placeholder="Kode Customer" id="kode" name="kode" required autocomplete="off" readonly="true">
 							</div>
 
 							<div class="input-group mb-3">

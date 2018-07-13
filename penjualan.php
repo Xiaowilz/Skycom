@@ -286,10 +286,6 @@
 								</div>
 							</div>
 						</div>
-
-						<div class="dtkanan">
-
-						</div>	
 						<div class="spacer" style="clear: both;"></div>
 				</div>
 				<!-- <br/> -->

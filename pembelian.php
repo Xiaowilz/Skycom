@@ -246,9 +246,12 @@
 							<div class="col-xs-1">
 						    	<button type="submit" class="btn btn-primary btn-sm" value="Add" id="add"><span class="ion-android-cart"></span>Tambah</button>
 							</div>
+						</div>
 
-							<div>
-								<p id="feedback"></p>
+						<div class="form row">
+							<label  class="col-sm-3 col-form-label"></label>
+							<div class="col-sm-6">
+								<div id="feedback"></div>
 							</div>
 						</div>
 					</div>

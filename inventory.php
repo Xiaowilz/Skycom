@@ -127,7 +127,7 @@
 				<div class="all-content">
 					<div class="all-head">
 						<div class="button-add">
-							<button class="btn btn-outline-primary" data-toggle='modal' data-target='#modalJenisBarang' data-backdrop='static'><span class="ion-plus-round"></span> Tambah Tipe Barang</button>
+							<button class="btn btn-outline-primary" data-toggle='modal' data-target='#modalJenisBarang' data-backdrop='static'><span class="ion-plus-round"></span> Tambah Jenis Barang</button>
 
 							<button class="btn btn-outline-primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span class="ion-plus-round"></span> Tambah Barang</button>					
 						</div>
@@ -309,7 +309,7 @@
 							 	<div class="input-group-prepend">
 							    	<span class="input-group-text"><i class="ion-ios-barcode-outline"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kode Barang" id="kodeitem" name="kode_item" required>
+							  	<input type="text" class="form-control" placeholder="Kode Barang" id="kodeitem" name="kode_item" required readonly="true">
 							</div>
 
 							<div class="input-group mb-3">
@@ -362,25 +362,43 @@
 			      <!-- Modal content-->
 			      <div class="modal-content">
 			        <div class="modal-header">
-			          <h4 class="modal-title">Tambah Tipe Barang</h4>
+			          <h4 class="modal-title">Tambah Jenis Barang</h4>
 			          <span class="ion-close" data-dismiss="modal"></span>		          
 			        </div>
 			        <div class="modal-body">
 			        	<form method="POST">
 							<div class="input-group mb-3">
-								<label for="type" class="col-sm-3 col-form-label">Tipe</label>
+								<label for="type" class="col-sm-3 col-form-label">Jenis</label>
 								<div class="input-group-prepend">
 							    	<label class="input-group-text ion-levels" for="type"></label>
 							  	</div>
-							  	<input type="text" name="tipe_barang" id="tipe_barang" class="form-control" autocomplete="off" placeholder="Tipe" maxlength="3">
+							  	<input type="text" name="tipe_barang" id="tipe_barang" class="form-control" autocomplete="off" placeholder="Jenis" maxlength="3">
 							</div>	
+<!-- 							<script type="text/javascript">
+							    function functionKapital(event){
+		   								  
+								       	 if ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || event.keyCode == 8)
+								        {
+										   	  setTimeout(function(){
+										        return toUpperCase(event);
+										    }, 1);
+								        }
+										else
+									  	{
+									       alert("Please enter only char");
+									       return false;
+									  	}
+
+
+								}
+							</script> -->
 	
 							<div class="input-group mb-3">
-								<label for="namaTipe" class="col-sm-3 col-form-label">Nama Tipe</label>
+								<label for="namaTipe" class="col-sm-3 col-form-label">Nama Jenis</label>
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-pricetag"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Nama Tipe" id="namaTipe" name="nama_tipe" required autocomplete="off">
+							  	<input type="text" class="form-control" placeholder="Nama Jenis Barang" id="namaTipe" name="nama_tipe" required autocomplete="off">
 							</div>
 
 							<button type="submit" class="btn btn-outline-primary btn-sm btn-block" formaction="inventory_tipe_barang.php">Tambah</button>

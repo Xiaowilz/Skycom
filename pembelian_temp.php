@@ -12,7 +12,14 @@
 	
 	if(mysqli_num_rows($cekBarang) > 0)
 	{
-		echo"Data Telah Ada di Tabel";
+		echo"
+				<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+					<strong>Barang sudah ada di tabel</strong>
+				  	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+				    	<span aria-hidden='true'>&times;</span>
+				  	</button>
+				</div>
+		";
 		exit;
 	}
 	else if(!empty($qty) && !empty($hargaItem))
@@ -36,7 +43,14 @@
 		}
 		else
 		{
-			echo "Data Tersimpan ke Tabel";
+			echo "
+				<div class='alert alert-primary alert-dismissible fade show' role='alert'>
+					<strong>Barang berhasil ditambahkan</strong>
+				  	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+				    	<span aria-hidden='true'>&times;</span>
+				  	</button>
+				</div>
+			";
 		}
 	}
 	

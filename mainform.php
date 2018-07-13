@@ -144,8 +144,8 @@
 	                	<div class="card bg-light mb-3" style="max-width: 30rem;">
 						 	<div class="card-header">Transaksi</div>
 						  		<div class="card-body">
-						    		<a href="" class=""><span class="ion-cash"></span>Penjualan</a>
-                                	<a href="" class=""><span class="ion-android-cart"></span>Pembelian</a>
+						    		<a href="penjualan" target="_blank" class=""><span class="ion-cash"></span>Penjualan</a>
+                                	<a href="pembelian" target="_blank" class=""><span class="ion-android-cart"></span>Pembelian</a>
 						  		</div>
 						</div>
 
