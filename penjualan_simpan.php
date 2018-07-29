@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<script src="javascript/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="ionicons-2.0.1/css/ionicons.min.css">
+
+	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap4.min.css">
+</head>
+<body>
+
+</body>
+</html>
 <?php 
 	session_start();
 	require_once("conn.php");
@@ -73,5 +92,16 @@
 	$_SESSION['grandTotal'] = 0;
 	$_SESSION['ppn'] = 0;
 
-	header('Location:penjualan');
+	echo"<script>
+	$(document).ready(function()
+	{
+		window.open('dpenjualan/detail_penjualan?notrans=$noTrans', '_blank');
+		
+	});
+	</script>";
+
+	echo "<script>
+		window.open('penjualan', '_self');
+	</script>";
  ?>
+

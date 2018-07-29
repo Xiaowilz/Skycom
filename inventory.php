@@ -258,7 +258,7 @@
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
 								</div>
-								<input type="text" class="form-control" name="hrg_jual" placeholder="Harga Beli" required autocomplete="off" onkeypress="return functionHanyaAngka(event)">
+								<input type="text" class="form-control" name="hrg_jual" placeholder="Harga Jual" required autocomplete="off" onkeypress="return functionHanyaAngka(event)">
 							</div>
 						        
 							<button type="submit" name="btnAdd" id="btnAdd" class="btn btn-outline-primary btn-sm btn-block">Tambah</button>

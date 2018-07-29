@@ -150,7 +150,7 @@
 						</div>
 
 						<div class="card bg-light mb-3" style="max-width: 30rem;">
-						 	<div class="card-header">Database</div>
+						 	<div class="card-header">Master</div>
 						  		<div class="card-body">
 						    		<a href="customers"><span class="ion-ios-people"></span>Customers</a>
 									<a href="inventory"><span class="ion-briefcase"></span>Inventory</a>

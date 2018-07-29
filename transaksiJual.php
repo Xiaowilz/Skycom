@@ -55,7 +55,7 @@
         </div>
 
         <div class="title2" style="float: left; margin-top: -6px; margin-left: 15px;">
-            <h3>Transaksi Penjualan</h3>
+            <h3>Laporan Penjualan</h3>
         </div>
 
         <div class="jamtgl">
