@@ -1,10 +1,27 @@
+<?php
+	session_start();
+	if(!isset($_SESSION['username']))
+	{
+		header("Location:index.php");
+	}
+
+	require_once("conn.php");
+	$username = $_SESSION['username'];
+	$sqlLogin = "SELECT nama FROM login WHERE username = '$username'";
+	$qLogin = mysqli_query($conn, $sqlLogin);
+	$nama = mysqli_fetch_assoc($qLogin);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script type="text/javascript" src="javascript/jquery-3.3.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 	<script type="text/javascript" src="javascript/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="javascript/dataTables.bootstrap4.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -70,7 +87,6 @@
 ?>
 
 <?php
-	session_start();
 	if(!isset($_SESSION['username']))
 	{
 		header("Location:index");
@@ -85,11 +101,20 @@
 			<div class="garis"></div>
 		</div>
 
-		<div class="logout">
+		<div class="btn-group" id="test">
+		  	<img src="gambar/user.png" width="40" height="40" class="dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userpict">
+		  	<div class="dropdown-menu dropdown-menu-right">
+				<a class="dropdown-item" href="#"><span class="ion-android-person"></span><?php echo implode($nama); ?></a>
+			  	<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="logout.php"><span class="ion-log-out"></span>Log Out</a>
+			</div>
+		</div>
+
+<!-- 		<div class="logout">
 			<form method="POST" action="logout">
 				<button type="submit" name="logout" value="Logout" class="btn btn-danger btn-sm"><span class="ion-log-out"></span>Log Out</button>
 			</form>
-		</div>
+		</div> -->
 
 		<div class="title">
 			<img src="gambar/logo2.png" width="145" height="35" id="logo">
@@ -128,7 +153,6 @@
 	</div>
 
 	<div id="rightside">
-
         <div class="all-box"> 
             <br>
             <div class="all-content">

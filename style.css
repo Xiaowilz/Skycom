@@ -17,7 +17,7 @@ body{
 }
 
 #topnav{
-	overflow: hidden;
+	/*overflow: hidden;*/
 	position: sticky;
 	top: 0;
 	width: 100%;
@@ -402,6 +402,15 @@ body{
 	margin-left: 35px;
 }
 
+#test{
+	margin-top: -6px;
+	float: right;
+}
+
+#userpict{
+	cursor: pointer;
+}
+
 .logout
 {
 	margin-right: 35px;
@@ -409,7 +418,7 @@ body{
 	float : right;
 }
 
-.logout span{
+.ion-log-out, .ion-android-person{
 	margin-right: 15px;
 }
 
@@ -418,11 +427,11 @@ body{
 }
 
 #clock {
-	margin-right: 35px;
+	margin-right: 30px;
 }
 
 #date {
-	margin-right: 35px;
+	margin-right: 30px;
 }
 /**/
 
