@@ -7,6 +7,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script src="javascript/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="ionicons-2.0.1/css/ionicons.min.css">
 
@@ -54,6 +55,12 @@
 	{
 		header("Location:index");
 	}
+
+	require_once("conn.php");
+	$username = $_SESSION['username'];
+	$sqlLogin = "SELECT nama FROM login WHERE username = '$username'";
+	$qLogin = mysqli_query($conn, $sqlLogin);
+	$nama = mysqli_fetch_assoc($qLogin);
 ?>
 
 <script type="text/javascript">
@@ -76,15 +83,18 @@
 			<div class="garis"></div>
 		</div>
 
+		<div class="btn-group" id="test">
+		  	<img src="gambar/user.png" width="40" height="40" class="dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userpict">
+		  	<div class="dropdown-menu dropdown-menu-right">
+				<a class="dropdown-item" href="#"><span class="ion-android-person"></span><?php echo implode($nama); ?></a>
+			  	<div class="dropdown-divider"></div>
+				<a class="dropdown-item" href="logout.php"><span class="ion-log-out"></span>Log Out</a>
+			</div>
+		</div>
+
 		<div class="title">
             <img src="gambar/logo2.png" width="145" height="35" id="logo"> 
         </div>
-
-		<div class="logout">
-			<form method="POST" action="logout">
-				<button type="submit" name="logout" value="Logout" class="btn btn-danger btn-sm"><span class="ion-log-out"></span>Log Out</button>
-			</form>
-		</div>
 
 		<div class="jamtgl">
 			Jam : <span id="clock"></span>

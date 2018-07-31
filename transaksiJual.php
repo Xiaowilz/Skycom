@@ -1,3 +1,17 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['username']))
+    {
+        header("Location:index");
+    }
+
+    require_once("conn.php");
+    $username = $_SESSION['username'];
+    $sqlLogin = "SELECT nama FROM login WHERE username = '$username'";
+    $qLogin = mysqli_query($conn, $sqlLogin);
+    $nama = mysqli_fetch_assoc($qLogin);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/datepicker.css">
     <script src="javascript/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script type="text/javascript" src="javascript/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="ionicons-2.0.1/css/ionicons.min.css">
     <script src="javascript/bootstrap-datepicker.js"></script>
@@ -37,15 +52,23 @@
     }
 </script>
 <?php
+    // session_start();
+
     function functionTanggal()
     {
-        session_start();
+        // session_start();
         $hari = date("l");
         $tanggal = date("d");
         $bulan = date("m");
         $tahun = date("Y");
         echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
     }
+
+    require_once("conn.php");
+    $username = $_SESSION['username'];
+    $sqlLogin = "SELECT nama FROM login WHERE username = '$username'";
+    $qLogin = mysqli_query($conn, $sqlLogin);
+    $nama = mysqli_fetch_assoc($qLogin);
 ?>
 
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
@@ -56,6 +79,15 @@
 
         <div class="title2" style="float: left; margin-top: -6px; margin-left: 15px;">
             <h3>Laporan Penjualan</h3>
+        </div>
+
+        <div class="btn-group" id="test">
+            <img src="gambar/user.png" width="40" height="40" class="dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="userpict">
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="#"><span class="ion-android-person"></span><?php echo implode($nama); ?></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="logout.php"><span class="ion-log-out"></span>Log Out</a>
+            </div>
         </div>
 
         <div class="jamtgl">

@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Menu Utama</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script type="text/javascript" src="javascript/jquery-3.3.1.js"></script>
