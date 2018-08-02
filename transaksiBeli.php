@@ -148,11 +148,12 @@
                             {
                                 // $subtotal = number_format($r['subtotal'], 0, ',', '.');
                                 // $diskon = number_format($r['diskon'], 0, ',', '.');
+                                $tanggalTransaksi = date_format(new DateTime($r['tgltrans']), "d-m-Y");
                                 $total = number_format($r['total'], 0, ',', '.');
                                 echo"
                                     <tr>
                                         <td align='center'>$r[notrans]</td>
-                                        <td align='center'>$r[tgltrans]</td>
+                                        <td align='center'>$tanggalTransaksi</td>
                                         <td align='center'>$r[supplier]</td>
                                         <td align='right'>$total</td>
                                         <td align='center'><a href='dpembelian/detail_pembelian?notrans=$r[notrans]' target=_blank id='detail'>Detail</a></td>

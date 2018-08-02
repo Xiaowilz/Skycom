@@ -83,7 +83,8 @@
     	{
     		$noTransaksi = $r["notrans"];
     		$supplier = $r["supplier"];
-    		$tgltrans = $r["tgltrans"];
+    		// $tgltrans = $r["tgltrans"];
+    		$tanggalTransaksi = date_format(new DateTime($r['tgltrans']), "l, d-m-Y");
     	}
     ?>
 
@@ -143,7 +144,7 @@
 					<div class="form row">
 					    <label for="staticEmail" class="col-sm-4 col-form-label">Tanggal Transaksi</label>
 					    <div class="col-sm-6">
-					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $tgltrans; ?>">
+					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $tanggalTransaksi; ?>">
 					    </div>
 					</div>
 

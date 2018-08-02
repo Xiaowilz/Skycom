@@ -185,12 +185,12 @@
 						    <div class="form-group row">
 				      			<label for="nama_customer" class="col-sm-3 col-form-label col-form-label-sm">Customer</label>
 				      			<div class="col-sm-3">
-				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Customer" name="" id="kode_customer" >
+				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
 				    			</div>
 
 				    			<div class="col-sm-4">
 									<div class="input-group input-group-sm mb-1">
-										<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" name="nama_customer">
+										<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" name="nama_customer" readonly="true">
 										<div class="input-group-append">
 											<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></span></button>
 										</div>
@@ -248,12 +248,12 @@
 					    	<div class="form-group row">
 				      			<label for="nama_item" class="col-sm-3 col-form-label col-form-label-sm">Barang</label>
 								<div class="col-sm-3">
-				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Barang" name="kode_item" id="kode_item" required>
+				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Barang" name="kode_item" id="kode_item" required readonly="true"> 
 				      			</div>
 
 								<div class="col-sm-4">
 								    <div class="input-group input-group-sm">
-										<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" required>
+										<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" required readonly="true">
 										<div class="input-group-append">
 											<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
 										</div>

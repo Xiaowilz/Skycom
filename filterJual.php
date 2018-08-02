@@ -29,10 +29,11 @@
                     $subtotal = number_format($r['subtotal'], 0, ',', '.');
                     $diskon = number_format($r['diskon'], 0, ',', '.');
                     $total = number_format($r['total'], 0, ',', '.');
+                    $tanggalTransaksi = date_format(new DateTime($r['tgltrans']), "d-m-Y");
                     echo"
                         <tr>
                             <td align='center'>$r[notrans]</td>
-                            <td align='center'>$r[tgltrans]</td>
+                            <td align='center'>$tanggalTransaksi</td>
                             <td align='center'>$r[customer]</td>
                             <td align='right'>$subtotal</td>
                             <td align='right'>$r[ppn]</td>

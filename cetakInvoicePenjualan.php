@@ -45,6 +45,8 @@ $sql = "SELECT * FROM tb_penjualan WHERE notrans = '$noTrans'";
 $q = mysqli_query($conn, $sql);
 while ($r = mysqli_fetch_assoc($q))
 {
+	$tanggalTransaksi = date_format(new DateTime($r['tgltrans']), "l, d-m-Y");
+	$tanggalJatuhTempo = date_format(new DateTime($r['tglJatuhTempo']), "l, d-m-Y");
 	$cetak=	
 	'	<html>
 		<head>
@@ -82,7 +84,7 @@ while ($r = mysqli_fetch_assoc($q))
 											<tr>
 												<td class="nama"><label for="" class="">Tanggal</label></td>
 								      			<td class="titikDua">:</td>
-								      			<td class="data">'.$r["tgltrans"].'</td>
+								      			<td class="data">'.$tanggalTransaksi.'</td>
 											</tr>
 
 											<tr>
@@ -155,7 +157,7 @@ while ($r = mysqli_fetch_assoc($q))
 									$cetak.='<div class="invoice_foot"> 
 										<table width="100%">
 											<tr>
-												<td width="35%">Jatuh Tempo &nbsp; &nbsp; &nbsp; : &nbsp; &nbsp;'.$r["tglJatuhTempo"].'</td>
+												<td width="35%">Jatuh Tempo &nbsp; &nbsp; &nbsp; : &nbsp; &nbsp;'.$tanggalJatuhTempo.'</td>
 												<td width="35%"></td>
 												<td width="15%">Total</td>
 												<td width="20%" align="right">'.number_format($r["subtotal"], 0, ',', '.').'</td>
