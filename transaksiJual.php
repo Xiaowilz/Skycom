@@ -48,7 +48,7 @@
         var jam = waktu.getHours() + "";
         var menit = waktu.getMinutes() + "";
         var detik = waktu.getSeconds() + "";
-        document.getElementById("clock").innerHTML = (jam.length==1?"0"+jam:jam) + ":" + (menit.length==1?"0"+menit:menit) + ":" + (detik.length==1?"0"+detik:detik);
+        // document.getElementById("clock").innerHTML = (jam.length==1?"0"+jam:jam) + ":" + (menit.length==1?"0"+menit:menit) + ":" + (detik.length==1?"0"+detik:detik);
     }
 </script>
 <?php
@@ -61,7 +61,8 @@
         $tanggal = date("d");
         $bulan = date("m");
         $tahun = date("Y");
-        echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
+        // echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
+        echo "DD/MM/YYYY";
     }
 
     require_once("conn.php");
@@ -91,7 +92,9 @@
         </div>
 
         <div class="jamtgl">
-            Jam : <span id="clock"></span>
+            Jam : <span id="clock">
+                <?php echo "HH:MM:SS"; ?>
+            </span>
             <span id="date">
                 <?php
                     functionTanggal();
@@ -159,10 +162,11 @@
                                 $subtotal = number_format($r['subtotal'], 0, ',', '.');
                                 $diskon = number_format($r['diskon'], 0, ',', '.');
                                 $total = number_format($r['total'], 0, ',', '.');
+                                $tanggal = date("d-m-Y",  strtotime($r['tgltrans']));
                                 echo"
                                     <tr>
                                         <td align='center'>$r[notrans]</td>
-                                        <td align='center'>$r[tgltrans]</td>
+                                        <td align='center'>$tanggal</td>
                                         <td align='center'>$r[customer]</td>
                                         <td align='right'>$subtotal</td>
                                         <td align='right'>$r[ppn]</td>

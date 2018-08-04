@@ -61,6 +61,7 @@
 		$_SESSION["bulan"] = "$bulan";
 		$_SESSION["tahun"] = "$tahun";
 		echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
+		// echo "DD/MM/YYYY";
 	}
 ?>
 
@@ -87,7 +88,10 @@
         </div>
 
 		<div class="jamtgl">
-			Jam : <span id="clock"></span>
+			Jam : <span id="clock">
+				<!-- <?php echo "HH:MM:SS"; ?> -->
+			</span>
+
 			<span id="date">
 				<?php
 					functionTanggal();

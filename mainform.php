@@ -110,12 +110,6 @@
 			</div>
 		</div>
 
-<!-- 		<div class="logout">
-			<form method="POST" action="logout">
-				<button type="submit" name="logout" value="Logout" class="btn btn-danger btn-sm"><span class="ion-log-out"></span>Log Out</button>
-			</form>
-		</div> -->
-
 		<div class="title">
 			<img src="gambar/logo2.png" width="145" height="35" id="logo">
 		</div>

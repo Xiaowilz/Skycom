@@ -407,6 +407,10 @@ body{
 	float: right;
 }
 
+#test span{
+	margin-right: 15px;
+}
+
 #userpict{
 	cursor: pointer;
 }
@@ -416,10 +420,6 @@ body{
 	margin-right: 35px;
 	margin-top: -4px;
 	float : right;
-}
-
-.ion-log-out, .ion-android-person{
-	margin-right: 15px;
 }
 
 .jamtgl {
