@@ -45,6 +45,7 @@ $sql = "SELECT * FROM tb_pembelian WHERE notrans = '$noTrans'";
 $q = mysqli_query($conn, $sql);
 while ($r = mysqli_fetch_assoc($q))
 {
+	$tanggalTransaksi = date_format(new DateTime($r['tgltrans']), "l, d-m-Y");
 	$cetak=	
 	'	<html>
 		<head>
@@ -84,7 +85,7 @@ while ($r = mysqli_fetch_assoc($q))
 											<tr>
 												<td class="nama"><label for="" class="">Tanggal</label></td>
 								      			<td class="titikDua">:</td>
-								      			<td class="data">'.$r["tgltrans"].'</td>
+								      			<td class="data">'.$tanggalTransaksi.'</td>
 											</tr>
 
 											<tr>

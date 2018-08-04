@@ -83,13 +83,15 @@
     	{
     		$noTransaksi = $r["notrans"];
     		$customer = $r["customer"];
-    		$tgltrans = $r["tgltrans"];
-    		$jatuhTempo = $r["tglJatuhTempo"];
+    		// $tgltrans = $r["tgltrans"];
+    		// $jatuhTempo = $r["tglJatuhTempo"];
     		$keterangan = $r["catatan"];
     		$diskon = $r['diskon'];
     		$sales = $r['sales'];
     		$ppn = $r['ppn'];
     		$grandTotal = $r['total'];
+    		$tanggalTransaksi = date_format(new DateTime($r['tgltrans']), "l, d-m-Y");
+    		$tanggalJatuhTempo = date_format(new DateTime($r['tglJatuhTempo']), "l, d-m-Y");
     	}
     ?>
 
@@ -149,7 +151,7 @@
 					<div class="form row">
 					    <label for="staticEmail" class="col-sm-4 col-form-label">Tanggal Transaksi</label>
 					    <div class="col-sm-6">
-					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $tgltrans; ?>">
+					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $tanggalTransaksi; ?>">
 					    </div>
 					</div>
 
@@ -166,7 +168,7 @@
 					 <div class="form row">
 					    <label for="staticEmail" class="col-sm-4 col-form-label">Jatuh Tempo (14 hari)</label>
 					    <div class="col-sm-6">
-					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $jatuhTempo; ?>">
+					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $tanggalJatuhTempo; ?>">
 					    </div>
 					 </div>
 

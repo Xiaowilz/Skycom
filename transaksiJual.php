@@ -162,11 +162,19 @@
                                 $subtotal = number_format($r['subtotal'], 0, ',', '.');
                                 $diskon = number_format($r['diskon'], 0, ',', '.');
                                 $total = number_format($r['total'], 0, ',', '.');
+<<<<<<< HEAD
                                 $tanggal = date("d-m-Y",  strtotime($r['tgltrans']));
                                 echo"
                                     <tr>
                                         <td align='center'>$r[notrans]</td>
                                         <td align='center'>$tanggal</td>
+=======
+                                $tanggalTransaksi = date_format(new DateTime($r['tgltrans']), "d-m-Y");
+                                echo"
+                                    <tr>
+                                        <td align='center'>$r[notrans]</td>
+                                        <td align='center'>$tanggalTransaksi</td>
+>>>>>>> 83d6cb6165148522db89ccafbe3dc3753ff7dc78
                                         <td align='center'>$r[customer]</td>
                                         <td align='right'>$subtotal</td>
                                         <td align='right'>$r[ppn]</td>
