@@ -2,12 +2,15 @@
 	<?php 
 	require_once __DIR__ . '/vendor/autoload.php';
 
-	$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4']);
+	$mpdf = new \Mpdf\Mpdf([
+	'mode' => 'utf-8',
+	'margin_top' => 23,
+	'format' => 'A4']);
 
 	$mpdf->useOddEven = 1;
 
 	$mpdf->SetHTMLHeader('
-			<div style="text-align: center; font-weight: bold;">
+			<div style="text-align: center; font-weight: bold; font-size: 16pt">
 			    Laporan Pembelian
 			</div>','O');
 	$mpdf->SetHTMLHeader('<div style="border-bottom: 1px solid #000000;">Laporan Pembelian</div>','E');
@@ -30,6 +33,10 @@
 		    </tr>
 		</table>', 'E');
 
+	require("conn.php");
+	$tglAwal = $_GET['tglAwal'];
+	$tglAkhir = $_GET['tglAkhir'];
+
 
 	$cetak = '
 	<html>
@@ -38,7 +45,18 @@
 		<title>Coba</title>
 		<link rel="stylesheet" type="text/css" href="css/styleLaporanJual.css">
 	</head>
-	<body>
+	<body>';
+
+	if ($tglAwal == "" && $tglAkhir == "")
+	{	
+		$cetak.= '<strong>Data Laporan Penjualan Secara Keseluruhan</strong>';
+	}
+	else
+	{
+		$cetak .= '<strong>Laporan Pembelian dari tanggal '.date_format(new DateTime($tglAwal), "d-m-Y").' hingga '.date_format(new DateTime($tglAkhir), "d-m-Y </strong>");
+	}
+
+	$cetak.= '
 		<table width="100%" id="tabel">
 		    <tr>
                	<th>No. Transaksi</th>
@@ -47,9 +65,7 @@
                 <th>Grand Total</th>
 		    </tr>';
 
-		    	require("conn.php");
-		    	$tglAwal = $_GET['tglAwal'];
-		    	$tglAkhir = $_GET['tglAkhir'];
+
 		    	if($tglAwal == "" && $tglAkhir == "")
 		    	{
 					$sql5 = "SELECT * FROM tb_pembelian WHERE tgltrans";
