@@ -2,13 +2,17 @@
 	<?php 
 	require_once __DIR__ . '/vendor/autoload.php';
 
-	$mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4']);
+	$mpdf = new \Mpdf\Mpdf([
+		'mode' => 'utf-8',
+		'margin_top' => 23,
+		'format' => 'A4']);
 
 	$mpdf->useOddEven = 1;
 
 	$mpdf->SetHTMLHeader('
-			<div style="text-align: center; font-weight: bold;">
+			<div style="text-align: center; font-weight: bold; font-size: 16pt;">
 			    Laporan Penjualan
+
 			</div>','O');
 	$mpdf->SetHTMLHeader('<div style="border-bottom: 1px solid #000000;">Laporan Penjualan</div>','E');
 
@@ -30,15 +34,29 @@
 		    </tr>
 		</table>', 'E');
 
+	require("conn.php");
+	$tglAwal = $_GET['tglAwal'];
+	$tglAkhir = $_GET['tglAkhir'];
 
-	$cetak = '
+	$cetak= '
 	<html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Coba</title>
 		<link rel="stylesheet" type="text/css" href="css/styleLaporanJual.css">
 	</head>
-	<body>
+	<body>';
+
+	if ($tglAwal == "" && $tglAkhir == "")
+	{	
+		$cetak.= '<strong>Data Laporan Penjualan Secara Keseluruhan</strong>';
+	}
+	else
+	{
+		$cetak .= '<strong>Laporan Penjualan dari tanggal '.date_format(new DateTime($tglAwal), "d-m-Y").' hingga '.date_format(new DateTime($tglAkhir), "d-m-Y </strong>");
+	}
+
+		$cetak.= '
 		<table width="100%" id="tabel">
 		    <tr>
                	<th>No. Transaksi</th>
@@ -47,20 +65,19 @@
                 <th>Grand Total</th>
 		    </tr>';
 
-		    	require("conn.php");
-		    	$tglAwal = $_GET['tglAwal'];
-		    	$tglAkhir = $_GET['tglAkhir'];
 		    	if ($tglAwal == "" && $tglAkhir == "")
 		    	{
 		    		$sql5 = "SELECT * FROM tb_penjualan WHERE tgltrans";
 			    	$q5 = mysqli_query($conn, $sql5);
 			    	$grandTotal = 0;
+
 			    	while ($r5 = mysqli_fetch_assoc($q5)) 
 			    	{
+                    	$tanggalTransaksi = date_format(new DateTime($r5['tgltrans']), "d-m-Y");
 			    		$cetak .='
 							<tr>
 								<td align="center">'.$r5["notrans"].'</td>
-								<td align="center">'.$r5["tgltrans"].'</td>
+								<td align="center">'.$tanggalTransaksi.'</td>
 								<td align="center">'.$r5["customer"].'</td>
 								<td align="right">'.number_format($r5["total"],0, ',', '.').'</td>
 							</tr>';
@@ -74,10 +91,11 @@
 			    	$grandTotal = 0;
 			    	while ($r5 = mysqli_fetch_assoc($q5)) 
 			    	{
+				    	$tanggalTransaksi = date_format(new DateTime($r5['tgltrans']), "d-m-Y");
 			    		$cetak .='
 							<tr>
 								<td align="center">'.$r5["notrans"].'</td>
-								<td align="center">'.$r5["tgltrans"].'</td>
+								<td align="center">'.$tanggalTransaksi.'</td>
 								<td align="center">'.$r5["customer"].'</td>
 								<td align="right">'.number_format($r5["total"],0, ',', '.').'</td>
 							</tr>';

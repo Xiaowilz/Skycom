@@ -48,7 +48,7 @@
         var jam = waktu.getHours() + "";
         var menit = waktu.getMinutes() + "";
         var detik = waktu.getSeconds() + "";
-        // document.getElementById("clock").innerHTML = (jam.length==1?"0"+jam:jam) + ":" + (menit.length==1?"0"+menit:menit) + ":" + (detik.length==1?"0"+detik:detik);
+        document.getElementById("clock").innerHTML = (jam.length==1?"0"+jam:jam) + ":" + (menit.length==1?"0"+menit:menit) + ":" + (detik.length==1?"0"+detik:detik);
     }
 </script>
 <?php
@@ -61,8 +61,8 @@
         $tanggal = date("d");
         $bulan = date("m");
         $tahun = date("Y");
-        // echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
-        echo "DD/MM/YYYY";
+        echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
+        // echo "DD/MM/YYYY";
     }
 
     require_once("conn.php");
@@ -93,7 +93,7 @@
 
         <div class="jamtgl">
             Jam : <span id="clock">
-                <?php echo "HH:MM:SS"; ?>
+                <!-- <?php echo "HH:MM:SS"; ?> -->
             </span>
             <span id="date">
                 <?php
@@ -162,19 +162,13 @@
                                 $subtotal = number_format($r['subtotal'], 0, ',', '.');
                                 $diskon = number_format($r['diskon'], 0, ',', '.');
                                 $total = number_format($r['total'], 0, ',', '.');
-<<<<<<< HEAD
-                                $tanggal = date("d-m-Y",  strtotime($r['tgltrans']));
-                                echo"
-                                    <tr>
-                                        <td align='center'>$r[notrans]</td>
-                                        <td align='center'>$tanggal</td>
-=======
+
+
                                 $tanggalTransaksi = date_format(new DateTime($r['tgltrans']), "d-m-Y");
                                 echo"
                                     <tr>
                                         <td align='center'>$r[notrans]</td>
                                         <td align='center'>$tanggalTransaksi</td>
->>>>>>> 83d6cb6165148522db89ccafbe3dc3753ff7dc78
                                         <td align='center'>$r[customer]</td>
                                         <td align='right'>$subtotal</td>
                                         <td align='right'>$r[ppn]</td>
