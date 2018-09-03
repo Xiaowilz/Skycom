@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Login Skycom</title>
-	<link rel="stylesheet" type="text/css" href="login.css">
+	<link rel="stylesheet" type="text/css" href="Home/login.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script src="javascript/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
@@ -19,7 +19,7 @@
 					<center><h1>Sky Computer</h1></center>
 					<br>
 					<!-- <div class="col-md-12 col-sm-12 col-xs-12"> -->
-						<form method="POST" action="login.php">
+						<form method="POST" action="Home/login.php">
 							<div class="form-group">
 						    	<label for="nama">Username</label>
 						    	<input type="text" name="username" class="form-control" id="nama"  placeholder="Username" autocomplete="off">

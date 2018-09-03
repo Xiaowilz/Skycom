@@ -1,0 +1,61 @@
+body{
+	background-image: url('../gambar/bg4.jpg');
+	background-repeat: no-repeat;
+}
+
+.inner {
+	  display: table;
+	  margin: 0 auto;
+	  padding-left: 40px;
+	  padding-right: 40px;
+	  padding-top: 50px;
+	  padding-bottom: 80px;
+	  /*border: 1px solid black;*/
+	  margin-top: 20vh;
+	  width: 25%;
+	  color: white;
+	  /*background-color:  #f7f7f7;*/
+	  background-color: rgba(0,0,0,0.8);
+	  border-radius: 4px;
+
+  	-webkit-box-shadow: 0px 0px 26px 5px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 26px 5px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 26px 5px rgba(0,0,0,0.75);
+}
+
+.user
+{
+	position: relative;
+	top: 20%;
+	left: 20%
+}
+
+.judul
+{
+	position: relative;
+	bottom: 40px;
+	left: 10px;
+	text-shadow: 2px 2px 10px blue;
+}
+
+.login
+{
+	position: relative;
+	top: 20px;
+	width: 175px;
+	height: 30px;
+	color: white;
+	background-color: blue;
+	font-size: 15px;
+	font-weight: bold;
+	border : none;
+	box-shadow: 1px 2px 2px 4px black;
+}
+
+body
+{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+}
