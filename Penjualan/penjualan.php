@@ -457,14 +457,6 @@
   			$('a').removeClass("active");
   			$(this).addClass("active");
   		});
-
-  		$('#keyword0').on('keyup', function() {
-			// $('#tabelcustomermodal').load('ajax/penjualan_search.php?keyword0=' + $('#keyword0').val());
-		});
-
-		$('#keyword1').on('keyup', function() {
-			// $('#tabelitemmodal').load('ajax/penjualan_item_search.php?keyword1=' + $('#keyword1').val());
-		});
   	});	
 </script>
 
@@ -511,8 +503,7 @@
 				$("#tabelTemp").load("penjualan_temp_load.php");
 			 	document.getElementById('feedback').innerHTML = data;
 			}
-		});
-		
+		});		
 		return false;
 	});
 
@@ -525,6 +516,17 @@
 	$('#penjualanTemp').submit(function() 
 	{
 		window.onbeforeunload = null;
+	});
+
+	var qty = $('#qty').val();
+	var 
+
+	$('#simpan').click(function() {
+		if(qty == '')
+		{
+			alert('Quantity tidak boleh kosong');
+			$('#qty').focus();
+		}
 	});
 
 
