@@ -494,8 +494,7 @@
 				$("#tabelTemp").load("penjualan_temp_load.php");
 			 	document.getElementById('feedback').innerHTML = data;
 			}
-		});
-		
+		});		
 		return false;
 	});
 
@@ -508,6 +507,17 @@
 	$('#penjualanTemp').submit(function() 
 	{
 		window.onbeforeunload = null;
+	});
+
+	var qty = $('#qty').val();
+	var 
+
+	$('#simpan').click(function() {
+		if(qty == '')
+		{
+			alert('Quantity tidak boleh kosong');
+			$('#qty').focus();
+		}
 	});
 
 	function functionCboJatuhTempo()
