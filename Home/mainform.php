@@ -2,7 +2,7 @@
 	session_start();
 	if(!isset($_SESSION['username']))
 	{
-		header("Location:index.php");
+		header("Location:../index");
 	}
 
 	require_once("../conn.php");
@@ -16,16 +16,19 @@
 <html>
 <head>
 	<title>Menu Utama</title>
+	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="../style.css">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../ionicons-2.0.1/css/ionicons.min.css">
+	
+	<!-- Script -->
 	<script type="text/javascript" src="../javascript/jquery-3.3.1.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-
 	<script type="text/javascript" src="../javascript/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../javascript/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="../javascript/dataTables.bootstrap4.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="../ionicons-2.0.1/css/ionicons.min.css">
+
 
 	<style type="text/css">
 		.logout
@@ -89,7 +92,7 @@
 <?php
 	if(!isset($_SESSION['username']))
 	{
-		header("Location:index");
+		header("Location:../index");
 	}
 ?>
 
@@ -191,7 +194,7 @@
 
     <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
 
-<script type="text/javascript" src="javascript/scrollUp.js"></script>
+<script type="text/javascript" src="../javascript/scrollUp.js"></script>
 
 </body>
 </html>

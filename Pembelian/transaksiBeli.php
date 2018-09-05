@@ -54,10 +54,8 @@
     }
 </script>
 <?php
-    // session_start();
     function functionTanggal()
     {
-        // session_start();
         $hari = date("l");
         $tanggal = date("d");
         $bulan = date("m");
@@ -148,8 +146,6 @@
                             $grandTotal = 0;
                             while ($r = mysqli_fetch_array($q)) 
                             {
-                                // $subtotal = number_format($r['subtotal'], 0, ',', '.');
-                                // $diskon = number_format($r['diskon'], 0, ',', '.');
                                 $tanggalTransaksi = date_format(new DateTime($r['tgltrans']), "d-m-Y");
                                 $total = number_format($r['total'], 0, ',', '.');
                                 echo"
@@ -188,7 +184,7 @@
 
         <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
 
-<script type="text/javascript" src="javascript/scrollUp.js"></script>        
+<script type="text/javascript" src="../javascript/scrollUp.js"></script>        
 
  <script type="text/javascript">
     $(document).ready(function(){
@@ -198,7 +194,6 @@
                 autoclose: true,
                 todayHighlight: true
             });
-            // .datepicker('update', new Date());
         });
 
         $(function(){
@@ -206,7 +201,6 @@
                 autoclose: true,
                 todayHighlight: true
             });
-            // .datepicker('update', new Date());
         });
 
 

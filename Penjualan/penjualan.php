@@ -1,5 +1,4 @@
 <?php
-
 	session_start();
 	if(!isset($_SESSION['username']))
 	{
@@ -100,7 +99,6 @@
 	  return true;
 	}
 
-
 	window.onbeforeunload = function () 
 	{
 	  return 'Are you really want to perform the action?';
@@ -148,7 +146,6 @@
 			<a id="lihatTrans" href="transaksiJual" target="_blank">Lihat Transaksi</a>
 		</div>
 	</div>
-
 	
 	<div id="rightside2">
 		<div id="beranda">			
@@ -186,12 +183,12 @@
 						    <div class="form-group row">
 				      			<label for="nama_customer" class="col-sm-3 col-form-label col-form-label-sm">Customer</label>
 				      			<div class="col-sm-3">
-				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Customer" name="" id="kode_customer" readonly="true">
+				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Customer" name="" id="kode_customer"  required="required" readonly="true">
 				    			</div>
 
 				    			<div class="col-sm-4">
 									<div class="input-group input-group-sm mb-1">
-										<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" name="nama_customer" readonly="true">
+										<input type="text" class="form-control" placeholder="Nama Customer" id="nama_customer" name="nama_customer" required="required" readonly="true">
 										<div class="input-group-append">
 											<button class="btn btn-info" type="button"  data-toggle="modal" data-target="#myModal1" data-backdrop="static"><span class="ion-person-add"></span></button>
 										</div>
@@ -249,12 +246,12 @@
 					    	<div class="form-group row">
 				      			<label for="nama_item" class="col-sm-3 col-form-label col-form-label-sm">Barang</label>
 								<div class="col-sm-3">
-				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Barang" name="kode_item" id="kode_item" required readonly="true"> 
+				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Barang" name="kode_item" id="kode_item" required="required" readonly="true"> 
 				      			</div>
 
 								<div class="col-sm-4">
 								    <div class="input-group input-group-sm">
-										<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" required readonly="true">
+										<input type="text" class="form-control" placeholder="Nama Barang" id="nama_item" name="nama_item" required="required" readonly="true">
 										<div class="input-group-append">
 											<button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModal2" data-backdrop="static"><span class="ion-plus-round"></button>
 										</div>
@@ -265,7 +262,7 @@
 							<div class="form-group row">
 								<label for="harga_item" class="col-sm-3 col-form-label col-form-label-sm">Harga</label>
 							    <div class="col-sm-3">
-							    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item" autocomplete="off" onkeypress="return functionHanyaAngka(event)">
+							    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item" autocomplete="off" required="required" onkeypress="return functionHanyaAngka(event)">
 							    </div>
 							</div>
 
@@ -426,7 +423,7 @@
 
     <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
 
-<script type="text/javascript" src="javascript/scrollUp.js"></script>
+<script type="text/javascript" src="../javascript/scrollUp.js"></script>
 
 </body>
 <script type="text/javascript">
@@ -457,14 +454,6 @@
   			$('a').removeClass("active");
   			$(this).addClass("active");
   		});
-
-  		$('#keyword0').on('keyup', function() {
-			// $('#tabelcustomermodal').load('ajax/penjualan_search.php?keyword0=' + $('#keyword0').val());
-		});
-
-		$('#keyword1').on('keyup', function() {
-			// $('#tabelitemmodal').load('ajax/penjualan_item_search.php?keyword1=' + $('#keyword1').val());
-		});
   	});	
 </script>
 

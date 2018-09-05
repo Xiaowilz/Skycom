@@ -149,31 +149,7 @@
 					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $tanggalTransaksi; ?>">
 					    </div>
 					</div>
-
-					<!-- <div class="form row">
-					    <label for="staticEmail" class="col-sm-4 col-form-label">Sales</label>
-					    <div class="col-sm-6">
-					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $sales; ?>">
-					    </div>
-					</div> -->
-
 				</div>
-
-				<!-- <div class="kanan">
-					 <div class="form row">
-					    <label for="staticEmail" class="col-sm-4 col-form-label">Jatuh Tempo (14 hari)</label>
-					    <div class="col-sm-6">
-					      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $jatuhTempo; ?>">
-					    </div>
-					 </div>
-
-					 <div class="form row">
-					    <label for="staticEmail" class="col-sm-4 col-form-label">Keterangan</label>
-					    <div class="col-sm-6">
-					    	<textarea class="form-control-plaintext form-control-sm" id="keterangan" rows="3" readonly><?php echo $keterangan; ?></textarea>
-					    </div>
-					 </div>
-				</div> -->
 				<div class="spacer" style="clear: both;"></div>
 			</div>	
 
@@ -215,21 +191,6 @@
 								<tr>
 									<td colspan="5"></td>
 								</tr>
-
-								<!-- <tr>
-									<td colspan="4" align="center"><strong>Total</strong></td>
-									<td align="right"><?php echo "Rp " .number_format($totalPenjualan, 0, ',', '.'); ?></td>
-								</tr> -->
-
-								<!-- <tr>
-									<td colspan="4" align="center"><strong>PPN 10%</strong></td>
-									<td align="right"><?php echo "Rp " .number_format($totalPenjualan, 0, ',', '.'); ?></td>
-								</tr> -->
-
-								<!-- <tr>
-									<td colspan="4" align="center"><strong>Potongan</strong></td>
-									<td align="right"><?php echo "Rp " .number_format($diskon, 0, ',', '.'); ?></td>
-								</tr> -->
 
 								<tr>
 									<td colspan="4" align="center"><strong>Grand Total</strong></td>

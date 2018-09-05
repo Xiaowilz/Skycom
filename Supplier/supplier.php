@@ -301,7 +301,7 @@
 
     <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
 
-<script type="text/javascript" src="javascript/scrollUp.js"></script>	
+<script type="text/javascript" src="../javascript/scrollUp.js"></script>	
 </body>
 </html>
 

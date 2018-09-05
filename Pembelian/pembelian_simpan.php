@@ -12,20 +12,7 @@
 	$tahun = $_SESSION['tahun'];
 	$tanggalTrans = "$tahun-$bulan-$tanggal";
 	$sql3 = "INSERT INTO tb_pembelian(notrans,tgltrans,supplier,total) VALUES ('$kode','$tanggalTrans','$namaSupplier','$totalPembelian');";
-	$q3 = mysqli_query($conn, $sql3);
-
-
-	// if (mysqli_error($conn)) 
-	// {
-	// 	echo "Data Tidak Tersimpan";
-	// 	// header("Location:penjualan.php")
-	// }
-	// else
-	// {
-	// 	echo "Data Tersimpan";
-	// 	// header("Location:penjualan.php")
-	// }
-	
+	$q3 = mysqli_query($conn, $sql3);	
 
 	header("Location:pembelian.php");
  ?>

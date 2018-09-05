@@ -63,7 +63,6 @@
 		$_SESSION["bulan"] = "$bulan";
 		$_SESSION["tahun"] = "$tahun";
 		echo "$hari".", "."$tanggal"."-"."$bulan"."-"."$tahun";
-		// echo "DD/MM/YYYY";
 	}
 ?>
 
@@ -91,7 +90,7 @@
 
 		<div class="jamtgl">
 			Jam : <span id="clock">
-				<!-- <?php echo "HH:MM:SS"; ?> -->
+				<?php echo "HH:MM:SS"; ?> 
 			</span>
 
 			<span id="date">
@@ -316,7 +315,7 @@
 
     <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
 
-<script type="text/javascript" src="javascript/scrollUp.js"></script>
+<script type="text/javascript" src="../javascript/scrollUp.js"></script>
 </body>
 </html>
 <script type="text/javascript">
@@ -347,9 +346,6 @@
   			$('a').removeClass("active");
   			$(this).addClass("active");
   		});
-  // 		$('#keyword').on('keyup', function() {
-		// 	$('#container').load('ajax/customer_search.php?keyword=' + $('#keyword').val());
-		// });
   	});	
 
   	$(document).ready( function () {

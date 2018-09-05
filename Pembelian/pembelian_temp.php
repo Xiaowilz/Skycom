@@ -1,8 +1,6 @@
 <?php 
 	session_start();
 	require_once("../conn.php");
-	// $kodeBarang = isset($_POST['kode_barang']);
-	// $namaBarang = isset($_POST['nama_barang']);
 	$qty = (int)$_POST['quantity'];
 	$hargaItem = (int)$_POST['harga_item'];	
 	$subTotal = $qty * $hargaItem;

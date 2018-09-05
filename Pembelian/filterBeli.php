@@ -23,8 +23,6 @@
                 $diskon = 0;
                 while ($r = mysqli_fetch_array($q)) 
                 {
-                    // $subtotal = number_format($r['subtotal'], 0, ',', '.');
-                    // $diskon = number_format($r['diskon'], 0, ',', '.');
                     $tanggalTransaksi = date_format(new DateTime($r['tgltrans']), "d-m-Y");
                     $total = number_format($r['total'], 0, ',', '.');
                     echo"

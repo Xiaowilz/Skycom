@@ -401,27 +401,9 @@
 								<div class="input-group-prepend">
 							    	<label class="input-group-text ion-levels" for="type"></label>
 							  	</div>
-							  	<input type="text" name="tipe_barang" id="tipe_barang" class="form-control" autocomplete="off" placeholder="Jenis" maxlength="3">
+							  	<input type="text" name="tipe_barang" id="tipe_barang" class="form-control" autocomplete="off" placeholder="Jenis" maxlength="3" required="">
 							</div>	
-<!-- 							<script type="text/javascript">
-							    function functionKapital(event){
-		   								  
-								       	 if ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || event.keyCode == 8)
-								        {
-										   	  setTimeout(function(){
-										        return toUpperCase(event);
-										    }, 1);
-								        }
-										else
-									  	{
-									       alert("Please enter only char");
-									       return false;
-									  	}
 
-
-								}
-							</script> -->
-	
 							<div class="input-group mb-3">
 								<label for="namaTipe" class="col-sm-3 col-form-label">Nama Jenis</label>
 								<div class="input-group-prepend">
@@ -449,7 +431,7 @@
 
     <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
 
-<script type="text/javascript" src="javascript/scrollUp.js"></script>
+<script type="text/javascript" src="../javascript/scrollUp.js"></script>
 </body>
 <script type="text/javascript">
 		var dropdown = document.getElementsByClassName("drop");

@@ -61,24 +61,6 @@
 		";
 		exit;
 	}
-		
-		// if (mysqli_error($conn)) 
-		// {
-		// 	echo "
-		// 		<script>
-		// 			alert('Data Tidak Tersimpan');
-		// 		</script>
-		// 	";
-		// }
-		// else
-		// {
-		// 	echo "
-		// 		<script>
-		// 			alert('Data Tersimpan');
-		// 		</script>
-		// 	";
-		// }
-
 	
  ?>
 

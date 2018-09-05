@@ -161,7 +161,6 @@
                                 $subtotal = number_format($r['subtotal'], 0, ',', '.');
                                 $diskon = number_format($r['diskon'], 0, ',', '.');
                                 $total = number_format($r['total'], 0, ',', '.');
-                                // $tanggal = date("d-m-Y",  strtotime($r['tgltrans']));
 
                                 $tanggalTransaksi = date_format(new DateTime($r['tgltrans']), "d-m-Y");
                                 echo"
@@ -203,7 +202,7 @@
 
     <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
 
-<script type="text/javascript" src="javascript/scrollUp.js"></script>
+<script type="text/javascript" src="../javascript/scrollUp.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function(){

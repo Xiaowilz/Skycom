@@ -35,19 +35,3 @@
 		}
 	
 ?>
-
-<!-- <script>
-	function salah()
-	{
-		var r = confirm('Username atau Password Salah');
-		if (r == true) 
-		{
-			window.history.back();
-			return true;
-		}
-		else
-		{
-			alert('You Press Cancel');
-		}
-	}	
-</script> -->

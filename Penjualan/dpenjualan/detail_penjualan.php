@@ -85,8 +85,6 @@
     	{
     		$noTransaksi = $r["notrans"];
     		$customer = $r["customer"];
-    		// $tgltrans = $r["tgltrans"];
-    		// $jatuhTempo = $r["tglJatuhTempo"];
     		$keterangan = $r["catatan"];
     		$diskon = $r['diskon'];
     		$sales = $r['sales'];
@@ -216,7 +214,6 @@
 							    		";
 							    		$totalPenjualan += $r['jumlah'];
 						    		}
-						    		// $grandtotal = $totalPenjualan - $diskon;
 								?>
 
 								<tr>

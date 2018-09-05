@@ -431,7 +431,7 @@
 	
     <a href="javascript:" id="return-to-top"><i class="ion-chevron-up"></i></a>
 
-<script type="text/javascript" src="javascript/scrollUp.js"></script>	
+<script type="text/javascript" src="../javascript/scrollUp.js"></script>	
 </body>
 <script type="text/javascript">
 		var dropdown = document.getElementsByClassName("drop");
@@ -502,19 +502,6 @@
 		
 	});
 
-	// $("#add").on('click', function() 
-	// {
-	// 	$.ajax({
-	// 		url: 'pembelian_temp.php',
-	// 		type: 'POST',
-	// 		data: $('#pembelianTemp').serialize(),
-	// 		success : function()
-	// 		{
-	// 			$('#temp_pembelian').load('pembelian_temp_load.php');
-	// 		}
-	// 	});
-	// 	return false;
-	// });
 </script>
 
 <script type="text/javascript">
