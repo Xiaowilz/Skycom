@@ -306,23 +306,21 @@
 </html>
 
 <script type="text/javascript">
-		var dropdown = document.getElementsByClassName("drop");
-		var i;
+	var dropdown = document.getElementsByClassName("drop");
+	var i;
 
-		for (i = 0; i < dropdown.length; i++) {
-		  dropdown[i].addEventListener("click", function() {
-		    this.classList.toggle("active");
-		    var dropdownContent = this.nextElementSibling;
-		    if (dropdownContent.style.display === "block") {
-		      dropdownContent.style.display = "none";
-		    } else {
-		      dropdownContent.style.display = "block";
-		    }
-		  });
-		}
-</script>
+	for (i = 0; i < dropdown.length; i++) {
+	  dropdown[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var dropdownContent = this.nextElementSibling;
+	    if (dropdownContent.style.display === "block") {
+	      dropdownContent.style.display = "none";
+	    } else {
+	      dropdownContent.style.display = "block";
+	    }
+	  });
+	}
 
-<script type="text/javascript">
 	function geser(){
   		document.getElementById("sidenav").classList.toggle('show');
   		document.getElementById("rightside").classList.toggle('show');
@@ -347,9 +345,6 @@
         });    
 	});
 
-</script>
-
-<script type="text/javascript">
 	function functionHapus()
 	{
 		var r = window.confirm('Yakin di hapus?');
@@ -364,10 +359,7 @@
 			return false;
 		}
 	}
-	
-</script>
 
-<script type="text/javascript">
 	$('.editSupplier').on('click', function()
 	{
 		var kodeSupplier = this.getAttribute('data-kodeSupplier');

@@ -434,23 +434,21 @@
 <script type="text/javascript" src="../javascript/scrollUp.js"></script>	
 </body>
 <script type="text/javascript">
-		var dropdown = document.getElementsByClassName("drop");
-		var i;
+	var dropdown = document.getElementsByClassName("drop");
+	var i;
 
-		for (i = 0; i < dropdown.length; i++) {
-		  dropdown[i].addEventListener("click", function() {
-		    this.classList.toggle("active");
-		    var dropdownContent = this.nextElementSibling;
-		    if (dropdownContent.style.display === "block") {
-		      dropdownContent.style.display = "none";
-		    } else {
-		      dropdownContent.style.display = "block";
-		    }
-		  });
-		}
-</script>
+	for (i = 0; i < dropdown.length; i++) {
+	  dropdown[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var dropdownContent = this.nextElementSibling;
+	    if (dropdownContent.style.display === "block") {
+	      dropdownContent.style.display = "none";
+	    } else {
+	      dropdownContent.style.display = "block";
+	    }
+	  });
+	}
 
-<script type="text/javascript">
 	function geser(){
   		document.getElementById("sidenav").classList.toggle('show');
   		document.getElementById("rightside").classList.toggle('show');
@@ -466,21 +464,14 @@
 
 	    $('#tabel_barang').DataTable();
   	});	
-</script>
 
-
-</html>
-
-<script type="text/javascript">
 	$(function(){
 		$("#datepicker").datepicker({
 			autoclose: true,
 			todayHighlight: true
 		}).datepicker('update', new Date());
 	});
-</script>
 
-<script type="text/javascript">
 	$(document).ready(function() {
 		$.ajax({
 			url: 'pembelian_temp_load.php',
@@ -502,9 +493,6 @@
 		
 	});
 
-</script>
-
-<script type="text/javascript">
 	$('.pilihSupplier').on('click', function() 
 	{
 		var kodeSupplier = this.getAttribute('data-kodeSupplier');
@@ -533,4 +521,5 @@
     	document.body.scrollTop = 0;
     	document.documentElement.scrollTop = 0;
 	}
-</script>		
+</script>
+</html>

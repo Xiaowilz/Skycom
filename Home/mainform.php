@@ -125,8 +125,6 @@
 				?>
 			</span>
 		</div>
-
-
 	</div>
 
 	<div id="sidenav">
@@ -140,12 +138,12 @@
 				<a href="../Supplier/supplier" class="aktif"><span class="ion-person-stalker"></span>Supplier</a>
 			</div>	
 						
-				<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Laporan<i class="ion-arrow-down-b"></i></a>
-				
-				<div class="dropdown">
-						<a href="Penjualan/transaksiJual" target="_blank" class="aktif"><span class="ion-ios-circle-filled"></span>Penjualan</a>
-						<a href="Pembelian/transaksiBeli" target="_blank" class="aktif"><span class="ion-ios-circle-filled"></span>Pembelian</a>
-				</div>
+			<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Laporan<i class="ion-arrow-down-b"></i></a>
+			
+			<div class="dropdown">
+					<a href="Penjualan/transaksiJual" target="_blank" class="aktif"><span class="ion-ios-circle-filled"></span>Penjualan</a>
+					<a href="Pembelian/transaksiBeli" target="_blank" class="aktif"><span class="ion-ios-circle-filled"></span>Pembelian</a>
+			</div>
 		</div>
 	</div>
 
@@ -200,23 +198,21 @@
 </html>
 
 <script type="text/javascript">
-		var dropdown = document.getElementsByClassName("drop");
-		var i;
+	var dropdown = document.getElementsByClassName("drop");
+	var i;
 
-		for (i = 0; i < dropdown.length; i++) {
-		  dropdown[i].addEventListener("click", function() {
-		    this.classList.toggle("active");
-		    var dropdownContent = this.nextElementSibling;
-		    if (dropdownContent.style.display === "block") {
-		      dropdownContent.style.display = "none";
-		    } else {
-		      dropdownContent.style.display = "block";
-		    }
-		  });
-		}
-</script>
+	for (i = 0; i < dropdown.length; i++) {
+	  dropdown[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var dropdownContent = this.nextElementSibling;
+	    if (dropdownContent.style.display === "block") {
+	      dropdownContent.style.display = "none";
+	    } else {
+	      dropdownContent.style.display = "block";
+	    }
+	  });
+	}
 
-<script type="text/javascript">
 	function geser(){
   		document.getElementById("sidenav").classList.toggle('show');
   		document.getElementById("rightside").classList.toggle('show');

@@ -206,7 +206,6 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-
         $(function(){
             $("#tgl_awal").datepicker({
                 autoclose: true,

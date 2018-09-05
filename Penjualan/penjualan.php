@@ -427,23 +427,21 @@
 
 </body>
 <script type="text/javascript">
-		var dropdown = document.getElementsByClassName("drop");
-		var i;
+	var dropdown = document.getElementsByClassName("drop");
+	var i;
 
-		for (i = 0; i < dropdown.length; i++) {
-		  dropdown[i].addEventListener("click", function() {
-		    this.classList.toggle("active");
-		    var dropdownContent = this.nextElementSibling;
-		    if (dropdownContent.style.display === "block") {
-		      dropdownContent.style.display = "none";
-		    } else {
-		      dropdownContent.style.display = "block";
-		    }
-		  });
-		}
-</script>
+	for (i = 0; i < dropdown.length; i++) {
+	  dropdown[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var dropdownContent = this.nextElementSibling;
+	    if (dropdownContent.style.display === "block") {
+	      dropdownContent.style.display = "none";
+	    } else {
+	      dropdownContent.style.display = "block";
+	    }
+	  });
+	}
 
-<script type="text/javascript">
 	function geser(){
   		document.getElementById("sidenav").classList.toggle('show');
   		document.getElementById("rightside").classList.toggle('show');
@@ -455,9 +453,7 @@
   			$(this).addClass("active");
   		});
   	});	
-</script>
 
-<script type="text/javascript">
 	$('.pilihCustomer').on('click', function(){
 		var kode_customer = this.getAttribute('data-pilihCustomer');
 		var nama_customer = this.getAttribute('data-namaCustomer');
@@ -473,9 +469,7 @@
 		document.getElementById('nama_item').value = nama_item;
 		document.getElementById('harga_item').value = harga_item;
 	});
-</script>
 
-<script type="text/javascript">
 	$(document).ready(function() {
 		// refreshTable();
 		$.ajax({
@@ -516,10 +510,6 @@
 		window.onbeforeunload = null;
 	});
 
-
-</script>
-
-<script>
 	function functionCboJatuhTempo()
 	{
 		var kredit = document.getElementById('cbo_jatuh_tempo').value
@@ -567,5 +557,4 @@
     	document.documentElement.scrollTop = 0;
 	}
 </script>
-
 </html>

@@ -319,36 +319,34 @@
 </body>
 </html>
 <script type="text/javascript">
-		var dropdown = document.getElementsByClassName("drop");
-		var i;
+	var dropdown = document.getElementsByClassName("drop");
+	var i;
 
-		for (i = 0; i < dropdown.length; i++) {
-		  dropdown[i].addEventListener("click", function() {
-		    this.classList.toggle("active");
-		    var dropdownContent = this.nextElementSibling;
-		    if (dropdownContent.style.display === "block") {
-		      dropdownContent.style.display = "none";
-		    } else {
-		      dropdownContent.style.display = "block";
-		    }
-		  });
-		}
-</script>
+	for (i = 0; i < dropdown.length; i++) {
+	  dropdown[i].addEventListener("click", function() {
+	    this.classList.toggle("active");
+	    var dropdownContent = this.nextElementSibling;
+	    if (dropdownContent.style.display === "block") {
+	      dropdownContent.style.display = "none";
+	    } else {
+	      dropdownContent.style.display = "block";
+	    }
+	  });
+	}
 
-<script type="text/javascript">
-	function geser(){
+	function geser() {
   		document.getElementById("sidenav").classList.toggle('show');
   		document.getElementById("rightside").classList.toggle('show');
   		}
 
-  	 $(document).ready(function(){
+	$(document).ready(function() {
   		$('#tab .aktif').click(function(){
   			$('a').removeClass("active");
   			$(this).addClass("active");
   		});
   	});	
 
-  	$(document).ready( function () {
+  	$(document).ready( function() {
   		$.fn.DataTable.ext.pager.numbers_length = 9;
   		
 	    $('#table_id').DataTable({
@@ -357,11 +355,7 @@
 	    });
 	});
 
-</script>
-
-<script>
-	function functionHapus()
-	{
+	function functionHapus() {
 		var msg;
 		msg = "Apakah Yakin Menghapus Data ?";
 		var agree = confirm(msg);
@@ -376,11 +370,8 @@
 			return false;
 		}
 	}						
-</script>
 
-<script>
-	$('.editCust').on('click', function()
-	{
+	$('.editCust').on('click', function() {
 		var kode_customer = this.getAttribute('data-kodeCustomer');
 		var nama_customer = this.getAttribute('data-namaCustomer');
 		var alamat = this.getAttribute('data-alamat');
@@ -389,7 +380,5 @@
 		document.getElementById('nama').value = nama_customer;
 		document.getElementById('alamat').value = alamat;
 		document.getElementById('kon').value = kontak;
-	});									
-
-
+	});
 </script>
