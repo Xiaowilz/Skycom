@@ -236,11 +236,13 @@ body{
 .dtkiri {
 	width: 60%;
 	float: left
+	/*border: 1px solid black;*/
 }
 
 .dtkanan {
 	width: 40%;
 	float: right;
+	/*border: 1px solid black;*/
 }
 
 .all-head .button-add{
