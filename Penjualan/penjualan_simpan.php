@@ -38,6 +38,7 @@
 	$sales = $_POST['nmSales'];
 	$ppn = $_SESSION['ppn'];
 	$grandTotal;
+
 	if($diskon == 0 && $subTotalSetelahPpn != 0)
 	{
 		$grandTotal = $subTotalSetelahPpn;
