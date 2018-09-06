@@ -173,7 +173,11 @@
 					$noTrans = $char. sprintf('%05s', $noUrut);
 				?>
 				<div class="info-top">
+<<<<<<< HEAD
 				<form method="POST" id="penjualanTemp" onsubmit="return validation()">
+=======
+					<form id="penjualanTemp" method="POST">
+>>>>>>> 07f80650cc45b7fe58ea11f5663a19943b8fead7
 						<h5 class="datatrans">Data Transaksi</h5>
 
 						<hr>
@@ -279,7 +283,7 @@
 							<div class="form-group row">
 								<label for="harga_item" class="col-sm-3 col-form-label col-form-label-sm">Harga</label>
 							    <div class="col-sm-3">
-							    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item" autocomplete="off" required="required" onkeypress="return functionHanyaAngka(event)">
+							    	<input type="text" class="form-control form-control-sm" placeholder="Harga" name="harga_item" id="harga_item" autocomplete="off" required onkeypress="return functionHanyaAngka(event)">
 							    </div>
 							</div>
 
@@ -307,6 +311,7 @@
 				<div class="all-bottom">
 					<!-- Load Tabel Temp -->
 					<div id="tabelTemp"> 
+						<input type="hidden" id="protekTabel" value="0">
 						<div class="table-responsive">
 							<table class="table table-hover table-sm">
 							 	<thead class="thead-dark">
@@ -322,7 +327,7 @@
 						</div>
 					</div>				
 				</div>
-					<button type="submit" name="simpan" class="btn btn-primary" id="simpan" formaction="penjualan_simpan.php">Simpan</button>
+					<button type="submit" name="simpan" class="btn btn-primary" id="simpan" onclick="return functionSimpan()" formaction="penjualan_simpan">Simpan</button>
 				</form>
 			</div>
 		</div>
@@ -445,7 +450,32 @@
 </body>
 <script type="text/javascript">
 	var dropdown = document.getElementsByClassName("drop");
-	var i;
+	var i, cekCust=0, cekBarang=0;
+	var kdCustomer = document.getElementById('kode_customer').value;
+	var protekTabel = document.getElementById('protekTabel').value;	
+	function functionSimpan(){
+		// if(cekCust==0 && cekBarang==0){
+		// 	alert('Kode Customer & Barang tidak boleh kosong');
+		// 	return false;
+		// }else if(cekCust==0 && cekBarang == 1){
+		// 	alert('Kode Customer tidak boleh kosong');
+		// 	return false;
+		// }else if(cekCust==1 && cekBarang == 0){
+		// 	alert('Kode Barang tidak boleh kosong');
+		// 	return false;	
+		// }else{
+		// 	alert('Berhasil');
+		// 	return true;
+		// }
+		
+		if(protekTabel==0){
+			alert('Gagal Simpan');
+			return false;
+		}else if (protekTabel==1){
+			alert('Berhasil Simpan');
+			return true;
+		}
+	}
 
 	for (i = 0; i < dropdown.length; i++) {
 	  dropdown[i].addEventListener("click", function() {
@@ -476,8 +506,10 @@
 		var nama_customer = this.getAttribute('data-namaCustomer');
 		document.getElementById('kode_customer').value = kode_customer;
 		document.getElementById('nama_customer').value = nama_customer;
+		cekCust=1;
 	});
 
+	
 	$('.pilihItem').on('click', function() {
 		var kode_item = this.getAttribute('data-pilihItem');
 		var nama_item = this.getAttribute('data-namaItem');
@@ -485,6 +517,7 @@
 		document.getElementById('kode_item').value = kode_item;
 		document.getElementById('nama_item').value = nama_item;
 		document.getElementById('harga_item').value = harga_item;
+		cekBarang=1;
 	});
 
 	$(document).ready(function() {
@@ -530,6 +563,7 @@
 			{
 				$("#tabelTemp").load("penjualan_temp_load.php");
 			 	document.getElementById('feedback').innerHTML = data;
+			 	protekTabel=1;
 			}
 		});		
 		return false;
@@ -549,7 +583,6 @@
 	function functionCboJatuhTempo()
 	{
 		var kredit = document.getElementById('cbo_jatuh_tempo').value
-		console.log(kredit);
 		if(kredit == "kredit")
 		{
 			<?php
