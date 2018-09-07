@@ -287,7 +287,7 @@
 							<div class="form-group row">
 						    	<label for="qty" class="col-sm-3 col-form-label col-form-label-sm">Quantity</label>
 						    	<div class="col-sm-3">
-						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" id="qty" autocomplete="off"  required onkeypress="return functionHanyaAngka(event)">  
+						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" id="qty" autocomplete="off" required onkeypress="return functionHanyaAngka(event)" maxlength="3">  
 						    	</div>
 								
 						    	<div class="col-xs-2">
@@ -544,13 +544,13 @@
 		cekBarang=1;
 	});
 
-	$('#qty').on('keyup', function() {
-		// alert($(this).val()); 
-		if ($(this).val() > 100)
-		{
-			document.getElementById('qty').value = 100;
-		}
-	});
+	// $('#qty').on('keyup', function() {
+	// 	// alert($(this).val()); 
+	// 	if ($(this).val() > 100)
+	// 	{
+	// 		document.getElementById('qty').value = 100;
+	// 	}
+	// });
 
 	$(document).ready(function() {
 		// refreshTable();

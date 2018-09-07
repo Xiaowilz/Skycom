@@ -248,14 +248,14 @@
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-pricetag"></i></span>
 								</div>
-								<input type="text" class="form-control" name="nm_barang" placeholder="Nama Barang" required autocomplete="off">
+								<input type="text" class="form-control" name="nm_barang" placeholder="Nama Barang" required autocomplete="off" maxlength="50">
 							</div>
 
 							<div class="input-group mb-3">
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-box"></i></span>
 								</div>
-								<input type="text" class="form-control" name="qty" placeholder="Quantity" required autocomplete="off" onkeypress="return functionHanyaAngka(event)">
+								<input type="text" class="form-control" name="qty" placeholder="Quantity" required autocomplete="off" onkeypress="return functionHanyaAngka(event)" maxlength="3">
 							</div>
 
 							<div class="input-group mb-3">
@@ -346,7 +346,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-pricetag"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Nama Barang" id="namaitem" name="nama_item" required>
+							  	<input type="text" class="form-control" placeholder="Nama Barang" id="namaitem" name="nama_item" required maxlength="50">
 							</div>
 
 							<div class="input-group mb-3">
@@ -354,7 +354,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-box"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Stock" id="stock" name="stock_item" required readonly="true" onkeypress="return functionHanyaAngka(event)">
+							  	<input type="text" class="form-control" placeholder="Stock" id="stock" name="stock_item" required onkeypress="return functionHanyaAngka(event)" maxlength="3">
 							</div>
 
 							<div class="input-group mb-3">
@@ -409,7 +409,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-pricetag"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Nama Jenis Barang" id="namaTipe" name="nama_tipe" required autocomplete="off">
+							  	<input type="text" class="form-control" placeholder="Nama Jenis Barang" id="namaTipe" name="nama_tipe" required autocomplete="off" maxlength="50">
 							</div>
 
 							<button type="submit" class="btn btn-outline-primary btn-sm btn-block" formaction="inventory_tipe_barang.php">Tambah</button>

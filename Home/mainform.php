@@ -141,8 +141,8 @@
 			<a class="aktif drop" id="btn_daftar"><span class="ion-android-list"></span>Laporan<i class="ion-arrow-down-b"></i></a>
 			
 			<div class="dropdown">
-					<a href="Penjualan/transaksiJual" target="_blank" class="aktif"><span class="ion-ios-circle-filled"></span>Penjualan</a>
-					<a href="Pembelian/transaksiBeli" target="_blank" class="aktif"><span class="ion-ios-circle-filled"></span>Pembelian</a>
+					<a href="../Penjualan/transaksiJual" target="_blank" class="aktif"><span class="ion-ios-circle-filled"></span>Penjualan</a>
+					<a href="../Pembelian/transaksiBeli" target="_blank" class="aktif"><span class="ion-ios-circle-filled"></span>Pembelian</a>
 			</div>
 		</div>
 	</div>
@@ -163,25 +163,25 @@
 	                	<div class="card bg-light mb-3" style="max-width: 30rem;">
 						 	<div class="card-header">Transaksi</div>
 						  		<div class="card-body">
-						    		<a href="penjualan" target="_blank" class=""><span class="ion-cash"></span>Penjualan</a>
-                                	<a href="pembelian" target="_blank" class=""><span class="ion-android-cart"></span>Pembelian</a>
+						    		<a href="../Penjualan/penjualan" target="_blank" class=""><span class="ion-cash"></span>Penjualan</a>
+                                	<a href="../Pembelian/pembelian" target="_blank" class=""><span class="ion-android-cart"></span>Pembelian</a>
 						  		</div>
 						</div>
 
 						<div class="card bg-light mb-3" style="max-width: 30rem;">
 						 	<div class="card-header">Master</div>
 						  		<div class="card-body">
-						    		<a href="customers"><span class="ion-ios-people"></span>Customers</a>
-									<a href="inventory"><span class="ion-briefcase"></span>Inventory</a>
-									<a href="supplier"><span class="ion-person-stalker"></span>Supplier</a>
+						    		<a href="../Customers/customers"><span class="ion-ios-people"></span>Customers</a>
+									<a href="../Inventory/inventory"><span class="ion-briefcase"></span>Inventory</a>
+									<a href="../Supplier/supplier"><span class="ion-person-stalker"></span>Supplier</a>
 						  		</div>
 						</div>
 
 						<div class="card bg-light mb-3" style="max-width: 30rem;">
 						 	<div class="card-header">Laporan</div>
 						  		<div class="card-body">
-						    		<a href="transaksiJual" class=""><span class="ion-android-list"></span>Laporan Penjualan</a>
-                                	<a href="transaksiBeli" class=""><span class="ion-android-list"></span>Laporan Pembelian</a>
+						    		<a href="../Penjualan/transaksiJual" target="_blank" class=""><span class="ion-android-list"></span>Laporan Penjualan</a>
+                                	<a href="../Pembelian/transaksiBeli" target="_blank" class=""><span class="ion-android-list"></span>Laporan Pembelian</a>
 						  		</div>
 						</div>
 					</div>

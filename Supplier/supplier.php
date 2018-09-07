@@ -213,21 +213,21 @@
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ion-android-person"></i></span>
 								  	</div>
-								  	<input type="text" class="form-control" placeholder="Nama Supplier" name="nm_supp" required autocomplete="off">
+								  	<input type="text" class="form-control" placeholder="Nama Supplier" name="nm_supp" required autocomplete="off" maxlength="25">
 								</div>
 
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ion-ios-location"></i></span>
 								  	</div>
-								  	<input type="text" class="form-control" placeholder="Alamat" name="alamat_supp" required autocomplete="off">
+								  	<input type="text" class="form-control" placeholder="Alamat" name="alamat_supp" required autocomplete="off" maxlength="50">
 								</div>
 
 								<div class="input-group mb-3">
 									<div class="input-group-prepend">
 										<span class="input-group-text"><i class="ion-ios-telephone"></i></span>
 								  	</div>
-								  	<input type="text" class="form-control" placeholder="Kontak" name="kontak_supp" required autocomplete="off">
+								  	<input type="text" class="form-control" placeholder="Kontak" name="kontak_supp" required autocomplete="off" maxlength="13">
 								</div>
 								<button type="submit" class="btn btn-outline-primary btn-sm btn-block" formaction="supplier_simpan.php">Tambah</button>
 							</form>
@@ -267,7 +267,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-android-person"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Nama Supplier" name="nm_supp" required autocomplete="off" id="nama_supplier">
+							  	<input type="text" class="form-control" placeholder="Nama Supplier" name="nm_supp" required autocomplete="off" id="nama_supplier" maxlength="25">
 							</div>
 
 							<div class="input-group mb-3">
@@ -275,7 +275,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-location"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Alamat" name="alamat_supp" required autocomplete="off" id="alamat_supplier">
+							  	<input type="text" class="form-control" placeholder="Alamat" name="alamat_supp" required autocomplete="off" id="alamat_supplier" maxlength="50">
 							</div>
 
 							<div class="input-group mb-3">
@@ -283,7 +283,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="ion-ios-telephone"></i></span>
 							  	</div>
-							  	<input type="text" class="form-control" placeholder="Kontak" name="kontak_supp" required autocomplete="off" id="kontak_supplier">
+							  	<input type="text" class="form-control" placeholder="Kontak" name="kontak_supp" required autocomplete="off" id="kontak_supplier" maxlength="13">
 							</div>
 							<button type="submit" class="btn btn-outline-primary btn-sm btn-block" formaction="supplier_edit_simpan.php">Update</button>
 						</form>
