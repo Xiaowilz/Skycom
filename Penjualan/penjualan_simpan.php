@@ -71,7 +71,7 @@
 		$tglJatuhTempo = $_POST['tgl_jatuh_tempo_hidden'];
 	
 	}
-	echo "$grandTotal";
+	// echo "$grandTotal";
 
 	$sql2 = "INSERT INTO tb_penjualan(notrans,tgltrans,kredit,tglJatuhTempo,customer,subtotal,ppn,subTotalSetelahPpn,diskon,total,sales,catatan) VALUES('$noTrans','$tanggalTrans',$kredit,'$tglJatuhTempo','$namaCustomer','$totalPenjualan','$ppn','$subTotalSetelahPpn','$diskon','$grandTotal','$sales','$catatan')";
 

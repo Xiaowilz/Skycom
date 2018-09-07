@@ -173,11 +173,8 @@
 					$noTrans = $char. sprintf('%05s', $noUrut);
 				?>
 				<div class="info-top">
-<<<<<<< HEAD
 				<form method="POST" id="penjualanTemp" onsubmit="return validation()">
-=======
 					<form id="penjualanTemp" method="POST">
->>>>>>> 07f80650cc45b7fe58ea11f5663a19943b8fead7
 						<h5 class="datatrans">Data Transaksi</h5>
 
 						<hr>
@@ -257,7 +254,7 @@
 				    	<h5>Data Barang</h5>				    	
 				    	<hr>
 				    	<div class="dtkiri">
-					    	<div class="form row">
+					    	<div class="form-group row">
 				      			<label for="nama_item" class="col-sm-3 col-form-label col-form-label-sm">Barang</label>
 								<div class="col-sm-3">
 				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Barang" name="kode_item" id="kode_item" required="required" readonly="true"> 
@@ -273,12 +270,12 @@
 								</div>									
 							</div>
 
-							<div class="form-group row">
+<!-- 							<div class="form-group row">
 								<label for="" class="col-sm-3 col-form-label"></label>
 								<div class="col-sm-7">
 									<small><span id="brgError" class="text-danger font-weight-bold"></span></small>
 								</div>
-							</div>
+							</div> -->
 
 							<div class="form-group row">
 								<label for="harga_item" class="col-sm-3 col-form-label col-form-label-sm">Harga</label>
@@ -290,7 +287,7 @@
 							<div class="form-group row">
 						    	<label for="qty" class="col-sm-3 col-form-label col-form-label-sm">Quantity</label>
 						    	<div class="col-sm-3">
-						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" id="qty" autocomplete="off" required onkeypress="return functionHanyaAngka(event)">  
+						    		<input type="text" class="form-control form-control-sm" placeholder="Quantity" name="quantity" id="qty" autocomplete="off"  required onkeypress="return functionHanyaAngka(event)">  
 						    	</div>
 								
 						    	<div class="col-xs-2">
@@ -302,6 +299,13 @@
 								<label for="qty" class="col-sm-3 col-form-label"></label>
 								<div class="col-sm-6">
 									<div id="feedback"></div>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label for="" class="col-sm-3 col-form-label"></label>
+								<div class="col-sm-7">
+									<small><span id="tableError" class="text-danger font-weight-bold"></span></small>
 								</div>
 							</div>
 						</div>
@@ -469,11 +473,30 @@
 		// }
 		
 		if(protekTabel==0){
-			alert('Gagal Simpan');
-			return false;
+			if(cekCust==0){
+				$("#custError").html("** Customer Harus Diisi");					
+	        	$("#custError").css("display","block");
+	        	this.topFunction();
+	        	return false;
+			}
+			else if(cekCust==1){
+				// alert("Gagal Simpan, tabel harus diisi");
+				$("#tableError").html("**  Barang Belum Dipilih");					
+	        	$("#tableError").css("display","block");
+				return false;
+			}
 		}else if (protekTabel==1){
-			alert('Berhasil Simpan');
-			return true;
+			if(cekCust==0){
+				$("#custError").html("** Customer Harus Diisi");					
+	        	$("#custError").css("display","block");
+	        	this.topFunction();
+	        	return false;
+			}
+			else if(cekCust==1){
+				$("#tableError").html("");					
+	    		$("#tableError").css("display","block");
+				return true;
+			}
 		}
 	}
 
@@ -506,10 +529,11 @@
 		var nama_customer = this.getAttribute('data-namaCustomer');
 		document.getElementById('kode_customer').value = kode_customer;
 		document.getElementById('nama_customer').value = nama_customer;
+		$("#custError").html("");					
+	    $("#custError").css("display","block");
 		cekCust=1;
 	});
 
-	
 	$('.pilihItem').on('click', function() {
 		var kode_item = this.getAttribute('data-pilihItem');
 		var nama_item = this.getAttribute('data-namaItem');
@@ -518,6 +542,14 @@
 		document.getElementById('nama_item').value = nama_item;
 		document.getElementById('harga_item').value = harga_item;
 		cekBarang=1;
+	});
+
+	$('#qty').on('keyup', function() {
+		// alert($(this).val()); 
+		if ($(this).val() > 100)
+		{
+			document.getElementById('qty').value = 100;
+		}
 	});
 
 	$(document).ready(function() {
@@ -532,25 +564,25 @@
 			}
 		});
 
-		$('#simpan').click(function(){
-       		var namaCust = $("#nama_customer").val();
-	        $.ajax({
-	            type: "POST",
-	            url: "validasi.php",
-	            dataType: "json",
-	            data: {namaCust : namaCust},
-	            success : function(data){
-	                if (data.code == "200"){
-	                    // alert("Success: " +data.msg);
-	                    $("#custError").css("display","none");
-	                } else {
-	                    $("#custError").html(data.msg);
-	                    $("#custError").css("display","block");
-	                    topFunction();
-	                }
-	            }
-	        });
-      	});
+		// $('#simpan').click(function(){
+  //      		var namaCust = $("#nama_customer").val();
+	 //        $.ajax({
+	 //            type: "POST",
+	 //            url: "validasi.php",
+	 //            dataType: "json",
+	 //            data: {namaCust : namaCust},
+	 //            success : function(data){
+	 //                if (data.code == "200"){
+	 //                    // alert("Success: " +data.msg);
+	 //                    $("#custError").css("display","none");
+	 //                } else {
+	 //                    $("#custError").html(data.msg);
+	 //                    $("#custError").css("display","block");
+	 //                    topFunction();
+	 //                }
+	 //            }
+	 //        });
+  //     	});
 	});
 
 	$("#add").click(function() 
