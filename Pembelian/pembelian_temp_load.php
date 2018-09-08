@@ -51,9 +51,11 @@
 		     			type: 'POST',
 		     			dataType: 'html',
 		     			data: {'kodeHapus': kode_hapus},
-		     			success : function()
+		     			success : function(data)
 		     			{
 		     				$('#temp_pembelian').load('pembelian_temp_load.php');
+		     				console.log(data);
+		     				protekTabel = data;
 		     			}
 		     		});
 		     		

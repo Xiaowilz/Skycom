@@ -15,4 +15,13 @@
 	
 	$sql = "DELETE FROM tb_temp_pembelian WHERE kd_barang = '$kodeHapus'";
 	$q = mysqli_query($conn, $sql);
+
+	$sqlCekTemp = "SELECT * FROM tb_temp_pembelian";
+	$cekTemp = mysqli_query($conn, $sqlCekTemp);
+	if(mysqli_num_rows($cekTemp) > 0){
+		echo"1";
+	}
+	else if(mysqli_num_rows($cekTemp) <= 0){
+		echo "0";
+	}	
  ?>

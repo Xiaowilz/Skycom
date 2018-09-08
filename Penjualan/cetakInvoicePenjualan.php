@@ -25,7 +25,7 @@
 		<table width="100%" style="vertical-align: bottom; font-family: serif; 
 		    font-size: 8pt; color: #000000;">
 		    <tr>
-		        <td width="50%">{DATE j-m-Y}</td>
+		        <td width="50%">{DATE d-m-Y}</td>
 		        <td width="50%" align="right">Hal {PAGENO}/{nbpg}</td>
 		    </tr>
 		</table>','O');
@@ -35,7 +35,7 @@
 		    font-size: 8pt; color: #000000; font-weight: bold; font-style: italic;">
 		    <tr>
 		        <td width="33%" align="center" style="font-weight: bold; font-style: italic;">Hal {PAGENO}/{nbpg}</td>
-		        <td width="33%" style="text-align: right; ">{DATE j-m-Y}</td>
+		        <td width="33%" style="text-align: right; ">{DATE d-m-Y}</td>
 		    </tr>
 		</table>', 'E');
 

@@ -16,5 +16,13 @@
 	$sql = "DELETE FROM tb_temp_penjualan WHERE kd_barang = '$kdHapus'";
 	$q = mysqli_query($conn, $sql);
 
-	
+	$sqlCekTemp = "SELECT * FROM tb_temp_penjualan";
+	$cekTemp = mysqli_query($conn, $sqlCekTemp);
+	if(mysqli_num_rows($cekTemp) > 0){
+		echo"1";
+	}
+	else if(mysqli_num_rows($cekTemp) <= 0){
+		echo "0";
+	}	
+
  ?>

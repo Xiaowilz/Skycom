@@ -63,7 +63,7 @@
 				<tr>
 					<td colspan="4" align="right">
 						  <input class="form-check-input" type="checkbox" value="10" id="ppn" onclick="functionPpn()">
-						  <label class="form-check-label" for="ppn">PPN 10%</label>
+						  <label class="form-check-label" for="ppn"><strong>PPN 10%</strong></label>
 					</td>
 					<td align="right"><input type="text" name="tdPpn" id="tdPpn" value="0" readonly="true"></td>
 					<td></td>
@@ -71,7 +71,7 @@
 				
 
 				<tr>
-					<td colspan="4" align="right">Total Setelah PPN</td>
+					<td colspan="4" align="right"><Strong>Total Setelah PPN</Strong></td>
 					<td align="right"><input type="text" name="" id="setelah_ppn" value="0" readonly="true"></td>
 					<td></td>
 				</tr>
@@ -89,8 +89,9 @@
 					<td align="right"><div id="grandtotal"></div></td>
 					<td></td>
 				</tr>	
+			
 
-
+			
 		    <script type="text/javascript">  	
 		    	var totalPenjualan2 = 0, diskon=0, totalSetelahPpn=0, tdppn=0;
 				var gTotal = <?php echo $totalPenjualan; ?>;
@@ -121,7 +122,7 @@
 						// document.getElementById('grandtotal').innerHTML = <?php echo $totalPenjualan;?>;
 						document.getElementById('diskon').value = 0;
 					}
-				}
+				}	
 
 		    	$('.hapus').on('click',function() 
 		    	{
@@ -131,9 +132,10 @@
 		    			type: 'POST',
 		    			dataType: 'html',
 		    			data: {'kd_hapus' : kd_hapus},
-		    			success : function()
+		    			success : function(data)
 		    			{
 		    				$("#tabelTemp").load("penjualan_temp_load.php");
+		    				protekTabel = data;
 		    			}
 		    		});
 		    			

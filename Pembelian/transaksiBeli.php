@@ -67,7 +67,7 @@
 <body onload="functionTampilkanJam();setInterval('functionTampilkanJam()', 1000);">
     <div id="topnav">
         <div class="title">
-            <a href="mainform" title="Beranda Skycom"><img src="../gambar/logo2.png" width="145" height="35" id="logo"></a>
+            <a href="../Home/mainform" title="Beranda Skycom"><img src="../gambar/logo2.png" width="145" height="35" id="logo"></a>
         </div>
 
         <div class="title2" style="float: left; margin-top: -6px; margin-left: 15px;">

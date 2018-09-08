@@ -168,7 +168,7 @@
 				    			</div>
 						    </div>
 
-						    <div class="form-group row">
+						    <div class="form row">
 				      			<label for="nama_supplier" class="col-sm-3 col-form-label col-form-label-sm">Supplier</label>
 				      			<div class="col-sm-3">
 				      				<input type="text" class="form-control form-control-sm" placeholder="Kode Supplier" id="kode_supplier" readonly="true" name="kode_supplier">
@@ -191,8 +191,14 @@
 								$tgl1 = $tahun."-".$bulan."-".$tanggal;
 								$tgl2 = date('l, d-m-Y', strtotime('+14 days', strtotime($tgl1)));
 							?>
-
 						    </div>
+
+						    <div class="form-group row">
+								<label for="" class="col-sm-3 col-form-label"></label>
+								<div class="col-sm-7">
+									<small><span id="suppError" class="text-danger font-weight-bold"></span></small>
+								</div>
+							</div>
 						</div>
 
 						<div class="dtkanan">
@@ -255,6 +261,14 @@
 								<div id="feedback"></div>
 							</div>
 						</div>
+
+						<div class="form-group row">
+							<label for="" class="col-sm-3 col-form-label"></label>
+							<div class="col-sm-7">
+								<small><span id="tableError" class="text-danger font-weight-bold"></span></small>
+							</div>
+						</div>
+
 					</div>
 
 					<div class="spacer" style="clear: both;"></div>
@@ -262,6 +276,9 @@
 					<script type="text/javascript">
 						$("#add").on('click', function() 
 						{
+							$("#tableError").html("");					
+    						$("#tableError").css("display","block");
+
 							$.ajax({
 								url: 'pembelian_temp.php',
 								type: 'POST',
@@ -270,6 +287,11 @@
 								{
 									$('#temp_pembelian').load('pembelian_temp_load.php');
 									document.getElementById('feedback').innerHTML = data;
+									if(document.getElementById('kode_item').value == ""){
+								 		protekTabel = 0;
+								 	}else{
+								 		protekTabel=1;
+								 	}
 								}
 							});
 							return false;
@@ -280,6 +302,7 @@
 				<div class="all-bottom">
 					<div id="temp_pembelian">
 						<div class="table-responsive table-sm">
+							<input type="hidden" name="protekTabel" id="protekTabel" value="0">
 							<table class="table table-hover table">
 							 	<thead class="thead-dark">
 								    <tr>
@@ -297,24 +320,8 @@
 					
 			</div>
 			<br>
-				<input type="submit" id="simpan" class="btn btn-primary" name="simpan" value="Simpan" formaction="pembelian_simpan.php">	
+				<button type="submit" id="simpan" class="btn btn-primary" name="simpan" onclick="return functionSimpan()" formaction="pembelian_simpan">Simpan</button>
 			</form>
-			
-			<script type="text/javascript">
-				$(document).ready(function() {
-						$.ajax({
-							url: 'pembelian_temp_load.php',
-							type: 'GET',
-							dataType: 'html',
-							success : function(response)
-							{
-								$('#temp_pembelian').html(response);
-							}
-						});
-						
-				});
-			</script>
-			
 		</div>
 			
 		<!-- Modal Start -->
@@ -435,7 +442,36 @@
 </body>
 <script type="text/javascript">
 	var dropdown = document.getElementsByClassName("drop");
-	var i;
+	var i, cekSupp=0, cekBarang=0, protek=0;
+	var kdSupplier = document.getElementById('kode_supplier').value;
+	var protekTabel = document.getElementById('protekTabel').value;			
+	function functionSimpan(){	
+		if(protekTabel==0){
+			if(cekSupp==0){
+				$("#suppError").html("** Supplier Harus Diisi");					
+	        	$("#suppError").css("display","block");
+	        	this.topFunction();
+	        	return false;
+			}
+			else if(cekSupp==1){
+				$("#tableError").html("**  Barang Belum Dipilih");					
+	        	$("#tableError").css("display","block");
+				return false;
+			}
+		}else if (protekTabel==1){
+			if(cekSupp==0){
+				$("#suppError").html("** Supplier Harus Diisi");					
+	        	$("#suppError").css("display","block");
+	        	this.topFunction();
+	        	return false;
+			}
+			else if(cekSupp==1){
+				$("#tableError").html("");					
+	    		$("#tableError").css("display","block");
+				return true;
+			}
+		}
+	}
 
 	for (i = 0; i < dropdown.length; i++) {
 	  dropdown[i].addEventListener("click", function() {
@@ -465,12 +501,13 @@
 	    $('#tabel_barang').DataTable();
   	});	
 
-	$(function(){
-		$("#datepicker").datepicker({
-			autoclose: true,
-			todayHighlight: true
-		}).datepicker('update', new Date());
-	});
+	// $(function(){
+	// 	$("#datepicker").datepicker({
+	// 		autoclose: true,
+	// 		todayHighlight: true
+	// 	}).datepicker('update', new Date());
+	// });
+
 
 	$(document).ready(function() {
 		$.ajax({
@@ -481,16 +518,7 @@
 			{
 				$('#temp_pembelian').html(response);
 			}
-		});
-
-		$('#keyword0').on('keyup', function() {
-			$('#tabelsuppliermodal').load('ajax/pembelian_supplier_search.php?keyword0=' + $('#keyword0').val());
-		});
-
-		$('#keyword1').on('keyup', function() {
-			$('#tabelitemmodal').load('ajax/pembelian_item_search.php?keyword1=' + $('#keyword1').val());
-		});
-		
+		});		
 	});
 
 	$('.pilihSupplier').on('click', function() 
@@ -499,6 +527,9 @@
 		var namaSupplier = this.getAttribute('data-namaSupplier');
 		document.getElementById('kode_supplier').value = kodeSupplier;
 		document.getElementById('nama_supplier').value = namaSupplier;
+		$("#suppError").html("");					
+	    $("#suppError").css("display","block");
+		cekSupp=1;
 	});
 
 	$('.pilihItem').on('click', function() 
@@ -509,6 +540,7 @@
 		document.getElementById('kode_item').value = kodeItem;
 		document.getElementById('nama_item').value = namaItem;
 		document.getElementById('harga_item').value = hargaItem;
+		cekBarang=1;
 	});
 
 	$("#pembelianTemp").submit(function() 

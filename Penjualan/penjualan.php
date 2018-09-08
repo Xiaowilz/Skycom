@@ -270,13 +270,6 @@
 								</div>									
 							</div>
 
-<!-- 							<div class="form-group row">
-								<label for="" class="col-sm-3 col-form-label"></label>
-								<div class="col-sm-7">
-									<small><span id="brgError" class="text-danger font-weight-bold"></span></small>
-								</div>
-							</div> -->
-
 							<div class="form-group row">
 								<label for="harga_item" class="col-sm-3 col-form-label col-form-label-sm">Harga</label>
 							    <div class="col-sm-3">
@@ -454,24 +447,10 @@
 </body>
 <script type="text/javascript">
 	var dropdown = document.getElementsByClassName("drop");
-	var i, cekCust=0, cekBarang=0;
+	var i, cekCust=0, cekBarang=0, protek=0;
 	var kdCustomer = document.getElementById('kode_customer').value;
-	var protekTabel = document.getElementById('protekTabel').value;	
-	function functionSimpan(){
-		// if(cekCust==0 && cekBarang==0){
-		// 	alert('Kode Customer & Barang tidak boleh kosong');
-		// 	return false;
-		// }else if(cekCust==0 && cekBarang == 1){
-		// 	alert('Kode Customer tidak boleh kosong');
-		// 	return false;
-		// }else if(cekCust==1 && cekBarang == 0){
-		// 	alert('Kode Barang tidak boleh kosong');
-		// 	return false;	
-		// }else{
-		// 	alert('Berhasil');
-		// 	return true;
-		// }
-		
+	var protekTabel = document.getElementById('protekTabel').value;			
+	function functionSimpan(){	
 		if(protekTabel==0){
 			if(cekCust==0){
 				$("#custError").html("** Customer Harus Diisi");					
@@ -563,30 +542,13 @@
 				$("#tabelTemp").html(response);
 			}
 		});
-
-		// $('#simpan').click(function(){
-  //      		var namaCust = $("#nama_customer").val();
-	 //        $.ajax({
-	 //            type: "POST",
-	 //            url: "validasi.php",
-	 //            dataType: "json",
-	 //            data: {namaCust : namaCust},
-	 //            success : function(data){
-	 //                if (data.code == "200"){
-	 //                    // alert("Success: " +data.msg);
-	 //                    $("#custError").css("display","none");
-	 //                } else {
-	 //                    $("#custError").html(data.msg);
-	 //                    $("#custError").css("display","block");
-	 //                    topFunction();
-	 //                }
-	 //            }
-	 //        });
-  //     	});
 	});
 
 	$("#add").click(function() 
 	{
+		$("#tableError").html("");					
+    	$("#tableError").css("display","block");
+
 		$.ajax({
 			url: 'penjualan_temp.php',
 			type: 'POST',
@@ -595,7 +557,11 @@
 			{
 				$("#tabelTemp").load("penjualan_temp_load.php");
 			 	document.getElementById('feedback').innerHTML = data;
-			 	protekTabel=1;
+			 	if(document.getElementById('kode_item').value == ""){
+			 		protekTabel = 0;
+			 	}else{
+			 		protekTabel=1;
+			 	}
 			}
 		});		
 		return false;
