@@ -262,19 +262,30 @@
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
 								</div>
-								<input type="text" class="form-control" name="hrg_beli" placeholder="Harga Beli" required autocomplete="off" onkeypress="return functionHanyaAngka(event)">
+								<input type="text" class="form-control" name="hrg_beli" id="hrg_beli" placeholder="Harga Beli" required autocomplete="off" onkeypress="return functionHanyaAngka(event)">
 							</div>
 
 							<div class="input-group mb-3">
 						      	<div class="input-group-prepend">			
 									<span class="input-group-text"><i class="ion-ios-pricetags-outline"></i></span>
 								</div>
-								<input type="text" class="form-control" name="hrg_jual" placeholder="Harga Jual" required autocomplete="off" onkeypress="return functionHanyaAngka(event)">
+								<input type="text" class="form-control" name="hrg_jual" id="hrg_jual" placeholder="Harga Jual" required autocomplete="off" onkeypress="return functionHanyaAngka(event)">
 							</div>
 						        
 							<button type="submit" name="btnAdd" id="btnAdd" class="btn btn-outline-primary btn-sm btn-block">Tambah</button>
 				   		</div>
 				   	</form>
+				   	<script type="text/javascript">
+		        		$('#hrg_jual').on('blur', function(){
+		        			var hrgBeli = document.getElementById('hrg_beli').value;
+		        			var hrgJual = document.getElementById('hrg_jual').value;
+		        			if(hrgJual < hrgBeli){
+		        				console.log(hrgBeli);
+		        				console.log(hrgJual);
+		        				document.getElementById('hrg_jual').value = hrgBeli;
+		        			}
+		        		});
+		        	</script>
 		  	
 				   	<div class="modal-footer">
 				   		<div>
@@ -374,6 +385,17 @@
 							</div>
 							<button type="submit" class="btn btn-outline-primary btn-sm btn-block" formaction="inventory_edit_simpan.php">Update</button>
 			        	</form>
+			        	<script type="text/javascript">
+			        		$('#hargajual').on('blur', function(){
+			        			var hrgBeli = document.getElementById('hargabeli').value;
+			        			var hrgJual = document.getElementById('hargajual').value;
+			        			if(hrgJual < hrgBeli){
+			        				console.log(hrgBeli);
+			        				console.log(hrgJual);
+			        				document.getElementById('hargajual').value = hrgBeli;
+			        			}
+			        		});
+		        		</script>
 			        </div>
 			        <div class="modal-footer">
 			          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>

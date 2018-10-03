@@ -459,7 +459,6 @@
 	        	return false;
 			}
 			else if(cekCust==1){
-				// alert("Gagal Simpan, tabel harus diisi");
 				$("#tableError").html("**  Barang Belum Dipilih");					
 	        	$("#tableError").css("display","block");
 				return false;
@@ -523,14 +522,6 @@
 		cekBarang=1;
 	});
 
-	// $('#qty').on('keyup', function() {
-	// 	// alert($(this).val()); 
-	// 	if ($(this).val() > 100)
-	// 	{
-	// 		document.getElementById('qty').value = 100;
-	// 	}
-	// });
-
 	$(document).ready(function() {
 		// refreshTable();
 		$.ajax({
@@ -568,7 +559,12 @@
 	});
 
 	$(document).ready( function () {
-	    $('#tabel_customer').DataTable();
+		$.fn.DataTable.ext.pager.numbers_length = 9;
+
+	    $('#tabel_customer').DataTable({
+			"pagingType": "full_numbers",
+            "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ],
+        });
 
 	    $('#tabel_barang').DataTable();
 	});	

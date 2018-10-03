@@ -94,7 +94,7 @@
 			
 		    <script type="text/javascript">  	
 		    	var totalPenjualan2 = 0, diskon=0, totalSetelahPpn=0, tdppn=0;
-				var gTotal = <?php echo $totalPenjualan; ?>;
+				var gTotal = <?php echo $totalPenjualan; ?>;			
 				$('#grandtotal').load('../ajax/hitungdiskon', {diskon : diskon , total : gTotal, totalSetelahPpn : totalSetelahPpn, tdppn : tdppn});
 		    	// document.getElementById('grandtotal').innerHTML = <?php echo $totalPenjualan;?>;
 			    function functionPpn()
